@@ -28,7 +28,9 @@
       "@app/*": ["src/*"],
       "@ui/*": ["src/ui/*"],
       "@css/*": ["src/css/*"],
-      "@backend/*": ["src/backend/*"]
+      "@backend/*": ["src/backend/*"],
+      "@LABorder/*": ["src/ui/pictures/LostActionsWithBorder/*"],
+      "@LA/*": ["src/ui/pictures/LostActions/*"]
     }
   },
   "include": ["src"],

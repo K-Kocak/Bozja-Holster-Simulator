@@ -2,6 +2,7 @@ import { useState } from 'react'
 import viteLogo from '/vite.svg'
 import { Counter } from './backend/counter'
 
+import { LostFontofPower } from './backend/lostactions/ActionData'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ function App() {
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={LostFontofPower.imgBorder} style={{ maxHeight: 40}}/>
         </a>
       </div>
       <Counter />
