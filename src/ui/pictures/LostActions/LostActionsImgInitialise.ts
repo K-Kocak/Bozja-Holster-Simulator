@@ -71,45 +71,45 @@ import ResistancePotionKitImg from './ItemRelated/ResistancePotionKit.png';
 import ResistanceEtherKitImg from './ItemRelated/ResistanceEtherKit.png';
 import ResistanceMedikitImg from './ItemRelated/ResistanceMedikit.png';
 import ResistancePotionImg from './ItemRelated/ResistancePotion.png';
-import EssenceAetherweaver from './ItemRelated/EssenceAetherweaver.png';
-import EssenceMartialist from './ItemRelated/EssenceMartialist.png';
-import EssenceSavior from './ItemRelated/EssenceSavior.png';
-import EssenceVeteran from './ItemRelated/EssenceVeteran.png';
-import EssencePlatebearer from './ItemRelated/EssencePlatebearer.png';
-import EssenceGuardian from './ItemRelated/EssenceGuardian.png';
-import EssenceOrdained from './ItemRelated/EssenceOrdained.png';
-import EssenceSkirmisher from './ItemRelated/EssenceSkirmisher.png';
-import EssenceWatcher from './ItemRelated/EssenceWatcher.png';
-import EssenceProfane from './ItemRelated/EssenceProfane.png';
-import EssenceIrregular from './ItemRelated/EssenceIrregular.png';
-import EssenceBreathtaker from './ItemRelated/EssenceBreathtaker.png';
-import EssenceBloodsucker from './ItemRelated/EssenceBloodsucker.png';
-import EssenceBeast from './ItemRelated/EssenceBeast.png';
-import EssenceTemplar from './ItemRelated/EssenceTemplar.png';
-import DeepEssenceAetherweaver from './ItemRelated/DeepEssenceAetherweaver.png';
-import DeepEssenceMartialist from './ItemRelated/DeepEssenceMartialist.png';
-import DeepEssenceSavior from './ItemRelated/DeepEssenceSavior.png';
-import DeepEssenceVeteran from './ItemRelated/DeepEssenceVeteran.png';
-import DeepEssencePlatebearer from './ItemRelated/DeepEssencePlatebearer.png';
-import DeepEssenceGuardian from './ItemRelated/DeepEssenceGuardian.png';
-import DeepEssenceOrdained from './ItemRelated/DeepEssenceOrdained.png';
-import DeepEssenceSkirmisher from './ItemRelated/DeepEssenceSkirmisher.png';
-import DeepEssenceWatcher from './ItemRelated/DeepEssenceWatcher.png';
-import DeepEssenceProfane from './ItemRelated/DeepEssenceProfane.png';
-import DeepEssenceIrregular from './ItemRelated/DeepEssenceIrregular.png';
-import DeepEssenceBreathtaker from './ItemRelated/DeepEssenceBreathtaker.png';
-import DeepEssenceBloodsucker from './ItemRelated/DeepEssenceBloodsucker.png';
-import DeepEssenceBeast from './ItemRelated/DeepEssenceBeast.png';
-import DeepEssenceTemplar from './ItemRelated/DeepEssenceTemplar.png';
-import PureEssenceGambler from './ItemRelated/PureEssenceGambler.png';
-import PureEssenceElder from './ItemRelated/PureEssenceElder.png';
-import PureEssenceDuelist from './ItemRelated/PureEssenceDuelist.png';
-import PureEssenceFiendHunter from './ItemRelated/PureEssenceFiendhunter.png';
-import PureEssenceIndomitable from './ItemRelated/PureEssenceIndomitable.png';
-import PureEssenceDivine from './ItemRelated/PureEssenceDivine.png';
-import Lodestone from './ItemRelated/Lodestone.png';
-import LightCurtain from './ItemRelated/LightCurtain.png';
-import ResistanceElixir from './ItemRelated/ResistanceElixir.png';
+import EssenceAetherweaverImg from './ItemRelated/EssenceAetherweaver.png';
+import EssenceMartialistImg from './ItemRelated/EssenceMartialist.png';
+import EssenceSaviorImg from './ItemRelated/EssenceSavior.png';
+import EssenceVeteranImg from './ItemRelated/EssenceVeteran.png';
+import EssencePlatebearerImg from './ItemRelated/EssencePlatebearer.png';
+import EssenceGuardianImg from './ItemRelated/EssenceGuardian.png';
+import EssenceOrdainedImg from './ItemRelated/EssenceOrdained.png';
+import EssenceSkirmisherImg from './ItemRelated/EssenceSkirmisher.png';
+import EssenceWatcherImg from './ItemRelated/EssenceWatcher.png';
+import EssenceProfaneImg from './ItemRelated/EssenceProfane.png';
+import EssenceIrregularImg from './ItemRelated/EssenceIrregular.png';
+import EssenceBreathtakerImg from './ItemRelated/EssenceBreathtaker.png';
+import EssenceBloodsuckerImg from './ItemRelated/EssenceBloodsucker.png';
+import EssenceBeastImg from './ItemRelated/EssenceBeast.png';
+import EssenceTemplarImg from './ItemRelated/EssenceTemplar.png';
+import DeepEssenceAetherweaverImg from './ItemRelated/DeepEssenceAetherweaver.png';
+import DeepEssenceMartialistImg from './ItemRelated/DeepEssenceMartialist.png';
+import DeepEssenceSaviorImg from './ItemRelated/DeepEssenceSavior.png';
+import DeepEssenceVeteranImg from './ItemRelated/DeepEssenceVeteran.png';
+import DeepEssencePlatebearerImg from './ItemRelated/DeepEssencePlatebearer.png';
+import DeepEssenceGuardianImg from './ItemRelated/DeepEssenceGuardian.png';
+import DeepEssenceOrdainedImg from './ItemRelated/DeepEssenceOrdained.png';
+import DeepEssenceSkirmisherImg from './ItemRelated/DeepEssenceSkirmisher.png';
+import DeepEssenceWatcherImg from './ItemRelated/DeepEssenceWatcher.png';
+import DeepEssenceProfaneImg from './ItemRelated/DeepEssenceProfane.png';
+import DeepEssenceIrregularImg from './ItemRelated/DeepEssenceIrregular.png';
+import DeepEssenceBreathtakerImg from './ItemRelated/DeepEssenceBreathtaker.png';
+import DeepEssenceBloodsuckerImg from './ItemRelated/DeepEssenceBloodsucker.png';
+import DeepEssenceBeastImg from './ItemRelated/DeepEssenceBeast.png';
+import DeepEssenceTemplarImg from './ItemRelated/DeepEssenceTemplar.png';
+import PureEssenceGamblerImg from './ItemRelated/PureEssenceGambler.png';
+import PureEssenceElderImg from './ItemRelated/PureEssenceElder.png';
+import PureEssenceDuelistImg from './ItemRelated/PureEssenceDuelist.png';
+import PureEssenceFiendHunterImg from './ItemRelated/PureEssenceFiendhunter.png';
+import PureEssenceIndomitableImg from './ItemRelated/PureEssenceIndomitable.png';
+import PureEssenceDivineImg from './ItemRelated/PureEssenceDivine.png';
+import LodestoneImg from './ItemRelated/Lodestone.png';
+import LightCurtainImg from './ItemRelated/LightCurtain.png';
+import ResistanceElixirImg from './ItemRelated/ResistanceElixir.png';
 
 const LostActionsNoBorder = {
     'Offensive': {
@@ -191,45 +191,45 @@ const LostActionsNoBorder = {
         'ResistanceEtherKit': ResistanceEtherKitImg,
         'ResistanceMedikit': ResistanceMedikitImg,
         'ResistancePotion': ResistancePotionImg,
-        'EssenceAetherweaver': EssenceAetherweaver,
-        'EssenceMartialist': EssenceMartialist,
-        'EssenceSavior': EssenceSavior,
-        'EssenceVeteran': EssenceVeteran,
-        'EssencePlatebearer': EssencePlatebearer,
-        'EssenceGuardian': EssenceGuardian,
-        'EssenceOrdained': EssenceOrdained,
-        'EssenceSkirmisher': EssenceSkirmisher,
-        'EssenceWatcher': EssenceWatcher,
-        'EssenceProfane': EssenceProfane,
-        'EssenceIrregular': EssenceIrregular,
-        'EssenceBreathtaker': EssenceBreathtaker,
-        'EssenceBloodsucker': EssenceBloodsucker,
-        'EssenceBeast': EssenceBeast,
-        'EssenceTemplar': EssenceTemplar,
-        'DeepEssenceAetherweaver': DeepEssenceAetherweaver,
-        'DeepEssenceMartialist': DeepEssenceMartialist,
-        'DeepEssenceSavior': DeepEssenceSavior,
-        'DeepEssenceVeteran': DeepEssenceVeteran,
-        'DeepEssencePlatebearer': DeepEssencePlatebearer,
-        'DeepEssenceGuardian': DeepEssenceGuardian,
-        'DeepEssenceOrdained': DeepEssenceOrdained,
-        'DeepEssenceSkirmisher': DeepEssenceSkirmisher,
-        'DeepEssenceWatcher': DeepEssenceWatcher,
-        'DeepEssenceProfane': DeepEssenceProfane,
-        'DeepEssenceIrregular': DeepEssenceIrregular,
-        'DeepEssenceBreathtaker': DeepEssenceBreathtaker,
-        'DeepEssenceBloodsucker': DeepEssenceBloodsucker,
-        'DeepEssenceBeast': DeepEssenceBeast,
-        'DeepEssenceTemplar': DeepEssenceTemplar,
-        'PureEssenceGambler': PureEssenceGambler,
-        'PureEssenceElder': PureEssenceElder,
-        'PureEssenceDuelist': PureEssenceDuelist,
-        'PureEssenceFiendHunter': PureEssenceFiendHunter,
-        'PureEssenceIndomitable': PureEssenceIndomitable,
-        'PureEssenceDivine': PureEssenceDivine,
-        'Lodestone': Lodestone,
-        'LightCurtain': LightCurtain,
-        'ResistanceElixir': ResistanceElixir
+        'EssenceAetherweaver': EssenceAetherweaverImg,
+        'EssenceMartialist': EssenceMartialistImg,
+        'EssenceSavior': EssenceSaviorImg,
+        'EssenceVeteran': EssenceVeteranImg,
+        'EssencePlatebearer': EssencePlatebearerImg,
+        'EssenceGuardian': EssenceGuardianImg,
+        'EssenceOrdained': EssenceOrdainedImg,
+        'EssenceSkirmisher': EssenceSkirmisherImg,
+        'EssenceWatcher': EssenceWatcherImg,
+        'EssenceProfane': EssenceProfaneImg,
+        'EssenceIrregular': EssenceIrregularImg,
+        'EssenceBreathtaker': EssenceBreathtakerImg,
+        'EssenceBloodsucker': EssenceBloodsuckerImg,
+        'EssenceBeast': EssenceBeastImg,
+        'EssenceTemplar': EssenceTemplarImg,
+        'DeepEssenceAetherweaver': DeepEssenceAetherweaverImg,
+        'DeepEssenceMartialist': DeepEssenceMartialistImg,
+        'DeepEssenceSavior': DeepEssenceSaviorImg,
+        'DeepEssenceVeteran': DeepEssenceVeteranImg,
+        'DeepEssencePlatebearer': DeepEssencePlatebearerImg,
+        'DeepEssenceGuardian': DeepEssenceGuardianImg,
+        'DeepEssenceOrdained': DeepEssenceOrdainedImg,
+        'DeepEssenceSkirmisher': DeepEssenceSkirmisherImg,
+        'DeepEssenceWatcher': DeepEssenceWatcherImg,
+        'DeepEssenceProfane': DeepEssenceProfaneImg,
+        'DeepEssenceIrregular': DeepEssenceIrregularImg,
+        'DeepEssenceBreathtaker': DeepEssenceBreathtakerImg,
+        'DeepEssenceBloodsucker': DeepEssenceBloodsuckerImg,
+        'DeepEssenceBeast': DeepEssenceBeastImg,
+        'DeepEssenceTemplar': DeepEssenceTemplarImg,
+        'PureEssenceGambler': PureEssenceGamblerImg,
+        'PureEssenceElder': PureEssenceElderImg,
+        'PureEssenceDuelist': PureEssenceDuelistImg,
+        'PureEssenceFiendHunter': PureEssenceFiendHunterImg,
+        'PureEssenceIndomitable': PureEssenceIndomitableImg,
+        'PureEssenceDivine': PureEssenceDivineImg,
+        'Lodestone': LodestoneImg,
+        'LightCurtain': LightCurtainImg,
+        'ResistanceElixir': ResistanceElixirImg
     }
 }
  
