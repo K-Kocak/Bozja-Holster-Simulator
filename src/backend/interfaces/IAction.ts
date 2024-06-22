@@ -25,9 +25,9 @@ export interface IAction {
 
     skillType: {
         EN: "Weaponskill" | "Ability" | "Spell" | "Item",
-        DE?: string,
-        FR?: string,
-        JA?: string
+        DE?: "Waffenfertigkeit" | "Talent" | "Zauber" | "Gegenstand",
+        FR?: "Technique d'arme" | "Aptitude" | "Sort" | "Objet",
+        JA?: "ウェポンスキル" | "アビリティ" | "魔法" | "アイテム"
     },
 
     description: {

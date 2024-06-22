@@ -4,6 +4,8 @@ import { Counter } from './backend/counter'
 
 import LostActions from '@backend/lostactions/ActionData';
 
+import divToPlace from './backend/lostactions/LostActionDescriptionGrinder';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,7 +17,12 @@ function App() {
           <img src={LostActions.Offensive.LostFontofPower.imgBorder} style={{ maxHeight: 40}}/>
           
         </a>
-        {LostActions.Offensive.LostFontofPower.description.EN}
+        <div style={{lineHeight: 1, paddingBottom: 15}}>
+          {LostActions.Offensive.BannerofHonedAcuity.description.EN}
+        </div>
+        
+        {divToPlace}
+        
       </div>
       <Counter />
       <h1>Vite + React</h1>
