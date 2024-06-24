@@ -4,8 +4,6 @@ import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInit
 
 import IAction from '@backend/interfaces/IAction';
 
-//Completed Actions
-// Offensive Actions
 //#region Offensive Actions
 const LostFocus: IAction = {
     id: 101,
@@ -1507,7 +1505,7 @@ const LostProtect: IAction = {
 
     cast: "2.50s",
     recast: "2.50s",
-    weight: 3,
+    weight: 2,
     quantity: 0,
 
     skillType: {
@@ -1539,9 +1537,3407 @@ const LostProtect: IAction = {
     }
 }
 
+const LostShell: IAction = {
+    id: 404,
+
+    name: {
+        EN: "Lost Shell",
+        DE: "Verschollenes Vallum",
+        FR: "Barrière oubliée",
+        JA: "ロスト・シェル",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostShell,
+    img: LostActionsNoBorder.Beneficial.LostShell,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    weight: 2,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostReflect: IAction = {
+    id: 405,
+
+    name: {
+        EN: "Lost Reflect",
+        DE: "Verschollene Reflexion",
+        FR: "Miroir oublié",
+        JA: "ロスト・リフレク",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostReflect,
+    img: LostActionsNoBorder.Beneficial.LostReflect,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 8,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self or party member that reflects most magic attacks.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Guardian Effect: </span>Duration is increased to 30s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostStoneskin: IAction = {
+    id: 406,
+
+    name: {
+        EN: "Lost Stoneskin",
+        DE: "Verschollene Steinhaut",
+        FR: "Cuirasse oubliée",
+        JA: "ロスト・ストンスキン",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostStoneskin,
+    img: LostActionsNoBorder.Beneficial.LostStoneskin,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.00s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player that absorbs damage totaling 15% of target's maximum HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostBravery: IAction = {
+    id: 407,
+
+    name: {
+        EN: "Lost Bravery",
+        DE: "Verschollene Courage",
+        FR: "Bravoure oubliée",
+        JA: "ロスト・ブレイブ",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostBravery,
+    img: LostActionsNoBorder.Beneficial.LostBravery,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 8,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by an ally or self by 5%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostAethershield: IAction = {
+    id: 408,
+
+    name: {
+        EN: "Lost Aethershield",
+        DE: "Verschollener Ätherschild",
+        FR: "Égide d'éther oubliée",
+        JA: "ロスト・エーテルシールド",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostAethershield,
+    img: LostActionsNoBorder.Beneficial.LostAethershield,
+    
+    range: "0y",
+    radius: "15y",
+
+    cast: "Instant",
+    recast: "60.00s",
+    available: "15/15",
+    weight: 8,
+    quantity: 0,
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces damage taken by self and nearby party members by 30%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostDervish: IAction = {
+    id: 409,
+
+    name: {
+        EN: "Lost Dervish",
+        DE: "Verschollener Rapidus",
+        FR: "Célérité extrême oubliée",
+        JA: "ロスト・スピードスター",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostDervish,
+    img: LostActionsNoBorder.Beneficial.LostDervish,
+    
+    range: "0y",
+    radius: "15y",
+
+    cast: "Instant",
+    recast: "90.00s",
+    available: "15/15",
+    weight: 8,
+    quantity: 0,
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases critical hit rate of self and nearby party members by 10%, increases damage dealt by 7%, and reduces weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay by 1%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "BRD MCH DNC",
+        DE: "BRD MCH TÄN",
+        FR: "BRD MCH DNS",
+        JA: "吟遊詩人 機工士 踊り子",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostStoneskinII: IAction = {
+    id: 410,
+
+    name: {
+        EN: "Lost Stoneskin II",
+        DE: "Verschollene Steinrahaut",
+        FR: "Extra Cuirasse oubliée",
+        JA: "ロスト・ストンラスキン",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostStoneskinII,
+    img: LostActionsNoBorder.Beneficial.LostStoneskinII,
+    
+    range: "0y",
+    radius: "15y",
+
+    cast: "3.00s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 5,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self and all party members near you that absorbs damage totaling 10% of maximum HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostProtectII: IAction = {
+    id: 411,
+
+    name: {
+        EN: "Lost Protect II",
+        DE: "Verschollenes Protes II",
+        FR: "Bouclier II oublié",
+        JA: "ロスト・プロテスII",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostProtectII,
+    img: LostActionsNoBorder.Beneficial.LostProtectII,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing physical damage taken by 15%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostShellII: IAction = {
+    id: 412,
+
+    name: {
+        EN: "Lost Shell II",
+        DE: "Verschollenes Vallum II",
+        FR: "Barrière II oubliée",
+        JA: "ロスト・シェルII",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostShellII,
+    img: LostActionsNoBorder.Beneficial.LostShellII,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 15%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
+const LostBubble: IAction = {
+    id: 413,
+
+    name: {
+        EN: "Lost Bubble",
+        DE: "Verschollene Blase",
+        FR: "Vitalité oubliée",
+        JA: "ロスト・バブル",
+    },
+    
+    imgBorder: LostActionsWithBorder.Beneficial.LostBubble,
+    img: LostActionsNoBorder.Beneficial.LostBubble,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 5,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases maximum HP of self or target player by 30%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 600s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Beneficial",
+        DE: "Vorteilhaft",
+        FR: "Bénéfique",
+        JA: "有益"
+    }
+}
+
 //#endregion
 
+//#region Tactical Actions
 
+const LostStealth: IAction = {
+    id: 501,
+
+    imgBorder: LostActionsWithBorder.Tactical.LostStealth,
+    img: LostActionsNoBorder.Tactical.LostStealth,
+
+    name: {
+        EN: "Lost Stealth",
+        DE: "Verschollene Coeurl-Pfoten",
+        FR: "Furtivité oubliée",
+        JA: "ロスト・ステルス",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "0y",
+    radius: "0y",
+
+    available: "99/99",
+    cast: "Instant",
+    recast: "15.00s",
+    weight: 2,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Blend in with your surroundings, making it impossible for most enemies to detect you, but reducing movement speed by 25%. Has no effect on certain enemies with special sight.{"\n"}{"\n"}Cannot be executed while in combat.{"\n"}{"\n"}Effect ends upon use of any action other than Sprint, or upon reuse.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+const LostSwift: IAction = {
+    id: 502,
+
+    imgBorder: LostActionsWithBorder.Tactical.LostSwift,
+    img: LostActionsNoBorder.Tactical.LostSwift,
+
+    name: {
+        EN: "Lost Swift",
+        DE: "Verschollene Eile",
+        FR: "Vélocité oubliée",
+        JA: "ロスト・スウィフト",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "0y",
+    radius: "0y",
+
+    available: "25/25",
+    cast: "Instant",
+    recast: "90.00s",
+    weight: 4,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Greatly increases movement speed.{"\n"}{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion by 30%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 60%{"\n"}{"\n"}Effect only applies to certain abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+const LostFontofSkill: IAction = {
+    id: 503,
+
+    imgBorder: LostActionsWithBorder.Tactical.LostFontofSkill,
+    img: LostActionsNoBorder.Tactical.LostFontofSkill,
+
+    name: {
+        EN: "Lost Font of Skill",
+        DE: "Verschollene Technikfontäne",
+        FR: "Fontaine de technique oubliée",
+        JA: "ロスト・スキルフォント",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "0y",
+    radius: "0y",
+
+    available: "5/5",
+    cast: "Instant",
+    recast: "300.00s",
+    weight: 20,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Resets the recast timer for most actions and role actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+const Mimic: IAction = {
+    id: 504,
+
+    imgBorder: LostActionsWithBorder.Tactical.Mimic,
+    img: LostActionsNoBorder.Tactical.Mimic,
+
+    name: {
+        EN: "Mimic",
+        DE: "Nachahmung",
+        FR: "Mime",
+        JA: "ものまね",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "25y",
+    radius: "0y",
+
+    available: "1/1",
+    cast: "Instant",
+    recast: "5.00s",
+    weight: 12,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Study the lost techniques used by a targeted ally and make them your own.{"\n"}{"\n"}Cannot be executed while in combat.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+const LostPerception: IAction = {
+    id: 505,
+
+    imgBorder: LostActionsWithBorder.Tactical.LostPerception,
+    img: LostActionsNoBorder.Tactical.LostPerception,
+
+    name: {
+        EN: "Lost Perception",
+        DE: "Verschollene Tigeraugen",
+        FR: "Vision radar oubliée",
+        JA: "ロスト・サイトラ",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "0y",
+    radius: "15y",
+
+    available: "99/99",
+    cast: "Instant",
+    recast: "1.50s",
+    weight: 4,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Detect traps within a radius of 15 yalms.{"\n"}{"\n"}If there are no traps within 15 yalms, alerts you to the presence of traps with a radius of 36 yalms.{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+const LostImpetus: IAction = {
+    id: 506,
+
+    imgBorder: LostActionsWithBorder.Tactical.LostImpetus,
+    img: LostActionsNoBorder.Tactical.LostImpetus,
+
+    name: {
+        EN: "Lost Impetus",
+        DE: "Verschollener Impuls",
+        FR: "Impulsion oubliée",
+        JA: "ロスト・インペタス",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "0y",
+    radius: "10y",
+
+    available: "50/50",
+    cast: "Instant",
+    recast: "30.00s",
+    weight: 10,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Quickly dash 10 yalms forward.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Applies <span style={{color:"#FFFF66"}}>Lost Swift</span> to self and nearby party members{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Swift Effect:</span> Greatly increases movement speed{"\n"}{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion of self and nearby party members by 15%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self and nearby party members{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 25%{"\n"}{"\n"}Effect only applies to certain abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Tactical",
+        DE: "Taktisch",
+        FR: "Tactique",
+        JA: "戦術的"
+    }
+}
+
+//#endregion
+
+//#region Detrimental Actions
+
+const LostParalyzeIII: IAction = {
+    id: 601,
+
+    name: {
+        EN: "Lost Paralyze III",
+        DE: "Verschollenes Paralyga",
+        FR: "Méga Paralysie oubliée",
+        JA: "ロスト・パライガ",
+    },
+    
+    imgBorder: LostActionsWithBorder.Detrimental.LostParalyzeIII,
+    img: LostActionsNoBorder.Detrimental.LostParalyzeIII,
+    
+    range: "30y",
+    radius: "6y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Afflicts target and all nearby enemies with <span style={{color:"#FFFF66"}}>Paralysis</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
+        FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+const LostBanishIII: IAction = {
+    id: 602,
+
+    name: {
+        EN: "Lost Banish III",
+        DE: "Verschollenes Verbannga",
+        FR: "Méga Bannissement oublié",
+        JA: "ロスト・バニシュガ",
+    },
+    
+    imgBorder: LostActionsWithBorder.Detrimental.LostBanishIII,
+    img: LostActionsNoBorder.Detrimental.LostBanishIII,
+    
+    range: "25y",
+    radius: "12y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Deals unaspected damage with a potency of 200 to target and all enemies nearby it.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage undead enemies take by 25%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM BLM SMN SCH AST RDM SGE",
+        DE: "WMA SMA BSW GLT AST RMA WEI",
+        FR: "MBL MNO INV ÉRU AST MRG SAG",
+        JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+const LostDispel: IAction = {
+    id: 603,
+
+    name: {
+        EN: "Lost Dispel",
+        DE: "Verschollenes Entzaubern",
+        FR: "Dissipation oubliée",
+        JA: "ロスト・ディスペル",
+    },
+    
+    imgBorder: LostActionsWithBorder.Detrimental.LostDispel,
+    img: LostActionsNoBorder.Detrimental.LostDispel,
+    
+    range: "30y",
+    radius: "0y",
+
+    cast: "2.50s",
+    recast: "2.50s",
+    available: "15/15",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Removes one beneficial status from target.{"\n"}{"\n"}Cancels auto-attack upon execution.</div>
+        ,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+
+const LostRendArmor: IAction = {
+    id: 604,
+
+    imgBorder: LostActionsWithBorder.Detrimental.LostRendArmor,
+    img: LostActionsNoBorder.Detrimental.LostRendArmor,
+
+    name: {
+        EN: "Lost Rend Armor",
+        DE: "Verschollener Panzerbruch",
+        FR: "Brise-armure oublié",
+        JA: "ロスト・アーマーブレイク",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "20y",
+    radius: "10y",
+
+    available: "15/15",
+    cast: "Instant",
+    recast: "60.00s",
+    weight: 8,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers a jumping attack with a potency of 100.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Increases target's damage taken by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG NIN SAM RPR",
+        DE: "MÖN DRG NIN SAM SNT",
+        FR: "MOI DRG NIN SAM FCH",
+        JA: "モンク 竜騎士 忍者 侍 リーパー",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+const LostSeraphStrike: IAction = {
+    id: 605,
+
+    imgBorder: LostActionsWithBorder.Detrimental.LostSeraphStrike,
+    img: LostActionsNoBorder.Detrimental.LostSeraphStrike,
+
+    name: {
+        EN: "Lost Seraph Strike",
+        DE: "Verschollener Seraphenschlag",
+        FR: "Frappe séraphine oubliée",
+        JA: "ロスト・セラフストライク",
+    },
+
+    skillType: {
+        EN: "Ability",
+        DE: "Talent",
+        FR: "Aptitude",
+        JA: "アビリティ"
+    },
+    
+    range: "20y",
+    radius: "0y",
+
+    available: "5000",
+    cast: "Instant",
+    recast: "60.00s",
+    weight: 8,
+    quantity: 0,   
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Consumes MP to deliver a jumping attack that deals unaspected damage with a potency of 500.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Reduces target's accuracy by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Grants <span style={{color:"#FFFF66"}}>Cleric Stance</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cleric Stance Bonus:</span> Reduces healing potency by 60% while increasing damage dealt by 60%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+const LostBurst: IAction = {
+    id: 606,
+
+    name: {
+        EN: "Lost Burst",
+        DE: "Verschollener Knall",
+        FR: "Bouillonnement oublié",
+        JA: "ロスト・バースト",
+    },
+    
+    imgBorder: LostActionsWithBorder.Detrimental.LostBurst,
+    img: LostActionsNoBorder.Detrimental.LostBurst,
+    
+    range: "0y",
+    radius: "10y",
+
+    cast: "Instant",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 5,
+    quantity: 0,
+
+    skillType: {
+        EN: "Spell",
+        DE: "Zauber",
+        FR: "Sort",
+        JA: "魔法"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Deals lightning damage with a potency of 300 to all nearby enemies.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Magical Aversion</span> by 10%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM BLM SMN SCH AST RDM SGE",
+        DE: "WMA SMA BSW GLT AST RMA WEI",
+        FR: "MBL MNO INV ÉRU AST MRG SAG",
+        JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+const LostRampage: IAction = {
+    id: 607,
+
+    name: {
+        EN: "Lost Rampage",
+        DE: "Verschollener Amok",
+        FR: "Ravage oublié",
+        JA: "ロスト・ランページ",
+    },
+    
+    imgBorder: LostActionsWithBorder.Detrimental.LostRampage,
+    img: LostActionsNoBorder.Detrimental.LostRampage,
+    
+    range: "0y",
+    radius: "10y",
+
+    cast: "Instant",
+    recast: "2.50s",
+    available: "99/99",
+    weight: 5,
+    quantity: 0,
+
+    skillType: {
+        EN: "Weaponskill",
+        DE: "Waffenfertigkeit",
+        FR: "Technique d'arme",
+        JA: "ウェポンスキル"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers an attack with a potency of 300 to all nearby enemies.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Physical Aversion</span> by 10%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
+        FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Detrimental",
+        DE: "Schädlich",
+        FR: "Préjudiciable",
+        JA: "有害な"
+    }
+}
+
+//#endregion
+
+//#region Item-Related Actions
+
+const DynamisDice: IAction = {
+    id: 701,
+
+    name: {
+        EN: "Dynamis Dice",
+        DE: "Würfel des Schicksals",
+        FR: "Dé du destin",
+        JA: "運命のダイス",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DynamisDice,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "180.00s",
+    weight: 11,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Place your faith in the goddess Nymeia as she spins the wheel of fate.{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistancePhoenix: IAction = {
+    id: 702,
+
+    name: {
+        EN: "Resistance Phoenix",
+        DE: "Phönixfeder des Widerstands",
+        FR: "Plume de phénix de la résistance",
+        JA: "レジスタンスフェニックスフェザー",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistancePhoenix,
+    
+    range: "10y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Resurrects target to a weakened state.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistanceReraiser: IAction = {
+    id: 703,
+
+    name: {
+        EN: "Resistance Reraiser",
+        DE: "Lebensfeder des Widerstands",
+        FR: "Vitaplume de la résistance",
+        JA: "レジスタンスリレイザー",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistanceReraiser,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 8,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants a 70% chance of automatic revival upon KO.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180m</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistancePotionKit: IAction = {
+    id: 704,
+
+    name: {
+        EN: "Resistance Potion Kit",
+        DE: "Tränkesammlung des Widerstands",
+        FR: "Kit de potion de la résistance",
+        JA: "レジスタンスポーションキット",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistancePotionKit,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "30.00s",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-potion</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-potion Effect: </span>Restores HP automatically when HP falls below 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-potion</span> effect to end is reduced to 10%{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistanceEtherKit: IAction = {
+    id: 705,
+
+    name: {
+        EN: "Resistance Ether Kit",
+        DE: "Äthersammlung des Widerstands",
+        FR: "Kit d'éther de la résistance",
+        JA: "レジスタンスエーテルキット",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistanceEtherKit,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "30.00s",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-ether</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-ether Effect: </span>Restores MP automatically when MP falls below 20%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-ether</span> effect to end is reduced to 10%{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistanceMedikit: IAction = {
+    id: 706,
+
+    name: {
+        EN: "Resistance Medikit",
+        DE: "Kräutersammlung des Widerstands",
+        FR: "Kit médical de la résistance",
+        JA: "レジスタンスレメディキット",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistanceMedikit,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "45.00s",
+    weight: 3,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Removes a single detrimental effect from self. When not suffering from detrimental effects, creates a barrier that protects against most status ailments. The barrier is removed after curing the next status ailment suffered.{"\n"}{"\n"}Effect cannot be stacked with similar barrier actions.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30m{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistancePotion: IAction = {
+    id: 707,
+
+    name: {
+        EN: "Resistance Potion",
+        DE: "Heiltrank des Widerstands",
+        FR: "Potion de la résistance",
+        JA: "レジスタンスポーション",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistancePotion,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "40.00s",
+    weight: 1,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Gradually restores HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>1,600{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>40s{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Dynamis Dice</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceAetherweaver: IAction = {
+    id: 708,
+
+    name: {
+        EN: "Essence of the Aetherweaver",
+        DE: "Zaubertrank des Veteranen",
+        FR: "Breuvage magique de prêtre guerrier",
+        JA: "術士の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceAetherweaver,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 80%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceAetherweaver: IAction = {
+    id: 723,
+
+    name: {
+        EN: "Deep Essence of the Aetherweaver",
+        DE: "Wundertrank des Veteranen",
+        FR: "Breuvage miraculeux de prêtre guerrier",
+        JA: "術士の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceAetherweaver,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 96%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceMartialist: IAction = {
+    id: 709,
+
+    name: {
+        EN: "Essence of the Martialist",
+        DE: "Zaubertrank des Kämpfers",
+        FR: "Breuvage magique de protecteur intrépide",
+        JA: "闘士の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceMartialist,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceMartialist: IAction = {
+    id: 724,
+
+    name: {
+        EN: "Deep Essence of the Martialist",
+        DE: "Wundertrank des Kämpfers",
+        FR: "Breuvage miraculeux de protecteur intrépide",
+        JA: "闘士の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceMartialist,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceSavior: IAction = {
+    id: 710,
+
+    name: {
+        EN: "Essence of the Savior",
+        DE: "Zaubertrank des Heilers",
+        FR: "Breuvage magique de vivificateur",
+        JA: "治癒者の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceSavior,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
+        FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceSavior: IAction = {
+    id: 725,
+
+    name: {
+        EN: "Deep Essence of the Savior",
+        DE: "Wundertrank des Heilers",
+        FR: "Breuvage miraculeux de vivificateur",
+        JA: "治癒者の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceSavior,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
+        FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceVeteran: IAction = {
+    id: 711,
+
+    name: {
+        EN: "Essence of the Veteran",
+        DE: "Zaubertrank des Kampfmagiers",
+        FR: "Breuvage magique de mage guerrier",
+        JA: "魔戦士の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceVeteran,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 150%, magic defense by 45%, and maximum HP by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM BLM SMN SCH AST RDM SGE",
+        DE: "WMA SMA BSW GLT AST RMA WEI",
+        FR: "MBL MNO INV ÉRU AST MRG SAG",
+        JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceVeteran: IAction = {
+    id: 726,
+
+    name: {
+        EN: "Deep Essence of the Veteran",
+        DE: "Wundertrank des Kampfmagiers",
+        FR: "Breuvage miraculeux de mage guerrier",
+        JA: "魔戦士の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceVeteran,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 180%, magic defense by 54%, and maximum HP by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM BLM SMN SCH AST RDM SGE",
+        DE: "WMA SMA BSW GLT AST RMA WEI",
+        FR: "MBL MNO INV ÉRU AST MRG SAG",
+        JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssencePlatebearer: IAction = {
+    id: 712,
+
+    name: {
+        EN: "Essence of the Platebearer",
+        DE: "Zaubertrank des Ritters",      
+        FR: "Breuvage magique de soldat cuirassé",
+        JA: "重騎兵の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssencePlatebearer,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 80% and maximum HP by 45%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD NIN MCH SAM DNC RPR",
+        DE: "MÖN DRG BRD NIN MCH SAM TÄN SNT",
+        FR: "MOI DRG BRD NIN MCH SAM DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 忍者 機工士 侍 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssencePlatebearer: IAction = {
+    id: 727,
+
+    name: {
+        EN: "Deep Essence of the Platebearer",
+        DE: "Wundertrank des Ritters",
+        FR: "Breuvage miraculeux de soldat cuirassé",
+        JA: "重騎兵の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssencePlatebearer,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 96% and maximum HP by 54%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD NIN MCH SAM DNC RPR",
+        DE: "MÖN DRG BRD NIN MCH SAM TÄN SNT",
+        FR: "MOI DRG BRD NIN MCH SAM DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 忍者 機工士 侍 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceGuardian: IAction = {
+    id: 713,
+
+    name: {
+        EN: "Essence of the Guardian",
+        DE: "Zaubertrank des Beschützers",
+        FR: "Breuvage magique de gardien",
+        JA: "守護者の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceGuardian,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 30% and maximum HP by 10%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceGuardian: IAction = {
+    id: 728,
+
+    name: {
+        EN: "Deep Essence of the Guardian ",
+        DE: "Wundertrank des Beschützers",
+        FR: "Breuvage miraculeux de gardien",
+        JA: "守護者の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceGuardian,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 36% and maximum HP by 12%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceOrdained: IAction = {
+    id: 714,
+
+    name: {
+        EN: "Essence of the Ordained",
+        DE: "Zaubertrank des Priesters",
+        FR: "Breuvage magique de prêtre",
+        JA: "司祭の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceOrdained,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20%, healing potency by 25%, and maximum MP by 50%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SMN SCH AST RDM SGE",
+        DE: "WMA BSW GLT AST RMA WEI",
+        FR: "MBL INV ÉRU AST MRG SAG",
+        JA: "白魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceOrdained: IAction = {
+    id: 729,
+
+    name: {
+        EN: "Deep Essence of the Ordained",
+        DE: "Wundertrank des Priesters",
+        FR: "Breuvage miraculeux de prêtre",
+        JA: "司祭の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceOrdained,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24%, healing potency by 30%, and maximum MP by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SMN SCH AST RDM SGE",
+        DE: "WMA BSW GLT AST RMA WEI",
+        FR: "MBL INV ÉRU AST MRG SAG",
+        JA: "白魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceSkirmisher: IAction = {
+    id: 715,
+
+    name: {
+        EN: "Essence of the Skirmisher",
+        DE: "Zaubertrank des Kriegers",
+        FR: "Breuvage magique de combattant",
+        JA: "武人の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceSkirmisher,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20% and critical hit rate by 15%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceSkirmisher: IAction = {
+    id: 730,
+
+    name: {
+        EN: "Deep Essence of the Skirmisher",
+        DE: "Wundertrank des Kriegers",
+        FR: "Breuvage miraculeux de combattant",
+        JA: "武人の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceSkirmisher,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24% and critical hit rate by 18%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceWatcher: IAction = {
+    id: 716,
+
+    name: {
+        EN: "Essence of the Watcher",
+        DE: "Zaubertrank des Spähers",
+        FR: "Breuvage magique d'éclaireur",
+        JA: "斥候の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceWatcher,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 5% while increasing evasion by 40%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceWatcher: IAction = {
+    id: 731,
+
+    name: {
+        EN: "Deep Essence of the Watcher",
+        DE: "Wundertrank des Spähers",
+        FR: "Breuvage miraculeux d'éclaireur",
+        JA: "斥候の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceWatcher,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 3% while increasing evasion by 48%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceProfane: IAction = {
+    id: 717,
+
+    name: {
+        EN: "Essence of the Profane",
+        DE: "Zaubertrank des Mönchs",
+        FR: "Breuvage magique de prêtre hérétique",
+        JA: "破戒僧の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceProfane,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceProfane: IAction = {
+    id: 732,
+
+    name: {
+        EN: "Deep Essence of the Profane",
+        DE: "Wundertrank des Mönchs",
+        FR: "Breuvage miraculeux de prêtre hérétique",
+        JA: "破戒僧の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceProfane,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 120%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceIrregular: IAction = {
+    id: 718,
+
+    name: {
+        EN: "Essence of the Irregular",
+        DE: "Zaubertrank des Berserkers",
+        FR: "Breuvage magique de guerrier enragé",
+        JA: "狂戦士の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceIrregular,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 90% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceIrregular: IAction = {
+    id: 733,
+
+    name: {
+        EN: "Deep Essence of the Irregular",
+        DE: "Wundertrank des Berserkers",
+        FR: "Breuvage miraculeux de guerrier enragé",
+        JA: "狂戦士の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceIrregular,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 108% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceBreathtaker: IAction = {
+    id: 719,
+
+    name: {
+        EN: "Essence of the Breathtaker",
+        DE: "Zaubertrank des Diebes",
+        FR: "Breuvage magique de voleur",
+        JA: "盗賊の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceBreathtaker,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 10%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceBreathtaker: IAction = {
+    id: 734,
+
+    name: {
+        EN: "Deep Essence of the Breathtaker",
+        DE: "Wundertrank des Diebes",
+        FR: "Breuvage miraculeux de voleur",
+        JA: "盗賊の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceBreathtaker,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 20%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceBloodsucker: IAction = {
+    id: 720,
+
+    name: {
+        EN: "Essence of the Bloodsucker",
+        DE: "Zaubertrank des Blutsaugers",
+        FR: "Breuvage magique de vampire",
+        JA: "吸血鬼の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceBloodsucker,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 40%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceBloodsucker: IAction = {
+    id: 735,
+
+    name: {
+        EN: "Deep Essence of the Bloodsucker",
+        DE: "Wundertrank des Blutsaugers",
+        FR: "Breuvage miraculeux de vampire",
+        JA: "吸血鬼の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceBloodsucker,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 48%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceBeast: IAction = {
+    id: 721,
+
+    name: {
+        EN: "Essence of the Beast",
+        DE: "Zaubertrank der Wolfsleute",
+        FR: "Breuvage magique d'homme-loup",
+        JA: "人狼の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceBeast,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50% and maximum HP by 45%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceBeast: IAction = {
+    id: 736,
+
+    name: {
+        EN: "Deep Essence of the Beast",
+        DE: "Wundertrank der Wolfsleute",
+        FR: "Breuvage miraculeux d'homme-loup",
+        JA: "人狼の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceBeast,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60% and maximum HP by 54%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const EssenceTemplar: IAction = {
+    id: 722,
+
+    name: {
+        EN: "Essence of the Templar",
+        DE: "Zaubertrank des Paladins",
+        FR: "Breuvage magique de chevalier sacré",
+        JA: "聖騎士の秘薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.EssenceTemplar,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 6,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50%, maximum HP by 45%, and damage dealt by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const DeepEssenceTemplar: IAction = {
+    id: 737,
+
+    name: {
+        EN: "Deep Essence of the Templar",
+        DE: "Wundertrank des Paladins",
+        FR: "Breuvage miraculeux de chevalier sacré",
+        JA: "聖騎士の霊薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.DeepEssenceTemplar,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 10,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, maximum HP by 54%, and damage dealt by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceGambler: IAction = {
+    id: 738,
+
+    name: {
+        EN: "Pure Essence of the Gambler",
+        DE: "Maxtrank des Draufgängers",
+        FR: "Breuvage érémitique de risque-tout",
+        JA: "勝負師の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceGambler,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases evasion by 11%, critical hit rate by 77%, and direct hit rate by 77%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
+        FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
+        JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceElder: IAction = {
+    id: 739,
+
+    name: {
+        EN: "Pure Essence of the Elder",
+        DE: "Maxtrank des Weisen",
+        FR: "Breuvage érémitique de sage",
+        JA: "賢者の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceElder,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "BLM SMN RDM",
+        DE: "SMA BSW RMA",
+        FR: "MNO INV MRG",
+        JA: "黒魔道士 召喚士 赤魔道士",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceDuelist: IAction = {
+    id: 740,
+
+    name: {
+        EN: "Pure Essence of the Duelist",
+        DE: "Maxtrank des Fechtmeisters",
+        FR: "Breuvage érémitique de fine lame",
+        JA: "剣豪の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceDuelist,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 60%, and maximum HP by 81%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "MNK DRG NIN SAM RPR",
+        DE: "MÖN DRG NIN SAM SNT",
+        FR: "MOI DRG NIN SAM FCH",
+        JA: "モンク 竜騎士 忍者 侍 リーパー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceFiendHunter: IAction = {
+    id: 741,
+
+    name: {
+        EN: "Pure Essence of the Fiendhunter",
+        DE: "Maxtrank des Bogengeweihten",
+        FR: "Breuvage érémitique d'archer émérite",
+        JA: "弓聖の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceFiendHunter,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "BRD MCH DNC",
+        DE: "BRD MCH TÄN",
+        FR: "BRD MCH DNS",
+        JA: "吟遊詩人 機工士 踊り子",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceIndomitable: IAction = {
+    id: 742,
+
+    name: {
+        EN: "Pure Essence of the Indomitable",
+        DE: "Maxtrank des Helden",
+        FR: "Breuvage érémitique de héros illustre",
+        JA: "豪傑の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceIndomitable,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 40%, damage dealt by 72%, and maximum HP by 50%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD WAR DRK GNB",
+        DE: "PLD KRG DKR REV",
+        FR: "PLD GUE CHN PSB",
+        JA: "ナイト 戦士 暗黒騎士 ガンブレイカー",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const PureEssenceDivine: IAction = {
+    id: 743,
+
+    name: {
+        EN: "Pure Essence of the Divine",
+        DE: "Maxtrank des Heiligen",
+        FR: "Breuvage érémitique de saint",
+        JA: "聖人の仙薬",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.PureEssenceDivine,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    weight: 12,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 35%, and maximum HP by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "WHM SCH AST SGE",
+        DE: "WMA GLT AST WEI",
+        FR: "MBL ÉRU AST SAG",
+        JA: "白魔道士 学者 占星術師 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const Lodestone: IAction = {
+    id: 744,
+
+    name: {
+        EN: "Lodestone",
+        DE: "Stein der Rückführung",
+        FR: "Pierre de rapatriement",
+        JA: "デジョンストーン",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.Lodestone,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "2.50s",
+    weight: 1,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Instantly return to the starting point of the area.{"\n"}{"\n"}Cannot be executed while in combat.{"\n"}{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const LightCurtain: IAction = {
+    id: 745,
+
+    name: {
+        EN: "Light Curtain",
+        DE: "Lichtvorhang",
+        FR: "Rideau de lumière",
+        JA: "光のカーテン",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.LightCurtain,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "2.50s",
+    weight: 1,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Reflect</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Reflect Effect:</span> Reflects most magic attacks{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+const ResistanceElixir: IAction = {
+    id: 746,
+
+    name: {
+        EN: "Resistance Elixir",
+        DE: "Elixier des Widerstands",
+        FR: "Élixir de la résistance",
+        JA: "レジスタンスエリクサー",
+    },
+
+    img: LostActionsNoBorder.ItemRelated.ResistanceElixir,
+    
+    range: "0y",
+    radius: "0y",
+
+    cast: "Instant",
+    recast: "90.00s",
+    weight: 4,
+    quantity: 0,
+
+    skillType: {
+        EN: "Item",
+        DE: "Gegenstand",
+        FR: "Objet",
+        JA: "アイテム"
+    },
+
+    description: {
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own HP and MP to maximum.{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Dynamis Dice</span>.</div>,
+        DE: <div></div>,
+        FR: <div></div>,
+        JA: <div></div>
+    },
+
+    affinity: {
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
+        FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
+        JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
+    },
+
+    category: {
+        EN: "Item-Related",
+        DE: "Artikelbezogen",
+        FR: "Lié-à-l'article",
+        JA: "アイテム関連"
+    }
+}
+
+//#endregion
 
 const LostActions = {
     'Offensive': {
@@ -1584,7 +4980,7 @@ const LostActions = {
         'LostSpellforge': LostSpellforge,
         'LostSteelsting': LostSteelsting,
         'LostProtect': LostProtect,
-        /*'LostShell': LostShell,
+        'LostShell': LostShell,
         'LostReflect': LostReflect,
         'LostStoneskin': LostStoneskin,
         'LostBravery': LostBravery,
@@ -1593,18 +4989,8 @@ const LostActions = {
         'LostStoneskinII': LostStoneskinII,
         'LostProtectII': LostProtectII,
         'LostShellII': LostShellII,
-        'LostBubble': LostBubble,*/
+        'LostBubble': LostBubble,
     },
-}
-
-
-export default LostActions;
-
-/*
-export const LostActions = {
-    
-
-    
 
     'Tactical': {
         'LostStealth': LostStealth,
@@ -1674,7 +5060,5 @@ export const LostActions = {
         'ResistanceElixir': ResistanceElixir
     }
 }
- */
 
-
-//export const ActionList: IAction[] = [LostFontofPower];
+export default LostActions;

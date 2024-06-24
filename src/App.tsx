@@ -14,11 +14,11 @@ function App() {
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
-          <img src={LostActions.Offensive.LostFontofPower.imgBorder} style={{ maxHeight: 40}}/>
+          <img src={LostActions.ItemRelated.DynamisDice.img} style={{ maxHeight: 40}}/>
           
         </a>
         <div style={{lineHeight: 1, paddingBottom: 15}}>
-          {LostActions.Offensive.BannerofHonedAcuity.description.EN}
+          {LostActions.ItemRelated.DynamisDice.description.EN}
         </div>
         
         {divToPlace}
