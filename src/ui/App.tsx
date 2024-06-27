@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
-import { Counter } from './backend/counter'
+import { Counter } from '../backend/counter'
 
 import LostActions from '@backend/lostactions/ActionData';
 
-import divToPlace from './backend/lostactions/LostActionDescriptionGrinder';
+import divToPlace from '../backend/lostactions/LostActionDescriptionGrinder';
+
+import LostFindsCache from './components/LostFindsCache';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <LostFindsCache />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
