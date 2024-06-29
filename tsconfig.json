@@ -27,7 +27,7 @@
     "paths": {
       "@app/*": ["src/*"],
       "@ui/*": ["src/ui/*"],
-      "@css/*": ["src/css/*"],
+      "@scss/*": ["src/scss/*"],
       "@backend/*": ["src/backend/*"],
       "@LABorder/*": ["src/ui/pictures/LostActionsWithBorder/*"],
       "@LA/*": ["src/ui/pictures/LostActions/*"]
