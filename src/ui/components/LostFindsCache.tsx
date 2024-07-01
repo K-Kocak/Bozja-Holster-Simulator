@@ -1,18 +1,12 @@
 import React from 'react';
 
-import '.';
-
-import LostFindsCacheImage from '';
+import '../../scss/ui/components/LostFindsCache.scss';
 
 class LostFindsCache extends React.Component<any, never> {
     render() {
         return (
             <div id="LostFindsCacheContainer">
-                <img src={LostFindsCacheImage}></img>
-                <div>
 
-                </div>
-                Hey There.
             </div>
         )
     }
