@@ -12,10 +12,17 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 
 const LostFocusLink = LostActionsAsArray[0].img;
 
-const LostActionInformation: React.JSX.Element[] = [<div className="Testing" style={{'background': 'no-repeat url(' + LostFocusLink + ')', 'backgroundSize': 'cover',
+/*<div className="Testing" style={{'background': 'no-repeat url(' + LostFocusLink + ')', 'backgroundSize': 'cover',
     'position': 'absolute',
     'left': '57px',
     'top': '55px'
-}}></div>];
+}}></div>*/
+
+const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>];
 console.log(LostActionsAsArray[0].img)
 export default LostActionInformation;
