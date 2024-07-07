@@ -19,7 +19,20 @@ const LostFocusLink = LostActionsAsArray[0].img;
 }}></div>*/
 
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
-    <div></div>
+    <div>
+        <div>
+            <div></div>
+            <div>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
     <div></div>
     <div></div>
     <div></div>
