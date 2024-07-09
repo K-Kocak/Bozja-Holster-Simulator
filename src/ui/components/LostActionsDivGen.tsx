@@ -19,33 +19,33 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 }}></div>*/
 
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
-    <div>
-        <div>
-            <div>Image Here</div>
+    <div className="Testing1">
+        <div className="Testing1Inner1">
+            <div><img src={LostActionsAsArray[0].img}></img></div>
             <div>
-                <span>Action Name</span>
-                <span>Action Type</span>
+                <p>{LostActionsAsArray[0].name.EN}</p>
+                <p>{LostActionsAsArray[0].category.EN}</p>
             </div>
         </div>
         <div>
-            <div>Range</div>
-            <div>Radius</div>
+            <div>Range: {LostActionsAsArray[0].range}</div>
+            <div>Radius: {LostActionsAsArray[0].radius}</div>
         </div>
     </div>
 
     <div>
-        <div>Cast</div>
-        <div>Recast</div>
-        <div>Available</div>
+        <div>Cast: {LostActionsAsArray[0].cast}</div>
+        <div>Recast: {LostActionsAsArray[0].recast}</div>
+        <div>Available: {LostActionsAsArray[0].available}</div>
     </div>
 
     <div>
-        Action Description
+        {LostActionsAsArray[0].description.EN}
     </div>
 
     <div>
         <div>Affinity</div>
-        <div>Jobs that can use it.</div>
+        <div>{LostActionsAsArray[0].affinity.EN}</div>
     </div>
 </div>];
 console.log(LostActionsAsArray[0].img)
