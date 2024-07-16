@@ -13,19 +13,30 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+    height: 80px;
+
     .Testing1Inner1 {
         display: flex;
         flex-direction: row;
         width: 50%;
-    }
-
-    .Testing1Inner1 {
+        align-items: center;
+        
+        p {
+            margin: 0px;
+            padding: 5px 0px;
+        }
 
         .Testing1Inner1Inner {
-            padding-left: 5px;
+            padding-left: 15px;
+            align-items: start;
+            
+
+            .TestingActionName {
+                font-size: 20px;
+            }
         }
     }
+
 
     .Testing1Inner2 {
         display: flex;
