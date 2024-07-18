@@ -49,7 +49,7 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
     </div>
 
     <div className="Testing3">
-        {LostActionsAsArray[0].description.EN}
+        {LostActionsAsArray[1].description.EN}
     </div>
 
     <div className="Testing4">

@@ -35,7 +35,7 @@ const LostFocus: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants a stack of <span style={{color:"#FFFF66"}}>Boost</span>, up to a maximum of 16.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Boost Bonus:</span> Increases potency of next weaponskill by 15% per stack{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}Effect ends upon using another lost action.{"\n"}{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants a stack of <span style={{color:"#FFFF66"}}>Boost</span>, up to a maximum of 16.{"\n"}<span style={{color:"#00CC22"}}>Boost Bonus:</span> Increases potency of next weaponskill by 15% per stack{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}Effect ends upon using another lost action.{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -85,7 +85,7 @@ const LostFontofMagic: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 70%, draining MP while in use.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Veteran Effect: </span>Grants <span style={{color:"#FFFF66"}}>Spell Shield</span> to self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spell Shield Effect: </span>Reduces magic damage taken by 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 70%, draining MP while in use.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Veteran Effect: </span>Grants <span style={{color:"#FFFF66"}}>Spell Shield</span> to self{"\n"}<span style={{color:"#00CC22"}}>Spell Shield Effect: </span>Reduces magic damage taken by 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -135,7 +135,7 @@ const LostFontofPower: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 30% and critical hit rate by 40%.{"\n"}{"\n"} <span style={{color: "#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Irregular Effect: </span>Damage bonus effect is increased to 40%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Platebearer Effect: </span>Grants <span style={{color:"#ffff66"}}>Solid Shield</span> to self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Solid Shield Effect: </span>Reduces physical damage taken by 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 30% and critical hit rate by 40%.{"\n"} <span style={{color: "#00CC22"}}>Duration: </span>30s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Irregular Effect: </span>Damage bonus effect is increased to 40%{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Platebearer Effect: </span>Grants <span style={{color:"#ffff66"}}>Solid Shield</span> to self{"\n"}<span style={{color:"#00CC22"}}>Solid Shield Effect: </span>Reduces physical damage taken by 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -186,7 +186,7 @@ const LostSlash: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 30% and critical hit rate by 40%.{"\n"}{"\n"} <span style={{color: "#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Irregular Effect: </span>Damage bonus effect is increased to 40%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Platebearer Effect: </span>Grants <span style={{color:"#ffff66"}}>Solid Shield</span> to self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Solid Shield Effect: </span>Reduces physical damage taken by 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 30% and critical hit rate by 40%.{"\n"} <span style={{color: "#00CC22"}}>Duration: </span>30s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Irregular Effect: </span>Damage bonus effect is increased to 40%{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Platebearer Effect: </span>Grants <span style={{color:"#ffff66"}}>Solid Shield</span> to self{"\n"}<span style={{color:"#00CC22"}}>Solid Shield Effect: </span>Reduces physical damage taken by 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -237,7 +237,7 @@ const LostDeath: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>KOs target. The less the target's HP, the greater the chance of success.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Ordained Effect: </span>Chance of success is increased{"\n"}{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>KOs target. The less the target's HP, the greater the chance of success.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Ordained Effect: </span>Chance of success is increased{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -288,7 +288,7 @@ const BannerofNobleEnds: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Noble Ends</span>, increasing damage dealt by 50% while reducing own HP recovery via most healing actions by 100%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Noble Ends</span>, increasing damage dealt by 50% while reducing own HP recovery via most healing actions by 100%.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -339,7 +339,7 @@ const BannerofHonoredSacrifice: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honored Sacrifice</span>, increasing damage dealt by 55% while draining your HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honored Sacrifice</span>, increasing damage dealt by 55% while draining your HP.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -390,7 +390,7 @@ const BannerofHonedAcuity: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honed Acuity</span>, gaining additional stacks each time an attack is evaded, up to a maximum of 3.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Honed Acuity Effect: </span>Increases damage taken by 10% per stack{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>120s{"\n"}{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Transcendent Finesse</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Transcendent Finesse Effect: </span>Increases critical hit rate by 30% and reduces weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay by 20%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honed Acuity</span>, gaining additional stacks each time an attack is evaded, up to a maximum of 3.{"\n"}<span style={{color:"#00CC22"}}>Banner of Honed Acuity Effect: </span>Increases damage taken by 10% per stack{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>120s{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Transcendent Finesse</span>.{"\n"}<span style={{color:"#00CC22"}}>Banner of Transcendent Finesse Effect: </span>Increases critical hit rate by 30% and reduces weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay by 20%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -441,7 +441,7 @@ const LostFairTrade: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}{"\n"}The lost action thrown will be lost upon execution.{"\n"}{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -492,7 +492,7 @@ const LostFlareStar: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}{"\n"}The lost action thrown will be lost upon execution.{"\n"}{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -543,7 +543,7 @@ const LostChainspell: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}{"\n"}The lost action thrown will be lost upon execution.{"\n"}{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -594,7 +594,7 @@ const LostAssassination: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}{"\n"}The lost action thrown will be lost upon execution.{"\n"}{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -648,7 +648,7 @@ const LostManawall: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Temporarily applies <span style={{color:"#FFFF66"}}>Heavy</span> to self, while reducing damage taken by 90% and nullifying most knockback and draw-in effects.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 6s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Temporarily applies <span style={{color:"#FFFF66"}}>Heavy</span> to self, while reducing damage taken by 90% and nullifying most knockback and draw-in effects.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 6s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -698,7 +698,7 @@ const BannerofTirelessConviction: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Tireless Conviction</span>, gaining additional stacks each time damage is taken, up to a maximum of 5.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Tireless Conviction Effect: </span>Increases damage taken by 15% per stack{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Unyielding Defense</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Unyielding Defense Effect: </span>Reduces damage taken by 30%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Tireless Conviction</span>, gaining additional stacks each time damage is taken, up to a maximum of 5.{"\n"}<span style={{color:"#00CC22"}}>Banner of Tireless Conviction Effect: </span>Increases damage taken by 15% per stack{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Unyielding Defense</span>.{"\n"}<span style={{color:"#00CC22"}}>Banner of Unyielding Defense Effect: </span>Reduces damage taken by 30%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -748,7 +748,7 @@ const BannerofFirmResolve: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Firm Resolve</span>, gaining additional stacks each time damage is taken, up to a maximum of 5.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Firm Resolve Effect: </span>Reduces damage dealt by 15% per stack{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Unyielding Defense</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Unyielding Defense Effect: </span>Reduces damage taken by 30%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Firm Resolve</span>, gaining additional stacks each time damage is taken, up to a maximum of 5.{"\n"}<span style={{color:"#00CC22"}}>Banner of Firm Resolve Effect: </span>Reduces damage dealt by 15% per stack{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Unyielding Defense</span>.{"\n"}<span style={{color:"#00CC22"}}>Banner of Unyielding Defense Effect: </span>Reduces damage taken by 30%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180s{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -799,7 +799,7 @@ const LostIncense: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Gesture threateningly, placing yourself at the top of a target's enmity list. {"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Enmity generation is increased and damage taken is reduced by 20%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>20s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Gesture threateningly, placing yourself at the top of a target's enmity list. {"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Enmity generation is increased and damage taken is reduced by 20%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>20s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -850,7 +850,7 @@ const LostExcellence: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Instantly cures <span style={{color:"#FFFF66"}}>Weakness</span> and temporarily nullifies most attacks, while increasing damage dealt by 65%. <span style={{color:"#FFFF66"}}>Memorable</span> will be applied when effect ends.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Memorable Effect:</span> Increases damage dealt by 65% while decreasing damage taken by 10%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 50s{"\n"}{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Instantly cures <span style={{color:"#FFFF66"}}>Weakness</span> and temporarily nullifies most attacks, while increasing damage dealt by 65%. <span style={{color:"#FFFF66"}}>Memorable</span> will be applied when effect ends.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}<span style={{color:"#00CC22"}}>Memorable Effect:</span> Increases damage dealt by 65% while decreasing damage taken by 10%{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 50s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -900,7 +900,7 @@ const LostBloodRage: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 15% and reduces damage taken by 5% per stack. Stacks increase with each use of a dash attack while effect is active, to a maximum of 4.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 18s{"\n"}{"\n"}Maximum stacks grant the effect of <span style={{color:"#FFFF66"}}>Blood Rush</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Blood Rush Effect:</span> Increases damage dealt by 60%, shortens recast times of abilities by 75%, and gradually restores HP and MP. Recast time reduction does not apply to charged actions.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 15% and reduces damage taken by 5% per stack. Stacks increase with each use of a dash attack while effect is active, to a maximum of 4.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 18s{"\n"}Maximum stacks grant the effect of <span style={{color:"#FFFF66"}}>Blood Rush</span>.{"\n"}<span style={{color:"#00CC22"}}>Blood Rush Effect:</span> Increases damage dealt by 60%, shortens recast times of abilities by 75%, and gradually restores HP and MP. Recast time reduction does not apply to charged actions.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -954,7 +954,7 @@ const BannerofSolemnClarity: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Solemn Clarity</span>, periodically gaining additional stacks, up to a maximum of 4.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}{"\n"}Effect ends upon using another action or moving (including facing a different direction).{"\n"}{"\n"}Cancels auto-attack upon execution.{"\n"}{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Limitless Grace</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Banner of Limitless Grace Effect: </span>Increases healing potency by 50% while reducing MP cost{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>120s{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Solemn Clarity</span>, periodically gaining additional stacks, up to a maximum of 4.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}Effect ends upon using another action or moving (including facing a different direction).{"\n"}Cancels auto-attack upon execution.{"\n"}At maximum stacks, take up the <span style={{color:"#FFFF66"}}>Banner of Limitless Grace</span>.{"\n"}<span style={{color:"#00CC22"}}>Banner of Limitless Grace Effect: </span>Increases healing potency by 50% while reducing MP cost{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>120s{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1005,7 +1005,7 @@ const LostCure: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 15,000</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 15,000</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1056,7 +1056,7 @@ const LostCureII: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1107,7 +1107,7 @@ const LostCureIII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>15,000</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>15,000</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1158,7 +1158,7 @@ const LostCureIV: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>21,700{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1209,7 +1209,7 @@ const LostArise: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}{"\n"}If the target was weakened at the time of Raise, the weakness effect will be removed.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}If the target was weakened at the time of Raise, the weakness effect will be removed.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1260,7 +1260,7 @@ const LostSacrifice: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}{"\n"}Cannot be executed if currently afflicted with <span style={{color:"#FFFF66"}}>Sacrifice</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Inflicts <span style={{color:"#FFFF66"}}>Sacrifice</span> on self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Sacrifice Effect:</span> When effect expires, you will be KO'd{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}Cannot be executed if currently afflicted with <span style={{color:"#FFFF66"}}>Sacrifice</span>.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Inflicts <span style={{color:"#FFFF66"}}>Sacrifice</span> on self{"\n"}<span style={{color:"#00CC22"}}>Sacrifice Effect:</span> When effect expires, you will be KO'd{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1311,7 +1311,7 @@ const LostReraise: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Reraise</span> to self or target player.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Reraise Effect:</span> Grants an 80% chance of automatic revival upon KO{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 180m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Reraise</span> to self or target player.{"\n"}<span style={{color:"#00CC22"}}>Reraise Effect:</span> Grants an 80% chance of automatic revival upon KO{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 180m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1362,7 +1362,7 @@ const LostFullCure: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Fully restores HP and MP while granting <span style={{color:"#FFFF66"}}>Auto-potion</span> and <span style={{color:"#FFFF66"}}>Auto-ether</span> to self and nearby party members.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-potion Effect: </span>Restores HP automatically when HP falls below 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-ether Effect: </span>Restores MP automatically when MP falls below 20%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-potion</span> and <span style={{color:"#FFFF66"}}>Auto-ether</span> effect to end is reduced to 10%</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Fully restores HP and MP while granting <span style={{color:"#FFFF66"}}>Auto-potion</span> and <span style={{color:"#FFFF66"}}>Auto-ether</span> to self and nearby party members.{"\n"}<span style={{color:"#00CC22"}}>Auto-potion Effect: </span>Restores HP automatically when HP falls below 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}<span style={{color:"#00CC22"}}>Auto-ether Effect: </span>Restores MP automatically when MP falls below 20%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-potion</span> and <span style={{color:"#FFFF66"}}>Auto-ether</span> effect to end is reduced to 10%</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1416,7 +1416,7 @@ const LostSpellforge: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Spellforge</span> to self or target ally.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Spellforge Effect: </span>All attacks deal magic damage. However, all bonuses to damage dealt are determined by the attack's base damage type.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>300s{"\n"}{"\n"}Effect cannot be stacked with <span>Lost Steelsting</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Spellforge</span> to self or target ally.{"\n"}<span style={{color:"#00CC22"}}>Lost Spellforge Effect: </span>All attacks deal magic damage. However, all bonuses to damage dealt are determined by the attack's base damage type.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>300s{"\n"}Effect cannot be stacked with <span>Lost Steelsting</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1466,7 +1466,7 @@ const LostSteelsting: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Steelsting</span> to self or target ally.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Steelsting Effect: </span>All attacks deal physical damage. However, all bonuses to damage dealt are determined by the attack's base damage type.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>300s{"\n"}{"\n"}Effect cannot be stacked with <span>Lost Spellforge</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Steelsting</span> to self or target ally.{"\n"}<span style={{color:"#00CC22"}}>Lost Steelsting Effect: </span>All attacks deal physical damage. However, all bonuses to damage dealt are determined by the attack's base damage type.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>300s{"\n"}Effect cannot be stacked with <span>Lost Spellforge</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1516,7 +1516,7 @@ const LostProtect: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing physical damage taken by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing physical damage taken by 10%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1566,7 +1566,7 @@ const LostShell: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 10%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1617,7 +1617,7 @@ const LostReflect: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self or party member that reflects most magic attacks.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Guardian Effect: </span>Duration is increased to 30s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self or party member that reflects most magic attacks.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Guardian Effect: </span>Duration is increased to 30s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1668,7 +1668,7 @@ const LostStoneskin: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player that absorbs damage totaling 15% of target's maximum HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player that absorbs damage totaling 15% of target's maximum HP.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1719,7 +1719,7 @@ const LostBravery: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by an ally or self by 5%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by an ally or self by 5%.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1770,7 +1770,7 @@ const LostAethershield: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces damage taken by self and nearby party members by 30%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces damage taken by self and nearby party members by 30%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1821,7 +1821,7 @@ const LostDervish: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases critical hit rate of self and nearby party members by 10%, increases damage dealt by 7%, and reduces weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay by 1%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases critical hit rate of self and nearby party members by 10%, increases damage dealt by 7%, and reduces weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay by 1%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1872,7 +1872,7 @@ const LostStoneskinII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self and all party members near you that absorbs damage totaling 10% of maximum HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Creates a barrier around self and all party members near you that absorbs damage totaling 10% of maximum HP.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1922,7 +1922,7 @@ const LostProtectII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing physical damage taken by 15%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing physical damage taken by 15%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1972,7 +1972,7 @@ const LostShellII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 15%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Applies a barrier to self or target player reducing magic damage taken by 15%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2023,7 +2023,7 @@ const LostBubble: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases maximum HP of self or target player by 30%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 600s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases maximum HP of self or target player by 30%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 600s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2078,7 +2078,7 @@ const LostStealth: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Blend in with your surroundings, making it impossible for most enemies to detect you, but reducing movement speed by 25%. Has no effect on certain enemies with special sight.{"\n"}{"\n"}Cannot be executed while in combat.{"\n"}{"\n"}Effect ends upon use of any action other than Sprint, or upon reuse.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Blend in with your surroundings, making it impossible for most enemies to detect you, but reducing movement speed by 25%. Has no effect on certain enemies with special sight.{"\n"}Cannot be executed while in combat.{"\n"}Effect ends upon use of any action other than Sprint, or upon reuse.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2129,7 +2129,7 @@ const LostSwift: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Greatly increases movement speed.{"\n"}{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion by 30%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 60%{"\n"}{"\n"}Effect only applies to certain abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Greatly increases movement speed.{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion by 30%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 60%{"\n"}Effect only applies to certain abilities.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2231,7 +2231,7 @@ const Mimic: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Study the lost techniques used by a targeted ally and make them your own.{"\n"}{"\n"}Cannot be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Study the lost techniques used by a targeted ally and make them your own.{"\n"}Cannot be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2282,7 +2282,7 @@ const LostPerception: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Detect traps within a radius of 15 yalms.{"\n"}{"\n"}If there are no traps within 15 yalms, alerts you to the presence of traps with a radius of 36 yalms.{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Detect traps within a radius of 15 yalms.{"\n"}If there are no traps within 15 yalms, alerts you to the presence of traps with a radius of 36 yalms.{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2333,7 +2333,7 @@ const LostImpetus: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Quickly dash 10 yalms forward.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Applies <span style={{color:"#FFFF66"}}>Lost Swift</span> to self and nearby party members{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Swift Effect:</span> Greatly increases movement speed{"\n"}{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion of self and nearby party members by 15%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self and nearby party members{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 25%{"\n"}{"\n"}Effect only applies to certain abilities.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Quickly dash 10 yalms forward.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Applies <span style={{color:"#FFFF66"}}>Lost Swift</span> to self and nearby party members{"\n"}<span style={{color:"#00CC22"}}>Lost Swift Effect:</span> Greatly increases movement speed{"\n"}Effect cannot be stacked with other movement speed enhancing abilities.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>10s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Increases evasion of self and nearby party members by 15%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect: </span>Grants <span style={{color:"#FFFF66"}}>Rapid Recast</span> to self and nearby party members{"\n"}<span style={{color:"#00CC22"}}>Rapid Recast Effect: </span>Shortens recast time for next ability used by 25%{"\n"}Effect only applies to certain abilities.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}Cannot be executed while bound.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2388,7 +2388,7 @@ const LostParalyzeIII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Afflicts target and all nearby enemies with <span style={{color:"#FFFF66"}}>Paralysis</span>.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Afflicts target and all nearby enemies with <span style={{color:"#FFFF66"}}>Paralysis</span>.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2439,7 +2439,7 @@ const LostBanishIII: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Deals unaspected damage with a potency of 200 to target and all enemies nearby it.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage undead enemies take by 25%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Deals unaspected damage with a potency of 200 to target and all enemies nearby it.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage undead enemies take by 25%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2490,7 +2490,7 @@ const LostDispel: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Removes one beneficial status from target.{"\n"}{"\n"}Cancels auto-attack upon execution.</div>
+        EN: <div style={{whiteSpace: 'pre-line'}}>Removes one beneficial status from target.{"\n"}Cancels auto-attack upon execution.</div>
         ,
         DE: <div></div>,
         FR: <div></div>,
@@ -2543,7 +2543,7 @@ const LostRendArmor: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers a jumping attack with a potency of 100.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Increases target's damage taken by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers a jumping attack with a potency of 100.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Increases target's damage taken by 10%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}Cannot be executed while bound.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2594,7 +2594,7 @@ const LostSeraphStrike: IAction = {
     quantity: 0,   
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Consumes MP to deliver a jumping attack that deals unaspected damage with a potency of 500.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Reduces target's accuracy by 10%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Grants <span style={{color:"#FFFF66"}}>Cleric Stance</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cleric Stance Bonus:</span> Reduces healing potency by 60% while increasing damage dealt by 60%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}{"\n"}Cannot be executed while bound.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Consumes MP to deliver a jumping attack that deals unaspected damage with a potency of 500.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Reduces target's accuracy by 10%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Grants <span style={{color:"#FFFF66"}}>Cleric Stance</span> to self.{"\n"}<span style={{color:"#00CC22"}}>Cleric Stance Bonus:</span> Reduces healing potency by 60% while increasing damage dealt by 60%.{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 15s{"\n"}Cannot be executed while bound.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2645,7 +2645,7 @@ const LostBurst: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Deals lightning damage with a potency of 300 to all nearby enemies.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Magical Aversion</span> by 10%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Deals lightning damage with a potency of 300 to all nearby enemies.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Magical Aversion</span> by 10%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2696,7 +2696,7 @@ const LostRampage: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers an attack with a potency of 300 to all nearby enemies.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Physical Aversion</span> by 10%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers an attack with a potency of 300 to all nearby enemies.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Interrupts all nearby enemies{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Increases damage taken by enemies with <span style={{color:"#FFFF66"}}>Physical Aversion</span> by 10%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2749,7 +2749,7 @@ const DynamisDice: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Place your faith in the goddess Nymeia as she spins the wheel of fate.{"\n"}{"\n"}Can only be executed while in combat.{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Place your faith in the goddess Nymeia as she spins the wheel of fate.{"\n"}Can only be executed while in combat.{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2845,7 +2845,7 @@ const ResistanceReraiser: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants a 70% chance of automatic revival upon KO.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180m</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants a 70% chance of automatic revival upon KO.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>180m</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2894,7 +2894,7 @@ const ResistancePotionKit: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-potion</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-potion Effect: </span>Restores HP automatically when HP falls below 50%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-potion</span> effect to end is reduced to 10%{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-potion</span> to self.{"\n"}<span style={{color:"#00CC22"}}>Auto-potion Effect: </span>Restores HP automatically when HP falls below 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-potion</span> effect to end is reduced to 10%{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2943,7 +2943,7 @@ const ResistanceEtherKit: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-ether</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Auto-ether Effect: </span>Restores MP automatically when MP falls below 20%{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-ether</span> effect to end is reduced to 10%{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants <span style={{color:"#FFFF66"}}>Auto-ether</span> to self.{"\n"}<span style={{color:"#00CC22"}}>Auto-ether Effect: </span>Restores MP automatically when MP falls below 20%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>600s{"\n"}When triggered, there is a 50% chance the effect will end.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Breathtaker Effect: </span>Chance for <span style={{color:"#FFFF66"}}>Auto-ether</span> effect to end is reduced to 10%{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Medikit</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2992,7 +2992,7 @@ const ResistanceMedikit: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Removes a single detrimental effect from self. When not suffering from detrimental effects, creates a barrier that protects against most status ailments. The barrier is removed after curing the next status ailment suffered.{"\n"}{"\n"}Effect cannot be stacked with similar barrier actions.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30m{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Removes a single detrimental effect from self. When not suffering from detrimental effects, creates a barrier that protects against most status ailments. The barrier is removed after curing the next status ailment suffered.{"\n"}Effect cannot be stacked with similar barrier actions.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30m{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion Kit</span> and <span style={{color:"#FF7B1A"}}>Resistance Ether Kit</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3041,7 +3041,7 @@ const ResistancePotion: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Gradually restores HP.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>1,600{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>40s{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Dynamis Dice</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Gradually restores HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>1,600{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>40s{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Dynamis Dice</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3089,7 +3089,7 @@ const EssenceAetherweaver: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 80%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 80%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3137,7 +3137,7 @@ const DeepEssenceAetherweaver: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 96%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 96%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3185,7 +3185,7 @@ const EssenceMartialist: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 60%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3233,7 +3233,7 @@ const DeepEssenceMartialist: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 72%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3281,7 +3281,7 @@ const EssenceSavior: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 60%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3329,7 +3329,7 @@ const DeepEssenceSavior: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases healing potency by 72%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3377,7 +3377,7 @@ const EssenceVeteran: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 150%, magic defense by 45%, and maximum HP by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 150%, magic defense by 45%, and maximum HP by 60%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3425,7 +3425,7 @@ const DeepEssenceVeteran: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 180%, magic defense by 54%, and maximum HP by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases physical defense by 180%, magic defense by 54%, and maximum HP by 72%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3473,7 +3473,7 @@ const EssencePlatebearer: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 80% and maximum HP by 45%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 80% and maximum HP by 45%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3521,7 +3521,7 @@ const DeepEssencePlatebearer: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 96% and maximum HP by 54%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 96% and maximum HP by 54%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3569,7 +3569,7 @@ const EssenceGuardian: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 30% and maximum HP by 10%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 30% and maximum HP by 10%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3617,7 +3617,7 @@ const DeepEssenceGuardian: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 36% and maximum HP by 12%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 36% and maximum HP by 12%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3665,7 +3665,7 @@ const EssenceOrdained: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20%, healing potency by 25%, and maximum MP by 50%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20%, healing potency by 25%, and maximum MP by 50%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3713,7 +3713,7 @@ const DeepEssenceOrdained: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24%, healing potency by 30%, and maximum MP by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24%, healing potency by 30%, and maximum MP by 60%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3761,7 +3761,7 @@ const EssenceSkirmisher: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20% and critical hit rate by 15%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 20% and critical hit rate by 15%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3809,7 +3809,7 @@ const DeepEssenceSkirmisher: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24% and critical hit rate by 18%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 24% and critical hit rate by 18%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3857,7 +3857,7 @@ const EssenceWatcher: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 5% while increasing evasion by 40%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 5% while increasing evasion by 40%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3905,7 +3905,7 @@ const DeepEssenceWatcher: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 3% while increasing evasion by 48%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces maximum HP by 3% while increasing evasion by 48%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -3953,7 +3953,7 @@ const EssenceProfane: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4001,7 +4001,7 @@ const DeepEssenceProfane: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 120%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Reduces healing potency by 70% while increasing damage dealt by 120%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4049,7 +4049,7 @@ const EssenceIrregular: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 90% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 90% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4097,7 +4097,7 @@ const DeepEssenceIrregular: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 108% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 108% and damage taken by 200% while reducing maximum HP by 30%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4145,7 +4145,7 @@ const EssenceBreathtaker: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 10%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 10%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4193,7 +4193,7 @@ const DeepEssenceBreathtaker: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 20%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases poison resistance and movement speed, including mount speed, and increases evasion by 20%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4241,7 +4241,7 @@ const EssenceBloodsucker: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 40%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 40%.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4289,7 +4289,7 @@ const DeepEssenceBloodsucker: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 48%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 48%.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4337,7 +4337,7 @@ const EssenceBeast: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50% and maximum HP by 45%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50% and maximum HP by 45%.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4385,7 +4385,7 @@ const DeepEssenceBeast: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60% and maximum HP by 54%.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60% and maximum HP by 54%.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Absorb a portion of damage dealt as HP{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4433,7 +4433,7 @@ const EssenceTemplar: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50%, maximum HP by 45%, and damage dealt by 60%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 50%, maximum HP by 45%, and damage dealt by 60%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4481,7 +4481,7 @@ const DeepEssenceTemplar: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, maximum HP by 54%, and damage dealt by 72%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, maximum HP by 54%, and damage dealt by 72%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence or Deep Essence actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4529,7 +4529,7 @@ const PureEssenceGambler: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases evasion by 11%, critical hit rate by 77%, and direct hit rate by 77%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases evasion by 11%, critical hit rate by 77%, and direct hit rate by 77%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4577,7 +4577,7 @@ const PureEssenceElder: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4625,7 +4625,7 @@ const PureEssenceDuelist: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 60%, and maximum HP by 81%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 60%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4673,7 +4673,7 @@ const PureEssenceFiendHunter: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4721,7 +4721,7 @@ const PureEssenceIndomitable: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 40%, damage dealt by 72%, and maximum HP by 50%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 40%, damage dealt by 72%, and maximum HP by 50%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4769,7 +4769,7 @@ const PureEssenceDivine: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 35%, and maximum HP by 100%.{"\n"}{"\n"}Effect ends upon reuse.{"\n"}{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 35%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4818,7 +4818,7 @@ const Lodestone: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Instantly return to the starting point of the area.{"\n"}{"\n"}Cannot be executed while in combat.{"\n"}{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Instantly return to the starting point of the area.{"\n"}Cannot be executed while in combat.{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4867,7 +4867,7 @@ const LightCurtain: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Reflect</span> to self.{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Lost Reflect Effect:</span> Reflects most magic attacks{"\n"}{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Grants the effect of <span style={{color:"#FFFF66"}}>Lost Reflect</span> to self.{"\n"}<span style={{color:"#00CC22"}}>Lost Reflect Effect:</span> Reflects most magic attacks{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}Shares a recast timer with all other weaponskills and spells.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4916,7 +4916,7 @@ const ResistanceElixir: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own HP and MP to maximum.{"\n"}{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Dynamis Dice</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own HP and MP to maximum.{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Dynamis Dice</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
