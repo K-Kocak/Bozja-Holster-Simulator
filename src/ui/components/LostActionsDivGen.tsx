@@ -47,7 +47,9 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             <p>{LostActionsAsArray[0].available}</p>
         </div>
     </div>
-
+    <div className="TestingSeparator">
+        
+    </div>
     <div className="Testing3">
         {LostActionsAsArray[1].description.EN}
     </div>
