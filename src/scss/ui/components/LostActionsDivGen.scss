@@ -104,7 +104,23 @@
     }
 }
 
+
+.SeparatorDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 6px 0px;
+}
+
+.TestingUpperSeparator {
+    height: 2px;
+    background-color: white;
+    width: 95%;
+}
 .TestingSeparator {
     height: 2px;
     background-color: black;
+    width: 95%;
+    
 }
