@@ -21,7 +21,7 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
     <div className="Testing1">
         <div className="Testing1Inner1">
-            <div><img src={LostActionsAsArray[0].img}></img></div>
+            <div className="TestingImage"><img src={LostActionsAsArray[0].img}></img></div>
             <div className="Testing1Inner1Inner">
                 <p className="TestingActionName">{LostActionsAsArray[0].name.EN}</p>
                 <p className="TestingActionCat">{LostActionsAsArray[0].category.EN}</p>
