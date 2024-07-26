@@ -19,7 +19,8 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 }}></div>*/
 
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
-    <div className="Testing1">
+    <div className="TestingGradient"></div>
+    <div className="Testing1">   
         <div className="Testing1Inner1">
             <div className="TestingImage"><img src={LostActionsAsArray[0].img}></img></div>
             <div className="Testing1Inner1Inner">
