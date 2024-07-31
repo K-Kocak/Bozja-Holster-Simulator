@@ -30,8 +30,8 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
                 </div>
             </div>
             <div className="Testing1Inner2">
-                <div className="Testing1Inner2Inner1">Range: {LostActionsAsArray[0].range}</div>
-                <div className="Testing1Inner2Inner2">Radius: {LostActionsAsArray[0].radius}</div>
+                <div className="Testing1Inner2Inner1"><span>Range</span> {LostActionsAsArray[0].range}</div>
+                <div className="Testing1Inner2Inner2"><span>Radius</span> {LostActionsAsArray[0].radius}</div>
             </div>
         </div>
 
