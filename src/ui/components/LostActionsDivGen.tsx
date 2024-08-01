@@ -37,15 +37,15 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
 
         <div className="Testing2">
             <div className="Testing2Inner1">
-                <p>Cast</p>
+                <p className="TestingText">Cast</p>
                 <p>{LostActionsAsArray[0].cast}</p>
             </div>
             <div className="Testing2Inner2">
-                <p>Recast</p>
+                <p className="TestingText">Recast</p>
                 <p>{LostActionsAsArray[0].recast}</p>
             </div>
             <div className="Testing2Inner3">
-                <p>Available</p>
+                <p className="TestingText">Available</p>
                 <p>{LostActionsAsArray[0].available}</p>
             </div>
         </div>

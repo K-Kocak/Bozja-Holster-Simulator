@@ -82,9 +82,11 @@
     flex-direction: row;
     text-align: end;
     
+    .TestingText {
+        color: #b7b2a1;
+    }
     .Testing2Inner1 {
         width: 33%;
-        
     }
 
     .Testing2Inner2 {
@@ -151,4 +153,8 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 5px;
+}
+
+.TestingActionCat {
+    color: #b7b2a1;
 }
