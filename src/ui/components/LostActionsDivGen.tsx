@@ -17,9 +17,10 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
     'left': '57px',
     'top': '55px'
 }}></div>*/
+//<div className="TestingGradient"></div>
 
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
-    <div className="TestingGradient"></div>
+    
     <div className="TestingActionEncompass">
         <div className="Testing1">   
             <div className="Testing1Inner1">
@@ -54,7 +55,7 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             <div className="TestingSeparator"></div>   
         </div>
         <div className="Testing3">
-            {LostActionsAsArray[1].description.EN}
+            {LostActionsAsArray[0].description.EN}
         </div>
 
         <div className="Testing4">
