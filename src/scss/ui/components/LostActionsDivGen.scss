@@ -1,8 +1,8 @@
 .Testing {
     display: flex;
     flex-direction: column;
-    background-color: #444444;
-    border-radius: 12px;
+    background-color: #464646;
+    border-radius: 8px;
     width: 380px;
     margin: 0px;
     padding: 0px;
@@ -15,7 +15,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 5px;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-top: 10px;
 }
 
@@ -143,6 +143,7 @@
 
     .Testing4Inner1 {
         width: 25%;
+        color: #b7b2a1;
     }
 
     .Testing4Inner2 {
@@ -159,26 +160,38 @@
     align-items: center;
     margin: 0px 0px;
     margin-bottom: 4px;
+    
+    .TestingUpperSeparator {
+        height: 1px;
+        background-color: #242424;
+        width: 100%;  
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    
+    .TestingSeparator {
+        height: 1px;
+        background-color: #444344;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .TestingLowerSeparator {
+        background-color: #6A6A6A;
+        height: 1px;
+        width: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
 }
 
-.TestingUpperSeparator {
-    height: 2px;
-    background-color: white;
-    width: 95%;
-}
-.TestingSeparator {
-    height: 2px;
-    background-color: black;
-    width: 95%;
-    margin: 0px;
-    padding: 0px;
-}
+
 
 .TestingImage {
     margin-top: 5px;
 }
-
-
 
 
 
