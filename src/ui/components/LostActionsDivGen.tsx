@@ -8,7 +8,7 @@ import LostActions from '@backend/lostactions/ActionData';
 
 import '@css/ui/components/LostActionsDivGen.scss';
 
-const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic];
+const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic, LostActions.ItemRelated.DeepEssenceAetherweaver];
 
 //const LostFocusLink = LostActionsAsArray[0].img;
 
@@ -22,17 +22,28 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
     
     <div className="TestingActionEncompass">
-        <div className="Testing1">   
+        <div className="Testing1">  
+
             <div className="Testing1Inner1">
-                <div className="TestingImage"><img src={LostActionsAsArray[1].img}></img></div>
-                <div className="Testing1Inner1Inner">
-                    <p className="TestingActionName">{LostActionsAsArray[1].name.EN}</p>
-                    <p className="TestingActionCat">{LostActionsAsArray[1].skillType.EN}</p>
-                </div>
+                <img src={LostActionsAsArray[0].img}></img>          
             </div>
+
             <div className="Testing1Inner2">
-                <div className="Testing1Inner2Inner1"><span>Range</span> {LostActionsAsArray[1].range}</div>
-                <div className="Testing1Inner2Inner2"><span>Radius</span> {LostActionsAsArray[1].radius}</div>
+                <div className="Testing1Inner2-1">
+                    <p className="TestingActionName">{LostActionsAsArray[2].name.EN}</p>
+                </div>
+                
+                <div className="Testing1Inner2-2">
+                    <div className="Testing1Inner2-2-1">
+                        <p className="TestingActionCat">{LostActionsAsArray[1].skillType.EN}</p>
+                    </div>
+
+                    <div className="Testing1Inner2-2-2">
+                        <div className="TestingActionRange"><span>Range</span> {LostActionsAsArray[1].range}</div>
+
+                        <div className="TestingActionRadius"><span>Radius</span> {LostActionsAsArray[1].radius}</div>
+                    </div>
+                </div>            
             </div>
         </div>
 
@@ -56,7 +67,7 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             <div className="TestingLowerSeparator"></div> 
         </div>
         <div className="Testing3">
-            {LostActionsAsArray[1].description.EN}
+            {LostActionsAsArray[0].description.EN}
         </div>
 
         <div className="Testing4">
