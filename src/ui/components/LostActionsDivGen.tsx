@@ -71,8 +71,12 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
         </div>
 
         <div className="Testing4">
-            <div className="Testing4Inner1">Affinity</div>
-            <div className="Testing4Inner2">{LostActionsAsArray[1].affinity.EN}</div>
+            <div className="Testing4Inner1">
+                <span>Affinity</span>
+            </div>
+            <div className="Testing4Inner2">
+                <span>{LostActionsAsArray[0].affinity.EN}</span>
+            </div>
         </div>
     </div>
 </div>];
