@@ -177,35 +177,56 @@
 .SeparatorDiv {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin: 0px 0px;
     margin-bottom: 4px;
     
-    .TestingUpperSeparator {
-        height: 1px;
-        background-color: #242424;
-        width: 100%;  
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-    
-    
-    .TestingSeparator {
-        height: 1px;
-        background-color: #444344;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
+    .LeftSep {
+        height: 3px;
+        background-color: white;
+        width: 1px;
+       
     }
 
-    .TestingLowerSeparator {
-        background-color: #6A6A6A;
-        height: 1px;
-        width: 100%;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+    .RightSep {
+        height: 3px;
+        background-color: white;
+        width: 1px;
     }
+
+    .MiddleSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 98%;
+
+        .TestingUpperSeparator {
+            height: 1px;
+            background-color: #242424;
+            width: 100%;  
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        
+        
+        .TestingSeparator {
+            height: 1px;
+            background-color: #444344;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+    
+        .TestingLowerSeparator {
+            background-color: #6A6A6A;
+            height: 1px;
+            width: 100%;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+    
 }
 
 

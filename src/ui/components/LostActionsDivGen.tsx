@@ -62,9 +62,14 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             </div>
         </div>
         <div className="SeparatorDiv">
-            <div className="TestingUpperSeparator"></div>
-            <div className="TestingSeparator"></div>
-            <div className="TestingLowerSeparator"></div> 
+            <div className="LeftSep"></div>
+            <div className="MiddleSection">
+                <div className="TestingUpperSeparator"></div>
+                <div className="TestingSeparator"></div>
+                <div className="TestingLowerSeparator"></div> 
+            </div>
+            <div className="RightSep"></div>
+            
         </div>
         <div className="Testing3">
             {LostActionsAsArray[0].description.EN}
