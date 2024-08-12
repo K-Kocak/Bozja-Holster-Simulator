@@ -186,13 +186,18 @@
         height: 3px;
         background-color: white;
         width: 1px;
-       
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: linear-gradient(#242424, #444344, #6A6A6A);
     }
 
     .RightSep {
         height: 3px;
         background-color: white;
         width: 1px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: linear-gradient(#242424, #444344, #6A6A6A);
     }
 
     .MiddleSection {
@@ -205,8 +210,6 @@
             height: 1px;
             background-color: #242424;
             width: 100%;  
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
         }
         
         
@@ -222,8 +225,6 @@
             background-color: #6A6A6A;
             height: 1px;
             width: 100%;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
         }
     }
     
