@@ -49,16 +49,28 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
 
         <div className="Testing2">
             <div className="Testing2Inner1">
-                <p className="TestingText">Cast</p>
-                <p className="TestingText2">{LostActionsAsArray[1].cast}</p>
+            
+                <div className="TestingTextDiv"><p className="TestingText">Cast</p></div>
+                <div className="TestingTextDiv"><p className="TestingText2">{LostActionsAsArray[1].cast}</p></div>
+                <div className="TestCastOverlayL"></div>
             </div>
             <div className="Testing2Inner2">
-                <p className="TestingText">Recast</p>
-                <p className="TestingText2">{LostActionsAsArray[1].recast}</p>
+                <div className="TestingTextDiv">
+                    <p className="TestingText">Recast</p>
+                </div>
+                <div className="TestingTextDiv">
+                    <p className="TestingText2">{LostActionsAsArray[1].recast}</p>
+                    </div>
+                <div className="TestCastOverlay"></div>
             </div>
             <div className="Testing2Inner3">
-                <p className="TestingText">Available</p>
-                <p className="TestingText2">{LostActionsAsArray[1].available}</p>
+                <div className="TestingTextDiv">
+                    <p className="TestingText">Available</p>
+                </div>
+                <div className="TestingTextDiv">
+                    <p className="TestingText2">{LostActionsAsArray[1].available}</p>
+                </div>
+                <div className="TestCastOverlayR"></div>
             </div>
         </div>
         <div className="SeparatorDiv">

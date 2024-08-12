@@ -124,32 +124,64 @@
 .Testing2 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     text-align: end;
     height: 45px;
     margin-bottom: 5px;
+    
+    .TestCastOverlay, .TestCastOverlayL, .TestCastOverlayR {
+        width: 108px;
+        height: 6px;
+        background-color: #656565;
+        position: relative;
+        border-radius: 20px;
+        top: -5px;
+        left: 3px;
+        padding: 0px;
+        margin: 0px;
+    }
 
+    .TestCastOverlayL {
+        
+    }
+    
     .TestingText {
         margin: 1px 0px;
         margin-bottom: 5px;
         color: #b7b2a1;
+        
     }
     
     .TestingText2 {
         transform: scaleY(1.5);
         margin: 1px 0px;
+        position: relative;
+        z-index: 1;
+        padding-right: 1px;
+        padding-top: 1px;
     }
 
 
     .Testing2Inner1 {
-        width: 33%;
+        width: 31%;
+        padding-left: 1px;
+        
+        .TestingTextDiv {
+            z-index: 2;
+        }
+
+        
     }
 
     .Testing2Inner2 {
-        width: 33%;
+        width: 31%;
+        
+        //margin-right: 2px;
     }
 
     .Testing2Inner3 {
-        width: 33%;
+        width: 31%;
+        padding-right: 2px;
     }
 }
 
@@ -227,7 +259,6 @@
             width: 100%;
         }
     }
-    
 }
 
 
