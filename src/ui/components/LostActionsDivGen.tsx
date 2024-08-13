@@ -30,7 +30,7 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
 
             <div className="Testing1Inner2">
                 <div className="Testing1Inner2-1">
-                    <p className="TestingActionName">{LostActionsAsArray[2].name.EN}</p>
+                    <p className="TestingActionName">{LostActionsAsArray[0].name.EN}</p>
                 </div>
                 
                 <div className="Testing1Inner2-2">
@@ -39,9 +39,9 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
                     </div>
 
                     <div className="Testing1Inner2-2-2">
-                        <div className="TestingActionRange"><span>Range</span> {LostActionsAsArray[1].range}</div>
+                        <div className="TestingActionRange"><span>Range</span> {LostActionsAsArray[0].range}</div>
 
-                        <div className="TestingActionRadius"><span>Radius</span> {LostActionsAsArray[1].radius}</div>
+                        <div className="TestingActionRadius"><span>Radius</span> {LostActionsAsArray[0].radius}</div>
                     </div>
                 </div>            
             </div>
@@ -51,24 +51,24 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             <div className="Testing2Inner1">
             
                 <div className="TestingTextDiv"><p className="TestingText">Cast</p></div>
-                <div className="TestingTextDiv"><p className="TestingText2">{LostActionsAsArray[1].cast}</p></div>
+                <div className="TestingTextDiv"><p className="TestingText2">{LostActionsAsArray[0].cast}</p></div>
                 <div className="TestCastOverlayL"></div>
             </div>
             <div className="Testing2Inner2">
                 <div className="TestingTextDiv">
-                    <p className="TestingText">Recast</p>
+                    <p className="TestingText Middle">Recast</p>
                 </div>
                 <div className="TestingTextDiv">
-                    <p className="TestingText2">{LostActionsAsArray[1].recast}</p>
+                    <p className="TestingText2">{LostActionsAsArray[0].recast}</p>
                     </div>
                 <div className="TestCastOverlay"></div>
             </div>
             <div className="Testing2Inner3">
                 <div className="TestingTextDiv">
-                    <p className="TestingText">Available</p>
+                    <p className="TestingText Last">Available</p>
                 </div>
                 <div className="TestingTextDiv">
-                    <p className="TestingText2">{LostActionsAsArray[1].available}</p>
+                    <p className="TestingText2">{LostActionsAsArray[0].available}</p>
                 </div>
                 <div className="TestCastOverlayR"></div>
             </div>
