@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: #464646;
     border-radius: 8px;
-    width: 380px;
+    width: 385px;
     margin: 0px;
     padding: 0px;
     color: white;
@@ -110,11 +110,11 @@
                     color: #959595;
                 }
                 .TestingActionRange {
-                    padding-left: 10px;
+                    padding-left: 6px;
                 }
 
                 .TestingActionRadius {
-                    padding-right: 6px;
+                    padding-right: 4px;
                 }
             }
 
@@ -164,11 +164,11 @@
     }
 
     .TestingText.Middle {
-        margin-right: -1.5px;
+        margin-right: 0.5px;
     }
     
     .TestingText.Last {
-        padding-right: 1px;
+
     }
 
     .TestingText2 {
@@ -200,19 +200,21 @@
 
     .Testing2Inner3 {
         width: 30.5%;
-        margin-right: -2px;
+        margin-right: -1px;
     }
 }
 
 .Testing3 {
     margin-bottom: 5px;
     line-height: 1;
+    padding-left: 3px;
+    
 }
 
 .Testing4 {
     display: flex;
     flex-direction: row;
-    
+    padding-left: 2px;
     .Testing4Inner1 {
         width: 25%;
         color: #b7b2a1;

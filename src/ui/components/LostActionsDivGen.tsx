@@ -98,4 +98,53 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
     </div>
 </div>];
 console.log(LostActionsAsArray[0].img)
+
+// test code for building automation for all actions
+const AutomateSectionOneVar : React.JSX.Element = 
+<div className="LostActionSectionOne">
+    
+    <div className="LostActionImage">
+        <img src={LostActionsAsArray[0].img}></img>
+    </div>
+
+    <div className="LostActionNameTypeRangeRadius">
+            <div className="LostActionName">
+                <p className="ActionName">{LostActionsAsArray[0].name.EN}</p>
+            </div>
+            
+            <div className="LostActionTypeRangeRadius">
+                
+                <div className="LostActionType">
+                    <p className="LostActionType">{LostActionsAsArray[1].skillType.EN}</p>
+                </div>
+
+                <div className="LostActionRangeRadius">
+
+                    <div className="LostActionRange">
+                        <span>Range</span> 
+                        {LostActionsAsArray[0].range}
+                    </div>
+
+                    <div className="LostActionRadius">
+                        <span>Radius</span> 
+                        {LostActionsAsArray[0].radius}
+                    </div>
+
+                </div>
+            </div>            
+        </div>
+
+</div>
+
+const AutomateSectionTwoVar : React.JSX.Element = 
+<div></div>
+const AutomateActionBoxTestCode : React.JSX.Element = 
+<div className="LostActionDetailedInfoBox">
+    {AutomateSectionOneVar}
+    
+    <div className="LostActionDetailed">
+
+    </div>
+</div>;
+
 export default LostActionInformation;
