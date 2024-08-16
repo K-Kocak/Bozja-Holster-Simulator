@@ -140,10 +140,12 @@ const AutomateSectionTwoVar : React.JSX.Element =
 <div></div>
 const AutomateActionBoxTestCode : React.JSX.Element = 
 <div className="LostActionDetailedInfoBox">
-    {AutomateSectionOneVar}
-    
-    <div className="LostActionDetailed">
+    <div className="LostActionInnerDetailedInfoBox">
+        {AutomateSectionOneVar}
+        
+        <div className="LostActionDetailed">
 
+        </div>
     </div>
 </div>;
 
