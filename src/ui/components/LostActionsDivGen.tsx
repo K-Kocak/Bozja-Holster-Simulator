@@ -100,6 +100,8 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
 console.log(LostActionsAsArray[0].img)
 
 // test code for building automation for all actions
+// this variable is always static, every action has this exact structure
+// only thing that differs is what the literal values of the action is
 const AutomateSectionOneVar : React.JSX.Element = 
 <div className="LostActionSectionOne">
     
@@ -108,44 +110,106 @@ const AutomateSectionOneVar : React.JSX.Element =
     </div>
 
     <div className="LostActionNameTypeRangeRadius">
-            <div className="LostActionName">
-                <p className="ActionName">{LostActionsAsArray[0].name.EN}</p>
-            </div>
-            
-            <div className="LostActionTypeRangeRadius">
-                
-                <div className="LostActionType">
-                    <p className="LostActionType">{LostActionsAsArray[1].skillType.EN}</p>
-                </div>
-
-                <div className="LostActionRangeRadius">
-
-                    <div className="LostActionRange">
-                        <span>Range</span> 
-                        {LostActionsAsArray[0].range}
-                    </div>
-
-                    <div className="LostActionRadius">
-                        <span>Radius</span> 
-                        {LostActionsAsArray[0].radius}
-                    </div>
-
-                </div>
-            </div>            
+        <div className="LostActionName">
+            <p className="ActionName">{LostActionsAsArray[0].name.EN}</p>
         </div>
+        
+        <div className="LostActionTypeRangeRadius">
+            
+            <div className="LostActionType">
+                <p>{LostActionsAsArray[1].skillType.EN}</p>
+            </div>
+
+            <div className="LostActionRangeRadius">
+
+                <div className="LostActionRange">
+                    <span>Range </span> 
+                    {LostActionsAsArray[0].range}
+                </div>
+
+                <div className="LostActionRadius">
+                    <span>Radius </span> 
+                    {LostActionsAsArray[0].radius}
+                </div>
+            </div>
+        </div>            
+    </div>
+</div>
+
+// first div - cast part
+// second div - recast part
+// final div - available part
+
+// tie the inner part of the second div to a variable
+// check if the recast parameter exists, and if it does, create the variable and use it when building the overall div
+// same thing with final div.
+const AutomateSectionTwoVar : React.JSX.Element = 
+<div className="LostActionSectionTwo">
+
+    <div className="LostActionCastInfo">
+        <div className="LostActionCastRecastAvailable"><p className="LostActionCastRecastAvailableText">Cast</p></div>
+        <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{LostActionsAsArray[0].cast}</p></div>
+        <div className="LostActionFancyGraphicCast"></div>
+    </div>
+
+    <div className="LostActionRecastInfo">
+        <div className="LostActionCastRecastAvailable">
+            <p className="LostActionCastRecastAvailableText RecastText">Recast</p>
+        </div>
+        <div className="LostActionCastRecastAvailable">
+            <p className="LostActionParameterData">{LostActionsAsArray[0].recast}</p>
+            </div>
+        <div className="LostActionFancyGraphicRecast"></div>
+    </div>
+
+    <div className="LostActionAvailableInfo">
+        <div>
+            <p className="LostActionCastRecastAvailableText">Available</p>
+        </div>
+        <div className="LostActionCastRecastAvailable">
+            <p className="LostActionParameterData">{LostActionsAsArray[0].available}</p>
+        </div>
+        <div className="LostActionFancyGraphicAvailable"></div>
+    </div>
 
 </div>
 
-const AutomateSectionTwoVar : React.JSX.Element = 
-<div></div>
-const AutomateActionBoxTestCode : React.JSX.Element = 
+// Separator line in the lost action info.
+// this is static for all actions
+const AutomateSeparator : React.JSX.Element = 
+<div className="LostActionSeparatorSegment">
+    <div className="LostActionSeparatorSegmentLeftEnd"></div>
+        <div className="LostActionSeparatorSegmentCenter">
+            <div className="LostActionSeparatorSegmentCenterUpper"></div>
+            <div className="LostActionSeparatorSegmentCenterMiddle"></div>
+            <div className="LostActionSeparatorSegmentCenterLower"></div> 
+        </div>
+    <div className="LostActionSeparatorSegmentRightEnd"></div>
+</div>
+
+const AutomateSectionThreeVar : React.JSX.Element =
+<div className="LostActionSectionThree">
+    {LostActionsAsArray[0].description.EN}
+</div>
+
+const AutomateSectionFourVar : React.JSX.Element =
+<div className="LostActionSectionFour">
+    <div className="LostActionAffinity">
+        <span>Affinity</span>
+    </div>
+    <div className="LostActionJobs">
+        <span>{LostActionsAsArray[0].affinity.EN}</span>
+    </div>
+</div>
+
+export const AutomateActionBoxTestCode : React.JSX.Element = 
 <div className="LostActionDetailedInfoBox">
     <div className="LostActionInnerDetailedInfoBox">
         {AutomateSectionOneVar}
-        
-        <div className="LostActionDetailed">
-
-        </div>
+        {AutomateSectionTwoVar}
+        {AutomateSeparator}
+        {AutomateSectionThreeVar}
+        {AutomateSectionFourVar}
     </div>
 </div>;
 
