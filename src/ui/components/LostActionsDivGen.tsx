@@ -111,13 +111,13 @@ const AutomateSectionOneVar : React.JSX.Element =
 
     <div className="LostActionNameTypeRangeRadius">
         <div className="LostActionName">
-            <p className="ActionName">{LostActionsAsArray[0].name.EN}</p>
+            <span className="ActionName">{LostActionsAsArray[0].name.EN}</span>
         </div>
         
         <div className="LostActionTypeRangeRadius">
             
             <div className="LostActionType">
-                <p>{LostActionsAsArray[1].skillType.EN}</p>
+                <span className="ActionType">{LostActionsAsArray[1].skillType.EN}</span>
             </div>
 
             <div className="LostActionRangeRadius">
@@ -147,14 +147,14 @@ const AutomateSectionTwoVar : React.JSX.Element =
 <div className="LostActionSectionTwo">
 
     <div className="LostActionCastInfo">
-        <div className="LostActionCastRecastAvailable"><p className="LostActionCastRecastAvailableText">Cast</p></div>
+        <div className="LostActionCastRecastAvailable"><span className="LostActionCastRecastAvailableText">Cast</span></div>
         <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{LostActionsAsArray[0].cast}</p></div>
         <div className="LostActionFancyGraphicCast"></div>
     </div>
 
     <div className="LostActionRecastInfo">
         <div className="LostActionCastRecastAvailable">
-            <p className="LostActionCastRecastAvailableText RecastText">Recast</p>
+            <span className="LostActionCastRecastAvailableText RecastText">Recast</span>
         </div>
         <div className="LostActionCastRecastAvailable">
             <p className="LostActionParameterData">{LostActionsAsArray[0].recast}</p>
@@ -164,7 +164,7 @@ const AutomateSectionTwoVar : React.JSX.Element =
 
     <div className="LostActionAvailableInfo">
         <div>
-            <p className="LostActionCastRecastAvailableText">Available</p>
+            <span className="LostActionCastRecastAvailableText">Available</span>
         </div>
         <div className="LostActionCastRecastAvailable">
             <p className="LostActionParameterData">{LostActionsAsArray[0].available}</p>
