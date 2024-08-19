@@ -7,8 +7,9 @@ import LostActions from '@backend/lostactions/ActionData';
 //import LostActionsNoBorder from '../pictures/LostActions/LostActionsImgInitialise';
 
 import '@css/ui/components/LostActionsDivGen.scss';
+import IAction from '@app/backend/interfaces/IAction';
 
-const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic, LostActions.ItemRelated.DeepEssenceAetherweaver];
+const LostActionsAsArray : IAction[] = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic, LostActions.ItemRelated.DeepEssenceAetherweaver];
 
 //const LostFocusLink = LostActionsAsArray[0].img;
 
@@ -19,7 +20,7 @@ const LostActionsAsArray = [LostActions.Offensive.LostFocus, LostActions.Offensi
 }}></div>*/
 //<div className="TestingGradient"></div>
 
-const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
+/*const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
     
     <div className="TestingActionEncompass">
         <div className="Testing1">  
@@ -96,12 +97,15 @@ const LostActionInformation: React.JSX.Element[] = [<div className="Testing">
             </div>
         </div>
     </div>
-</div>];
+</div>];*/
+const LostActionInformation : React.JSX.Element[] = [];
 console.log(LostActionsAsArray[0].img)
 
 // test code for building automation for all actions
 // this variable is always static, every action has this exact structure
 // only thing that differs is what the literal values of the action is
+// double check: every lost action has the exact same structure for this first section
+// all that would need to be changed is what the LostActionsAsArray number is
 const AutomateSectionOneVar : React.JSX.Element = 
 <div className="LostActionSectionOne">
     
@@ -143,6 +147,12 @@ const AutomateSectionOneVar : React.JSX.Element =
 // tie the inner part of the second div to a variable
 // check if the recast parameter exists, and if it does, create the variable and use it when building the overall div
 // same thing with final div.
+// second check: for "available", lost flare star and lost seraph strike use "MP Cost" instead of "available"
+// actions with no "available" parameter need to have that entire div not appear at all
+// some actions (namely items) dont have a "recast" part either, so that needs to be gone too sometimes.
+// "Cast" is present in all actions, this is static
+// we will need an if condition for "recast", if it exists then we present the information as established below, else, we will just have the basic div but its contents will be empty.
+// for available, we will need an if condition to check if our action has an available defined. same idea as "recast". we will however need to perform an additional check if the action is flare star or seraph strike, where the text must say "MP Cost" instead of "available".
 const AutomateSectionTwoVar : React.JSX.Element = 
 <div className="LostActionSectionTwo">
 
@@ -161,7 +171,7 @@ const AutomateSectionTwoVar : React.JSX.Element =
             </div>
         <div className="LostActionFancyGraphicRecast"></div>
     </div>
-
+    
     <div className="LostActionAvailableInfo">
         <div>
             <span className="LostActionCastRecastAvailableText">Available</span>
@@ -171,8 +181,21 @@ const AutomateSectionTwoVar : React.JSX.Element =
         </div>
         <div className="LostActionFancyGraphicAvailable"></div>
     </div>
-
 </div>
+
+function CreateLostActionSectionTwo(LostAction : IAction) : React.JSX.Element {
+    if('recast' in LostAction) {
+        return (<div className="LostActionRecastInfo">
+                    <div className="LostActionCastRecastAvailable">
+                        <span className="LostActionCastRecastAvailableText RecastText">Recast</span>
+                    </div>
+                    <div className="LostActionCastRecastAvailable">
+                        <p className="LostActionParameterData">{LostActionsAsArray[0].recast}</p>
+                    </div>
+                    <div className="LostActionFancyGraphicRecast"></div>
+                </div>)
+    } else return <div className="LostActionRecastInfo"></div>
+}
 
 // Separator line in the lost action info.
 // this is static for all actions
@@ -187,11 +210,13 @@ const AutomateSeparator : React.JSX.Element =
     <div className="LostActionSeparatorSegmentRightEnd"></div>
 </div>
 
+// static, description just always goes here
 const AutomateSectionThreeVar : React.JSX.Element =
 <div className="LostActionSectionThree">
     {LostActionsAsArray[0].description.EN}
 </div>
 
+// also static
 const AutomateSectionFourVar : React.JSX.Element =
 <div className="LostActionSectionFour">
     <div className="LostActionAffinity">
