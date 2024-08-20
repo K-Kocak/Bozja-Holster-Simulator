@@ -492,7 +492,7 @@ const LostFlareStar: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Consumes MP to deal unaspected damage with a potency of 300 to all nearby enemies.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect: </span>Unaspected damage over time{"\n"}<span style={{color:"#00CC22"}}>Potency:</span> 350{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 60s{"\n"}The damage over time effect of Lost Flare Star can only be applied once per target at any given time. This effect cannot be stacked by multiple players.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -543,7 +543,7 @@ const LostChainspell: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Temporarily eliminates cast time for all spells.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>30s{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> <span style={{color:"#FFFF66"}}>Magic Burst</span>{"\n"}<span style={{color:"#00CC22"}}>Magic Burst Effect:</span> Increases spell damage by 45% while increasing MP cost{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 30s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Ordained Effect:</span> Raises <span style={{color:"#FFFF66"}}>Magic Burst</span> spell damage increase to 100% and nullifies additional MP cost{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Watcher Effect:</span> <span style={{color:"#FF7B1A"}}>Lost Chainspell</span> duration is extended to 90s{"\n"}Can only be executed while in combat.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -594,7 +594,8 @@ const LostAssassination: IAction = {
     },
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Through sheer force of will, restore a random technique of the lost to physical form and throw it at a single target, dealing damage with a potency of 50.{"\n"}Potency increases up to 1,000 based on the weight of the lost action.{"\n"}The lost action thrown will be lost upon execution.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers a close-quarter attack with a potency of 350. Chance of instant KO when attacking from the rear, which increases the lower the target's HP.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Beast Effect:</span> Grants the effect of <span style={{color:"#FFFF66"}}>Lost Font of Power</span> to self{"\n"}<span style={{color:"#00CC22"}}>Lost Font of Power Effect:</span> Increases damage dealt by 30% and critical hit rate by 40%{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 18s{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions.</div>
+        ,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>

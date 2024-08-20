@@ -4,15 +4,22 @@ import '../../scss/ui/components/LostFindsCache.scss';
 
 import LostActions from '@backend/lostactions/ActionData';
 
-import LostActionInformation from './LostActionsDivGen';
+import CreateLostActionInformationBoxes from './LostActionsDivGen';
+import IAction from '@app/backend/interfaces/IAction';
 
-import { AutomateActionBoxTestCode } from './LostActionsDivGen';
+import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+
+//const LostActionsAsArray : IAction[] = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic, LostActions.ItemRelated.DeepEssenceAetherweaver, LostActions.Offensive.LostFlareStar, LostActions.Detrimental.LostSeraphStrike];
+
+
+const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
 class LostFindsCache extends React.Component<any, never> {
     render() {
         return (
             <div id="LostFindsCacheContainer">
-                {AutomateActionBoxTestCode}
+                {LostActionInformationBoxes[11]}
+               
             </div>
         )
     }
