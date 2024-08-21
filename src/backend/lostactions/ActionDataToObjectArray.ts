@@ -5,12 +5,14 @@ export const LostActionsAsObjectArray : IAction[] = [];
 function LostActionsToObjectArray() {
     for(const [, LostActionsInType] of Object.entries(LostActions)) {
         for(const [, LostActionInformation] of Object.entries(LostActionsInType)) {
-            LostActionsAsObjectArray.push(LostActionInformation);
+            //LostActionsAsObjectArray.push(LostActionInformation);
+            LostActionsAsObjectArray[LostActionInformation.id] = LostActionInformation;
         }
     }
 }
 
 LostActionsToObjectArray();
+console.log(LostActionsAsObjectArray);
 export default LostActionsAsObjectArray;
 
 /*for (let [key, value] of Object.entries(LostActions)) {

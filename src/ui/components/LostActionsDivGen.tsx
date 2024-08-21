@@ -143,8 +143,9 @@ return <div className="LostActionSectionFour">
 
 export function CreateLostActionInformationBoxes(LostActionInformationBoxesStorage : IAction[]) : React.JSX.Element[] {
     const CreatedLostActionInformationBoxes : React.JSX.Element[] = [];
-    LostActionInformationBoxesStorage.forEach((LostAction) => {
-        CreatedLostActionInformationBoxes.push(CreateLostActionBox(LostAction));
+    LostActionInformationBoxesStorage.forEach((LostAction: IAction) => {
+        //CreatedLostActionInformationBoxes.push(CreateLostActionBox(LostAction));
+        CreatedLostActionInformationBoxes[LostAction.id] = CreateLostActionBox(LostAction);
     });
     return CreatedLostActionInformationBoxes;
 }
