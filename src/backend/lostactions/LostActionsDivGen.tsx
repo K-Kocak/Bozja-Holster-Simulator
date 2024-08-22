@@ -1,18 +1,13 @@
 // Divs that display when an action is hovered on is created here
 import React from 'react';
-import LostActions from '@backend/lostactions/ActionData';
 
 //import LostActionsNoBorder from '../pictures/LostActions/LostActionsImgInitialise';
 
 import '@css/ui/components/LostActionsDivGen.scss';
 import IAction from '@app/backend/interfaces/IAction';
 
-const LostActionsAsArray : IAction[] = [LostActions.Offensive.LostFocus, LostActions.Offensive.LostFontofMagic, LostActions.ItemRelated.DeepEssenceAetherweaver, LostActions.Offensive.LostFlareStar, LostActions.Detrimental.LostSeraphStrike];
-
 //const LostFocusLink = LostActionsAsArray[0].img;
 
-
-console.log(LostActionsAsArray[0].img)
 
 // test code for building automation for all actions
 // this variable is always static, every action has this exact structure
@@ -72,7 +67,7 @@ return <div className="LostActionSectionTwo">
 
     <div className="LostActionCastInfo">
         <div className="LostActionCastRecastAvailable"><span className="LostActionCastRecastAvailableText">Cast</span></div>
-        <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{LostActionsAsArray[0].cast}</p></div>
+        <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{LostAction.cast}</p></div>
         <div className="LostActionFancyGraphicCast"></div>
     </div>    
     {CreateLostActionSectionTwoRecast(LostAction)}
@@ -159,7 +154,7 @@ return <div className="LostActionDetailedInfoBox">
         {AutomateSectionThreeVar(LostAction)}
         {AutomateSectionFourVar(LostAction)}
     </div>
-</div>
+    </div>
 }
 
 export default CreateLostActionInformationBoxes;
