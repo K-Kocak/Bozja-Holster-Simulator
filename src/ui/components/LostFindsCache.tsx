@@ -11,6 +11,7 @@ import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArr
 import TestButtonCode from '@backend/lostactions/LostFindsCacheLostActionButtonGen';
 
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
+
 // {LostActionInformationBoxes[LostActions.ItemRelated.PureEssenceElder.id]} 
 class LostFindsCache extends React.Component<any, never> {
     render() {

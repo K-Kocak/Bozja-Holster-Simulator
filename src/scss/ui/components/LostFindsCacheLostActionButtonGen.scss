@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px 1px;
     
+    height: 49px;
     
     img {
         height: 48px;
@@ -10,11 +11,24 @@
 }
 
 .LostActionOffensive {
-    position: absolute;
+    position: relative;
     display: flex;
     margin: 0px;
     padding: 0px;
     width: 49px;
     top: 50px;
     left: 56px;
+}
+
+.LostActionInformationHover {
+    display: flex;
+    position: absolute;
+    margin-left: -50px;
+    padding-left: 0px;
+    
+    
+}
+
+.hidden {
+    visibility: hidden;
 }
