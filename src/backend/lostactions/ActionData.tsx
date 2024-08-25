@@ -875,8 +875,8 @@ const LostExcellence: IAction = {
 const LostBloodRage: IAction = {
     id: 206,
 
-    imgBorder: LostActionsWithBorder.Defensive.LostExcellence,
-    img: LostActionsNoBorder.Defensive.LostExcellence,
+    imgBorder: LostActionsWithBorder.Defensive.LostBloodRage,
+    img: LostActionsNoBorder.Defensive.LostBloodRage,
 
     name: {
         EN: "Lost Blood Rage",

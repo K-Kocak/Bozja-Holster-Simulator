@@ -1,23 +1,24 @@
 .LostCacheLostActionButton {
     margin: 0px;
     padding: 0px 1px;
-    
+    margin-bottom: 6px;
     height: 49px;
     
     img {
-        height: 48px;
-        width: 47px;
+        height: 47px;
+        width: 46px;
     }
 }
 
-.LostActionOffensive {
+.LostActionOffensive, .LostActionDefensive {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
+    float: left;
     margin: 0px;
     padding: 0px;
-    width: 49px;
-    top: 50px;
-    left: 56px;
+    width: 100%;
+    margin-bottom: 9px;
 }
 
 .LostActionInformationHover {
@@ -25,8 +26,17 @@
     position: absolute;
     margin-left: -50px;
     padding-left: 0px;
-    
-    
+    z-index: 1;
+}
+
+.LostCacheLostActionButtons {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 51px;
+    left: 56px;
+    width: 92%;
+   
 }
 
 .hidden {
