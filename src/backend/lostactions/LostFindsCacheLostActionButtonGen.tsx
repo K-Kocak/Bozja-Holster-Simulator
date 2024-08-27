@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { BaseSyntheticEvent } from 'react';
 
-import LostActions from '@backend/lostactions/ActionData';
 import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import IAction from '@backend/interfaces/IAction';
 
 import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDivGen';
 
@@ -9,11 +9,98 @@ import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
 
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
-function ToggleLostActionInformation(event: any) : void {
+// toggles visibility of lost action info
+function ToggleLostActionInformation(event: BaseSyntheticEvent) : void {
     console.log(event);
     event.target.nextSibling.classList.toggle('hidden');
 }
 
+// Creates a button which when hovered over, displays information on it
+function CreateLostCacheLostActionButton(LostAction: IAction) : React.JSX.Element {
+    return <div key={LostAction.id} className="LostCacheLostActionButton">
+            <img className="LostActionButtonImage"  onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+            <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
+        </div>
+}
+
+// Creates all the HTML for the lost action buttons inside the lost cache
+export function CreateLostCacheLostActionButtons(LostActionsAsObjectArray: IAction[]) : React.JSX.Element {
+    
+    const LostActionButtonsByCategory : React.JSX.Element[][] = CreateLostActionButtonsByCategory(LostActionsAsObjectArray);
+
+    return <div className="LostCacheLostActionButtons">
+        <div className="LostActionOffensive">
+            {LostActionButtonsByCategory[0]}
+        </div> 
+        <div className="LostActionDefensive">
+            {LostActionButtonsByCategory[1]}
+        </div> 
+        <div className="LostActionRestorative">
+            {LostActionButtonsByCategory[2]}
+        </div> 
+        <div className="LostActionBeneficial">
+            {LostActionButtonsByCategory[3]}
+        </div> 
+        <div className="LostActionTactical">
+            {LostActionButtonsByCategory[4]}
+        </div> 
+        <div className="LostActionDetrimental">
+            {LostActionButtonsByCategory[5]}
+        </div> 
+        <div className="LostActionItemRelated">
+            {LostActionButtonsByCategory[6]}
+        </div> 
+    </div>
+}
+
+export function CreateLostActionButtonsByCategory(LostActionsAsObjectArray: IAction[]) : React.JSX.Element[][] {
+    const LostActionButtonArrayOffensiveActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayDefensiveActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayRestorativeActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayBeneficialActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayTacticalActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayDetrimentalActions : React.JSX.Element[] = [];
+    const LostActionButtonArrayItemRelatedActions : React.JSX.Element[] = [];
+
+    LostActionsAsObjectArray.forEach((LostAction) => {
+        const LostActionButton : React.JSX.Element = CreateLostCacheLostActionButton(LostAction);
+        switch (LostAction.category.EN) {
+            case "Offensive": {
+                LostActionButtonArrayOffensiveActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Defensive": {
+                LostActionButtonArrayDefensiveActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Restorative": {
+                LostActionButtonArrayRestorativeActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Beneficial": {
+                LostActionButtonArrayBeneficialActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Tactical": {
+                LostActionButtonArrayTacticalActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Detrimental": {
+                LostActionButtonArrayDetrimentalActions[LostAction.id] = LostActionButton;
+                break;
+            }
+            case "Item-Related": {
+                LostActionButtonArrayItemRelatedActions[LostAction.id] = LostActionButton;
+            }
+        }
+    })
+
+    return [LostActionButtonArrayOffensiveActions, LostActionButtonArrayDefensiveActions,LostActionButtonArrayRestorativeActions,
+        LostActionButtonArrayBeneficialActions, LostActionButtonArrayTacticalActions, LostActionButtonArrayDetrimentalActions,
+        LostActionButtonArrayItemRelatedActions]
+}
+
+/*
 export const TestButtonCode : React.JSX.Element =
 <div className="LostCacheLostActionButtons">
     <div className="LostActionOffensive">
@@ -194,6 +281,7 @@ export const TestButtonCode : React.JSX.Element =
             <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostActions.Beneficial.LostBubble.id]}</div>       
         </div>
     </div>
+
     <div className="LostActionTactical">
         <div  className="LostCacheLostActionButton">
             <img className="LostActionButtonImage"  onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostActions.Defensive.LostIncense.imgBorder}></img>
@@ -451,4 +539,6 @@ export const TestButtonCode : React.JSX.Element =
         </div>
     </div>
 </div>
-export default TestButtonCode;
+*/
+
+export default CreateLostCacheLostActionButtons;

@@ -1,51 +1,3 @@
-.LostCacheLostActionButton {
-    margin: 0px;
-    padding: 0px 1px;
-    margin-bottom: 6px;
-    height: 49px;
-   
-    
-    .LostActionButtonImage {
-        height: 47px;
-        width: 46px;
-    }
-}
-
-.LostActionOffensive, .LostActionDefensive, .LostActionRestorative, .LostActionBeneficial, .LostActionTactical, .LostActionDetrimental, .LostActionItemRelated {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    float: left;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    margin-bottom: 9px;
-}
-
-.LostActionItemRelated {
-   margin-top: 3px;
-    .LostCacheLostActionButton {
-         
-        
-        margin-bottom: 0px;
-        margin-left: 3px;
-        margin-right: 3px;
-        .LostActionButtonImage {
-            height: 41px;
-            width: 40px;
-        }
-    }
-    
-}
-
-.LostActionInformationHover {
-    display: flex;
-    position: absolute;
-    margin-left: -50px;
-    padding-left: 0px;
-    z-index: 1;
-}
-
 .LostCacheLostActionButtons {
     display: flex;
     flex-direction: column;
@@ -53,10 +5,58 @@
     top: 50px;
     left: 56px;
     width: 92%;
-   
+
+    .LostActionOffensive, .LostActionDefensive, .LostActionRestorative, .LostActionBeneficial, .LostActionTactical, .LostActionDetrimental, .LostActionItemRelated {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        float: left;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        margin-bottom: 9px;
+
+        .LostCacheLostActionButton {
+            margin: 0px;
+            padding: 0px 1px;
+            margin-bottom: 6px;
+            height: 49px;
+           
+            
+            .LostActionButtonImage {
+                height: 47px;
+                width: 46px;
+            }
+
+            .LostActionInformationHover {
+                display: flex;
+                position: absolute;
+                margin-left: -50px;
+                padding-left: 0px;
+                z-index: 1;
+            }
+
+            .hidden {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .LostActionItemRelated {
+        margin-top: 3px;
+
+         .LostCacheLostActionButton {         
+             margin-bottom: 0px;
+             margin-left: 3px;
+             margin-right: 3px;
+
+             .LostActionButtonImage {
+                 height: 41px;
+                 width: 40px;
+             }
+         }       
+     }
 }
 
-.hidden {
-    visibility: hidden;
-}
+
 

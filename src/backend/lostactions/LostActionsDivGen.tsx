@@ -139,7 +139,6 @@ return <div className="LostActionSectionFour">
 export function CreateLostActionInformationBoxes(LostActionInformationBoxesStorage : IAction[]) : React.JSX.Element[] {
     const CreatedLostActionInformationBoxes : React.JSX.Element[] = [];
     LostActionInformationBoxesStorage.forEach((LostAction: IAction) => {
-        //CreatedLostActionInformationBoxes.push(CreateLostActionBox(LostAction));
         CreatedLostActionInformationBoxes[LostAction.id] = CreateLostActionBox(LostAction);
     });
     return CreatedLostActionInformationBoxes;
@@ -147,17 +146,14 @@ export function CreateLostActionInformationBoxes(LostActionInformationBoxesStora
 
 function CreateLostActionBox(LostAction: IAction) : React.JSX.Element {
 return <div className="LostActionDetailedInfoBox">
-    <div className="LostActionInnerDetailedInfoBox">
-        {AutomateSectionOneVar(LostAction)}
-        {AutomateSectionTwoVar(LostAction)}
-        {AutomateSeparator}
-        {AutomateSectionThreeVar(LostAction)}
-        {AutomateSectionFourVar(LostAction)}
-    </div>
+        <div className="LostActionInnerDetailedInfoBox">
+            {AutomateSectionOneVar(LostAction)}
+            {AutomateSectionTwoVar(LostAction)}
+            {AutomateSeparator}
+            {AutomateSectionThreeVar(LostAction)}
+            {AutomateSectionFourVar(LostAction)}
+        </div>
     </div>
 }
 
 export default CreateLostActionInformationBoxes;
-//const LostActionInformationBoxesToExport : React.JSX.Element[] = [];
-//CreateLostActionInformationBoxes(LostActionInformationBoxesToExport);
-//export default LostActionInformationBoxesToExport;

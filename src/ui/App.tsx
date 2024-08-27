@@ -6,7 +6,8 @@ import LostActions from '@backend/lostactions/ActionData';
 
 import divToPlace from '../backend/lostactions/LostActionDescriptionGrinder';
 
-import LostFindsCache from './components/LostFindsCache';
+import LostFindsCache from '@ui/components/LostFindsCache';
+import LostFindsHolster from '@ui/components/LostFindsHolster';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,15 +15,13 @@ function App() {
   return (
     <>
       <LostFindsCache />
+      <LostFindsHolster />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
           <img src={LostActions.ItemRelated.DynamisDice.img} style={{ maxHeight: 40}}/>
           
         </a>
-        <div style={{lineHeight: 1, paddingBottom: 15}}>
-          {LostActions.ItemRelated.DynamisDice.description.EN}
-        </div>
         
         {divToPlace}
         

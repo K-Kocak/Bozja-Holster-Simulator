@@ -12,13 +12,5 @@ function LostActionsToObjectArray() {
 }
 
 LostActionsToObjectArray();
-console.log(LostActionsAsObjectArray);
-export default LostActionsAsObjectArray;
 
-/*for (let [key, value] of Object.entries(LostActions)) {
-    console.log(key, value);
-    for(let [key, values] of Object.entries(value)) {
-        console.log(key, values);
-        values.id
-    }
-}*/
+export default LostActionsAsObjectArray;

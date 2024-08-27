@@ -2,22 +2,17 @@ import React from 'react';
 
 import '../../scss/ui/components/LostFindsCache.scss';
 
-import LostActions from '@backend/lostactions/ActionData';
-
-import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDivGen';
-
 import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import CreateLostCacheLostActionButtons from '@backend/lostactions/LostFindsCacheLostActionButtonGen';
 
-import TestButtonCode from '@backend/lostactions/LostFindsCacheLostActionButtonGen';
-
-const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
+const LostCacheLostActionButtonPopulation = CreateLostCacheLostActionButtons(LostActionsAsObjectArray);
 
 // {LostActionInformationBoxes[LostActions.ItemRelated.PureEssenceElder.id]} 
-class LostFindsCache extends React.Component<any, never> {
+class LostFindsCache extends React.Component<unknown, never> {
     render() {
         return (
             <div id="LostFindsCacheContainer">
-                {TestButtonCode}
+                {LostCacheLostActionButtonPopulation}
             </div>
         )
     }
