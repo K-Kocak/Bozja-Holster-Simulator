@@ -106,8 +106,8 @@ function CreateLostActionSectionTwoAvailable(LostAction: IAction) : React.JSX.El
 
 // Separator line in the lost action info.
 // this is static for all actions
-const AutomateSeparator : React.JSX.Element = 
-<div className="LostActionSeparatorSegment">
+export function AutomateSeparator() : React.JSX.Element { 
+return <div className="LostActionSeparatorSegment">
     <div className="LostActionSeparatorSegmentLeftEnd"></div>
         <div className="LostActionSeparatorSegmentCenter">
             <div className="LostActionSeparatorSegmentCenterUpper"></div>
@@ -116,6 +116,7 @@ const AutomateSeparator : React.JSX.Element =
         </div>
     <div className="LostActionSeparatorSegmentRightEnd"></div>
 </div>
+}
 
 // static, description just always goes here
 function AutomateSectionThreeVar(LostAction: IAction) : React.JSX.Element {
@@ -149,7 +150,7 @@ return <div className="LostActionDetailedInfoBox">
         <div className="LostActionInnerDetailedInfoBox">
             {AutomateSectionOneVar(LostAction)}
             {AutomateSectionTwoVar(LostAction)}
-            {AutomateSeparator}
+            {AutomateSeparator()}
             {AutomateSectionThreeVar(LostAction)}
             {AutomateSectionFourVar(LostAction)}
         </div>

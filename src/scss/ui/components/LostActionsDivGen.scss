@@ -182,59 +182,7 @@
                 padding-right: 2px;
                 padding-top: 1px;
             }          
-        }
-
-        // the fancy graphic line separating section two and three
-        .LostActionSeparatorSegment {
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: center;
-            margin: 0px;
-            margin-bottom: 4px;
-            
-            .LostActionSeparatorSegmentLeftEnd, .LostActionSeparatorSegmentRightEnd {
-                height: 3px;
-                background-color: white;
-                width: 1px;
-                background: linear-gradient(#242424, #444344, #6A6A6A);
-            }
-
-            .LostActionSeparatorSegmentLeftEnd {              
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;               
-            }
-        
-            .LostActionSeparatorSegmentRightEnd {
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-            }
-        
-            .LostActionSeparatorSegmentCenter {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 98%;
-                
-                .LostActionSeparatorSegmentCenterUpper, .LostActionSeparatorSegmentCenterMiddle, .LostActionSeparatorSegmentCenterLower {
-                    height: 1px;
-                    width: 100%; 
-                }
-
-                .LostActionSeparatorSegmentCenterUpper {                   
-                    background-color: #242424;                  
-                }
-                
-                
-                .LostActionSeparatorSegmentCenterMiddle {
-                    background-color: #444344;
-                }
-            
-                .LostActionSeparatorSegmentCenterLower {
-                    background-color: #6A6A6A;
-                }
-            }
-        }
+        }     
 
         // description of the lost action, its HTML code has been made already in ActionData.tsx
         .LostActionSectionThree {
@@ -262,4 +210,54 @@
     }
 }
 
+// the fancy graphic line separating section two and three
+.LostActionSeparatorSegment {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 4px;
+    
+    .LostActionSeparatorSegmentLeftEnd, .LostActionSeparatorSegmentRightEnd {
+        height: 3px;
+        background-color: white;
+        width: 1px;
+        background: linear-gradient(#242424, #444344, #6A6A6A);
+    }
 
+    .LostActionSeparatorSegmentLeftEnd {              
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;               
+    }
+
+    .LostActionSeparatorSegmentRightEnd {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .LostActionSeparatorSegmentCenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 98%;
+        
+        .LostActionSeparatorSegmentCenterUpper, .LostActionSeparatorSegmentCenterMiddle, .LostActionSeparatorSegmentCenterLower {
+            height: 1px;
+            width: 100%; 
+        }
+
+        .LostActionSeparatorSegmentCenterUpper {                   
+            background-color: #242424;                  
+        }
+        
+        
+        .LostActionSeparatorSegmentCenterMiddle {
+            background-color: #444344;
+        }
+    
+        .LostActionSeparatorSegmentCenterLower {
+            background-color: #6A6A6A;
+        }
+    }
+}

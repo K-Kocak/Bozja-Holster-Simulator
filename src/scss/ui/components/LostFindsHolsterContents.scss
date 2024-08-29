@@ -1,0 +1,90 @@
+.LostFindsHolsterInnerContainer {
+    position: relative;
+    margin: 48px 15px 0px 15px;
+    height: 88%;
+    display: flex;
+    flex-direction: column;
+}
+
+.LostFindsHolsterPlayerHolster {
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.LostFindsHolsterActionWeightMaxCapacity {  
+    height: 20%;
+}
+
+.LostFindsHolsterActionCategoryFancyGraphic {
+    background-color: #968C87;
+    height: 18px;
+    border-radius: 6px;
+    display: flex;
+    margin-left: 4px;
+    padding-left: 6px;
+    margin-right: 8px;
+    align-items: center;
+
+    .LostFindsHolsterActionCategoryFancyGraphicPicture {
+        border-radius: 50%;
+        height: 15px;
+        padding-right: 2px;
+    }
+
+    .LostFindsHolsterActionCategoryName {
+        color: #292625;
+        font-weight: bold;
+    }
+}
+
+// temporarily code to make editing the css easier
+// keep only code that changes properties
+.LostActionSeparatorSegment {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 4px 0px 4px -4px;
+    
+    .LostActionSeparatorSegmentLeftEnd, .LostActionSeparatorSegmentRightEnd {
+        height: 3px;
+        background-color: white;
+        width: 1px;
+        background: linear-gradient(#242424, #444344, #6A6A6A);
+    }
+
+    .LostActionSeparatorSegmentLeftEnd {              
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;               
+    }
+
+    .LostActionSeparatorSegmentRightEnd {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .LostActionSeparatorSegmentCenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 98%;
+        
+        .LostActionSeparatorSegmentCenterUpper, .LostActionSeparatorSegmentCenterMiddle, .LostActionSeparatorSegmentCenterLower {
+            height: 1px;
+            width: 100%; 
+        }
+
+        .LostActionSeparatorSegmentCenterUpper {                   
+            background-color: #242424;                  
+        }
+        
+        
+        .LostActionSeparatorSegmentCenterMiddle {
+            background-color: #444344;
+        }
+    
+        .LostActionSeparatorSegmentCenterLower {
+            background-color: #6A6A6A;
+        }
+    }
+}
