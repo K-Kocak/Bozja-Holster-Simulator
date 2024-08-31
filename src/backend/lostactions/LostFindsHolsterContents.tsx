@@ -4,13 +4,27 @@ import '@css/ui/components/LostFindsHolsterContents.scss';
 //import '@css/ui/components/LostActionsDivGen.scss';
 
 import LostActions from './ActionData';
+import IAction from '../interfaces/IAction';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
+
 const LostFindsHolsterSeparator = AutomateSeparator();
 
+function CreateLostFindsHolsterActionBox(LostAction : IAction) : React.JSX.Element {
+    return (
+        <div className="LostFindsHolsterActionBox">
+                <div className="LostFindsHolsterActionBoxImage">
+                    <img src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+                </div>
+                <div className="LostFindsHolsterActionBoxName">
+                    <span>{LostAction.name.EN}</span>
+                </div>
+        </div>
+    )
+}
 
 const Testing : React.JSX.Element = 
 <div className="LostFindsHolsterInnerContainer">
@@ -21,14 +35,7 @@ const Testing : React.JSX.Element =
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Offensive</span>
             </div>
-            <div className="LostFindsHolsterActionBox">
-                <div className="LostFindsHolsterActionBoxImage">
-                    <img src={LostActions.Offensive.LostFocus.imgBorder}></img>
-                </div>
-                <div className="LostFindsHolsterActionBoxName">
-                    <span>{LostActions.Offensive.LostFocus.name.EN}</span>
-                </div>
-            </div>
+            {CreateLostFindsHolsterActionBox(LostActions.Offensive.LostFocus)}
             <div className="LostFindsHolsterActionBox">
                 <div className="LostFindsHolsterActionBoxImage">
                     <img src={LostActions.Offensive.LostFontofPower.imgBorder}></img>
