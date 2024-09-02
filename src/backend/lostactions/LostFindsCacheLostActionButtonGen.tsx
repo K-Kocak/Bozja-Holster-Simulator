@@ -7,6 +7,8 @@ import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDi
 
 import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
 
+import { LostFindsHolsterIncreaseActionQuantityByOne } from '@backend/lostactions/LostFindsHolsterActionBoxGen';
+
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
 // toggles visibility of lost action info
@@ -15,10 +17,11 @@ function ToggleLostActionInformation(event: BaseSyntheticEvent) : void {
     event.target.nextSibling.classList.toggle('hidden');
 }
 
+
 // Creates a button which when hovered over, displays information on it
 function CreateLostCacheLostActionButton(LostAction: IAction) : React.JSX.Element {
-    return <div key={LostAction.id} className="LostCacheLostActionButton">
-            <img className="LostActionButtonImage"  onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+    return <div key={LostAction.id} onClick={LostFindsHolsterIncreaseActionQuantityByOne} className="LostCacheLostActionButton">
+            <img id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
             <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
         </div>
 }

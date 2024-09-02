@@ -10,11 +10,15 @@ import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicFo
 
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
+import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+
 import CreateLostFindsHolsterActionBoxes from '@backend/lostactions/LostFindsHolsterActionBoxGen';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
-const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
 
+// action box gen
+const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+console.log(LostFindsHolsterActionBoxes);
 //when a button is clicked on the lost finds cache, we want to call this function with whatever action was pressed to create the element -- if and only if it hasn't been created yet. if it has been created, then we want to increase its quantity by 1 instead
 
 // logic theory crafting:
@@ -53,7 +57,6 @@ const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
 }*/
 
 
-
 const Testing : React.JSX.Element = 
 <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
@@ -63,8 +66,8 @@ const Testing : React.JSX.Element =
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Offensive</span>
             </div>
-            {LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id]}
-            {LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id]}
+            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
+            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
         </div>
 
         <div className="LostFindsHolsterActionCategoryDefensive  hidden">
@@ -72,8 +75,9 @@ const Testing : React.JSX.Element =
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Offensive</span>
             </div>
-            {LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id]}
-            {LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id]}
+            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > 8 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
+            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > 3 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
+            
         </div>
         
     </div>
