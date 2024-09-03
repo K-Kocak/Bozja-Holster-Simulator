@@ -9,13 +9,18 @@ import divToPlace from '../backend/lostactions/LostActionDescriptionGrinder';
 import LostFindsCache from '@ui/components/LostFindsCache';
 import LostFindsHolster from '@ui/components/LostFindsHolster';
 
+
+
 function App() {
   const [count, setCount] = useState(0)
 
+  function IncrementCounter() : void {
+    setCount((count) => count + 5);
+  }
+
   return (
     <>
-      <LostFindsCache />
-      <LostFindsHolster />
+      
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -32,6 +37,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={IncrementCounter}>count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
