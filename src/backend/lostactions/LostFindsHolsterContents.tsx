@@ -4,7 +4,6 @@ import '@css/ui/components/LostFindsHolsterContents.scss';
 //import '@css/ui/components/LostActionsDivGen.scss';
 
 import LostActions from './ActionData';
-import IAction from '../interfaces/IAction';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
@@ -13,11 +12,12 @@ import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
 
 import CreateLostFindsHolsterActionBoxes from '@backend/lostactions/LostFindsHolsterActionBoxGen';
+import { useAppDispatch, useAppSelector } from '../hooks';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
 
 // action box gen
-const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+
 console.log(LostFindsHolsterActionBoxes);
 //when a button is clicked on the lost finds cache, we want to call this function with whatever action was pressed to create the element -- if and only if it hasn't been created yet. if it has been created, then we want to increase its quantity by 1 instead
 
@@ -57,8 +57,17 @@ console.log(LostFindsHolsterActionBoxes);
 }*/
 
 
-const Testing : React.JSX.Element = 
-<div className="LostFindsHolsterInnerContainer">
+export const LostFindsHolsterInformation = () => {
+    const dispatch = useAppDispatch();
+
+    const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+    
+    const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
+    const selectedWeight = useAppSelector((state) => state.LostFindsHolster.SelectedWeight);
+    const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
+
+    return <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
 
         <div className="LostFindsHolsterActionCategoryOffensive hidden">
@@ -84,13 +93,12 @@ const Testing : React.JSX.Element =
     {LostFindsHolsterSeparator}
     <div className="LostFindsHolsterActionWeightMaxCapacity">
         <div className="LostFindsHolsterActionWeight">
-            
+            <span>{selectedWeight}</span>
         </div>
         <div className="LostFindsHolsterMaxCapacity">
-
+            <span>{currentWeight} / 200</span>
         </div>
     </div>
-    
 </div>
-
-export default Testing;
+}
+export default LostFindsHolsterInformation;

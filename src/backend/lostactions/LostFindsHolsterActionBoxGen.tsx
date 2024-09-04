@@ -5,10 +5,17 @@ import IAction from '@backend/interfaces/IAction';
 import '@css/ui/components/LostFindsHolsterContents.scss';
 
 import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import { useAppDispatch } from '../hooks';
 
 const LostFindsHolsterActionBoxesArray : React.JSX.Element[] = [];
 
 export function CreateLostFindsHolsterActionBox(LostAction : IAction) : React.JSX.Element {
+    const dispatch = useAppDispatch();
+
+    function HandleButtonClick() {
+        
+    }
+
     return (
         <div id={LostAction.id.toString()} onClick={LostFindsHolsterDecreaseActionQuantityByOne} className="LostFindsHolsterActionBox">
                 <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
@@ -26,16 +33,11 @@ export function LostFindsHolsterDecreaseActionQuantityByOne(event : BaseSyntheti
     console.log(event);
     if(LostActionsAsObjectArray[event.target.id].quantity > 0) {
         LostActionsAsObjectArray[event.target.id].quantity--;
-
     }
     console.log(LostActionsAsObjectArray[event.target.id].quantity);
 }
 
-export function LostFindsHolsterIncreaseActionQuantityByOne(event : BaseSyntheticEvent) : void {
-    LostActionsAsObjectArray[event.target.id].quantity++;
-    console.log(LostActionsAsObjectArray[event.target.id].quantity);
-    //LostFindsHolsterActionBoxes[event.target.id] = CreateLostFindsHolsterActionBox(LostActionsAsObjectArray[event.target.id]);
-}
+
 
 export function LostFindsHolsterResetLostActionQuantitiesToZero() : void {
     LostActionsAsObjectArray.forEach((LostAction) => {
