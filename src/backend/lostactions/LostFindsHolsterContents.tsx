@@ -1,24 +1,18 @@
-import React from 'react';
-
 import '@css/ui/components/LostFindsHolsterContents.scss';
 //import '@css/ui/components/LostActionsDivGen.scss';
-
-import LostActions from './ActionData';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
-import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
-
 import CreateLostFindsHolsterActionBoxes from '@backend/lostactions/LostFindsHolsterActionBoxGen';
-import { useAppDispatch, useAppSelector } from '../hooks';
+import { useAppSelector } from '../hooks';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
 
 // action box gen
 
-console.log(LostFindsHolsterActionBoxes);
+//console.log(LostFindsHolsterActionBoxes);
 //when a button is clicked on the lost finds cache, we want to call this function with whatever action was pressed to create the element -- if and only if it hasn't been created yet. if it has been created, then we want to increase its quantity by 1 instead
 
 // logic theory crafting:
@@ -55,40 +49,88 @@ console.log(LostFindsHolsterActionBoxes);
         </div>
     )
 }*/
+//{LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
+//{LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
 
-
-export const LostFindsHolsterInformation = () => {
-    const dispatch = useAppDispatch();
-
-    const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
-    
-    const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
+/*<div className="LostFindsHolsterActionCategoryOffensive hidden">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Offensive</span>
+            </div>
+        </div>
+*/
+export const LostFindsHolsterInformation = () => {   
     const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
     const selectedWeight = useAppSelector((state) => state.LostFindsHolster.SelectedWeight);
-    const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
+    const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+    const LostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
+    LostFindsHolsterActionBoxes.forEach((LostFindsHolsterActionBoxCategory, indexCategory : number) => {
+        LostFindsHolsterActionBoxCategory.forEach((LostFindsHolsterActionBox) => {
+            if(LostFindsHolsterActionBox.type == "div") {
+                LostFindsHolsterActionCategoryCounts[indexCategory] += 1;
+            }
+        });
+    });
 
     return <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
-
-        <div className="LostFindsHolsterActionCategoryOffensive hidden">
-            <div className="LostFindsHolsterActionCategoryFancyGraphic">
-                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
-                <span className="LostFindsHolsterActionCategoryName">Offensive</span>
-            </div>
-            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
-            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
-        </div>
-
-        <div className="LostFindsHolsterActionCategoryDefensive  hidden">
-            <div className="LostFindsHolsterActionCategoryFancyGraphic">
-                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
-                <span className="LostFindsHolsterActionCategoryName">Offensive</span>
-            </div>
-            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > 8 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
-            {LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > 3 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
-            
-        </div>
         
+        {LostFindsHolsterActionCategoryCounts[0] > 0 ? <div className="LostFindsHolsterActionCategoryOffensive">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Offensive</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[0]}
+
+        {LostFindsHolsterActionCategoryCounts[1] > 0 ? <div className="LostFindsHolsterActionCategoryDefensive">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Defensive</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[1]}  
+
+        {LostFindsHolsterActionCategoryCounts[2] > 0 ? <div className="LostFindsHolsterActionCategoryRestorative">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Restorative</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[2]} 
+
+        {LostFindsHolsterActionCategoryCounts[3] > 0 ? <div className="LostFindsHolsterActionCategoryBeneficial">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Beneficial</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[3]}  
+
+        {LostFindsHolsterActionCategoryCounts[4] > 0 ? <div className="LostFindsHolsterActionCategoryTactical">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Tactical</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[4]}  
+
+        {LostFindsHolsterActionCategoryCounts[5] > 0 ? <div className="LostFindsHolsterActionCategoryDetrimental">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Detrimental</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[5]}  
+
+        {LostFindsHolsterActionCategoryCounts[6] > 0 ? <div className="LostFindsHolsterActionCategoryItemRelated">
+            <div className="LostFindsHolsterActionCategoryFancyGraphic">
+                <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
+                <span className="LostFindsHolsterActionCategoryName">Item-Related</span>
+            </div>
+        </div> : <></>}
+        {LostFindsHolsterActionBoxes[6]}  
+
     </div>
     {LostFindsHolsterSeparator}
     <div className="LostFindsHolsterActionWeightMaxCapacity">

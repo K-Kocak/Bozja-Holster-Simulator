@@ -7,23 +7,20 @@ import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDi
 
 import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { addActionToHolster, increaseCurrentWeight, incrementActionQuantity } from './LostFindsHolsterSlice';
+import { addActionToHolster, increaseCurrentWeight, incrementActionQuantity, setSelectedWeight } from './LostFindsHolsterSlice';
 
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
+const minimumLostActionInformationClassListLength = 1;
+
 // toggles visibility of lost action info
-function ToggleLostActionInformation(event: BaseSyntheticEvent) : void {
-    console.log(event);
-    event.target.nextSibling.classList.toggle('hidden');
-}
+
 //{dispatch(addActionToHolster(LostAction.id)); dispatch(increaseCurrentWeight(LostAction.weight)); dispatch(incrementActionQuantity(LostAction.id))}
 
 // Creates a button which when hovered over, displays information on it
 const CreateLostCacheLostActionButton = (LostAction: IAction) => {
     const dispatch = useAppDispatch();
-    const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
     const holster = useAppSelector((state) => state.LostFindsHolster.Holster);
-    const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
     function HandleButtonClick(event : BaseSyntheticEvent) {
         const idOfAction : number = event.target.id;
         if(!holster[idOfAction]) 
@@ -32,13 +29,20 @@ const CreateLostCacheLostActionButton = (LostAction: IAction) => {
         }
         dispatch(increaseCurrentWeight(LostActionsAsObjectArray[idOfAction].weight));      
         dispatch(incrementActionQuantity(idOfAction));
-        console.log(currentWeight);
         console.log(holster);
-        console.log(actionQuantities);
+    }
+
+    const ToggleLostActionInformation = (event: BaseSyntheticEvent) => {
+        event.target.nextSibling.classList.length > minimumLostActionInformationClassListLength ? 
+            dispatch(setSelectedWeight(LostActionsAsObjectArray[event.target.id].weight)) : dispatch(setSelectedWeight(0))
+
+        console.log(event.target.nextSibling.classList);
+        console.log(event);
+        event.target.nextSibling.classList.toggle('hidden');
     }
 
     return <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostCacheLostActionButton">
-            <img id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+            <img key={LostAction.id} id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
             <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
         </div>
 }

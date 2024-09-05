@@ -1,42 +1,55 @@
 import React, { BaseSyntheticEvent } from 'react';
 
-import IAction from '@backend/interfaces/IAction';
-
 import '@css/ui/components/LostFindsHolsterContents.scss';
 
 import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
-import { useAppDispatch } from '../hooks';
 
-const LostFindsHolsterActionBoxesArray : React.JSX.Element[] = [];
+import IAction from '../interfaces/IAction';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster } from './LostFindsHolsterSlice';
+import CreateLostActionInformationBoxes from './LostActionsDivGen';
 
-export function CreateLostFindsHolsterActionBox(LostAction : IAction) : React.JSX.Element {
+const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
     const dispatch = useAppDispatch();
-
+    const currentActionQuantity = useAppSelector((state) => state.LostFindsHolster.ActionQuantities[LostAction.id])
+    const holsterTrack = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const quantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
+    if(!quantities[LostAction.id]) {
+        return <></>;
+    }
     function HandleButtonClick() {
-        
+        if(currentActionQuantity == 0) {
+            // debugging
+            return;
+        }
+        if(currentActionQuantity - 1 == 0) {
+            dispatch(removeActionFromHolster(LostAction.id));
+        }
+        dispatch(decrementActionQuantity(LostAction.id))
+        dispatch(decreaseCurrentWeight(LostAction.weight));
+        console.log(holsterTrack); 
+        console.log(quantities);
+    }
+
+    function ToggleLostActionInformation(event: BaseSyntheticEvent) {
+        console.log(event);
+        event.target.lastChild.classList.toggle('hidden');
     }
 
     return (
-        <div id={LostAction.id.toString()} onClick={LostFindsHolsterDecreaseActionQuantityByOne} className="LostFindsHolsterActionBox">
-                <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
-                    <span id={LostAction.id.toString()} className="LostFindsHolsterActionBoxQuantity">{LostAction.quantity}</span>
+        <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostFindsHolsterActionBox">
+                <div key={LostAction.id} id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
+                    <span id={LostAction.id.toString()} className="LostFindsHolsterActionBoxQuantity">{currentActionQuantity}</span>
                     <img id={LostAction.id.toString()} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+                   
                 </div>
                 <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxName">
                     <span id={LostAction.id.toString()} >{LostAction.name.EN}</span>
                 </div>
+                
         </div>
     )
 }
-
-export function LostFindsHolsterDecreaseActionQuantityByOne(event : BaseSyntheticEvent) : void {
-    console.log(event);
-    if(LostActionsAsObjectArray[event.target.id].quantity > 0) {
-        LostActionsAsObjectArray[event.target.id].quantity--;
-    }
-    console.log(LostActionsAsObjectArray[event.target.id].quantity);
-}
-
 
 
 export function LostFindsHolsterResetLostActionQuantitiesToZero() : void {
@@ -45,11 +58,54 @@ export function LostFindsHolsterResetLostActionQuantitiesToZero() : void {
     })
 }
 
-export function CreateLostFindsHolsterActionBoxes() : React.JSX.Element[] {
+export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
+    //const LostFindsHolsterActionBoxesArray : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayOffensiveActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayDefensiveActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayRestorativeActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayBeneficialActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayTacticalActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayDetrimentalActions : React.JSX.Element[] = [];
+    const LostFindsHolsterActionBoxesArrayItemRelatedActions : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
-        LostFindsHolsterActionBoxesArray[LostAction.id] = CreateLostFindsHolsterActionBox(LostAction);
+        //LostFindsHolsterActionBoxesArray[LostAction.id] = CreateLostFindsHolsterActionBox(LostAction); 
+        
+        const LostFindsHolsterActionBox = CreateLostFindsHolsterActionBox(LostAction);
+        
+        switch (LostAction.category.EN) {
+            case "Offensive": {
+                LostFindsHolsterActionBoxesArrayOffensiveActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Defensive": {
+                LostFindsHolsterActionBoxesArrayDefensiveActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Restorative": {
+                LostFindsHolsterActionBoxesArrayRestorativeActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Beneficial": {
+                LostFindsHolsterActionBoxesArrayBeneficialActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Tactical": {
+                LostFindsHolsterActionBoxesArrayTacticalActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Detrimental": {
+                LostFindsHolsterActionBoxesArrayDetrimentalActions[LostAction.id] = LostFindsHolsterActionBox;
+                break;
+            }
+            case "Item-Related": {
+                LostFindsHolsterActionBoxesArrayItemRelatedActions[LostAction.id] = LostFindsHolsterActionBox;
+            }
+        }
     })
-    return LostFindsHolsterActionBoxesArray;
+    return [LostFindsHolsterActionBoxesArrayOffensiveActions, LostFindsHolsterActionBoxesArrayDefensiveActions,LostFindsHolsterActionBoxesArrayRestorativeActions,
+        LostFindsHolsterActionBoxesArrayBeneficialActions, LostFindsHolsterActionBoxesArrayTacticalActions, LostFindsHolsterActionBoxesArrayDetrimentalActions,
+        LostFindsHolsterActionBoxesArrayItemRelatedActions]
+    //return LostFindsHolsterActionBoxesArray;
 }
 
 export default CreateLostFindsHolsterActionBoxes;
