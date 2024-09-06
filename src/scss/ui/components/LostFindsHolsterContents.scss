@@ -83,6 +83,50 @@
     width: 0px;
 }
 
+.LostFindsHolsterWeightAndCapacityBox {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 10px;
+    height: 60px;
+    font-size: 20px;
+
+    .LostFindsHolsterActionSelectedActionWeight {
+        display: flex;
+        flex-direction: row;
+        height: 50%;
+        align-items: center;
+
+        .LostFindsHolsterSelectedActionWeightText {
+            width: 70%;
+            text-align: right;
+        }
+
+        .LostFindsHolsterSelectedActionWeightNumber {
+            width: 30%;
+            text-align: center;
+        }
+    }
+
+    .LostFindsHolsterMaximumCapacity {
+        display: flex;
+        flex-direction: row;
+        height: 50%;
+        align-items: center;
+        .LostFindsHolsterMaximumCapacityText {
+            width: 70%;
+            text-align: right;
+        }
+
+        .LostFindsHolsterMaximumCapacityNumber {
+            display: flex;
+            flex-direction: row;
+            width: 30%;
+            text-align: center;
+        }
+    }
+}
+
 // temporarily code to make editing the css easier
 // keep only code that changes properties
 .LostActionSeparatorSegment {

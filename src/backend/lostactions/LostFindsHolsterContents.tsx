@@ -133,13 +133,28 @@ export const LostFindsHolsterInformation = () => {
 
     </div>
     {LostFindsHolsterSeparator}
-    <div className="LostFindsHolsterActionWeightMaxCapacity">
-        <div className="LostFindsHolsterActionWeight">
-            <span>{selectedWeight}</span>
+    <div className="LostFindsHolsterWeightAndCapacityBox">
+        <div className="LostFindsHolsterActionSelectedActionWeight">
+            <div className="LostFindsHolsterSelectedActionWeightText">
+                <span>Selected Action Weight</span>
+            </div>
+            <div className="LostFindsHolsterSelectedActionWeightNumber">
+                <span>{selectedWeight}</span>
+            </div>
         </div>
-        <div className="LostFindsHolsterMaxCapacity">
-            <span>{currentWeight} / 200</span>
-        </div>
+        <div className="LostFindsHolsterMaximumCapacity">
+            <div className="LostFindsHolsterMaximumCapacityText">
+                <span>Maximum Capacity</span>
+            </div>
+            <div className="LostFindsHolsterMaximumCapacityNumber">
+                <div className="LostFindsHolsterMaximumCapacityEntry">
+                    <span>{currentWeight}</span>
+                </div>
+                <div className="LostFindsHolsterMaximumCapacity200">
+                    <span> / 200</span>
+                </div>             
+            </div>
+        </div>  
     </div>
 </div>
 }
