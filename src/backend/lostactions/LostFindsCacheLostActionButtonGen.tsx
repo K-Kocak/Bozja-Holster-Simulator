@@ -21,8 +21,12 @@ const minimumLostActionInformationClassListLength = 1;
 const CreateLostCacheLostActionButton = (LostAction: IAction) => {
     const dispatch = useAppDispatch();
     const holster = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
     function HandleButtonClick(event : BaseSyntheticEvent) {
         const idOfAction : number = event.target.id;
+        if(currentWeight + LostActionsAsObjectArray[idOfAction].weight > 200) {
+            return;
+        }
         if(!holster[idOfAction]) 
         {
             dispatch(addActionToHolster(idOfAction));

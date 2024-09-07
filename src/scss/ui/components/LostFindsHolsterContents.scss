@@ -4,16 +4,21 @@
     height: 88%;
     display: flex;
     flex-direction: column;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
 }
 
 .LostFindsHolsterPlayerHolster {
-    height: 80%;
+    height: 82%;
     overflow-y: scroll;
     overflow-x: hidden;
-}
-
-.LostFindsHolsterActionWeightMaxCapacity {  
-    height: 20%;
+    margin-top: -4px;
+    
 }
 
 .LostFindsHolsterActionCategoryOffensive, .LostFindsHolsterActionCategoryDefensive, .LostFindsHolsterActionCategoryRestorative, .LostFindsHolsterActionCategoryBeneficial, .LostFindsHolsterActionCategoryTactical, .LostFindsHolsterActionCategoryDetrimental, .LostFindsHolsterActionCategoryItemRelated {
@@ -26,7 +31,7 @@
     border-radius: 6px;
     display: flex;
     padding-left: 6px;
-    margin: 0px 8px 4px 4px;
+    margin: 3px 8px 3px 4px;
     align-items: center;
 
     .LostFindsHolsterActionCategoryFancyGraphicPicture {
@@ -44,7 +49,7 @@
 .LostFindsHolsterActionBox {
     display: flex;
     flex-direction: row;
-    width: 98%;
+    width: 100%;
     align-items: center;
     padding-left: 1px;
     height: 36px;
@@ -56,55 +61,84 @@
     }
 
     .LostFindsHolsterActionBoxImage { 
-        display: flex;
         align-items: center;
+        display: flex;
+        height: 36px;
+        width: 36px;
         img {
             height: 36px;
         }
     }
 
-    .LostFindsHolsterActionBoxName {
+
+    .LostFindsHolsterActionBoxNameAndQuantity {
         display: flex;
+        flex-direction: row;
         align-items: center;
-        color: #F1E7CF;
-        padding-left: 4px;
-        width: 100%;  
-        height: 31px;
-        margin-left: 7px;
-        border-radius: 5px;
+        width: 100%;
+        
+        .LostFindsHolsterActionBoxName {
+            display: flex;
+            align-items: center;
+            color: #F1E7CF;
+            padding-left: 4px;
+            width: 100%;  
+            height: 31px;
+            left: -12px;
+            position: relative;
+            border-radius: 5px;
+        }
+    
+        .LostFindsHolsterActionBoxQuantity { 
+            position: relative;
+            color: #FFFFFF;
+            
+            left: -21px;
+            font-size: 18px;
+            text-align: right;
+            top: 10px;
+            width: 20px;
+            
+            span {
+                text-shadow: -1px 0px 6px black, 1px 0px 6px black, 0px 1px 6px black, 0px -2px 4px black;
+            }
+        }
     }
+    
 }
 
-.LostFindsHolsterActionBoxQuantity {
-    position: relative;
-    color: #FFFFFF;
-    left: 18px;
-    top: 12px;
-    width: 0px;
-}
+
 
 .LostFindsHolsterWeightAndCapacityBox {
     display: flex;
     flex-direction: column;
     color: white;
-    margin-top: 10px;
+    margin-top: 8px;
     height: 60px;
     font-size: 20px;
 
-    .LostFindsHolsterActionSelectedActionWeight {
+
+    .LostFindsHolsterSelectedActionWeight {
         display: flex;
         flex-direction: row;
-        height: 50%;
-        align-items: center;
+        width: 100%;
 
         .LostFindsHolsterSelectedActionWeightText {
             width: 70%;
             text-align: right;
+            color: #F4F2F2;
+            text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
         }
 
-        .LostFindsHolsterSelectedActionWeightNumber {
-            width: 30%;
-            text-align: center;
+        .LostFindsHolsterActionSelectedActionWeightDisplay {
+            width: 10%;
+            text-align: right;
+            color: #F9CEA5;
+            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+        }
+
+        .LostFindsHolsterSelectedActionWeightBlankSpace {
+            width: auto;
         }
     }
 
@@ -112,17 +146,29 @@
         display: flex;
         flex-direction: row;
         height: 50%;
+        width: 100%;
         align-items: center;
+
+        .LostFindsHolsterMaximumCapacity200 {
+            width: auto;
+            padding-left: 5px;
+            color: #F9CEA5;
+            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+            
+        }
+
         .LostFindsHolsterMaximumCapacityText {
             width: 70%;
             text-align: right;
+            color: #F4F2F2;
+            text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
         }
 
         .LostFindsHolsterMaximumCapacityNumber {
-            display: flex;
-            flex-direction: row;
-            width: 30%;
-            text-align: center;
+            width: 10%;
+            text-align: right;
+            color: white;
+            
         }
     }
 }

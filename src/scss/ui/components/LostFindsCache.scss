@@ -1,10 +1,25 @@
+@font-face {
+    font-family: ekmukta;
+    src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
+}
+
 #LostFindsCacheContainer {
     position: absolute;
     background: url('../../../ui/pictures/BozjaLostFindsCache.png') no-repeat;
+    font-family: ekmukta;
+    line-height: 16px;
     height: 672px;
     width: 789px;
     z-index: 1;
     border-radius: 7px;
+    flex-direction: column;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
 }
 
 

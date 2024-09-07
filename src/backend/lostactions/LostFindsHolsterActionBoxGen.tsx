@@ -38,14 +38,23 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
 
     return (
         <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostFindsHolsterActionBox">
+
                 <div key={LostAction.id} id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
-                    <span id={LostAction.id.toString()} className="LostFindsHolsterActionBoxQuantity">{currentActionQuantity}</span>
+                    
                     <img id={LostAction.id.toString()} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
                    
                 </div>
-                <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxName">
-                    <span id={LostAction.id.toString()} >{LostAction.name.EN}</span>
+                <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxNameAndQuantity">
+                    <div className="LostFindsHolsterActionBoxQuantity">
+                        <span id={LostAction.id.toString()}>{currentActionQuantity}</span>
+                    </div>
+                    <div className="LostFindsHolsterActionBoxName">
+                        <span id={LostAction.id.toString()}>{LostAction.name.EN}</span>
+                    </div>
+                    
+                    
                 </div>
+                
                 
         </div>
     )

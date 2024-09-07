@@ -1,6 +1,12 @@
+@font-face {
+    font-family: ekmukta;
+    src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
+}
+
 #LostFindsHolsterContainer {
     position: absolute;
     background: url('../../../ui/pictures/BozjaLostFindsHolster.png') no-repeat;
+    font-family: ekmukta;
     background-size: 475px;
     width: 475px;
     height: 515px;

@@ -134,26 +134,36 @@ export const LostFindsHolsterInformation = () => {
     </div>
     {LostFindsHolsterSeparator}
     <div className="LostFindsHolsterWeightAndCapacityBox">
-        <div className="LostFindsHolsterActionSelectedActionWeight">
+
+        <div className="LostFindsHolsterSelectedActionWeight">
+
             <div className="LostFindsHolsterSelectedActionWeightText">
                 <span>Selected Action Weight</span>
             </div>
-            <div className="LostFindsHolsterSelectedActionWeightNumber">
-                <span>{selectedWeight}</span>
+
+            <div className="LostFindsHolsterActionSelectedActionWeightDisplay">
+                <span>{selectedWeight}</span>  
             </div>
+
+            <div className="LostFindsHolsterSelectedActionWeightBlankSpace"></div>
+            
         </div>
+
         <div className="LostFindsHolsterMaximumCapacity">
+
             <div className="LostFindsHolsterMaximumCapacityText">
                 <span>Maximum Capacity</span>
             </div>
+
             <div className="LostFindsHolsterMaximumCapacityNumber">
-                <div className="LostFindsHolsterMaximumCapacityEntry">
-                    <span>{currentWeight}</span>
-                </div>
-                <div className="LostFindsHolsterMaximumCapacity200">
-                    <span> / 200</span>
-                </div>             
+                <span style={{color: currentWeight > 99 ? "#EE6A97" : "#F9CEA5",
+                    textShadow: currentWeight > 99 ? "-1px 0px 1px #DC3C77, 1px 0px 1px #DC3C77, 0px 1px 1px #DC3C77, 0px -1px 1px #DC3C77" : "-1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C"  
+                }}>{currentWeight}</span>
             </div>
+
+            <div className="LostFindsHolsterMaximumCapacity200">
+                <span>/ 200</span>
+            </div>  
         </div>  
     </div>
 </div>
