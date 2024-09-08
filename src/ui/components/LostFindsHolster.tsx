@@ -1,6 +1,6 @@
 import '@css/ui/components/LostFindsHolster.scss';
 
-import LostFindsHolsterInformation from '@app/backend/lostactions/LostFindsHolsterContents';
+import LostFindsHolsterInformation from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterContents';
 
 // {LostActionInformationBoxes[LostActions.ItemRelated.PureEssenceElder.id]} 
 function LostFindsHolster()  {

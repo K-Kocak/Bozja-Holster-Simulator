@@ -2,7 +2,7 @@ import { useState } from 'react'
 import viteLogo from '/vite.svg'
 import { Counter } from '../backend/counter'
 
-import LostActions from '@backend/lostactions/ActionData';
+import LostActions from '@backend/lostactions/actiondata/ActionData';
 
 import divToPlace from '../backend/lostactions/LostActionDescriptionGrinder';
 

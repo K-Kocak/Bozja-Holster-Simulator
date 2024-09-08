@@ -1,13 +1,13 @@
 import React, { BaseSyntheticEvent } from 'react';
 
-import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import IAction from '@backend/interfaces/IAction';
 
 import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDivGen';
 
 import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
-import { useAppDispatch, useAppSelector } from '../hooks';
-import { addActionToHolster, increaseCurrentWeight, incrementActionQuantity, setSelectedWeight } from './LostFindsHolsterSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { addActionToHolster, increaseCurrentWeight, incrementActionQuantity, setSelectedWeight } from '../LostFindsHolsterSlice';
 
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
@@ -37,16 +37,22 @@ const CreateLostCacheLostActionButton = (LostAction: IAction) => {
     }
 
     const ToggleLostActionInformation = (event: BaseSyntheticEvent) => {
-        event.target.nextSibling.classList.length > minimumLostActionInformationClassListLength ? 
+        event.target.nextSibling.nextSibling.classList.length > minimumLostActionInformationClassListLength ? 
             dispatch(setSelectedWeight(LostActionsAsObjectArray[event.target.id].weight)) : dispatch(setSelectedWeight(0))
 
-        console.log(event.target.nextSibling.classList);
+        console.log(event.target.nextSibling.nextSibling.classList);
         console.log(event);
-        event.target.nextSibling.classList.toggle('hidden');
+        event.target.nextSibling.nextSibling.classList.toggle('hidden');
     }
 
+    
+
+    
+
     return <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostCacheLostActionButton">
-            <img key={LostAction.id} id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+                
+                <img key={LostAction.id} id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
+                <div  className="LostActionButtonWeight">{LostAction.weight}</div>
             <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
         </div>
 }

@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { configureStore } from '@reduxjs/toolkit';
+
 import counterReducer from '@backend/counterSlice';
 import LostFindsHolsterReducer from '@backend/lostactions/LostFindsHolsterSlice';
+import LostActionSets from '@backend/lostactions/LostActionSetSlice';
 
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
-        LostFindsHolster: LostFindsHolsterReducer
+        LostFindsHolster: LostFindsHolsterReducer,
+        LostActionSets: LostActionSets
     },
 })
 

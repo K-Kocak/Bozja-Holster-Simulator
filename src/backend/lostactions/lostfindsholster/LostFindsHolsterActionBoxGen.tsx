@@ -1,13 +1,13 @@
-import React, { BaseSyntheticEvent } from 'react';
+import React from 'react';
 
 import '@css/ui/components/LostFindsHolsterContents.scss';
+import '@css/ui/components/LostActionsDivGen.scss';
 
-import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 
-import IAction from '../interfaces/IAction';
-import { useAppDispatch, useAppSelector } from '../hooks';
-import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster } from './LostFindsHolsterSlice';
-import CreateLostActionInformationBoxes from './LostActionsDivGen';
+import IAction from '../../interfaces/IAction';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster } from '../LostFindsHolsterSlice';
 
 const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
     const dispatch = useAppDispatch();
@@ -31,18 +31,13 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
         console.log(quantities);
     }
 
-    function ToggleLostActionInformation(event: BaseSyntheticEvent) {
-        console.log(event);
-        event.target.lastChild.classList.toggle('hidden');
-    }
 
     return (
         <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostFindsHolsterActionBox">
 
                 <div key={LostAction.id} id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
                     
-                    <img id={LostAction.id.toString()} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
-                   
+                    <img id={LostAction.id.toString()} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>                
                 </div>
                 <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxNameAndQuantity">
                     <div className="LostFindsHolsterActionBoxQuantity">
@@ -50,10 +45,11 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
                     </div>
                     <div className="LostFindsHolsterActionBoxName">
                         <span id={LostAction.id.toString()}>{LostAction.name.EN}</span>
-                    </div>
-                    
-                    
+                    </div>  
+                             
                 </div>
+                
+                
                 
                 
         </div>

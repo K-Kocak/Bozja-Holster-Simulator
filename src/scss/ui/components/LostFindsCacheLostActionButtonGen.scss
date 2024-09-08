@@ -22,10 +22,23 @@
             margin-bottom: 6px;
             height: 49px;
            
-            
             .LostActionButtonImage {
                 height: 47px;
                 width: 46px;
+                display: block;
+            }
+
+            .LostActionButtonWeight {
+                pointer-events: none;
+                position: relative;
+                text-align: right;
+                width: 20px;
+                top: -17px;
+                left: 23px;
+                font-size: 21px;
+                text-align: right;
+                color: #FFFFFF;
+                text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
             }
 
             .LostActionInformationHover {
@@ -54,6 +67,21 @@
                  height: 41px;
                  width: 40px;
              }
+
+             .LostActionButtonWeight {
+                pointer-events: none;
+                position: relative;
+                text-align: right;
+                width: 20px;
+                top: -16px;
+                left: 18px;
+                font-size: 21px;
+                text-align: right;
+                color: #FFFFFF;
+                text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+
+
+            }
          }       
      }
 }

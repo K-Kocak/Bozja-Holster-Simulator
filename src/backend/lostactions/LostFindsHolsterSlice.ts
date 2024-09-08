@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import IAction from '@backend/interfaces/IAction';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import LostActionsAsObjectArray from '@backend/lostactions/ActionDataToObjectArray';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 
 function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     const ArrayToReturn : number[] = [];

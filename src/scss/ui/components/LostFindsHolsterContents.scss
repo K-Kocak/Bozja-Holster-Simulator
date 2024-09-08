@@ -18,6 +18,8 @@
     overflow-y: scroll;
     overflow-x: hidden;
     margin-top: -4px;
+
+    
     
 }
 
@@ -48,11 +50,14 @@
 
 .LostFindsHolsterActionBox {
     display: flex;
+    position: relative;
     flex-direction: row;
     width: 100%;
     align-items: center;
     padding-left: 1px;
     height: 36px;
+    
+    
 
     &:hover {
         .LostFindsHolsterActionBoxName {
@@ -61,6 +66,7 @@
     }
 
     .LostFindsHolsterActionBoxImage { 
+        pointer-events: none;
         align-items: center;
         display: flex;
         height: 36px;
@@ -74,10 +80,20 @@
     .LostFindsHolsterActionBoxNameAndQuantity {
         display: flex;
         flex-direction: row;
+        position: relative;
         align-items: center;
         width: 100%;
+        pointer-events: none;
+        overflow: visible;
+
+        
+    
+        .hidden {
+            visibility: hidden;
+        }
         
         .LostFindsHolsterActionBoxName {
+            pointer-events: none;
             display: flex;
             align-items: center;
             color: #F1E7CF;
@@ -90,9 +106,9 @@
         }
     
         .LostFindsHolsterActionBoxQuantity { 
+            pointer-events: none;
             position: relative;
-            color: #FFFFFF;
-            
+            color: #FFFFFF;         
             left: -21px;
             font-size: 18px;
             text-align: right;
@@ -104,6 +120,8 @@
             }
         }
     }
+
+    
     
 }
 

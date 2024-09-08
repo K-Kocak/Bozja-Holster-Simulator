@@ -1,4 +1,4 @@
-import LostActions from "@backend/lostactions/ActionData";
+import LostActions from "@backend/lostactions/actiondata/ActionData";
 import IAction from "@backend/interfaces/IAction";
 
 export const LostActionsAsObjectArray : IAction[] = [];

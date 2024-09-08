@@ -5,8 +5,8 @@ import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicFo
 
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
-import CreateLostFindsHolsterActionBoxes from '@backend/lostactions/LostFindsHolsterActionBoxGen';
-import { useAppSelector } from '../hooks';
+import CreateLostFindsHolsterActionBoxes from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterActionBoxGen';
+import { useAppSelector } from '../../hooks';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
 
