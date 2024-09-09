@@ -1,0 +1,27 @@
+.SavedHolstersContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+
+    .SavedHolstersTitleText {
+        position: relative;
+        top: 4px;
+        left: 15px;
+        font-size: 24px;
+        color: #F9CEA5;
+        text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+    }
+
+    .SavedHolstersUserButtons {
+        position: relative;
+        height: 50px;
+        margin: 0px 10px;
+    }
+}

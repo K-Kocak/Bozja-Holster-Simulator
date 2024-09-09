@@ -8,7 +8,7 @@ import divToPlace from '../backend/lostactions/LostActionDescriptionGrinder';
 
 import LostFindsCache from '@ui/components/LostFindsCache';
 import LostFindsHolster from '@ui/components/LostFindsHolster';
-
+import SavedHolsters from '@ui/components/SavedHolsters';
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
     <>
       <LostFindsCache />
       <LostFindsHolster />
+      <SavedHolsters />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

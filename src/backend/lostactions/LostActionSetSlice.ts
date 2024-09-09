@@ -17,12 +17,12 @@ export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
     reducers: {
-        placeHolder: (state) => {
+        addHolsterToSavedSets: (state, action: PayloadAction<number>) => {
             console.log(state.Sets);
         },
     },
 })
 
-export const { placeHolder } = LostActionSetsSlice.actions;
+export const { addHolsterToSavedSets } = LostActionSetsSlice.actions;
 
 export default LostActionSetsSlice.reducer;

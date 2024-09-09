@@ -1,0 +1,18 @@
+@font-face {
+    font-family: ekmukta;
+    src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
+}
+
+#SavedHolsters {
+    position: absolute;
+    background: url('../../../ui/pictures/BozjaPlayerSetsMenu.png') no-repeat;
+    font-family: ekmukta;
+    background-size: 475px;
+    width: 475px;
+    height: 505px;
+    z-index: 0;
+    left: 800px;
+    top: 525px;
+    border-radius: 6px;
+
+}
