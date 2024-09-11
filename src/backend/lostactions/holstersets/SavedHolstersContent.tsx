@@ -52,6 +52,9 @@ const Test = () => {
                         <div className="SavedHolstersActionInSet">
                             An Action 4
                         </div>
+                        <div className="SavedHolstersActionInSet">
+                            An Action 4
+                        </div>
                     </div>
                 </div>
 

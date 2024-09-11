@@ -12,7 +12,7 @@ import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster
 const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
     const dispatch = useAppDispatch();
     const currentActionQuantity = useAppSelector((state) => state.LostFindsHolster.ActionQuantities[LostAction.id])
-    const holsterTrack = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
     const quantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
     if(!quantities[LostAction.id]) {
         return <></>;
@@ -23,11 +23,12 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
             return;
         }
         if(currentActionQuantity - 1 == 0) {
-            dispatch(removeActionFromHolster(LostAction.id));
+            const filteredHolster = currentHolster.filter((Actions) => Actions.id != LostAction.id);
+            dispatch(removeActionFromHolster(filteredHolster));
         }
         dispatch(decrementActionQuantity(LostAction.id))
         dispatch(decreaseCurrentWeight(LostAction.weight));
-        console.log(holsterTrack); 
+        console.log(currentHolster); 
         console.log(quantities);
     }
 

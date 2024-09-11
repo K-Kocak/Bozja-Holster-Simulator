@@ -19,14 +19,16 @@ export interface LostFindsHolster {
     Holster: IActionHolster[],
     ActionQuantities: number[],
     CurrentWeight: number,
-    SelectedWeight: number
+    SelectedWeight: number,
+    SelectedRole: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged";
 }
 
 const initialState: LostFindsHolster = {
     Holster: [],
     ActionQuantities: actionQuantityArrayCreation,
     CurrentWeight: 0,
-    SelectedWeight: 0
+    SelectedWeight: 0,
+    SelectedRole: "Tank"
 };
 
 export const LostFindsHolsterSlice = createSlice({
@@ -51,8 +53,12 @@ export const LostFindsHolsterSlice = createSlice({
             state.CurrentWeight -= action.payload;
         },
 
-        removeActionFromHolster: (state, action: PayloadAction<number>) => {
-            delete state.Holster[action.payload];
+        removeActionFromHolster: (state, action: PayloadAction<IActionHolster[]>) => {        
+            state.Holster = [];
+            action.payload.forEach((LostActionInFilteredHolster) => {
+                state.Holster[LostActionInFilteredHolster.id] = LostActionInFilteredHolster;
+            });
+            
         },
         addActionToHolster: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload] = {
@@ -64,14 +70,20 @@ export const LostFindsHolsterSlice = createSlice({
             };
         },
 
+        setSelectedRole: (state, action: PayloadAction<"Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged">) => {
+            state.SelectedRole = action.payload;
+        },
+
         clearHolster: (state) => {
             state.Holster = [];
+            state.ActionQuantities = actionQuantityArrayCreation;
+            state.SelectedRole = "Tank";
             state.CurrentWeight = 0;
             state.SelectedWeight = 0;
         }
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, clearHolster} = LostFindsHolsterSlice.actions;
+export const { incrementActionQuantity, decrementActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster} = LostFindsHolsterSlice.actions;
 
 export default LostFindsHolsterSlice.reducer;

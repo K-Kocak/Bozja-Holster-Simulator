@@ -3,10 +3,17 @@ import '@css/ui/components/LostFindsHolsterContents.scss';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
+import TempImage from '@ui/pictures/BozjaLoadSetImage81x81.png';
+
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
 import CreateLostFindsHolsterActionBoxes from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterActionBoxGen';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+
+import { FFXIVRolePicturesAsObject } from '@backend/lostactions/RolePictureImport';
+
+import { clearHolster, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
+import { addHolsterToSavedSets } from '@backend/lostactions/LostActionSetSlice';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
 
@@ -49,6 +56,7 @@ const LostFindsHolsterSeparator = AutomateSeparator();
         </div>
     )
 }*/
+
 //{LostActionsAsObjectArray[LostActions.Offensive.LostFontofMagic.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofMagic.id] : <></>}
 //{LostActionsAsObjectArray[LostActions.Offensive.LostFontofPower.id].quantity > -1 ? LostFindsHolsterActionBoxes[LostActions.Offensive.LostFontofPower.id] : <></>}
 
@@ -59,11 +67,38 @@ const LostFindsHolsterSeparator = AutomateSeparator();
             </div>
         </div>
 */
+
+function RetrieveRoleImageUsingLostFindsHolsterState(roleToUse : string) : string {
+    switch (roleToUse) {
+        case "Tank":
+            return FFXIVRolePicturesAsObject.Tank;
+        case "Healer":
+            return FFXIVRolePicturesAsObject.Healer;
+        case "Melee":
+            return FFXIVRolePicturesAsObject.MeleeDPS;
+        case "Physical Ranged":
+            return FFXIVRolePicturesAsObject.PhysicalRangedDPS;
+        case "Magical Ranged":
+            return FFXIVRolePicturesAsObject.MagicalRangedDPS;
+    }
+    return "";
+}
+
 export const LostFindsHolsterInformation = () => {   
+    const dispatch = useAppDispatch();
     const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
     const selectedWeight = useAppSelector((state) => state.LostFindsHolster.SelectedWeight);
+    const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
+    const roleTypeOfHolster = useAppSelector((state) => state.LostFindsHolster.SelectedRole);
+    console.log(currentHolster, actionQuantities, selectedWeight, currentWeight, roleTypeOfHolster);
+    const savedSets = useAppSelector((state) => state.LostActionSets.Sets);
+    console.log(savedSets);
+    const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(roleTypeOfHolster);
+
     const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
     const LostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
+
     LostFindsHolsterActionBoxes.forEach((LostFindsHolsterActionBoxCategory, indexCategory : number) => {
         LostFindsHolsterActionBoxCategory.forEach((LostFindsHolsterActionBox) => {
             if(LostFindsHolsterActionBox.type == "div") {
@@ -71,6 +106,34 @@ export const LostFindsHolsterInformation = () => {
             }
         });
     });
+
+    function LostFindsHolsterCycleSelectedRole() {
+        switch (roleTypeOfHolster) {
+            case "Tank":
+                dispatch(setSelectedRole("Healer"));
+                break;
+            case "Healer":
+                dispatch(setSelectedRole("Melee"));
+                break;
+            case "Melee":
+                dispatch(setSelectedRole("Physical Ranged"));
+                break;
+            case "Physical Ranged":
+                dispatch(setSelectedRole("Magical Ranged"));               
+                break;
+            case "Magical Ranged":
+                dispatch(setSelectedRole("Tank"));
+                break;
+        }
+    }
+
+    function HandleSaveHolsterClick() {
+        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster]));
+    }
+
+    function HandleClearHolsterClick() {
+        dispatch(clearHolster());
+    }
 
     return <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
@@ -137,11 +200,16 @@ export const LostFindsHolsterInformation = () => {
 
         <div className="LostFindsHolsterSelectedActionWeight">
 
+            <div className="LostFindsHolsterRoleSelection">
+                <img onClick={LostFindsHolsterCycleSelectedRole} title="Click to change role" src={roleImageToUse}></img>
+                
+            </div>
+           
             <div className="LostFindsHolsterSelectedActionWeightText">
                 <span>Selected Action Weight</span>
             </div>
 
-            <div className="LostFindsHolsterActionSelectedActionWeightDisplay">
+            <div className="LostFindsHolsterSelectedActionWeightDisplay">
                 <span>{selectedWeight}</span>  
             </div>
 
@@ -150,6 +218,14 @@ export const LostFindsHolsterInformation = () => {
         </div>
 
         <div className="LostFindsHolsterMaximumCapacity">
+
+            <div className="LostFindsHolsterSaveHolster">
+                <img onClick={HandleSaveHolsterClick} title="Save this holster." src={TempImage}></img>
+            </div>
+
+            <div className="LostFindsHolsterClearHolster">
+                <img onClick={HandleClearHolsterClick} title="Clear the holster." src={TempImage}></img>
+            </div>
 
             <div className="LostFindsHolsterMaximumCapacityText">
                 <span>Maximum Capacity</span>

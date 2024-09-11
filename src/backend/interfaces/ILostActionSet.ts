@@ -1,9 +1,10 @@
 import IAction from "@backend/interfaces/IAction";
+import { IActionHolster } from "./IActionHolster";
 
 export interface ILostActionSet {
     id: number,
-    name: string,
-    holsterType: string,
-    totalWeight: number,
-    holsterContents: IAction[],
+    nameOfSet: string,
+    roleTypeOfSet: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged"
+    weightOfSet: number,
+    setLostActionContents: IActionHolster[],
 }
