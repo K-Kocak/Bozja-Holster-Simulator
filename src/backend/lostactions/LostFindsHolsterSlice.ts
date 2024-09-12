@@ -67,6 +67,7 @@ export const LostFindsHolsterSlice = createSlice({
                 img: LostActionsAsObjectArray[action.payload].img,
                 weight: LostActionsAsObjectArray[action.payload].weight,
                 category: LostActionsAsObjectArray[action.payload].category.EN,
+                quantity: 0
             };
         },
 

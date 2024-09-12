@@ -3,8 +3,12 @@ import React, { BaseSyntheticEvent } from 'react';
 import LoadSetImage from '@ui/pictures/BozjaLoadSetImage81x81.png';
 
 import '@css/ui/components/SavedHolstersContent.scss';
+import { useAppSelector } from '@app/backend/hooks';
+import { RetrieveRoleImageUsingLostFindsHolsterState } from '../lostfindsholster/LostFindsHolsterContents';
 
 const Test = () => {
+
+    const holstersToLoad = useAppSelector((state) => state.LostActionSets.Sets);
 
     function HandleLoadSetToHolsterClick(event : BaseSyntheticEvent) {
         console.log(event);
@@ -31,39 +35,28 @@ const Test = () => {
                         <img onClick={HandleLoadSetToHolsterClick} src={LoadSetImage}></img>
                     </div>
                     <div className="SavedHolstersDeleteHolster">
-                        <img onClick={HandleDeleteSetClick}src={LoadSetImage}></img>
+                        <img onClick={HandleDeleteSetClick} src={LoadSetImage}></img>
                     </div>
                 </div>
 
                 <div className="SavedHolstersTitleAndActions">
                     <div className="SavedHolstersTitle">
-                        Title of the holster
+                        <span>{holstersToLoad[0].nameOfSet}</span>
                     </div>
                     <div className="SavedHolstersListActionsInSet">
                         <div className="SavedHolstersActionInSet">
-                            An Action
+                            <img src={holstersToLoad[0].setLostActionContents[0].img}></img>
                         </div>
-                        <div className="SavedHolstersActionInSet">
-                            An Action 2
-                        </div>
-                        <div className="SavedHolstersActionInSet">
-                            An Action 3
-                        </div>
-                        <div className="SavedHolstersActionInSet">
-                            An Action 4
-                        </div>
-                        <div className="SavedHolstersActionInSet">
-                            An Action 4
-                        </div>
+                       
                     </div>
                 </div>
 
                 <div className="SavedHolstersWeightAndTypeOfSet">
                     <div className="SavedHolsterWeightOfSet">
-                        99
+                        <span>{holstersToLoad[0].weightOfSet}</span>
                     </div>
                     <div className="SavedHolstersTypeOfSet">
-                        Drvsh
+                        <img src={RetrieveRoleImageUsingLostFindsHolsterState(holstersToLoad[0].roleTypeOfSet)}></img>
                     </div>
                 </div>
             </div>

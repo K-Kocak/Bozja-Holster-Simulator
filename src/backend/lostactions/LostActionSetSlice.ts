@@ -5,15 +5,21 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import IAction from '@backend/interfaces/IAction';
-
-import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
 
 /*id: number,
     nameOfSet: string,
     roleTypeOfSet: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged"
     weightOfSet: number,
-    setLostActionContents: IAction[],
+    setLostActionContents: IActionHolster[],
+*/
+
+/*
+id: number,
+    name: string
+    img: string,
+    weight: number,
+    category: "Offensive" | "Defensive" | "Restorative" | "Beneficial" | "Tactical" | "Detrimental" | "Item-Related",
 */
 
 export interface LostActionSets {
@@ -21,7 +27,20 @@ export interface LostActionSets {
 }
 
 const initialState: LostActionSets = {
-    Sets: [],
+    Sets: [{
+        id: 9999,
+        nameOfSet: "Testing Set",
+        roleTypeOfSet: "Melee",
+        weightOfSet: 95,
+        setLostActionContents: [{
+            id: 101,
+            name: "Lost Focus",
+            img: LostActionsNoBorder.Offensive.LostFocus,
+            weight: 6,
+            quantity: 1,
+            category: "Offensive"
+        }]
+    }],
     
 };
 
@@ -37,7 +56,7 @@ export const LostActionSetsSlice = createSlice({
             
             const HolsterToBeSaved : IActionHolster[] = [];
             currentHolster.forEach((actionInHolster) => {              
-                const actionToAdd = {...currentHolster[actionInHolster.id], quantity: actionQuantities[actionInHolster.id]};
+                const actionToAdd : IActionHolster = {...currentHolster[actionInHolster.id], quantity: actionQuantities[actionInHolster.id]};
                 HolsterToBeSaved.push(actionToAdd);             
             });
 

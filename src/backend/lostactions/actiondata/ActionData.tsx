@@ -3595,7 +3595,7 @@ const DeepEssenceGuardian: IAction = {
     id: 728,
 
     name: {
-        EN: "Deep Essence of the Guardian ",
+        EN: "Deep Essence of the Guardian",
         DE: "Wundertrank des Beschützers",
         FR: "Breuvage miraculeux de gardien",
         JA: "守護者の霊薬",

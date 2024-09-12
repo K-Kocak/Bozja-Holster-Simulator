@@ -15,7 +15,7 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
     const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
     const quantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
     if(!quantities[LostAction.id]) {
-        return <></>;
+        return <span key={LostAction.id}></span>;
     }
     function HandleButtonClick() {
         if(currentActionQuantity == 0) {
@@ -36,7 +36,7 @@ const CreateLostFindsHolsterActionBox = (LostAction : IAction) => {
     return (
         <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostFindsHolsterActionBox">
 
-                <div key={LostAction.id} id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
+                <div id={LostAction.id.toString()} className="LostFindsHolsterActionBoxImage">
                     
                     <img id={LostAction.id.toString()} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>                
                 </div>

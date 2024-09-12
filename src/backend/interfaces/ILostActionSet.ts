@@ -1,4 +1,3 @@
-import IAction from "@backend/interfaces/IAction";
 import { IActionHolster } from "./IActionHolster";
 
 export interface ILostActionSet {
