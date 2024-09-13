@@ -39,6 +39,14 @@ const initialState: LostActionSets = {
             weight: 6,
             quantity: 1,
             category: "Offensive"
+        },
+        {
+            id: 102,
+            name: "Lost Font of Magic",
+            img: LostActionsNoBorder.Offensive.LostFontofMagic,
+            weight: 25,
+            quantity: 3,
+            category: "Offensive" 
         }]
     }],
     
@@ -70,9 +78,21 @@ export const LostActionSetsSlice = createSlice({
 
             
         },
+        changeTitleOfSpecificSavedSet: (state, action: PayloadAction<[number, string]>) => {
+            console.log("lol");
+            console.log(action.payload[0]);
+            console.log(action.payload[1]);
+            state.Sets.forEach((SetInSets, index : number) => {
+                if(SetInSets.id == action.payload[0]) {
+                    state.Sets[index].nameOfSet = action.payload[1];
+                }
+            })
+            //state.Sets[0].nameOfSet = action.payload[1];
+            
+        }
     },
 })
 
-export const { addHolsterToSavedSets } = LostActionSetsSlice.actions;
+export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet } = LostActionSetsSlice.actions;
 
 export default LostActionSetsSlice.reducer;
