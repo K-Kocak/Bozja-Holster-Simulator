@@ -79,16 +79,11 @@ export const LostActionSetsSlice = createSlice({
             
         },
         changeTitleOfSpecificSavedSet: (state, action: PayloadAction<[number, string]>) => {
-            console.log("lol");
-            console.log(action.payload[0]);
-            console.log(action.payload[1]);
             state.Sets.forEach((SetInSets, index : number) => {
                 if(SetInSets.id == action.payload[0]) {
                     state.Sets[index].nameOfSet = action.payload[1];
                 }
-            })
-            //state.Sets[0].nameOfSet = action.payload[1];
-            
+            })         
         }
     },
 })

@@ -1,4 +1,5 @@
-.SavedHolstersContainer {
+ /* width */
+ .SavedHolstersContainer {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -10,6 +11,7 @@
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
     margin: 7px;
+    
 
     .SavedHolstersTitleText {
         position: relative;
@@ -26,134 +28,8 @@
         height: 50px;
         margin: 0px 10px;
     }
-
-    .TemplateSavedSetsAreaContainer {
-        position: relative;
-        height: 407px;
-        width: 100%;
-        
-        overflow-y: scroll;
-
-        
-    }
 }
+
+
 
 // to be moved to a different css file, one which is for the div gen
-.ExampleSavedSet {
-    display: flex;
-    flex-direction: row;
-    height: 70px;
-    width: auto;
-    background-color: red;
-    margin: 2px 0px;
-    border-radius: 10px;
-    margin-left: 3px;
-    margin-right: 3px;
-    
-    .SavedHolstersLoadAndDeleteHolster {
-        width: 8%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-
-        .SavedHolstersLoadHolster {
-            height: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            img {
-                height: 25px;
-                border-radius: 100%;
-            }
-        }
-
-        .SavedHolstersDeleteHolster {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 50%;
-            img {
-                height: 25px;
-                border-radius: 100%;
-            }
-        }
-
-
-    }
-
-    .SavedHolstersTitleAndActions {
-        display: flex;
-        flex-direction: column;
-        width: 84%;
-
-        .SavedHolstersTitle {
-            height: 50%;
-            display: flex;
-            align-items: center;
-            padding-left: 5px;
-
-            input {
-                background-color: transparent;
-                border: transparent;
-            }
-            
-        }
-
-        .SavedHolstersListActionsInSet {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            float: left;
-            height: 50%;
-            padding-bottom: 1px;
-
-            .SavedHolstersActionInSet {
-                display: flex;
-                align-items: center;
-                position: relative;
-
-                .SavedHolstersActionInSetSpecificQuantity {
-                    pointer-events: none;
-                    position: relative;
-                    text-align: right;
-                    width: 0px;
-                    height: 0px;
-                    top: -14px;
-                    left: -22px;
-                    font-size: 25px;
-                    text-align: left;
-                    color: #FFFFFF;
-                    text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
-                }
-                
-                img {
-                    height: 35px;
-                }
-            }
-        }
-    }
-
-    .SavedHolstersWeightAndTypeOfSet {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 8%;
-
-        .SavedHolsterWeightOfSet {
-            height: 50%;
-            display: flex;
-            align-items: center;
-        }
-
-        .SavedHolstersTypeOfSet {
-            height: 50%;
-            display: flex;
-            align-items: center;
-            img {
-                height: 35px;
-            }
-        }
-    }
-}

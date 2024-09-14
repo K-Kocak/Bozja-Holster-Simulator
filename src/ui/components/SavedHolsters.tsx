@@ -1,14 +1,14 @@
 import '../../scss/ui/components/SavedHolsters.scss';
 
-import Test from '@backend/lostactions/holstersets/SavedHolstersContent';
+import CreateSavedHolsters from '@backend/lostactions/holstersets/SavedHolstersContent';
 
 
 
 function SavedHolsters() {
-    const testing = Test();
+    const SavedHolsterWindow = CreateSavedHolsters();
     return (
         <div id="SavedHolsters">
-            {testing}
+            {SavedHolsterWindow}
         </div>
     )
     
