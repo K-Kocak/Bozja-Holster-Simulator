@@ -45,6 +45,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: drop-shadow(0px 0px 2px white);
             img {
                 height: 25px;
                 border-radius: 100%;
@@ -56,8 +57,9 @@
             align-items: center;
             justify-content: center;
             height: 50%;
+            filter: drop-shadow(0px -1px 2px white);
             img {
-                height: 25px;
+                height: 23px;
                 border-radius: 100%;
             }
         }

@@ -1,6 +1,7 @@
 import { BaseSyntheticEvent } from 'react';
 
 import LoadSetImage from '@ui/pictures/BozjaLoadSetImage81x81.png';
+import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon.png';
 
 import '@css/ui/components/SavedHolstersSetGen.scss';
 
@@ -20,7 +21,7 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
     const ArrayToReturn : React.JSX.Element[] = [];
     SavedSetOfLostActions.forEach((LostAction) => {
         ArrayToReturn.push(
-            <div className="SavedHolstersActionInSet">
+            <div key={LostAction.id} className="SavedHolstersActionInSet">
                 <img src={LostAction.img}></img>
                 <div className="SavedHolstersActionInSetSpecificQuantity">{LostAction.quantity}</div>
             </div>
@@ -56,14 +57,13 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     }
 
     return (
-        <div className="MyHolstersSavedSet">
-
+        <div key={Math.random()} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
                     <div className="SavedHolstersLoadHolster">
                         <img onClick={HandleLoadSetToHolsterClick} src={LoadSetImage}></img>
                     </div>
                     <div className="SavedHolstersDeleteHolster">
-                        <img onClick={HandleDeleteSetClick} src={LoadSetImage}></img>
+                        <img onClick={HandleDeleteSetClick} src={DeleteSetImage}></img>
                     </div>
                 </div>
 

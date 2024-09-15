@@ -3,7 +3,8 @@ import '@css/ui/components/LostFindsHolsterContents.scss';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
-import TempImage from '@ui/pictures/BozjaLoadSetImage81x81.png';
+import SaveSetImage from '@ui/pictures/BozjaSaveSetImage81x81.png';
+import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon.png';
 
 import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
 
@@ -220,11 +221,11 @@ export const LostFindsHolsterInformation = () => {
         <div className="LostFindsHolsterMaximumCapacity">
 
             <div className="LostFindsHolsterSaveHolster">
-                <img onClick={HandleSaveHolsterClick} title="Save this holster." src={TempImage}></img>
+                <img onClick={HandleSaveHolsterClick} title="Save this holster." src={SaveSetImage}></img>
             </div>
 
             <div className="LostFindsHolsterClearHolster">
-                <img onClick={HandleClearHolsterClick} title="Clear the holster." src={TempImage}></img>
+                <img onClick={HandleClearHolsterClick} title="Clear the holster." src={ClearHolsterImage}></img>
             </div>
 
             <div className="LostFindsHolsterMaximumCapacityText">
