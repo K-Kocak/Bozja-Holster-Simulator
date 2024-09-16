@@ -5,16 +5,18 @@ import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon.png';
 
 import '@css/ui/components/SavedHolstersSetGen.scss';
 
-import { useAppDispatch } from '@app/backend/hooks';
+import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
-import { RetrieveRoleImageUsingLostFindsHolsterState } from '../lostfindsholster/LostFindsHolsterContents';
-import { changeTitleOfSpecificSavedSet, LostActionSets } from '../LostActionSetSlice';
+import { RetrieveRoleImageUsingLostFindsHolsterState } from '../lostfindsholster/LostFindsHolsterContents'
+
+import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
 
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
-import { CounterState } from '@app/backend/counterSlice';
+
 import { ThunkDispatch, UnknownAction, Dispatch } from '@reduxjs/toolkit';
-import { LostFindsHolster } from '../LostFindsHolsterSlice';
+
+import { addActionToHolster, clearHolster, increaseCurrentWeight, LostFindsHolster, setActionQuantity, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
 
 
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
@@ -35,16 +37,26 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
 }
 
 const CreateSavedSet = (SavedSet : ILostActionSet, 
-    dispatch: ThunkDispatch<{ counter: CounterState; LostFindsHolster: LostFindsHolster; LostActionSets: LostActionSets; }, undefined, UnknownAction> & Dispatch<UnknownAction>
-) => {
+    dispatch: ThunkDispatch<{ LostFindsHolster: LostFindsHolster; LostActionSets: LostActionSets; }, undefined, UnknownAction> & Dispatch<UnknownAction>
+, allSavedSets : ILostActionSet[]) => {
     const SavedSetLostActions : React.JSX.Element = GenerateSavedSetLostActions(SavedSet.setLostActionContents);
-
+    
     function HandleLoadSetToHolsterClick(event : BaseSyntheticEvent) {
         console.log(event);
+        dispatch(clearHolster());
+        dispatch(setSelectedRole(SavedSet.roleTypeOfSet));
+        dispatch(increaseCurrentWeight(SavedSet.weightOfSet));
+
+        SavedSet.setLostActionContents.forEach((LostActionInSavedSet) => {
+            dispatch(addActionToHolster(LostActionInSavedSet.id));
+            dispatch(setActionQuantity([LostActionInSavedSet.id, LostActionInSavedSet.quantity]));
+        })
     }
 
     function HandleDeleteSetClick(event : BaseSyntheticEvent) {
-        console.log(event);
+        const filteredSavedSets : ILostActionSet[] = allSavedSets.filter((SavedSet) => SavedSet.id != event.target.id);
+        dispatch(deleteSavedSetFromSets(filteredSavedSets));
+        
     }
 
     function HandleTitleChange(event : BaseSyntheticEvent) {
@@ -57,13 +69,13 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     }
 
     return (
-        <div key={Math.random()} className="MyHolstersSavedSet">
+        <div key={SavedSet.id} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
                     <div className="SavedHolstersLoadHolster">
                         <img onClick={HandleLoadSetToHolsterClick} src={LoadSetImage}></img>
                     </div>
                     <div className="SavedHolstersDeleteHolster">
-                        <img onClick={HandleDeleteSetClick} src={DeleteSetImage}></img>
+                        <img id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} src={DeleteSetImage}></img>
                     </div>
                 </div>
 
@@ -89,10 +101,11 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
 }
 
 const CreateSavedSets = (SetsToLoad : ILostActionSet[]) => {
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
+    const allSavedSets = useAppSelector((state) => state.LostActionSets.Sets);
     const SetsArray : React.JSX.Element[] = [];
     SetsToLoad.forEach((SetToUse) => {
-        const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch);
+        const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets);
         SetsArray.push(SetCreation);
     });
     return (

@@ -84,10 +84,14 @@ export const LostActionSetsSlice = createSlice({
                     state.Sets[index].nameOfSet = action.payload[1];
                 }
             })         
+        },
+
+        deleteSavedSetFromSets: (state, action: PayloadAction<ILostActionSet[]>) => {         
+            state.Sets = action.payload;
         }
     },
 })
 
-export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet } = LostActionSetsSlice.actions;
+export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet, deleteSavedSetFromSets } = LostActionSetsSlice.actions;
 
 export default LostActionSetsSlice.reducer;

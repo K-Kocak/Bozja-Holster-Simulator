@@ -5061,5 +5061,5 @@ const LostActions = {
         'ResistanceElixir': ResistanceElixir
     }
 }
-
+console.log(LostActions);
 export default LostActions;

@@ -42,6 +42,10 @@ export const LostFindsHolsterSlice = createSlice({
             state.ActionQuantities[action.payload] -= 1;
         },
 
+        setActionQuantity: (state, action: PayloadAction<[number, number]>) => {
+            state.ActionQuantities[action.payload[0]] += action.payload[1];
+        },
+
         setSelectedWeight: (state, action: PayloadAction<number>) => {
             state.SelectedWeight = action.payload;
         },
@@ -85,6 +89,6 @@ export const LostFindsHolsterSlice = createSlice({
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster} = LostFindsHolsterSlice.actions;
+export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster} = LostFindsHolsterSlice.actions;
 
 export default LostFindsHolsterSlice.reducer;
