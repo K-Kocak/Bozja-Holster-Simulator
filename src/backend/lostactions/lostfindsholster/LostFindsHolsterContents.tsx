@@ -6,7 +6,7 @@ import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicFo
 import SaveSetImage from '@ui/pictures/BozjaSaveSetImage81x81.png';
 import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon.png';
 
-import { AutomateSeparator } from '@backend/lostactions/LostActionsDivGen';
+import { AutomateSeparator } from '@app/backend/lostactions/lostfindscache/LostActionsDivGen';
 
 import CreateLostFindsHolsterActionBoxes from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterActionBoxGen';
 import { useAppDispatch, useAppSelector } from '../../hooks';

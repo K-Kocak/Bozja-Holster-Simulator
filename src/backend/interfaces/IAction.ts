@@ -29,7 +29,8 @@ export interface IAction {
         FR?: "Technique d'arme" | "Aptitude" | "Sort" | "Objet",
         JA?: "ウェポンスキル" | "アビリティ" | "魔法" | "アイテム"
     },
-
+    fragment: number[],
+    
     description: {
         EN: JSX.Element,
         DE?: JSX.Element,

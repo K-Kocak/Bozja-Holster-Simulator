@@ -3,7 +3,7 @@ import React, { BaseSyntheticEvent } from 'react';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import IAction from '@backend/interfaces/IAction';
 
-import CreateLostActionInformationBoxes from '@backend/lostactions/LostActionsDivGen';
+import CreateLostActionInformationBoxes from '@app/backend/lostactions/lostfindscache/LostActionsDivGen';
 
 import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
 

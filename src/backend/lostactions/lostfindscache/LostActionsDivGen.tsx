@@ -1,19 +1,11 @@
 // Divs that display when an action is hovered on is created here
 import React from 'react';
 
-//import LostActionsNoBorder from '../pictures/LostActions/LostActionsImgInitialise';
-
 import '@css/ui/components/LostActionsDivGen.scss';
 import IAction from '@app/backend/interfaces/IAction';
 
-//const LostFocusLink = LostActionsAsArray[0].img;
+import ForgottenFragmentsAsObjectArray from '../forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
 
-
-// test code for building automation for all actions
-// this variable is always static, every action has this exact structure
-// only thing that differs is what the literal values of the action is
-// double check: every lost action has the exact same structure for this first section
-// all that would need to be changed is what the LostActionsAsArray number is
 function AutomateSectionOneVar(LostAction: IAction) : React.JSX.Element {
 return <div className="LostActionSectionOne">
     
@@ -137,8 +129,26 @@ return <div className="LostActionSectionFour">
 </div>
 }
 
+function AutomateSectionFiveVar(LostAction: IAction) : React.JSX.Element {
+    const FragmentDiv : React.JSX.Element[] = [];
+    LostAction.fragment.forEach((fragmentID) => {
+        FragmentDiv.push(<div key={fragmentID}className="LostActionForgottenFragment">
+            <div className="LostActionForgottenFragmentImg">
+                <img src={ForgottenFragmentsAsObjectArray[fragmentID].img}></img>
+            </div>
+            <div className="LostActionForgottenFragmentName">
+                <span>{ForgottenFragmentsAsObjectArray[fragmentID].name}</span>
+            </div>
+        </div>)
+    })
+    return <div className="LostActionSectionFive">
+        {FragmentDiv}
+    </div>;
+}
+
 export function CreateLostActionInformationBoxes(LostActionInformationBoxesStorage : IAction[]) : React.JSX.Element[] {
     const CreatedLostActionInformationBoxes : React.JSX.Element[] = [];
+    console.log()
     LostActionInformationBoxesStorage.forEach((LostAction: IAction) => {
         CreatedLostActionInformationBoxes[LostAction.id] = CreateLostActionBox(LostAction);
     });
@@ -153,6 +163,7 @@ return <div className="LostActionDetailedInfoBox">
             {AutomateSeparator()}
             {AutomateSectionThreeVar(LostAction)}
             {AutomateSectionFourVar(LostAction)}
+            {AutomateSectionFiveVar(LostAction)}
         </div>
     </div>
 }
