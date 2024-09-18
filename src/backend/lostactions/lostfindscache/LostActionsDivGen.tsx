@@ -163,6 +163,7 @@ return <div className="LostActionDetailedInfoBox">
             {AutomateSeparator()}
             {AutomateSectionThreeVar(LostAction)}
             {AutomateSectionFourVar(LostAction)}
+            {AutomateSeparator()}
             {AutomateSectionFiveVar(LostAction)}
         </div>
     </div>

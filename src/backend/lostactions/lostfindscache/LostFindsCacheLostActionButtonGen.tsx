@@ -9,6 +9,7 @@ import '@css/ui/components/LostFindsCacheLostActionButtonGen.scss';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addActionToHolster, increaseCurrentWeight, incrementActionQuantity, setSelectedWeight } from '../LostFindsHolsterSlice';
+import LostActions from '../actiondata/ActionData';
 
 const LostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
@@ -47,15 +48,17 @@ const CreateLostCacheLostActionButton = (LostAction: IAction) => {
     }
 
     
-
-    
+    const LostActionInformationHoverDiv = LostAction.id != LostActions.ItemRelated.ResistanceElixir.id ? 
+    <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div> 
+    :
+    <div style={{marginLeft: "75px", marginTop: "-100px"}}className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>;
 
     return <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleButtonClick} className="LostCacheLostActionButton">
                 
                 <img key={LostAction.id} id={LostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={LostAction.category.EN == "Item-Related" ? LostAction.img : LostAction.imgBorder}></img>
                 <div  className="LostActionButtonWeight">{LostAction.weight}</div>
-            <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
-        </div>
+            {LostActionInformationHoverDiv}
+        </div>;
 }
 
 // Creates all the HTML for the lost action buttons inside the lost cache

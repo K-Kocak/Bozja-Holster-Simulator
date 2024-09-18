@@ -1,0 +1,15 @@
+.ForgottenFragmentInfoInnerContainer {
+    display: flex;
+    flex-direction: row;
+
+    .ForgottenFragmentInfoFragmentListContainer {
+        width: 45%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .ForgottenFragmentInfoFragmentInformationContainer {
+        width: 55%;
+        height: 100%;
+    }
+}
