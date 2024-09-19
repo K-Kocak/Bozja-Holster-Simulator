@@ -7,21 +7,6 @@ import IActionHolster from '@backend/interfaces/IActionHolster';
 
 import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
 
-/*id: number,
-    nameOfSet: string,
-    roleTypeOfSet: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged"
-    weightOfSet: number,
-    setLostActionContents: IActionHolster[],
-*/
-
-/*
-id: number,
-    name: string
-    img: string,
-    weight: number,
-    category: "Offensive" | "Defensive" | "Restorative" | "Beneficial" | "Tactical" | "Detrimental" | "Item-Related",
-*/
-
 export interface LostActionSets {
     Sets: ILostActionSet[],
 }
