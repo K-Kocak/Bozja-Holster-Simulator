@@ -1,15 +1,19 @@
 import '@css/ui/components/ForgottenFragmentInfoSection.scss';
+
 import GenerateForgottenFragmentDivs from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentList';
+import GenerateForgottenFragmentDetailedInfoSection from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentDetailedInfo';
 
 export const ForgottenFragmentInnerContainer = () => {
     const ForgottenFragmentDivs : React.JSX.Element[] = GenerateForgottenFragmentDivs();
+    const ForgottenFragmentDetailedInfo : React.JSX.Element = GenerateForgottenFragmentDetailedInfoSection();
+    
     return <div className="ForgottenFragmentInfoInnerContainer">
             <div className="ForgottenFragmentInfoFragmentListContainer">
                 {ForgottenFragmentDivs}
             </div>
             <div></div>
             <div className="ForgottenFragmentInfoFragmentInformationContainer">
-                <span>ForgottenFragmentInfoFragmentInformationContainer</span>
+                {ForgottenFragmentDetailedInfo}
             </div>
     </div>
 }

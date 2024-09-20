@@ -1,18 +1,17 @@
-import { BaseSyntheticEvent } from 'react';
-
 import IForgottenFragment from '@backend/interfaces/IForgottenFragment';
 import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
 
 import '@css/ui/components/ForgottenFragmentInfoSectionFragmentList.scss';
 
 import { useAppDispatch } from '@app/backend/hooks';
-import { setFragmentHovered } from '../ForgottenFragmentInfoSlice';
+import { setFragmentHovered, setFragmentToDisplay } from '../ForgottenFragmentInfoSlice';
 
 
 function CreateForgottenFragmentDiv(ForgottenFragment : IForgottenFragment) {
     const dispatch = useAppDispatch();
-    function HandleForgottenFragmentDivClick(event : BaseSyntheticEvent) {
-        console.log(event.target.id);
+    
+    function HandleForgottenFragmentDivClick() {
+        dispatch(setFragmentToDisplay(ForgottenFragment.id));
     }
 
     function HandleMouseEnter() {
