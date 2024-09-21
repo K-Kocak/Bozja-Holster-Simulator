@@ -8,14 +8,7 @@ import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragm
 
 import ForgottenFragmentLostActionList from './ForgottenFragmentInfoSectionFragmentListActions';
 
-import FateBossImage from '@ui/pictures/TemporaryFateCEIcons/FateBossIcon.png';
-import FateFightImage from '@ui/pictures/TemporaryFateCEIcons/FateFightIcon.png';
-import FateDefenseImage from '@ui/pictures/TemporaryFateCEIcons/FateDefenseIcon.png';
-import FateCollectImage from '@ui/pictures/TemporaryFateCEIcons/FateCollectionIcon.png';
-import CEBossImage from '@ui/pictures/TemporaryFateCEIcons/CEBossIcon.png';
-import CEWaveImage from '@ui/pictures/TemporaryFateCEIcons/CEWaveIcon.png';
-import CEDuelImage from '@ui/pictures/TemporaryFateCEIcons/CEDuelIcon.png';
-import DALCASImage from '@ui/pictures/TemporaryFateCEIcons/CastrumDalriadaRaidIcon.png';
+import BozjanClusterImage from '@ui/pictures/TemporaryFateCEIcons/BozjanClusterImageTransparent.png'
 
 import SampleMapBG from '@ui/pictures/TemporaryFateCEIcons/FFXIVMapBackgroundSample.png';
 
@@ -54,8 +47,6 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
                 <div className="ForgottenFragmentDetailedInfoMapImg">
                 <img className="TempBG" src={SampleMapBG}></img>
                     <div className="Temp">
-                        
-                        <img className="Top" src={FateBossImage}></img>
                         
                     </div>
                     
