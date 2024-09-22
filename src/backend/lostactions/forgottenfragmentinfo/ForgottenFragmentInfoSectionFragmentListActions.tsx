@@ -8,7 +8,7 @@ import IAction from "@backend/interfaces/IAction";
 
 const CreateLostActionRow = (LostAction : IAction) : React.JSX.Element => {
     return (
-        <div className="ForgottenFragmentDetailedInfoLostActionRow">
+        <div key={LostAction.id} className="ForgottenFragmentDetailedInfoLostActionRow">
             <div className="ForgottenFragmentDetailedInfoLostActionRowImage">
                 <img src={LostAction.img}></img>
             </div>

@@ -7,10 +7,7 @@ import '@css/ui/components/ForgottenFragmentInfoSectionFragmentDetailedInfo.scss
 import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
 
 import ForgottenFragmentLostActionList from './ForgottenFragmentInfoSectionFragmentListActions';
-
-import BozjanClusterImage from '@ui/pictures/TemporaryFateCEIcons/BozjanClusterImageTransparent.png'
-
-import SampleMapBG from '@ui/pictures/TemporaryFateCEIcons/FFXIVMapBackgroundSample.png';
+import ForgottenFragmentLootDropsList from './ForgottenFragmentInfoSectionFragmentListLootList';
 
 
 const GenerateForgottenFragmentDetailedInfoSection = () => {
@@ -29,6 +26,7 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
 
     const ForgottenFragmentInUse = ForgottenFragmentsAsObjectArray[currentSelectedForgottenFragment];
     const ForgottenFragmentLostActionListToDisplay : React.JSX.Element = ForgottenFragmentLostActionList(ForgottenFragmentInUse);
+    const ForgottenFragmentLootListToDisplay : React.JSX.Element = ForgottenFragmentLootDropsList(ForgottenFragmentInUse);
 
     return (
     <div className="ForgottenFragmentDetailedInfoContainer">
@@ -44,24 +42,23 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
             </div>
             <div className="ForgottenFragmentDetailedInfoMap">
                 <span onMouseEnter={HandleViewMapHover} onMouseLeave={HandleViewMapHover}>View Map</span>
-                <div className="ForgottenFragmentDetailedInfoMapImg">
-                <img className="TempBG" src={SampleMapBG}></img>
-                    <div className="Temp">
-                        
-                    </div>
-                    
+                <div className="ForgottenFragmentDetailedInfoMapImg hidden">
+                
                 </div>
             </div>
         </div>
         <div className="ForgottenFragmentDetailedInfoActionsAndLootDrops">
             <div className="ForgottenFragmentDetailedInfoActions">
                 <div className="ForgottenFragmentDetailedInfoAppraisal">
-                    <span>Appraise at rank<span className="ForgottenFragmentDetailedInfoAppraisalRank"> {ForgottenFragmentInUse.rank}</span>  for . . .</span>
+                    <span>Appraise at Rank<span className="ForgottenFragmentDetailedInfoAppraisalRank"> {ForgottenFragmentInUse.rank}</span>  for . . .</span>
                 </div>
                 {ForgottenFragmentLostActionListToDisplay}
             </div>
             <div className="ForgottenFragmentDetailedInfoLootDrops">
-
+                <div className="ForgottenFragmentDetailedInfoLootDropText">
+                    <span>Loot Locations . . .</span>
+                </div>
+                {ForgottenFragmentLootListToDisplay}
             </div>
         </div>
     </div>

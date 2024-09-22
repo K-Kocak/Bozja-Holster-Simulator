@@ -51,53 +51,11 @@
             
             .ForgottenFragmentDetailedInfoMapImg {
                 position: absolute;
-                //height: 500px;
-                //width: 500px;
-                height: 150px;
-                width: 150px;
-                //background-color: red;
-                z-index: 2;
-                //top: -400px;
-                top: 0px;
-                border-radius: 100%;
-                //background: radial-gradient(transparent, #83ADB1);
-              
-                left: 150px;
-
-
-                .TempBG {
-                    
-                    height: 150px;
-                    width: 150px;
-                    top: 0px;
-                    left: 0px;
-                    border-radius: 100%;
-                }
-                .Temp {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 150px;
-                    width: 150px;
-                    z-index: 2;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    border-radius: 100%;
-                    background: radial-gradient(transparent, #B68760);
-
-                    
-
-                    .Top {
-                        z-index: 2;
-                        height: 125px;
-                        filter: drop-shadow(0px 0px 8px black);
-                        img {
-                            
-                            z-index: 3;
-                        }
-                    }
-                }
+                height: 500px;
+                width: 500px;             
+                background-color: red;                
+                top: -400px;               
+                left: 150px;    
             }
 
             .hidden {
@@ -136,6 +94,20 @@
 
         .ForgottenFragmentDetailedInfoLootDrops {
             width: 50%;
+            display: flex;
+            flex-direction: column;           
+
+            .ForgottenFragmentDetailedInfoLootDropText {
+                width: 100%;
+                display: flex;
+                justify-content: left;
+                padding-left: 5px;
+                margin-top: 5px;
+                margin-bottom: 8px;
+                pointer-events: none;
+                color: #F4F2F2;  
+                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+            }
         }
     }
 }
