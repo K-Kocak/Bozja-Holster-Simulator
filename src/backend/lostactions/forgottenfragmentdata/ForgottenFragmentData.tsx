@@ -9,6 +9,7 @@ import LostActions from '@backend/lostactions/actiondata/ActionData';
 interface ForgottenFragmentData {
     [nameOfFragment : string] : IForgottenFragment
 }
+const CastrumSpawnLocation = "(18.9, 12.9)";
 
 const ForgottenFragmentData : ForgottenFragmentData = {
     "FragmentAwakening" : {
@@ -17,7 +18,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Awakening",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.EssenceGuardian.id, LostActions.ItemRelated.EssenceOrdained.id, LostActions.ItemRelated.EssenceSkirmisher.id, LostActions.ItemRelated.EssenceWatcher.id, LostActions.ItemRelated.EssenceProfane.id, LostActions.ItemRelated.EssenceIrregular.id, LostActions.ItemRelated.EssenceBreathtaker.id],    
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(15.6, 24.4)* - Bozjan Taipan IV", "(20.8, 23.1)* - Bozjan Biast IV", "(23.7, 23.5)* - Bozjan Bandersnatch III", "(26.2, 20.9)* - Bozjan Worm III", "(23.3, 20.5) - Bozjan Antlion III", "(28.9, 17.3) - Red Chocobo II", "(27.9, 17.5) - Bozjan Tormentor II", "(29.7, 18.9) - Bozjan Sabotender I,", "(28.9, 21.3) - Bozjan Doblyn I", "(18.2, 20.9) FATE - Help Wanted", "(17.6, 23.4) FATE - No Camping Allowed", "(17.6, 23.3) FATE - The Element of Supplies", "(30.8, 22.2) FATE - The Monster Mash", "(31.6, 17.3) FATE - Unicorn Flakes"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentBecoming" : {
@@ -26,7 +27,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Becoming",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.DeepEssenceGuardian.id, LostActions.ItemRelated.DeepEssenceOrdained.id, LostActions.ItemRelated.DeepEssenceSkirmisher.id, LostActions.ItemRelated.DeepEssenceWatcher.id, LostActions.ItemRelated.DeepEssenceProfane.id, LostActions.ItemRelated.DeepEssenceIrregular.id, LostActions.ItemRelated.DeepEssenceBreathtaker.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentCaprice" : {
@@ -35,7 +36,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Caprice",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Offensive.LostFairTrade.id, LostActions.Tactical.Mimic.id, LostActions.ItemRelated.DynamisDice.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue (6/6)"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentCare" : {
@@ -44,7 +45,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Care",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.ResistanceReraiser.id, LostActions.ItemRelated.ResistancePotionKit.id, LostActions.ItemRelated.ResistanceEtherKit.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(16.2, 20.7)* DUST STORM - Earth Sprite V", "(21.4, 20.9)* WIND - Wind Sprite IV", "(26.9, 22.9) THUNDERSTORM - Lightning Sprite III", "(32.3, 15.8) UNDEAD - Bozjan Dullahan V", "(24.9, 19.8) UNDEAD - Bozjan Wight III", "(30.5, 20.8) RAIN - Water Sprite II", "(10.5, 20.9) UNDEAD - Zadnor Gourmand V", "(5.2, 30.3) UNDEAD - Zadnor Banshee III", "(30.7, 22.3) FATE - Heavy Boots of Lead", "(25.4, 21.9) FATE - Parts and Recreation", "(18.2, 20.9) FATE - Pyromancer Supreme", "(27.0, 18.5) FATE - Red (Chocobo) Alert", "(25.2, 22.8) FATE - Scavengers of Human Sorrow"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentCaution" : {
@@ -53,7 +54,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Caution",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Defensive.LostManawall.id, LostActions.Tactical.LostStealth.id, LostActions.Beneficial.LostProtect.id, LostActions.Beneficial.LostShell.id, LostActions.Restorative.LostCure.id, LostActions.Restorative.LostCureIII.id, LostActions.Defensive.LostIncense.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:5 Ratio", "(26.3, 25.1) STAR - Fem Flower", "(35.5, 27.3) STAR - Ink Claw", "(19.5, 30.4) STAR - Tideborn Angel"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentCompassion" : {
@@ -62,7 +63,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Compassion",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Restorative.LostCureII.id, LostActions.Restorative.LostCureIV.id, LostActions.Restorative.LostArise.id, LostActions.ItemRelated.ResistanceMedikit.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(25.5, 15.8) - Bozjan Elasmoth V", "(24.6, 19.8) - Bozjan Doll V", "(22.1, 13.6) - Bozjan Anzu V", "(16.7, 14.9) - Bozjan Wadjet IV", "(12.4, 14.9) - Bozjan Snake IV", "(20.1, 14.3) - Bozjan Goobue IV", "(11.7, 16.6) - Bozjan Ochu III", "(18.8, 16.1) - Bozjan Monitor III", "(11.1, 17.7) - Bozjan Ranunculus II", "(13.2, 18.9) - Bozjan Phobosuchus II", "(11.3, 21.6) - Bozjan Screamer I", "(10.6, 18.6) - Bozjan Elbst I", "(25.3, 12.6) - Zadnor Gagana V", "(23.1, 15.6) - Zadnor Golem V", "(21.5, 18.5) - Zadnor Wivre V", "(11.3, 20.4) FATE - Demonstrably Demonic", "(24.5, 17.3) FATE - Desperately Seeking Something", "(14.3, 18.2) FATE - For Absent Friends", "(20.8, 18.0) FATE - I'm a Mechanical Man", "(14.1, 15.7) FATE - Let Slip the Dogs of War", "(14.1, 15.7) FATE - Murder Death Kill", "(11.3, 15.2) FATE - My Family and Other Animals", "(14.3, 18.2) FATE - Of Steel and Flame", "(11.3, 20.4) FATE - The War Against the Machines", "(24.5, 17.3) FATE - Waste the Rainbow"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentIngenuity" : {
@@ -71,7 +72,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Ingenuity",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Detrimental.LostParalyzeIII.id, LostActions.Detrimental.LostBanishIII.id, LostActions.Detrimental.LostDispel.id, LostActions.Beneficial.LostSpellforge.id, LostActions.Beneficial.LostSteelsting.id, LostActions.Tactical.LostSwift.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:4 Ratio", "(32.9, 18) STAR - Psoglav", "(15.2, 22.1) STAR - Smok", "(28.6, 19.8) STAR - Viy"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentMastery" : {
@@ -80,7 +81,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Mastery",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.DeepEssenceAetherweaver.id, LostActions.ItemRelated.DeepEssenceMartialist.id, LostActions.ItemRelated.DeepEssenceSavior.id, LostActions.ItemRelated.DeepEssenceVeteran.id, LostActions.ItemRelated.DeepEssencePlatebearer.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentPreparation" : {
@@ -89,7 +90,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Preparation",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.ResistancePhoenix.id, LostActions.ItemRelated.ResistancePotion.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(34.9, 29.0) THUNDERSTORM - Lightning Sprite V", "(31.7, 25.1) RAIN - Water Sprite IV", "(28.3, 27.6) WIND - Wind Sprite III", "(15.2, 22.1) UNDEAD - Bozjan Wraith V", "(24.6, 29.6) UNDEAD - Bozjan Geshunpest III", "(25.7, 25.8) DUST STORM - Earth Sprite II", "(20.1, 36.2) UNDEAD - Zadnor Dullahan V", "(27.2, 38.1) UNDEAD - Zadnor Bhoot III", "(17.0, 26.8) FATE - All Pets Are Off", "(28.6, 26.1) FATE - Brought to Heal", "(24.4, 27.7) FATE - None of Them Knew They Were Robots", "(24.3, 27.6) FATE - Unrest for the Wicked"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentResolve" : {
@@ -98,7 +99,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Resolve",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Offensive.BannerofNobleEnds.id, LostActions.Offensive.BannerofHonoredSacrifice.id, LostActions.Defensive.BannerofTirelessConviction.id, LostActions.Defensive.BannerofFirmResolve.id, LostActions.Restorative.BannerofSolemnClarity.id, LostActions.Offensive.BannerofHonedAcuity.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(14.3, 18.3) Critical Engagement - Metal Fox Chaos", "(9.9, 18.3) Critical Engagement - Trampled under Hoof", "(23.6, 14.9) Critical Engagement - Where Strode the Behemoth"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentSagacity" : {
@@ -107,7 +108,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Sagacity",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Offensive.LostFontofMagic.id, LostActions.Tactical.LostFontofSkill.id, LostActions.Offensive.LostFontofPower.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentSkill" : {
@@ -116,7 +117,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Skill",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.EssenceAetherweaver.id, LostActions.ItemRelated.EssenceMartialist.id, LostActions.ItemRelated.EssenceSavior.id, LostActions.ItemRelated.EssenceVeteran.id, LostActions.ItemRelated.EssencePlatebearer.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(31.6, 26.7) - Bozjan Matamata III", "(21.9, 29.9) - Bozjan Mudpuppy II", "(22.2, 26.4) - Bozjan Korrigan II", "(18.6, 29.1) - Bozjan Orobon I", "(16.8, 28.5) - Bozjan Nepenthes I", "(33.5, 29.3) FATE - Conflicting with the First Law", "(27.9, 28.9) FATE - More Machine Now than Man", "(28.6, 26.0) FATE - Seeq and Destroy", "(20.2, 26.9) FATE - Sneak & Spell", "(20.0, 27.1) FATE - The Beasts Must Die"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentSuperstition" : {
@@ -125,7 +126,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Superstition",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.EssenceBloodsucker.id, LostActions.ItemRelated.EssenceBeast.id, LostActions.ItemRelated.EssenceTemplar.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentSupport" : {

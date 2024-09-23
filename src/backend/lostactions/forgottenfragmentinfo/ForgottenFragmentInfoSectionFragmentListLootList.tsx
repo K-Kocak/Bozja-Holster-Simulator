@@ -4,7 +4,7 @@ import '@css/ui/components/ForgottenFragmentInfoSectionFragmentListLootList.scss
 
 function CreateLootSourceRow(LootSource : string) : React.JSX.Element {
     return (
-        <div className="ForgottenFragmentDetailedInfoLootSourceRow">
+        <div key={LootSource} className="ForgottenFragmentDetailedInfoLootSourceRow">
             <div className="ForgottenFragmentDetailedInfoLootSourceRowBulletPoint">
                 &#8226;
             </div>

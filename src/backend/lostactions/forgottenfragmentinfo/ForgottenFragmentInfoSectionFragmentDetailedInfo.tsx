@@ -9,6 +9,7 @@ import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragm
 import ForgottenFragmentLostActionList from './ForgottenFragmentInfoSectionFragmentListActions';
 import ForgottenFragmentLootDropsList from './ForgottenFragmentInfoSectionFragmentListLootList';
 
+import TempImage from '@ui/pictures/TemporaryFateCEIcons/Zadnor.jpg';
 
 const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
@@ -43,7 +44,8 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
             <div className="ForgottenFragmentDetailedInfoMap">
                 <span onMouseEnter={HandleViewMapHover} onMouseLeave={HandleViewMapHover}>View Map</span>
                 <div className="ForgottenFragmentDetailedInfoMapImg hidden">
-                
+                    <img src={TempImage}></img>
+                   
                 </div>
             </div>
         </div>
@@ -56,7 +58,7 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
             </div>
             <div className="ForgottenFragmentDetailedInfoLootDrops">
                 <div className="ForgottenFragmentDetailedInfoLootDropText">
-                    <span>Loot Locations . . .</span>
+                    <span>Popular Farm Locations . . .</span>
                 </div>
                 {ForgottenFragmentLootListToDisplay}
             </div>
