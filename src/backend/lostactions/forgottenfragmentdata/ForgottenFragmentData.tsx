@@ -9,7 +9,8 @@ import LostActions from '@backend/lostactions/actiondata/ActionData';
 interface ForgottenFragmentData {
     [nameOfFragment : string] : IForgottenFragment
 }
-const CastrumSpawnLocation = "(18.9, 12.9)";
+
+// const CastrumSpawnLocation = "(18.9, 12.9)";
 
 const ForgottenFragmentData : ForgottenFragmentData = {
     "FragmentAwakening" : {
@@ -18,8 +19,8 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Awakening",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.EssenceGuardian.id, LostActions.ItemRelated.EssenceOrdained.id, LostActions.ItemRelated.EssenceSkirmisher.id, LostActions.ItemRelated.EssenceWatcher.id, LostActions.ItemRelated.EssenceProfane.id, LostActions.ItemRelated.EssenceIrregular.id, LostActions.ItemRelated.EssenceBreathtaker.id],    
-        descriptionLootSources: ["(15.6, 24.4)* - Bozjan Taipan IV", "(20.8, 23.1)* - Bozjan Biast IV", "(23.7, 23.5)* - Bozjan Bandersnatch III", "(26.2, 20.9)* - Bozjan Worm III", "(23.3, 20.5) - Bozjan Antlion III", "(28.9, 17.3) - Red Chocobo II", "(27.9, 17.5) - Bozjan Tormentor II", "(29.7, 18.9) - Bozjan Sabotender I,", "(28.9, 21.3) - Bozjan Doblyn I", "(18.2, 20.9) FATE - Help Wanted", "(17.6, 23.4) FATE - No Camping Allowed", "(17.6, 23.3) FATE - The Element of Supplies", "(30.8, 22.2) FATE - The Monster Mash", "(31.6, 17.3) FATE - Unicorn Flakes"],
-        descriptionMapLocation: "Image That points to circles on a map."
+        descriptionLootSources: ["(15.6, 24.4)* - Bozjan Taipan IV", "(20.8, 23.1)* - Bozjan Biast IV", "(23.7, 23.5)* - Bozjan Bandersnatch III", "(26.2, 20.9)* - Bozjan Worm III", "(23.3, 20.5) - Bozjan Antlion III", "(28.7, 17.0) - Red Chocobo II", "(27.9, 17.5) - Bozjan Tormentor II", "(29.7, 18.9) - Bozjan Sabotender I,", "(28.9, 21.3) - Bozjan Doblyn I", "(18.2, 20.9) FATE - Help Wanted", "(17.6, 23.4) FATE - No Camping Allowed", "(17.6, 23.4) FATE - The Element of Supplies", "(30.8, 22.2) FATE - The Monster Mash", "(31.6, 17.3) FATE - Unicorn Flakes"],
+        descriptionMapLocation: "Image That points to circles on a map"
     },
     "FragmentBecoming" : {
         id: 1,
@@ -135,7 +136,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Support",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostReflect.id, LostActions.Beneficial.LostStoneskin.id, LostActions.Beneficial.LostBravery.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(22.7, 18.1) WIND - Wind Sprite V", "(20.2, 18.9) DUST STORM - Earth Sprite IV", "(16.4, 19.2) RAIN - Water Sprite III", "(14.3, 16.8) THUNDERSTORM - Lightning Sprite II", "(23.6, 15.8) SNOW - Ice Sprite V", "(17.5, 12.0) WIND - Wind Sprite IV", "(11.3, 7.4) THUNDERSTORM - Lightning Sprite III", "(5.2, 11.6) RAIN - Water Sprite II"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentTranscendence" : {
@@ -144,7 +145,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Transcendence",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.DeepEssenceBloodsucker.id, LostActions.ItemRelated.DeepEssenceBeast.id, LostActions.ItemRelated.DeepEssenceTemplar.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Castrum Lacus Litore - Prisoner Rescue"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentViolence" : {
@@ -153,7 +154,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Violence",
         img: BSFFragment,
         descriptionContainsLostAction: [LostActions.Offensive.LostFocus.id, LostActions.Offensive.LostSlash.id, LostActions.Offensive.LostDeath.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(24.3, 13.1) STAR - Bird of Barathrum", "(18.1, 18.6) STAR - Clingy Clare", "(9.3, 18.2) STAR - Patty", "(22.5, 14.8) UNDEAD - Bozjan Rider V", "(18.8, 17.5) UNDEAD - Bozjan Gravekeeper III"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentClarity" : {
@@ -162,7 +163,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Clarity",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceElder.id, LostActions.Offensive.LostFlareStar.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Trinity Seeker, Queen's Guard", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentContention" : {
@@ -171,7 +172,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Contention",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceDuelist.id, LostActions.Detrimental.LostRendArmor.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Trinity Seeker, Queen's Guard", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentDeception" : {
@@ -180,7 +181,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Deception",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceGambler.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Delubrum Reginae Savage - Trinity Seeker, The Queen, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentDivinity" : {
@@ -189,7 +190,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Divinity",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceDivine.id, LostActions.Detrimental.LostSeraphStrike.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Trinity Seeker, Queen's Guard", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentFinesse" : {
@@ -198,7 +199,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Finesse",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceFiendHunter.id, LostActions.Beneficial.LostDervish.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Queen's Guard", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentFortitude" : {
@@ -207,7 +208,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Fortitude",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.PureEssenceIndomitable.id, LostActions.Beneficial.LostAethershield.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Trinity Seeker, Queen's Guard", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentLoss" : {
@@ -216,7 +217,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Loss",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.Restorative.LostSacrifice.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Delubrum Reginae Normal - Trinity Avowed", "Delubrum Reginae Savage - Trinity Seeker, The Queen, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentObservation" : {
@@ -225,7 +226,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Observation",
         img: DRSFragment,
         descriptionContainsLostAction: [LostActions.Tactical.LostPerception.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 1:1 Ratio", "Delubrum Reginae Normal - Dahu, Bozjan Phantom", "Delubrum Reginae Savage - Trinity Seeker, All Trash Fights"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentArtistry" : {
@@ -234,7 +235,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Artistry",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Offensive.LostChainspell.id, LostActions.Offensive.LostAssassination.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(4.4, 21.6) STAR - Lord Ochu", "(12.2, 31.8) STAR - Earth Eater", "(9.0, 30.1) STAR - Aglaophotis", "(5.6, 21.6) RAIN - Water Sprite V", "(7.8, 30.6) THUNDERSTORM - Lightning Sprite IV", "(13.5, 24.2) SNOW - Ice Sprite III", "(6.7, 37.2) WIND - Wind Sprite II"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentCunning" : {
@@ -243,7 +244,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Cunning",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.ResistanceElixir.id, LostActions.Defensive.LostBloodRage.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["The Dalriada - After First Boss"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentDesperation" : {
@@ -252,7 +253,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Desperation",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostProtectII.id, LostActions.Beneficial.LostShellII.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(18.2, 18.3) - Zadnor Lycanthrope IV", "(17.5, 13.3) - Zadnor Harpy IV", "(20.4, 13.9) - Zadnor Decotitus IV", "(22.5, 13.2) - Zadnor Wamoura III", "(15.5, 12.7) - Zadnor Yamaa II", "(18.0, 9.1) - Zadnor Raptor II", "(8.1, 12.6) - Zadnor Wamouracampa I", "(10.9, 12.2) - Zadnor Cliffmole I"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentFerocity" : {
@@ -261,7 +262,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Ferocity",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostStoneskinII.id, LostActions.Detrimental.LostRampage.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(18.3, 34.7) - Zadnor Dhalmel III", "(26.5, 34.5) - Zadnor Ziz II", "(29.2, 33.3) - Zadnor Hippogryph I"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentHeroism" : {
@@ -270,7 +271,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Heroism",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.ResistanceElixir.id, LostActions.Defensive.LostExcellence.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["The Dalriada - After First Boss"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentHistory" : {
@@ -279,7 +280,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of History",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.Lodestone.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(32.1, 30.7) STAR - Vinegaroon Executioner", "(16.8, 38.8) STAR - Stratogryph", "(24.5, 28.8) STAR - Anancus", "(16.8, 36.8) WIND - Wind Sprite V", "(20.9, 31.8) SNOW - Ice Sprite IV", "(31.4, 37.8) RAIN - Water Sprite III", "(30.4, 30.1) THUNDERSTORM - Lightning Sprite II"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentHope" : {
@@ -288,7 +289,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Hope",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Restorative.LostReraise.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["Resistance Quartermaster Cluster Trade at 5:1 Ratio"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentInspiration" : {
@@ -297,7 +298,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Inspiration",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Tactical.LostImpetus.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(20.9, 10.8) STAR - Vapula", "(19.8, 18.9) STAR - Molten Scorpion", "(12.1, 15.4) STAR - Glyptodon", "(25.7, 17.8) UNDEAD - Zadnor Haunt V", "(13.6, 14.8) UNDEAD - Imperial Dead III"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentMoonlight" : {
@@ -306,7 +307,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Moonlight",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.LightCurtain.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(7.6, 25.3) - Zadnor Sasquatch IV", "(7.8, 18.9) - Zadnor Leshy IV", "(6.6, 20.6) - Zadnor Coeurl IV", "(5.5, 31.6) - Zadnor Grizzly III", "(12.9, 28.9) - Zadnor Exoray II", "(13.5, 26.0) - Zadnor Abaddon II", "(10.8, 32.9) - Zadnor Stoneshell I", "(9.5, 35.8) - Zadnor Crawler I"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentRage" : {
@@ -315,7 +316,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Rage",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostStoneskinII.id, LostActions.Detrimental.LostBurst.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(18.3, 34.7) - Zadnor Dhalmel III", "(27.2, 35.8) - Zadnor Gaur II", "(32.3, 34.0) - Zadnor Beetle I"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentRevelation" : {
@@ -324,7 +325,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Revelation",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.ItemRelated.ResistanceElixir.id, LostActions.Restorative.LostFullCure.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["The Dalriada - After First Boss"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
     "FragmentTenacity" : {
@@ -333,7 +334,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Tenacity",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostBubble.id],
-        descriptionLootSources: ["It drops here."],
+        descriptionLootSources: ["(11.8, 8.0) Critical Engagement - Worn to a Shadow","(16.6, 17.1) - Feeling the Burn", "(17.3, 9.9) - Looks to Die For", "(15.3, 13.0) - Lean, Mean, Magitek Machines"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
 }

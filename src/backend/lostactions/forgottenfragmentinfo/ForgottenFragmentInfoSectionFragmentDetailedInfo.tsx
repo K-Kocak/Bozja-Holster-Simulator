@@ -1,5 +1,3 @@
-import { BaseSyntheticEvent } from 'react';
-
 import { useAppSelector } from '@app/backend/hooks';
 
 import '@css/ui/components/ForgottenFragmentInfoSectionFragmentDetailedInfo.scss';
@@ -8,9 +6,7 @@ import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragm
 
 import ForgottenFragmentLostActionList from './ForgottenFragmentInfoSectionFragmentListActions';
 import ForgottenFragmentLootDropsList from './ForgottenFragmentInfoSectionFragmentListLootList';
-
-import TempImage from '@ui/pictures/TemporaryFateCEIcons/Zadnor.jpg';
-
+//TO DO: INTERACTIVE MAP FOR FRAGMENTS
 const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
     console.log(currentSelectedForgottenFragment);
@@ -20,14 +16,24 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
         return <></>;
     }
 
-    function HandleViewMapHover(event : BaseSyntheticEvent) {
+    /*function HandleViewMapHover(event : BaseSyntheticEvent) {
         console.log(event);
         event.target.nextSibling.classList.toggle("hidden");
-    }
+    }*/
 
     const ForgottenFragmentInUse = ForgottenFragmentsAsObjectArray[currentSelectedForgottenFragment];
     const ForgottenFragmentLostActionListToDisplay : React.JSX.Element = ForgottenFragmentLostActionList(ForgottenFragmentInUse);
     const ForgottenFragmentLootListToDisplay : React.JSX.Element = ForgottenFragmentLootDropsList(ForgottenFragmentInUse);
+    // map stuff is hidden for now
+
+    /*
+    <span onMouseEnter={HandleViewMapHover} onMouseLeave={HandleViewMapHover}>View Map</span>
+    <div className="ForgottenFragmentDetailedInfoMapImg hidden">
+        <img src={ForgottenFragmentInUse.descriptionMapLocation}></img>
+        
+    </div>
+
+    */
 
     return (
     <div className="ForgottenFragmentDetailedInfoContainer">
@@ -41,12 +47,8 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
             <div className="ForgottenFragmentDetailedInfoName">
                 <span>{ForgottenFragmentInUse.name}</span>
             </div>
-            <div className="ForgottenFragmentDetailedInfoMap">
-                <span onMouseEnter={HandleViewMapHover} onMouseLeave={HandleViewMapHover}>View Map</span>
-                <div className="ForgottenFragmentDetailedInfoMapImg hidden">
-                    <img src={TempImage}></img>
-                   
-                </div>
+            <div className="ForgottenFragmentDetailedInfoMap hidden">
+                
             </div>
         </div>
         <div className="ForgottenFragmentDetailedInfoActionsAndLootDrops">

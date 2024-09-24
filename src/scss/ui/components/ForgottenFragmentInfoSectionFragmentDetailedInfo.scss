@@ -46,6 +46,10 @@
             width: 20%;
             justify-content: center;
             pointer-events: all;
+
+            .hidden {
+                visibility: hidden;
+            }
             
             .ForgottenFragmentDetailedInfoMapImg {
                 position: absolute;
