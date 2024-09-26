@@ -6,6 +6,7 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
 import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
+import { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
 
 export interface LostActionSets {
     Sets: ILostActionSet[],
@@ -32,7 +33,12 @@ const initialState: LostActionSets = {
             weight: 25,
             quantity: 3,
             category: "Offensive" 
-        }]
+        }],
+        PrepopLostActions: {
+            LostActionLeft: 103,
+            LostActionRight: 104,
+            EssenceInUse: 715
+        }
     }],
     
 };
@@ -41,11 +47,12 @@ export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
     reducers: {
-        addHolsterToSavedSets: (state, action: PayloadAction<[IActionHolster[], number[], number, "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged"]>) => {
+        addHolsterToSavedSets: (state, action: PayloadAction<[IActionHolster[], number[], number, "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", IUserSlottedActions]>) => {
             const currentHolster : IActionHolster[] = action.payload[0];
             const actionQuantities : number[] = action.payload[1];
             const weightOfHolster : number = action.payload[2];
             const roleTypeOfHolster = action.payload[3];
+            const PrepopHolster = action.payload[4];
             
             const HolsterToBeSaved : IActionHolster[] = [];
             currentHolster.forEach((actionInHolster) => {              
@@ -58,7 +65,8 @@ export const LostActionSetsSlice = createSlice({
                 nameOfSet: "Title",
                 roleTypeOfSet: roleTypeOfHolster,
                 weightOfSet: weightOfHolster,
-                setLostActionContents: HolsterToBeSaved
+                setLostActionContents: HolsterToBeSaved,
+                PrepopLostActions: PrepopHolster
             });
 
             

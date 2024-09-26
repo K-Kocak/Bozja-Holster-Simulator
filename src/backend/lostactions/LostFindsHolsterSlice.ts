@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 import IAction from '@backend/interfaces/IAction';
 import IActionHolster from '@backend/interfaces/IActionHolster';
+import { IUserSlottedActions } from '@backend/interfaces/IHolsterTimeline';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 
@@ -15,12 +16,19 @@ function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
 }
 const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
 
+const PrepopHolsterResetState = {
+    LostActionLeft: 101,
+    LostActionRight: 102,
+    EssenceInUse: 709
+}
+
 export interface LostFindsHolster {
     Holster: IActionHolster[],
     ActionQuantities: number[],
     CurrentWeight: number,
     SelectedWeight: number,
-    SelectedRole: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged";
+    SelectedRole: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged",
+    PrepopHolster: IUserSlottedActions
 }
 
 const initialState: LostFindsHolster = {
@@ -28,7 +36,8 @@ const initialState: LostFindsHolster = {
     ActionQuantities: actionQuantityArrayCreation,
     CurrentWeight: 0,
     SelectedWeight: 0,
-    SelectedRole: "Tank"
+    SelectedRole: "Tank",
+    PrepopHolster: PrepopHolsterResetState
 };
 
 export const LostFindsHolsterSlice = createSlice({
@@ -85,10 +94,23 @@ export const LostFindsHolsterSlice = createSlice({
             state.SelectedRole = "Tank";
             state.CurrentWeight = 0;
             state.SelectedWeight = 0;
+            state.PrepopHolster = PrepopHolsterResetState;
+        },
+
+        setPrepopHolsterLostActionLeft: (state, action: PayloadAction<number>) => {
+            state.PrepopHolster.LostActionLeft = action.payload;
+        },
+
+        setPrepopHolsterLostActionRight: (state, action: PayloadAction<number>) => {
+            state.PrepopHolster.LostActionRight = action.payload;
+        },
+
+        setPrepopHolsterLostActionEssence: (state, action: PayloadAction<number>) => {
+            state.PrepopHolster.EssenceInUse = action.payload;
         }
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster} = LostFindsHolsterSlice.actions;
+export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence} = LostFindsHolsterSlice.actions;
 
 export default LostFindsHolsterSlice.reducer;

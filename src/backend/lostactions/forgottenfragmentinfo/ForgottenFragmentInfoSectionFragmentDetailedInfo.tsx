@@ -60,7 +60,7 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
             </div>
             <div className="ForgottenFragmentDetailedInfoLootDrops">
                 <div className="ForgottenFragmentDetailedInfoLootDropText">
-                    <span>Popular Farm Locations . . .</span>
+                    <span>Fragment Sources . . .</span>
                 </div>
                 {ForgottenFragmentLootListToDisplay}
             </div>

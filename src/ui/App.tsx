@@ -10,6 +10,7 @@ import LostFindsCache from '@ui/components/LostFindsCache';
 import LostFindsHolster from '@ui/components/LostFindsHolster';
 import SavedHolsters from '@ui/components/SavedHolsters';
 import ForgottenFragmentInfo from '@ui/components/ForgottenFragmentInfo';
+import PrepopHolster from '@ui/components/PrepopHolster';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <LostFindsHolster />
       <SavedHolsters />
       <ForgottenFragmentInfo />
+      <PrepopHolster />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

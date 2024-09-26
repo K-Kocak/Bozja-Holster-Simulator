@@ -143,21 +143,21 @@ const BossToAdd : IBossEncounter = {
 TestCrap.HolsterTimeline.push(BossToAdd);
 export default IHolsterTimeline;*/
 
-export interface UserSlottedActions {
+export interface IUserSlottedActions {
     LostActionLeft: number,
     LostActionRight: number,
     EssenceInUse: number
 }
 
-interface LostActionExpenditure {
+interface ILostActionExpenditure {
     LostActionUsed: number,
     LostActionTimeOfUse: number
 }
 
 interface IEncounter {
-    PullBossWith: UserSlottedActions,
-    LostActionsSpentInPull: LostActionExpenditure[],
-    LostActionsSpentAfterPull: LostActionExpenditure[]
+    PullBossWith: IUserSlottedActions,
+    LostActionsSpentInPull: ILostActionExpenditure[],
+    LostActionsSpentAfterPull: ILostActionExpenditure[]
 }
 
 export interface IHolsterTimeline {
