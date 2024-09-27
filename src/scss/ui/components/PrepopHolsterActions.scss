@@ -58,24 +58,25 @@
                 &:hover .PrepopHolsterLostActionLeftSideDropdownContent {
                     display: block;
                 }
-
-                &:hover
-
                 ::-webkit-scrollbar {
                     display: flex;
                     position: relative;
                     width: 8px;
+                    height: 30px;
                 }
                 
-                /* Track */
+            
                 ::-webkit-scrollbar-track {
-                    background: white;
+                    background: transparent;
+                    
                 }
                 
-                /* Handle */
+             
                 ::-webkit-scrollbar-thumb {
                     background: #888;
+                    
                 }
+               
             }
 
             .PrepopHolsterLostActionRightSideSelectorList {
@@ -91,24 +92,26 @@
                 &:hover .PrepopHolsterLostActionRightSideDropdownContent {
                     display: block;
                 }
-
-                &:hover
-
                 ::-webkit-scrollbar {
                     display: flex;
                     position: relative;
                     width: 8px;
+                    height: 30px;
                 }
                 
-                /* Track */
+            
                 ::-webkit-scrollbar-track {
                     background: white;
+                    
                 }
                 
-                /* Handle */
+             
                 ::-webkit-scrollbar-thumb {
                     background: #888;
+                    
                 }
+                
+                
             }
 
             .PrepopHolsterLostActionEssenceSelectorList {
@@ -123,25 +126,28 @@
 
                 &:hover .PrepopHolsterLostActionEssenceDropdownContent {
                     display: block;
-                }
 
-                &:hover
+                    
+                }
 
                 ::-webkit-scrollbar {
-                    display: flex;
-                    position: relative;
+                   
                     width: 8px;
+                   
                 }
                 
-                /* Track */
+            
                 ::-webkit-scrollbar-track {
                     background: white;
+                    
                 }
-                
-                /* Handle */
+
                 ::-webkit-scrollbar-thumb {
                     background: #888;
+                    
                 }
+                
+               
             }
             
         }
@@ -152,12 +158,20 @@
 
 .PrepopHolsterLostActionLeftSideDropdownContent, .PrepopHolsterLostActionRightSideDropdownContent, .PrepopHolsterLostActionEssenceDropdownContent {
     display: none;
-    height: 300px;
+    height: 280px;
     width: 280px;
+    
     position: absolute;
     overflow-y: scroll;
     left: 0px;
     top: 0px;
+    border-image: linear-gradient(#8C7543, #DEDEC5) 1;
+    border-width: 2px;
+    border-style: solid;
+    //background-color: #444344;
+    z-index: 1;
+    background: url('../../../ui/pictures/BozjaFragmentWindowCropped789x260pixels.png');
+    
 }
 
 .DropdownItemLostActionRow {
@@ -173,13 +187,17 @@
         align-items: center;
         justify-content: center;
         pointer-events: none;
+        margin-right: 5px;
+        margin-left: 5px;
         img {
-            height: 20px;
+            height: 25px;
         }
     }
 
     .DropdownItemLostActionName {
         pointer-events: none;
+        color: #F4F2F2; 
+        text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
     }
 
 }

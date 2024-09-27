@@ -30,7 +30,6 @@ const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssen
                 break;
             }
         }
-   
     }
 
     return (
@@ -62,14 +61,6 @@ const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React
             if(LostAction.id < 700) {
                 const LostActionToPush = CreateDropdownRowForLostAction(LostAction, LeftOrRightOrEssence);
                 DropdownItemsArray.push(LostActionToPush);
-                /*DropdownItemsArray.push(<div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleLostActionSelected} className="DropdownItemLostActionRow">
-                    <div className="DropdownItemLostActionImage">
-                        <img src={LostAction.img}></img>
-                    </div>
-                    <div className="DropdownItemLostActionName">
-                        <span>{LostAction.name.EN}</span>
-                    </div>
-                </div>)*/
             }
         })
     }
@@ -128,7 +119,7 @@ const PrepopHolsterContents = () => {
                     <div className="PrepopHolsterLostActionEssenceSelectorList">                      
                         <span className="DropdownArrow">V</span>
                         <div className="PrepopHolsterLostActionEssenceDropdownContent">
-                            {CreatePrepopHolsterDropdownItems("Essence")}
+                                {CreatePrepopHolsterDropdownItems("Essence")}                                        
                         </div>
                         
                     </div>
