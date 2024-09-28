@@ -16,9 +16,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        margin-top: 20px;
         margin-bottom: 20px;
-        
+        color: #F4F2F2; 
+        text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
     }
 
     .PrepopHolsterLostActionsAndEssence {
@@ -27,7 +28,7 @@
         width: 100%;
         
         .PrepopHolsterLostActionLeftSide, .PrepopHolsterLostActionRightSide, .PrepopHolsterLostActionEssence {
-            background-color: blue;
+           
             width: 33.3%;
             display: flex;
             position: relative;
@@ -123,6 +124,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+             
 
                 &:hover .PrepopHolsterLostActionEssenceDropdownContent {
                     display: block;
@@ -158,20 +160,25 @@
 
 .PrepopHolsterLostActionLeftSideDropdownContent, .PrepopHolsterLostActionRightSideDropdownContent, .PrepopHolsterLostActionEssenceDropdownContent {
     display: none;
-    height: 280px;
-    width: 280px;
-    
+    height: 260px;
+    width: 300px;
+    border-radius: 10px;
     position: absolute;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     left: 0px;
     top: 0px;
-    border-image: linear-gradient(#8C7543, #DEDEC5) 1;
-    border-width: 2px;
-    border-style: solid;
     //background-color: #444344;
     z-index: 1;
-    background: url('../../../ui/pictures/BozjaFragmentWindowCropped789x260pixels.png');
+    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
     
+}
+
+.PrepopHolsterLostActionDropdownContentInnerContainer { 
+    margin: 10px;
+    overflow-y: scroll;
+    height: 93%;
+    margin-right: 6px; 
+
 }
 
 .DropdownItemLostActionRow {
@@ -179,8 +186,8 @@
     flex-direction: row;
     align-items: center;
     height: 40px;
-    width: 250px;
-    
+    width: 270px;
+   
     
     .DropdownItemLostActionImage {
         display: flex;
@@ -190,7 +197,7 @@
         margin-right: 5px;
         margin-left: 5px;
         img {
-            height: 25px;
+            height: 30px;
         }
     }
 

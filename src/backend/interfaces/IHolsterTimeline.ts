@@ -151,7 +151,7 @@ export interface IUserSlottedActions {
 
 interface ILostActionExpenditure {
     LostActionUsed: number,
-    LostActionTimeOfUse: number
+    LostActionTimeOfUse: string
 }
 
 interface IEncounter {

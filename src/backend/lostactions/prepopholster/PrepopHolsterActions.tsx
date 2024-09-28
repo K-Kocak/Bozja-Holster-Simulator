@@ -95,7 +95,9 @@ const PrepopHolsterContents = () => {
                         <span className="DropdownArrow">V</span>
 
                         <div className="PrepopHolsterLostActionLeftSideDropdownContent">
-                            {CreatePrepopHolsterDropdownItems("Left")}
+                            <div className="PrepopHolsterLostActionDropdownContentInnerContainer">
+                                {CreatePrepopHolsterDropdownItems("Left")}
+                            </div>                      
                         </div>
                         
                     </div>
@@ -107,7 +109,10 @@ const PrepopHolsterContents = () => {
                     <div className="PrepopHolsterLostActionRightSideSelectorList">                      
                         <span className="DropdownArrow">V</span>
                         <div className="PrepopHolsterLostActionRightSideDropdownContent">
-                            {CreatePrepopHolsterDropdownItems("Right")}
+                            <div className="PrepopHolsterLostActionDropdownContentInnerContainer">
+                                {CreatePrepopHolsterDropdownItems("Right")}
+                            </div>
+                            
                         </div>
                         
                     </div>
@@ -119,7 +124,10 @@ const PrepopHolsterContents = () => {
                     <div className="PrepopHolsterLostActionEssenceSelectorList">                      
                         <span className="DropdownArrow">V</span>
                         <div className="PrepopHolsterLostActionEssenceDropdownContent">
-                                {CreatePrepopHolsterDropdownItems("Essence")}                                        
+                            <div className="PrepopHolsterLostActionDropdownContentInnerContainer">
+                                {CreatePrepopHolsterDropdownItems("Essence")}  
+                            </div>
+                                                                      
                         </div>
                         
                     </div>

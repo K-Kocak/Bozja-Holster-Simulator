@@ -3,15 +3,18 @@
     src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
 }
 
-#LostFindsCacheContainer {
+#LostActionInstanceTimelineContainer {
     position: absolute;
-    background: url('../../../ui/pictures/BozjaLostFindsCache.png') no-repeat;
+    //background: url('../../../ui/pictures/BozjaFragmentWindowCropped789x260pixels.png') no-repeat;
+    background-color: red;
     font-family: ekmukta;
     line-height: 16px;
-    height: 672px;
-    width: 789px;
-    z-index: 2;
-    border-radius: 7px;
+    height: 260px;
+    width: 955px;
+    top: 685px;
+    left: 800px;
+    z-index: 0;
+    border-radius: 11px;
     flex-direction: column;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -21,5 +24,3 @@
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
 }
-
-
