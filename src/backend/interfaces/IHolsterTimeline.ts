@@ -149,12 +149,13 @@ export interface IUserSlottedActions {
     EssenceInUse: number
 }
 
-interface ILostActionExpenditure {
+export interface ILostActionExpenditure {
     LostActionUsed: number,
     LostActionTimeOfUse: string
 }
 
-interface IEncounter {
+export interface IEncounter {
+    NameOfBoss: string,
     PullBossWith: IUserSlottedActions,
     LostActionsSpentInPull: ILostActionExpenditure[],
     LostActionsSpentAfterPull: ILostActionExpenditure[]

@@ -1,5 +1,5 @@
 import { IActionHolster } from "./IActionHolster";
-import { IUserSlottedActions } from "./IHolsterTimeline";
+import IHolsterTimeline, { IUserSlottedActions } from "./IHolsterTimeline";
 
 export interface ILostActionSet {
     id: number,
@@ -7,5 +7,6 @@ export interface ILostActionSet {
     roleTypeOfSet: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged"
     weightOfSet: number,
     setLostActionContents: IActionHolster[],
-    PrepopLostActions: IUserSlottedActions 
+    PrepopLostActions: IUserSlottedActions,
+    HolsterTimeline: IHolsterTimeline,
 }

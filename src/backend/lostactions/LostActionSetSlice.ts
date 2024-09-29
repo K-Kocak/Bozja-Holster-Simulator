@@ -12,6 +12,26 @@ export interface LostActionSets {
     Sets: ILostActionSet[],
 }
 
+const testingHolsterTimeline = [
+    {
+        NameOfBoss: "Testing Boss",
+        PullBossWith: {
+            LostActionLeft: 103,
+            LostActionRight: 104,
+            EssenceInUse: 715
+        },
+        LostActionsSpentInPull: [{
+            LostActionUsed: 104,
+            LostActionTimeOfUse: "5s",
+        }],
+        LostActionsSpentAfterPull: [{
+            LostActionUsed: 205,
+            LostActionTimeOfUse: "N/A"
+        }]
+    }
+];
+    
+
 const initialState: LostActionSets = {
     Sets: [{
         id: 9999,
@@ -38,6 +58,9 @@ const initialState: LostActionSets = {
             LostActionLeft: 103,
             LostActionRight: 104,
             EssenceInUse: 715
+        },
+        HolsterTimeline: {
+            Encounters: testingHolsterTimeline
         }
     }],
     
@@ -66,7 +89,8 @@ export const LostActionSetsSlice = createSlice({
                 roleTypeOfSet: roleTypeOfHolster,
                 weightOfSet: weightOfHolster,
                 setLostActionContents: HolsterToBeSaved,
-                PrepopLostActions: PrepopHolster
+                PrepopLostActions: PrepopHolster,
+                HolsterTimeline: {Encounters: testingHolsterTimeline}
             });
 
             
