@@ -136,11 +136,11 @@ export const LostFindsHolsterSlice = createSlice({
             state.HolsterTimeline.Encounters.push(GenerateNewBossInTimeline);
         },
 
-        createNewLostActionSpentInPull: (state, action: PayloadAction<number>) => {
+        createNewHolsterTimelineLostActionSpentInPull: (state, action: PayloadAction<number>) => {
             state.HolsterTimeline.Encounters[action.payload].LostActionsSpentInPull.push(GenerateBlankLostActionResourceSpent)
         },
 
-        createNewLostActionSpentAfterPull: (state, action: PayloadAction<number>) => {
+        createNewHolsterTimelineLostActionSpentAfterPull: (state, action: PayloadAction<number>) => {
             state.HolsterTimeline.Encounters[action.payload].LostActionsSpentAfterPull.push(GenerateBlankLostActionResourceSpent)
         },
 
@@ -166,11 +166,43 @@ export const LostFindsHolsterSlice = createSlice({
             
         },
         
+        setHolsterTimelineEncounterTitleChange: (state, action: PayloadAction<[number, string]>) => {
+            const encounterNumber = action.payload[0];
+            const newTitle = action.payload[1];
+            state.HolsterTimeline.Encounters[encounterNumber].NameOfBoss = newTitle;
+        },
 
+        setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<[number, number, number, boolean]>) => {
+            const encounterNumber = action.payload[0];
+            const lostActionPositionInArrayOfSpentResources = action.payload[1];
+            const newLostAction = action.payload[2];
+            const isInPull = action.payload[3];
+
+            if(isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
+            }
+            else if (!isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
+            }
+        },
+
+        setHolsterTimelineEncounterLostActionSpentTime: (state, action: PayloadAction<[number, number, string, boolean]>) => {
+            const encounterNumber = action.payload[0];
+            const lostActionPositionInArrayOfSpentResources = action.payload[1];
+            const newTimeOfUseForLostAction = action.payload[2];
+            const isInPull = action.payload[3];
+
+            if(isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
+            }
+            else if (!isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
+            }
+        }
 
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence, createNewHolsterTimelineEncounter, createNewLostActionSpentInPull, createNewLostActionSpentAfterPull, setHolsterTimelineEncounterPullBossWith} = LostFindsHolsterSlice.actions;
+export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence, createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentInPull, createNewHolsterTimelineLostActionSpentAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime} = LostFindsHolsterSlice.actions;
 
 export default LostFindsHolsterSlice.reducer;
