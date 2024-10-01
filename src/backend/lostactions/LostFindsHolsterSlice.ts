@@ -27,16 +27,16 @@ const PrepopHolsterResetState = {
 const GenerateNewBossInTimeline : IEncounter = {
     NameOfBoss: "New Boss",
     PullBossWith: {
-        LostActionLeft: -1,
-        LostActionRight: -1,
-        EssenceInUse: -1,
+        LostActionLeft: 101,
+        LostActionRight: 102,
+        EssenceInUse: 709,
     },
     LostActionsSpentInPull: [],
     LostActionsSpentAfterPull: []
 }
 
 const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
-    LostActionUsed: -1,
+    LostActionUsed: 101,
     LostActionTimeOfUse: "N/A"
 }
 
@@ -131,6 +131,8 @@ export const LostFindsHolsterSlice = createSlice({
         setPrepopHolsterLostActionEssence: (state, action: PayloadAction<number>) => {
             state.PrepopHolster.EssenceInUse = action.payload;
         },
+
+
 
         createNewHolsterTimelineEncounter: (state) => {
             state.HolsterTimeline.Encounters.push(GenerateNewBossInTimeline);

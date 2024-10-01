@@ -1,13 +1,13 @@
 .LostActionInstanceTimelineInnerContainer {
     margin: 5px;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .LostActionInstanceTimelineTitleAndAddEncounter {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        height: 20%;
+       
+        height: 50px;
 
         .LostActionInstanceTimelineTitle {
             width: 50%;
@@ -16,6 +16,16 @@
     }
 
     .LostActionInstanceTimelineStateContainer {
+        display: flex;
+        flex-direction: row;
+        overflow-x:auto;
+        overflow-y: hidden;
+        height: 200px;
         
+      
+        .LostActionInstanceTimelineIndividualEncounterContainer {
+            width: 66%;
+            flex-shrink: 0;
+        }
     }
 }
