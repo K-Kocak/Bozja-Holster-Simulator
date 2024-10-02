@@ -2,12 +2,73 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import '@css/ui/components/LostActionInstanceTimelineContent.scss';
 
-import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, setHolsterTimelineEncounterTitleChange } from '../LostFindsHolsterSlice';
+import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange } from '../LostFindsHolsterSlice';
 
 import { IEncounter } from '@app/backend/interfaces/IHolsterTimeline';
 
 import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
+
 import { BaseSyntheticEvent } from 'react';
+
+import IAction from '@app/backend/interfaces/IAction';
+
+export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightOrEssence : string, dispatch, index : number) => {
+
+    function HandleLostActionSelected(event : BaseSyntheticEvent) {
+        const ActionToSet : number = event.target.id;
+        switch (LeftOrRightOrEssence) {
+            case "Left":         
+            case "Right":
+            case "Essence": {
+                dispatch(setHolsterTimelineEncounterPullBossWith([index, ActionToSet, LeftOrRightOrEssence]));
+                break;
+            }
+        }
+    }
+
+    return (
+        <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleLostActionSelected} className="DropdownItemLostActionRow">
+                <div className="DropdownItemLostActionImage">
+                    <img src={LostAction.img}></img>
+                </div>
+                <div className="DropdownItemLostActionName">
+                    <span>{LostAction.name.EN}</span>
+                </div>
+        </div>
+    )
+} 
+
+function CreateHolsterTimelineDropdownItems(PositionOfLostAction : string, dispatch, index : number) : React.JSX.Element[] {
+    const DropdownItemsArray : React.JSX.Element[] = [];
+
+    if(PositionOfLostAction == "Essence") {
+        LostActionsAsObjectArray.forEach((LostAction) => {
+            if(LostAction.id > 707 && LostAction.id < 744) {
+                const EssenceToPush = CreateDropdownRowForLostAction(LostAction, "Essence", dispatch, index);
+                DropdownItemsArray.push(EssenceToPush);
+            }
+        })
+    }
+    else if (PositionOfLostAction == "Left" || PositionOfLostAction == "Right") {
+        LostActionsAsObjectArray.forEach((LostAction) => {
+            if(LostAction.id < 700) {
+                const LostActionToPush = CreateDropdownRowForLostAction(LostAction, PositionOfLostAction, dispatch, index);
+                DropdownItemsArray.push(LostActionToPush);
+            }
+        })
+    }
+    else {
+        LostActionsAsObjectArray.forEach((LostAction) => { 
+            const LostActionToPush = CreateDropdownRowForLostAction(LostAction, PositionOfLostAction, dispatch, index);
+            DropdownItemsArray.push(LostActionToPush);
+            
+        })
+    }
+    
+
+    return DropdownItemsArray;
+}
+
 
 function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch) : React.JSX.Element[] {
 
@@ -29,6 +90,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
 
     const ArrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
     ArrayOfEncounters.forEach((Encounter, index) => {
+
         const LostActionResourcesSpentInPullArray : React.JSX.Element[] = [];
         Encounter.LostActionsSpentInPull.forEach((LostActionSpent) => {
             const LostActionSpentToPush : React.JSX.Element = (
@@ -67,7 +129,20 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                 </div>
                 <div className="LostActionPullBossWith">
                     <div className="LostActionPullBossWithLeftAction">
-                        {LostActionsAsObjectArray[Encounter.PullBossWith.LostActionLeft].name.EN}
+                        <div className="LostActionPullBossWithLeftActionImage">
+                            <img src={LostActionsAsObjectArray[Encounter.PullBossWith.LostActionLeft].img}></img>
+                        </div>
+                        
+                        <div className="HolsterTimelineLostActionLeftSidePullWith">                      
+                            <span className="DropdownArrow">V</span>
+
+                            <div className="HolsterTimelineLostActionLeftSideDropdownContent">
+                                <div className="HolsterTimelineLostActionDropdownContentInnerContainer">
+                                    {CreateHolsterTimelineDropdownItems("Left", dispatch, index)}
+                                </div>                      
+                            </div>
+                        
+                        </div>
                     </div>
                     <div className="LostActionPullBossWithRightAction">
                         {LostActionsAsObjectArray[Encounter.PullBossWith.LostActionRight].name.EN}
@@ -87,7 +162,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                 </div>
             </div>
             <div className="LostActionResourcesSpentAfterPull">
-                <div>
+                <div className="LostActionResourcesSpentAfterPullContainer">
                     {LostActionResourcesSpentAfterPullArray}
                 </div>
                 <div id={index.toString()} onClick={HandleLostActionAddResourceAfterPull}className="LostActionResourcesSpentAfterPullAddResourceButton">

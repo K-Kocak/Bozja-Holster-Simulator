@@ -10,7 +10,7 @@ import { setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setP
 
 import IAction from '@app/backend/interfaces/IAction';
 
-const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssence : string) => {
+export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssence : string) => {
 
     const dispatch = useAppDispatch();
 
@@ -44,7 +44,7 @@ const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssen
     )
 } 
 
-const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[] => {
+export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[] => {
     const DropdownItemsArray : React.JSX.Element[] = [];
     
     

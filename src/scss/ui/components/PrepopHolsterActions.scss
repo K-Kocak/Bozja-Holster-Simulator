@@ -166,7 +166,7 @@
     position: absolute;
     //overflow-y: scroll;
     left: 0px;
-    top: 0px;
+    top: -250px;
     //background-color: #444344;
     z-index: 1;
     background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
@@ -178,7 +178,7 @@
     overflow-y: scroll;
     height: 93%;
     margin-right: 6px; 
-
+    
 }
 
 .DropdownItemLostActionRow {

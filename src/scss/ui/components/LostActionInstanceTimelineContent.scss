@@ -2,7 +2,7 @@
     margin: 5px;
     display: flex;
     flex-direction: column;
-
+    z-index: 1;
     .LostActionInstanceTimelineTitleAndAddEncounter {
         display: flex;
         flex-direction: row;
@@ -11,21 +11,196 @@
 
         .LostActionInstanceTimelineTitle {
             width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: yellow;
         }
 
+        .LostActionInstanceTimelineAddEncounter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            background-color: green;
+            .LostActionInstanceTimelineAddEncounterDiv {
+                
+            }
+        }
+
+    }
+
+    .LostActionInstanceTimelineStateContainer::after{
+        display: table;
+        content: "";
+        clear: both;
     }
 
     .LostActionInstanceTimelineStateContainer {
         display: flex;
         flex-direction: row;
-        overflow-x:auto;
-        overflow-y: hidden;
-        height: 200px;
-        
+        overflow-x: scroll;
+        height: 195px;
+        margin-top: 5px;
       
         .LostActionInstanceTimelineIndividualEncounterContainer {
-            width: 66%;
+            width: 75%;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: row;
+
+            .LostActionPullBossWithAndNameOfBoss {
+                display: flex;
+                flex-direction: column;
+                width: 40%;
+                height: 100%;
+                .LostActionNameOfBoss {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                    height: 20%;
+                    .LostActionNameOfBossInputField {        
+                            width: 100%;
+                            background-color: transparent;
+                            border: transparent;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        
+                
+                    }
+                }
+
+                .LostActionPullBossWith {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    height: 80%;
+
+                    .LostActionPullBossWithLeftAction {
+                        width: 33.3%;
+                        display: flex;
+                        
+                        align-items: center;
+                        justify-content: center;
+
+                        .LostActionPullBossWithLeftActionImage {
+                            display: flex;
+                            position: relative;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                height: 40px;
+                            }
+                        }
+                        .HolsterTimelineLostActionLeftSidePullWith {
+                            
+                            background-color: white;
+                            height: 12px;
+                            width: 12px;
+                            margin-top: auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            
+
+                            &:hover .HolsterTimelineLostActionLeftSideDropdownContent {
+                                display: block;
+                            }
+                            ::-webkit-scrollbar {
+                                display: flex;
+                                position: relative;
+                                width: 8px;
+                                height: 30px;
+                            }
+                            
+                        
+                            ::-webkit-scrollbar-track {
+                                background: transparent;
+                                
+                            }
+                            
+                         
+                            ::-webkit-scrollbar-thumb {
+                                background: #888;
+                                
+                            }
+
+                            .HolsterTimelineLostActionLeftSideDropdownContent {
+                                display: none;
+                                height: 260px !important;
+                                width: 300px !important;
+                                border-radius: 10px;
+                                position: absolute;                         
+                                left: 55px;
+                                top: -70px;
+                                z-index: 1;
+                                background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
+
+                                .HolsterTimelineLostActionDropdownContentInnerContainer {
+                                    margin: 10px;
+                                    overflow-y: scroll;
+                                    height: 93%;
+                                    margin-right: 6px; 
+                                    
+                                   
+                                    .DropdownItemLostActionRow {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        height: 40px;
+                                        width: 270px;
+                                        .DropdownItemLostActionImage {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            pointer-events: none;
+                                            margin-right: 5px;
+                                            margin-left: 5px;
+                                            img {
+                                                height: 30px;
+                                            }
+                                        }
+                                    
+                                        .DropdownItemLostActionName {
+                                            pointer-events: none;
+                                            color: #F4F2F2; 
+                                            text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .LostActionPullBossWithRightAction {
+
+                    }
+                    .LostActionPullBossWithEssence {
+
+                    }
+                }
+            }
+
+            .LostActionResourcesSpentInPull {
+                .LostActionResourcesSpentInPullContainer {
+
+                }
+                .LostActionResourcesSpentInPullAddResourceButton {
+
+                }
+            }
+            .LostActionResourcesSpentAfterPull {
+                .LostActionResourcesSpentAfterPullContainer {
+                    
+                }
+                .LostActionResourcesSpentAfterPullAddResourceButton {
+
+                }
+            }
         }
     }
 }
