@@ -15,6 +15,7 @@ import IAction from '@app/backend/interfaces/IAction';
 export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightOrEssence : string, dispatch, index : number) => {
 
     function HandleLostActionSelected(event : BaseSyntheticEvent) {
+        console.log(event);
         const ActionToSet : number = event.target.id;
         switch (LeftOrRightOrEssence) {
             case "Left":         
@@ -88,6 +89,11 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
         dispatch(createNewHolsterTimelineLostActionSpentAfterPull(event.target.id));
     }
 
+    function HandleEncounterFunction(event : BaseSyntheticEvent) {
+        console.log(event);
+        console.log(event.target.id);
+    }
+
     const ArrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
     ArrayOfEncounters.forEach((Encounter, index) => {
 
@@ -123,7 +129,117 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
        
         const EncounterBox = (
         <div key={index} className="LostActionInstanceTimelineIndividualEncounterContainer">
-            <div className="LostActionPullBossWithAndNameOfBoss">
+            <div className="LostActionInstanceTimelineIndividualEncounterBossNameAndFunctions">
+                <div className="LostActionInstanceTimelineIndividualEncounterBossName">
+                    <input id={index.toString()} onChange={HandleBossNameChange} name={index.toString()} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" defaultValue={Encounter.NameOfBoss}></input>
+                </div>
+                <div className="LostActionInstanceTimelineIndividualEncounterFuntions">
+                    <div onClick={HandleEncounterFunction} id={"Left"}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveLeft">
+                        <span id={"Left"}>&lt;</span>
+                    </div>
+                    <div onClick={HandleEncounterFunction} id={"Right"} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveRight">
+                        <span id={"Right"}>&gt;</span>
+                    </div>
+                    <div onClick={HandleEncounterFunction} id={"Delete"} className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter">
+                        <span id={"Delete"}>X</span>
+                    </div>
+                </div>
+            </div>
+            <div className="LostActionInstanceTimelineIndividualEncounterPullBossWithSection">
+                <div className="LostActionInstanceTimelineIndividualEncounterPullWithText">
+                    <span>Pull Boss With:</span>
+                </div>
+                <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionsContainer">
+                    
+                    <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
+                            <img src={LostActionsAsObjectArray[Encounter.PullBossWith.LostActionLeft].img}></img>
+                        </div>
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverV">                      
+                            <span className="DropdownArrow">V</span>
+
+                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent">
+                                <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContentInnerContainer">
+                                    {CreateHolsterTimelineDropdownItems("Left", dispatch, index)}
+                                </div>                      
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction">
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionImage">
+                            <img src={LostActionsAsObjectArray[Encounter.PullBossWith.LostActionRight].img}></img>
+                        </div>
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionHoverV">                      
+                            <span className="DropdownArrow">V</span>
+
+                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContent">
+                                <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContentInnerContainer">
+                                    {CreateHolsterTimelineDropdownItems("Right", dispatch, index)}
+                                </div>                      
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div className="LostActionInstanceTimelineIndividualEncounterPullWithEssence">
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftEssenceImage">
+                            <img src={LostActionsAsObjectArray[Encounter.PullBossWith.EssenceInUse].img}></img>
+                        </div>
+                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithEssenceHoverV">                      
+                            <span className="DropdownArrow">V</span>
+
+                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithEssencenDropdownContent">
+                                <div className="LostActionInstanceTimelineIndividualEncounterPullWithEssenceDropdownContentInnerContainer">
+                                    {CreateHolsterTimelineDropdownItems("Essence", dispatch, index)}
+                                </div>                      
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>)
+        ArrayOfEncounterBoxesToReturn.push(EncounterBox);
+    })
+
+    return ArrayOfEncounterBoxesToReturn;
+}
+
+const CreateLostActionInstanceTimeline = () => {
+    const dispatch = useAppDispatch();
+    const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
+
+    const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
+
+    function HandleAddEncounterClick() {
+        dispatch(createNewHolsterTimelineEncounter())
+     
+    }
+
+    console.log(currentStateOfAllEncounters);
+    return (
+        <div className="LostActionInstanceTimelineInnerContainer">
+           
+            <div className="LostActionInstanceTimelineStateContainer">
+                {HolsterTimelineBossBoxes}
+                <div style={{paddingLeft: "300px"}}className="LostActionInstanceTimelineStateContainerFreeSpace"></div>
+            </div>
+            <div className="LostActionInstanceTimelineTitleAndAddEncounter">
+                <div className="LostActionInstanceTimelineTitle">
+                    Title of holster Set? Or just title of this little section
+                </div>
+                <div className="LostActionInstanceTimelineAddEncounter">
+                    <div className="LostActionInstanceTimelineAddEncounterDiv" onClick={HandleAddEncounterClick}>
+                        <span>Add Encounter!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+/*
+<div className="LostActionPullBossWithAndNameOfBoss">
                 <div className="LostActionNameOfBoss">
                     <input id={index.toString()} onChange={HandleBossNameChange} name={index.toString()} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" defaultValue={Encounter.NameOfBoss}></input>
                 </div>
@@ -169,28 +285,9 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                     <span id={index.toString()}>Hiiii</span>
                 </div>
             </div>
-        </div>)
-        ArrayOfEncounterBoxesToReturn.push(EncounterBox);
-    })
+            */
 
-    return ArrayOfEncounterBoxesToReturn;
-}
-
-const CreateLostActionInstanceTimeline = () => {
-    const dispatch = useAppDispatch();
-    const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
-
-    const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
-
-    function HandleAddEncounterClick() {
-        dispatch(createNewHolsterTimelineEncounter())
-     
-    }
-
-    console.log(currentStateOfAllEncounters);
-    return (
-        <div className="LostActionInstanceTimelineInnerContainer">
-            <div className="LostActionInstanceTimelineTitleAndAddEncounter">
+/* <div className="LostActionInstanceTimelineTitleAndAddEncounter">
                 <div className="LostActionInstanceTimelineTitle">
                     Title of holster Set? Or just title of this little section
                 </div>
@@ -199,11 +296,5 @@ const CreateLostActionInstanceTimeline = () => {
                         <span>Add Encounter!</span>
                     </div>
                 </div>
-            </div>
-            <div className="LostActionInstanceTimelineStateContainer">
-                {HolsterTimelineBossBoxes}
-            </div>
-        </div>
-    )
-}
+            </div>*/
 export default CreateLostActionInstanceTimeline;

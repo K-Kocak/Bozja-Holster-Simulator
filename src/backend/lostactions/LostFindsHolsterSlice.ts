@@ -118,6 +118,7 @@ export const LostFindsHolsterSlice = createSlice({
             state.CurrentWeight = 0;
             state.SelectedWeight = 0;
             state.PrepopHolster = PrepopHolsterResetState;
+            state.HolsterTimeline.Encounters = [];
         },
 
         setPrepopHolsterLostActionLeft: (state, action: PayloadAction<number>) => {
@@ -147,8 +148,8 @@ export const LostFindsHolsterSlice = createSlice({
         },
 
         setHolsterTimelineEncounterPullBossWith: (state, action: PayloadAction<[number, number, string]>) => {
-            const EncounterNumber = action.payload[1];
-            const NewLostActionToSet = action.payload[0];
+            const EncounterNumber = action.payload[0];
+            const NewLostActionToSet = action.payload[1];
             const LeftOrRightOrEssence = action.payload[2];
 
             switch (LeftOrRightOrEssence) {
