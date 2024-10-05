@@ -133,6 +133,8 @@ export const LostFindsHolsterSlice = createSlice({
             state.PrepopHolster.EssenceInUse = action.payload;
         },
 
+
+
         loadHolsterTimelineEncounters: (state, action: PayloadAction<IEncounter[]>) => {
             state.HolsterTimeline.Encounters = action.payload;
         },
@@ -203,11 +205,26 @@ export const LostFindsHolsterSlice = createSlice({
             else if (!isInPull) {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
             }
+        },
+
+        setHolsterTimelineEncounterLostActionsSpentInOrAfterPull: (state, action: PayloadAction<[number, ILostActionExpenditure[], boolean]>) => {
+            const encounterNumber = action.payload[0];
+            const newLostActionsToSet = action.payload[1];
+            const isInPull = action.payload[2];
+
+            if(isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull = newLostActionsToSet;
+            }
+            else if (!isInPull) {
+                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull = newLostActionsToSet;
+            }
         }
+
+
 
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence, loadHolsterTimelineEncounters, createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentInPull, createNewHolsterTimelineLostActionSpentAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime} = LostFindsHolsterSlice.actions;
+export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence, loadHolsterTimelineEncounters, createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentInPull, createNewHolsterTimelineLostActionSpentAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime, setHolsterTimelineEncounterLostActionsSpentInOrAfterPull} = LostFindsHolsterSlice.actions;
 
 export default LostFindsHolsterSlice.reducer;
