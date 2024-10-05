@@ -12,10 +12,44 @@ import { BaseSyntheticEvent } from 'react';
 
 import IAction from '@app/backend/interfaces/IAction';
 
+const CreateDropdownRowForAllLostActions = (dispatch) => {
+    const DropdownItemsArrayForAllLostActions : React.JSX.Element[] = [];
+    LostActionsAsObjectArray.forEach((LostAction) => { 
+        const LostActionToPush = CrateDropdownRowForAllLostActionsRow(LostAction, dispatch);
+        DropdownItemsArrayForAllLostActions.push(LostActionToPush);
+        
+    });
+    return DropdownItemsArrayForAllLostActions;
+}
+
+function CrateDropdownRowForAllLostActionsRow(LostAction : IAction, dispatch) : React.JSX.Element {
+    
+
+    function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
+        const actionToSet : number = event.target.id;
+        const encounterNumber : number = event.target.parentElement.dataset.encounternumber;
+        const indexOfLostActionSpent : number = event.target.parentElement.dataset.lostactionresourceposition;
+        const isInPull : boolean = event.target.parentElement.dataset.isinpull;
+        dispatch(setHolsterTimelineEncounterLostActionSpent([encounterNumber, indexOfLostActionSpent, actionToSet, isInPull]))
+    }
+   
+    return (
+        <div key={Math.random()} id={LostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
+                <div className="DropdownItemLostActionImage">
+                    <img src={LostAction.img}></img>
+                </div>
+                <div className="DropdownItemLostActionName">
+                    <span>{LostAction.name.EN}</span>
+                </div>
+        </div>
+    )
+}
+
 export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightOrEssence : string, dispatch, index : number) => {
 
     function HandleLostActionSelected(event : BaseSyntheticEvent) {
         console.log(event);
+       
         const ActionToSet : number = event.target.id;
         switch (LeftOrRightOrEssence) {
             case "Left":         
@@ -75,6 +109,7 @@ function CreateDropdownRowForLostActionResourceSpent(LostAction : IAction, encou
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         console.log(event);
+        console.log(event.target.parentElement.dataset);
         const ActionToSet : number = event.target.id;
         dispatch(setHolsterTimelineEncounterLostActionSpent([encounterNumber, indexOfLostActionSpent, ActionToSet, isInPull]))
         
@@ -96,6 +131,7 @@ function CreateDropdownRowForLostActionResourceSpent(LostAction : IAction, encou
 function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch) : React.JSX.Element[] {
 
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters); 
+    const DropdownRowsForAllLostActions : React.JSX.Element[] = CreateDropdownRowForAllLostActions(dispatch);
 
     function HandleBossNameChange(event : BaseSyntheticEvent) {
         console.log("function called");
@@ -118,6 +154,24 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
         console.log(event.target.id);
     }
 
+    function HandleTimeOfUseUpdate(event : BaseSyntheticEvent) {  
+        dispatch(setHolsterTimelineEncounterLostActionSpentTime([event.target.dataset.index, event.target.dataset.lostactionresourceposition, event.target.value, true]))
+    }
+
+    function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
+        console.log(event);
+     
+        const currentLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = currentStateOfAllEncounters[event.target.dataset.encounternumber].LostActionsSpentInPull;
+        const newLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = [];
+        currentLostActionsSpentInPullForEncounter.forEach((LostActionSpent, indexTest) => {
+            if(event.target.dataset.lostactionresourceposition != indexTest) {
+                newLostActionsSpentInPullForEncounter.push(LostActionSpent);
+            }
+        });
+        dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull([event.target.dataset.encounternumber, newLostActionsSpentInPullForEncounter, event.target.dataset.isinpull]));
+
+    }
+
     console.log("CreateHolsterTimelineBossBoxes");
     const ArrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
     ArrayOfEncounters.forEach((Encounter, index) => {
@@ -125,58 +179,40 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
         const LostActionResourcesSpentInPullArray : React.JSX.Element[] = [];
         Encounter.LostActionsSpentInPull.forEach((LostActionSpent, indexOfLostActionSpent) => {
 
-            function HandleTimeOfUseUpdate(event : BaseSyntheticEvent) {
-                dispatch(setHolsterTimelineEncounterLostActionSpentTime([index, indexOfLostActionSpent, event.target.value, true]))
-            }
-
-            function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
-                console.log(event);
-                const currentLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = currentStateOfAllEncounters[index].LostActionsSpentInPull;
-                const newLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = [];
-                currentLostActionsSpentInPullForEncounter.forEach((LostActionSpent) => {
-                    if(LostActionSpent.LostActionUsed != event.target.id) {
-                        newLostActionsSpentInPullForEncounter.push(LostActionSpent);
-                    }
-                });
-                dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull([index, newLostActionsSpentInPullForEncounter, true]));
-
-            }
-
-            const LostActionSpentToPush : React.JSX.Element = (
-                <div key={Math.random()} className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResource">
-                    <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown">
-
-                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
-                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
-                                <img src={LostActionsAsObjectArray[LostActionSpent.LostActionUsed].img}></img>
-                            </div>
-                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton">
-                                <div id={LostActionSpent.LostActionUsed.toString()} onClick={HandleLostActionRemoveResource}className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
-                                    <span className="RemoveResourceButton">X</span> 
+            
+            LostActionResourcesSpentInPullArray[indexOfLostActionSpent] = (
+                (
+                    <div key={Math.random()} className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResource">
+                        <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown">
+    
+                            <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
+                                <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
+                                    <img src={LostActionsAsObjectArray[LostActionSpent.LostActionUsed].img}></img>
                                 </div>
-                                <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverV">
-                                                        
-                                    <span className="DropdownArrow">V</span>
-
-                                    <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent">
-                                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContentInnerContainer">
-                                            {CreateHolsterTimelineDropdownAllItems(index, indexOfLostActionSpent, true, dispatch)}
-                                        </div>                      
+                                <div  className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton">
+                                    <div id={indexOfLostActionSpent.toString()} onClick={HandleLostActionRemoveResource} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
+                                        <span className="RemoveResourceButton">X</span> 
                                     </div>
-                            
-                                </div>
-                            </div>
-                             
-                            
-                        </div>  
-
+                                    <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverV">
+                                                            
+                                        <span className="DropdownArrow">V</span>
+    
+                                        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent">
+                                            <div data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContentInnerContainer">
+                                                {DropdownRowsForAllLostActions}
+                                            </div>                      
+                                        </div>                            
+                                    </div>
+                                </div>                             
+                            </div>  
+                        </div>
+                        <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
+                            <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" defaultValue={LostActionSpent.LostActionTimeOfUse}></input>
+                        </div>
                     </div>
-                    <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4}   className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" defaultValue={LostActionSpent.LostActionTimeOfUse}></input>
-                    </div>
-                </div>
-            );
-            LostActionResourcesSpentInPullArray.push(LostActionSpentToPush);
+                )
+            )
+            
         });
 
         const LostActionResourcesSpentAfterPullArray : React.JSX.Element[] = [];
@@ -205,6 +241,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                     </div>
                 </div>
             </div>
+            
             <div className="LostActionInstanceTimelineIndividualEncounterPullBossWithSection">
                 <div className="LostActionInstanceTimelineIndividualEncounterPullWithText">
                     <span>Pull Boss With:</span>
