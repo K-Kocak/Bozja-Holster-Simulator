@@ -198,9 +198,9 @@ export const LostFindsHolsterSlice = createSlice({
             const lostActionPositionInArrayOfSpentResources = action.payload[1];
             const newTimeOfUseForLostAction = action.payload[2];
             const isInPull = action.payload[3];
-
             if(isInPull) {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
+                
             }
             else if (!isInPull) {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;

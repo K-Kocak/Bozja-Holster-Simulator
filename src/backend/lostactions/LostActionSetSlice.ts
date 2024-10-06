@@ -82,6 +82,7 @@ export const LostActionSetsSlice = createSlice({
                 const actionToAdd : IActionHolster = {...currentHolster[actionInHolster.id], quantity: actionQuantities[actionInHolster.id]};
                 HolsterToBeSaved.push(actionToAdd);             
             });
+            
 
             state.Sets.push({
                 id: Math.random()*10000,
