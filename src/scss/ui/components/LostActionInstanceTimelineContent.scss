@@ -49,13 +49,7 @@
         }
 
     }
-/*
-    .LostActionInstanceTimelineStateContainer::after{
-        display: table;
-        content: "";
-        clear: both;
-    }
-*/
+
     .LostActionInstanceTimelineStateContainer {
         display: flex;
         flex-direction: row;
@@ -138,84 +132,7 @@
                                     height: 40px;
                                 }
                             }
-                            .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverV, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionHoverV, .LostActionInstanceTimelineIndividualEncounterPullWithEssenceHoverV {
-                                position: relative;
-                                background-color: white;
-                                height: 12px;
-                                width: 12px;
-                                margin-top: auto;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                
-    
-                                &:hover .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent {
-                                    display:inherit;
-                                }
-    
-                                &:hover .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContent {
-                                    display: inherit;
-                                }
-    
-                                &:hover .LostActionInstanceTimelineIndividualEncounterPullWithEssencenDropdownContent {
-                                    display: inherit;
-                                }
-    
-                                &:hover .DropdownArrow {
-                                    display: none;
-                                }
-    
-                               
-    
-                                .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContent, .LostActionInstanceTimelineIndividualEncounterPullWithEssencenDropdownContent {
-                                    display: none;
-                                    height: 215px;
-                                    width: 300px;
-                                    border-radius: 10px;
-                                    position: relative;                         
-                                    left: 145px;
-                                    top: 45px;
-                                    z-index: 1;
-                                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
-                                    clip-path: circle(700px at 35px 35px);
-    
-                                    .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContentInnerContainer, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContentInnerContainer, .LostActionInstanceTimelineIndividualEncounterPullWithEssenceDropdownContentInnerContainer {
-                                        
-                                        margin: 10px;
-                                        overflow-y: scroll;
-                                        height: 93%;
-                                        width: 500px;
-                                        margin-right: 6px; 
-                                        
-                                       
-                                        .DropdownItemLostActionRow {
-                                            display: flex;
-                                            flex-direction: row;
-                                            align-items: center;
-                                            height: 40px;
-                                            width: 270px;
-    
-                                            .DropdownItemLostActionImage {
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: center;
-                                                pointer-events: none;
-                                                margin-right: 5px;
-                                                margin-left: 5px;
-                                                img {
-                                                    height: 30px;
-                                                }
-                                            }
-                                        
-                                            .DropdownItemLostActionName {
-                                                pointer-events: none;
-                                                color: #F4F2F2; 
-                                                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                            
                         }
                         
                     }
@@ -310,84 +227,9 @@
                                                 .RemoveResourceButton {
                                                     pointer-events: none;
                                                 }
-                                            }
-    
-                                            .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverV, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionHoverV, .LostActionInstanceTimelineIndividualEncounterPullWithEssenceHoverV {
-                                                position: relative;
-                                                background-color: white;
-                                                height: 12px;
-                                                width: 12px;
-                                                margin-top: auto;
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: center;
-                    
-                                                &:hover .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent {
-                                                    display:inherit;
-                                                }
-                    
-                                               
-                    
-                                                &:hover .DropdownArrow {
-                                                    display: none;
-                                                }
-                    
-                                               
-                    
-                                                .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContent, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContent, .LostActionInstanceTimelineIndividualEncounterPullWithEssencenDropdownContent {
-                                                    display: none;
-                                                    height: 215px;
-                                                    width: 300px;
-                                                    border-radius: 10px;
-                                                    position: relative;                         
-                                                    left: 145px;
-                                                    top: -5px;
-                                                    z-index: 1;
-                                                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
-                                                    clip-path: circle(700px at 35px 35px);
-                    
-                                                    .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionDropdownContentInnerContainer, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionDropdownContentInnerContainer, .LostActionInstanceTimelineIndividualEncounterPullWithEssenceDropdownContentInnerContainer {
-                                                        
-                                                        margin: 10px;
-                                                        overflow-y: scroll;
-                                                        height: 93%;
-                                                        width: 500px;
-                                                        margin-right: 6px; 
-                                                        
-                                                       
-                                                        .DropdownItemLostActionRow {
-                                                            display: flex;
-                                                            flex-direction: row;
-                                                            align-items: center;
-                                                            height: 40px;
-                                                            width: 270px;
-                    
-                                                            .DropdownItemLostActionImage {
-                                                                display: flex;
-                                                                align-items: center;
-                                                                justify-content: center;
-                                                                pointer-events: none;
-                                                                margin-right: 5px;
-                                                                margin-left: 5px;
-                                                                img {
-                                                                    height: 30px;
-                                                                }
-                                                            }
-                                                        
-                                                            .DropdownItemLostActionName {
-                                                                pointer-events: none;
-                                                                color: #F4F2F2; 
-                                                                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-    
-                                        
+                                            }                                          
+                                        }                                  
                                     }
-    
                                 }
     
                                 .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse {
@@ -465,104 +307,74 @@
                                     height: 40px;
                                 }
                             }
-                            .HolsterTimelineLostActionLeftSidePullWith {
-                                position: relative;
-                                background-color: white;
-                                height: 12px;
-                                width: 12px;
-                                margin-top: auto;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                
-    
-                                &:hover .HolsterTimelineLostActionLeftSideDropdownContent {
-                                    display:inherit;
-                                }
-    
-                                &:hover .DropdownArrow {
-                                    display: none;
-                                }
-    
-                               
-    
-                                .HolsterTimelineLostActionLeftSideDropdownContent {
-                                    display: none;
-                                    height: 215px;
-                                    width: 300px;
-                                    border-radius: 10px;
-                                    position: relative;                         
-                                    left: 145px;
-                                    top: -40px;
-                                    z-index: 1;
-                                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
-                                    clip-path: circle(700px at 35px 35px);
-    
-                                    .HolsterTimelineLostActionDropdownContentInnerContainer {
-                                        
-                                        margin: 10px;
-                                        overflow-y: scroll;
-                                        height: 93%;
-                                        width: 500px;
-                                        margin-right: 6px; 
-                                        
-                                       
-                                        .DropdownItemLostActionRow {
-                                            display: flex;
-                                            flex-direction: row;
-                                            align-items: center;
-                                            height: 40px;
-                                            width: 270px;
-                                            .DropdownItemLostActionImage {
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: center;
-                                                pointer-events: none;
-                                                margin-right: 5px;
-                                                margin-left: 5px;
-                                                img {
-                                                    height: 30px;
-                                                }
-                                            }
-                                        
-                                            .DropdownItemLostActionName {
-                                                pointer-events: none;
-                                                color: #F4F2F2; 
-                                                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                           
                         }
-                        .LostActionPullBossWithRightAction {
-    
-                        }
-                        .LostActionPullBossWithEssence {
-    
-                        }
-                    }
-                }
-    
-                .LostActionResourcesSpentInPull {
-                    .LostActionResourcesSpentInPullContainer {
-    
-                    }
-                    .LostActionResourcesSpentInPullAddResourceButton {
-    
-                    }
-                }
-                .LostActionResourcesSpentAfterPull {
-                    .LostActionResourcesSpentAfterPullContainer {
-                        
-                    }
-                    .LostActionResourcesSpentAfterPullAddResourceButton {
-    
+                       
                     }
                 }
             }
         }
       
+        .LostActionInstanceTimelineStateLostActionDropdownBoxes {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+           
+            .LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent {
+                    
+                    height: 210px;
+                    width: 300px;
+                    border-radius: 10px;
+                    position: relative;                         
+                    top: -10px;
+                    z-index: 1;
+                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
+                 
+
+                    .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {
+                        
+                        margin: 10px;
+                        overflow-y: scroll;
+                        height: 93%;
+                        width: 100%;
+                        margin-right: 6px; 
+                        
+                       
+                        .DropdownItemLostActionRow {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            height: 40px;
+                            width: 270px;
+
+                            .DropdownItemLostActionImage {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                pointer-events: none;
+                                margin-right: 5px;
+                                margin-left: 5px;
+                                img {
+                                    height: 30px;
+                                }
+                            }
+                        
+                            .DropdownItemLostActionName {
+                                pointer-events: none;
+                                color: #F4F2F2; 
+                                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+                            }
+                        }
+                    }
+                }
+               
+            }
+        }
 
         
     }

@@ -183,12 +183,15 @@ export const LostFindsHolsterSlice = createSlice({
             const encounterNumber = action.payload[0];
             const lostActionPositionInArrayOfSpentResources = action.payload[1];
             const newLostAction = action.payload[2];
-            const isInPull = action.payload[3];
-
+            const isInPull : boolean = action.payload[3];
+            console.log(action);
+            console.log(isInPull);
             if(isInPull) {
+                console.log("true came out");
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
             }
-            else if (!isInPull) {
+            else  {
+                console.log("false came out");
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
             }
         },
