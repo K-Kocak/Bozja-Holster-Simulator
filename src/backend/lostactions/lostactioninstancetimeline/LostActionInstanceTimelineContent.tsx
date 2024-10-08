@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import '@css/ui/components/LostActionInstanceTimelineContent.scss';
 
-import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime, setHolsterTimelineEncounterLostActionsSpentInOrAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange } from '../LostFindsHolsterSlice';
+import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, loadHolsterTimelineEncounters, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime, setHolsterTimelineEncounterLostActionsSpentInOrAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange } from '../LostFindsHolsterSlice';
 
 import { IEncounter, ILostActionExpenditure } from '@app/backend/interfaces/IHolsterTimeline';
 
@@ -33,9 +33,54 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
    }
 
     function HandleEncounterFunction(event : BaseSyntheticEvent) {
-        // moving position of boss or delete boss
-        console.log(event);
-        console.log(event.target.id);
+        // dispatch(loadHolsterTimelineEncounters(EncounterArray));
+        const encounterIndexPressed : number = event.target.dataset.encounterindex;
+        const lengthOfAllEncounters = currentStateOfAllEncounters.length;
+        console.log(encounterIndexPressed);
+        const NewEncounterArray : IEncounter[] = [];
+        if(event.target.id == 'Up') {
+            if(encounterIndexPressed != 0) {
+                currentStateOfAllEncounters.forEach((Encounter, index) => {
+                    if(encounterIndexPressed - 1 == index) {
+                        NewEncounterArray.push(currentStateOfAllEncounters[index+1]);
+                    }
+                    else if(encounterIndexPressed == index) {
+                        NewEncounterArray.push(currentStateOfAllEncounters[index-1]);
+                    }
+                    else {
+                        NewEncounterArray.push(Encounter);
+                    }
+                })
+                dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
+            }
+        }
+        else if(event.target.id == "Down") {  
+            if(encounterIndexPressed != lengthOfAllEncounters-1) {
+                currentStateOfAllEncounters.forEach((Encounter, index) => { 
+                    // this doesn't work if i do indexPressed + 1 == index for some reason, no clue why.
+                    if(encounterIndexPressed == index - 1) {
+                        NewEncounterArray.push(currentStateOfAllEncounters[index-1]);
+                    }
+                    else if(encounterIndexPressed == index) {
+                        NewEncounterArray.push(currentStateOfAllEncounters[index+1]);
+                    }
+                    else {
+                        NewEncounterArray.push(Encounter);
+                    }
+                })
+                console.log(NewEncounterArray);
+                dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
+            }
+        }
+        else if(event.target.id == "Delete") {
+            currentStateOfAllEncounters.forEach((Encounter, index) => {
+                if(index != encounterIndexPressed) {
+                    NewEncounterArray.push(Encounter);
+                }
+            });
+            dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
+        }
+        
     }
 
     function HandleTimeOfUseUpdate(event : BaseSyntheticEvent) {
@@ -45,15 +90,19 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
 
     function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
         console.log(event);
-     
-        const currentLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = currentStateOfAllEncounters[event.target.dataset.encounternumber].LostActionsSpentInPull;
-        const newLostActionsSpentInPullForEncounter : ILostActionExpenditure[] = [];
-        currentLostActionsSpentInPullForEncounter.forEach((LostActionSpent, indexTest) => {
-            if(event.target.dataset.lostactionresourceposition != indexTest) {
-                newLostActionsSpentInPullForEncounter.push(LostActionSpent);
+        dispatch(clearDropdownData());
+
+        const isInPull : string = event.target.dataset.isinpull;
+
+        const currentLostActionsSpentInOrAfterPullForEncounter : ILostActionExpenditure[] = isInPull == 'true' ? currentStateOfAllEncounters[event.target.dataset.encounternumber].LostActionsSpentInPull : currentStateOfAllEncounters[event.target.dataset.encounternumber].LostActionsSpentAfterPull;
+
+        const newLostActionsSpentInOrAfterPullForEncounter : ILostActionExpenditure[] = [];
+        currentLostActionsSpentInOrAfterPullForEncounter.forEach((LostActionSpent, indexTest) => {
+            if(event.target.dataset.lostactionresourceposition != indexTest) {              
+                newLostActionsSpentInOrAfterPullForEncounter.push(LostActionSpent);
             }
         });
-        dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull([event.target.dataset.encounternumber, newLostActionsSpentInPullForEncounter, event.target.dataset.isinpull]));
+        dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull([event.target.dataset.encounternumber, newLostActionsSpentInOrAfterPullForEncounter, event.target.dataset.isinpull]));
 
     }
 
@@ -88,7 +137,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" defaultValue={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
@@ -115,7 +164,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" defaultValue={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
@@ -127,16 +176,16 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
         <div key={index} className="LostActionInstanceTimelineIndividualEncounterContainer">
             <div className="LostActionInstanceTimelineIndividualEncounterBossNameAndFunctions">
                 <div className="LostActionInstanceTimelineIndividualEncounterBossName">
-                    <input id={index.toString()} onChange={HandleBossNameChange} name={index.toString()} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" defaultValue={Encounter.NameOfBoss}></input>
+                    <input id={index.toString()} onChange={HandleBossNameChange} name={index.toString()} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" value={Encounter.NameOfBoss}></input>
                 </div>
                 <div className="LostActionInstanceTimelineIndividualEncounterFuntions">
-                    <div onClick={HandleEncounterFunction} id={"Left"}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveLeft">
-                        <span id={"Left"}>&lt;</span>
+                    <div onClick={HandleEncounterFunction} id={"Up"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveLeft">
+                        <span id={"Up"}>&uarr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Right"} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveRight">
-                        <span id={"Right"}>&gt;</span>
+                    <div onClick={HandleEncounterFunction} id={"Down"} data-encounterindex={index} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveRight">
+                        <span id={"Down"}>&darr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Delete"} className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter">
+                    <div onClick={HandleEncounterFunction} id={"Delete"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter">
                         <span id={"Delete"}>X</span>
                     </div>
                 </div>

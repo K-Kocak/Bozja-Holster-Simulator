@@ -183,14 +183,13 @@ export const LostFindsHolsterSlice = createSlice({
             const encounterNumber = action.payload[0];
             const lostActionPositionInArrayOfSpentResources = action.payload[1];
             const newLostAction = action.payload[2];
-            const isInPull : boolean = action.payload[3];
-            console.log(action);
-            console.log(isInPull);
-            if(isInPull) {
+            const isInPull = action.payload[3].toString();
+            
+            if(isInPull == 'true') {
                 console.log("true came out");
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
             }
-            else  {
+            else if (isInPull == 'false') {
                 console.log("false came out");
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
             }
@@ -200,12 +199,12 @@ export const LostFindsHolsterSlice = createSlice({
             const encounterNumber = action.payload[0];
             const lostActionPositionInArrayOfSpentResources = action.payload[1];
             const newTimeOfUseForLostAction = action.payload[2];
-            const isInPull = action.payload[3];
-            if(isInPull) {
+            const isInPull = action.payload[3].toString();
+            if(isInPull == 'true') {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
                 
             }
-            else if (!isInPull) {
+            else if (isInPull == 'false') {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
             }
         },
@@ -213,12 +212,12 @@ export const LostFindsHolsterSlice = createSlice({
         setHolsterTimelineEncounterLostActionsSpentInOrAfterPull: (state, action: PayloadAction<[number, ILostActionExpenditure[], boolean]>) => {
             const encounterNumber = action.payload[0];
             const newLostActionsToSet = action.payload[1];
-            const isInPull = action.payload[2];
+            const isInPull = action.payload[2].toString();
 
-            if(isInPull) {
+            if(isInPull == 'true') {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull = newLostActionsToSet;
             }
-            else if (!isInPull) {
+            else if (isInPull == 'false') {
                 state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull = newLostActionsToSet;
             }
         }
