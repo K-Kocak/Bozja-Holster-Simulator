@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import '@css/ui/components/LostActionInstanceTimelineContent.scss';
@@ -13,7 +14,7 @@ import { BaseSyntheticEvent } from 'react';
 import IAction from '@app/backend/interfaces/IAction';
 import { clearDropdownData, setDropdownDataInPull, setDropdownDataPullWith } from '../LostActionDropdownDataSlice';
 
-function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch) : React.JSX.Element[] {
+function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch : any) : React.JSX.Element[] {
 
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters); 
 
@@ -164,7 +165,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={false}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
@@ -258,8 +259,8 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
     return ArrayOfEncounterBoxesToReturn;
 }
 
-function CreateHolsterTimelineDropdownBoxToDisplay(dispatch) : React.JSX.Element {
-
+function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
+    const dispatch = useAppDispatch();
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
 
@@ -291,7 +292,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay(dispatch) : React.JSX.Element
 
 //#region All Actions Dropdown
 
-function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch) : React.JSX.Element {
+function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: any) : React.JSX.Element {
 
     const DropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, dispatch);
 
@@ -304,7 +305,7 @@ function CreateLostActionDropdownElementAllLostActions(encounterNumber : number,
     )
 }
 
-function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch) : React.JSX.Element[] {
+function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch : any) : React.JSX.Element[] {
     
     const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
@@ -315,7 +316,7 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
     return DropdownItemsArray;
 }
 
-function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch) : React.JSX.Element {
+function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: (arg0: { payload: [number, number, number, boolean] | undefined; type: "LostActionDropdownDataForUse/clearDropdownData" | "LostFindsHolsterBag/setHolsterTimelineEncounterLostActionSpent"; }) => void) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfLostAction = event.target.id;
@@ -340,7 +341,7 @@ function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumbe
 
 //#region No Essence Dropdown
 
-function CreateLostActionDropdownElementNoEssence(encounterNumber : number, LeftOrRight : string, dispatch) : React.JSX.Element {
+function CreateLostActionDropdownElementNoEssence(encounterNumber : number, LeftOrRight : string, dispatch : any) : React.JSX.Element {
 
     const DropdownRowsForNoEssences = CreateDropdownRowsForNoEssences(encounterNumber, LeftOrRight, dispatch);
 
@@ -353,7 +354,7 @@ function CreateLostActionDropdownElementNoEssence(encounterNumber : number, Left
     )
 }
 
-function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight : string, dispatch) : React.JSX.Element[] {
+function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element[] {
     
     const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
@@ -366,7 +367,7 @@ function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight :
     return DropdownItemsArray;
 }
 
-function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounterNumber : number, LeftOrRight : string, dispatch) : React.JSX.Element {
+function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfLostAction = event.target.id;
@@ -389,8 +390,8 @@ function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounter
 //#endregion
 
 //#region Essence Dropdown
-function CreateLostActionDropdownElementEssence(encounterNumber : number, dispatch) : React.JSX.Element {
-
+function CreateLostActionDropdownElementEssence(encounterNumber : number, dispatch : any) : React.JSX.Element {
+    
     const DropdownRowsForEssences = CreateDropdownRowsForEssences(encounterNumber, dispatch);
 
     return (
@@ -402,7 +403,7 @@ function CreateLostActionDropdownElementEssence(encounterNumber : number, dispat
     )
 }
 
-function CreateDropdownRowsForEssences(encounterNumber : number, dispatch) : React.JSX.Element[] {
+function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) : React.JSX.Element[] {
     
     const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
@@ -415,7 +416,7 @@ function CreateDropdownRowsForEssences(encounterNumber : number, dispatch) : Rea
     return DropdownItemsArray;
 }
 
-function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNumber : number, dispatch) : React.JSX.Element {
+function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNumber : number, dispatch: (arg0: { payload: [number, number, string] | undefined; type: "LostActionDropdownDataForUse/clearDropdownData" | "LostFindsHolsterBag/setHolsterTimelineEncounterPullBossWith"; }) => void) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfEssence = event.target.id;
@@ -442,7 +443,7 @@ const CreateLostActionInstanceTimeline = () => {
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
 
     const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
-    const HolsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay(dispatch);
+    const HolsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 
     function HandleAddEncounterClick() {
         dispatch(createNewHolsterTimelineEncounter())

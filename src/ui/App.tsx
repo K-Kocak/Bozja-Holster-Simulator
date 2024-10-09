@@ -12,6 +12,7 @@ import SavedHolsters from '@ui/components/SavedHolsters';
 import ForgottenFragmentInfo from '@ui/components/ForgottenFragmentInfo';
 import PrepopHolster from '@ui/components/PrepopHolster';
 import LostActionInstanceTimeline from '@ui/components/LostActionInstanceTimeline';
+import LostActionInstanceTimelineResourceManagement from '@ui/components/LostActionInstanceTimelineResourceManagement';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,8 @@ function App() {
       <ForgottenFragmentInfo />
       <PrepopHolster />
       <LostActionInstanceTimeline />
+      <LostActionInstanceTimelineResourceManagement />
+      
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
