@@ -47,6 +47,7 @@ export const LostFindsHolsterInformation = () => {
     console.log(savedSets);
     const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(roleTypeOfHolster);
     const PrepopHolster = useAppSelector((state) => state.LostFindsHolster.PrepopHolster);
+    const holsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline);
 
     const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
     const LostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
@@ -80,7 +81,7 @@ export const LostFindsHolsterInformation = () => {
     }
 
     function HandleSaveHolsterClick() {
-        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster]));
+        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline]));
     }
 
     function HandleClearHolsterClick() {

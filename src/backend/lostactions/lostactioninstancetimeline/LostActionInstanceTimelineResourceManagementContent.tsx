@@ -4,6 +4,7 @@ import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import { IEncounter } from '@app/backend/interfaces/IHolsterTimeline';
 
 import '@css/ui/components/LostActionInstanceTimelineResourceManagementContent.scss';
+import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
 /*
 interface LostActionQuantityRemaining {
     id: number,
@@ -60,8 +61,38 @@ function CalculateResourceDifferencesForHolster(TotalResourcesSpentInTimeline : 
     return TotalResourcesSpentInTimeline;
 }
 
-function CreateLostActionResourceArrayDivs(lostActionResourceDifferenceArrayToUse : number[]) : React.JSX.Element[] {
-    return [<></>]
+function CreateLostActionResourceArrayDivs(lostActionResourceDifferenceArrayToUse : number[]) : React.JSX.Element[][] {
+
+    const lostActionResourcesStillToSpend : React.JSX.Element[] = [];
+    const lostActionResourcesOverflowSpend : React.JSX.Element[] = [];
+    lostActionResourceDifferenceArrayToUse.forEach((LostActionResource, idOfAction) => {
+        if(LostActionResource > 0) {
+            lostActionResourcesStillToSpend.push(
+                <div key={idOfAction} className="LostActionResourceToSpend">
+                    <div className="LostActionResourceToSpendImage">
+                        <img src={LostActionsAsObjectArray[idOfAction].img}></img>
+                    </div>
+                    <div className="LostActionResourceToSpendQuantity">
+                        <span>{LostActionResource}</span>
+                    </div>
+                </div>
+            )
+        }
+        else if(LostActionResource < 0) {
+            lostActionResourcesOverflowSpend.push(
+                <div key={idOfAction} className="LostActionResourceToSpend">
+                    <div className="LostActionResourceToSpendImage">
+                        <img src={LostActionsAsObjectArray[idOfAction].img}></img>
+                    </div>
+                    <div className="LostActionResourceToSpendQuantity">
+                        <span>{LostActionResource}</span>
+                    </div>
+                </div>
+            )
+        }
+    })
+
+    return [lostActionResourcesStillToSpend, lostActionResourcesOverflowSpend]
 }
 
 function CreateResourceManagementContent() : React.JSX.Element {
@@ -74,13 +105,34 @@ function CreateResourceManagementContent() : React.JSX.Element {
     // essentially an array that determines what you need to spend more of (>0) and what you've spent too much of (<0)
     const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentStateOfLostActionsInHolster, lostActionQuantitiesInHolster);
 
-    const lostActionResourcesElementArray : React.JSX.Element[] = CreateLostActionResourceArrayDivs(lostActionTimelineResourceDifferenceArray);
+    const lostActionResourcesElementArray : React.JSX.Element[][] = CreateLostActionResourceArrayDivs(lostActionTimelineResourceDifferenceArray);
+    const lostActionResourcesQuantityLessThanZero : React.JSX.Element[] = lostActionResourcesElementArray[1];
+    const lostActionResourceQuantityGreaterThanZero : React.JSX.Element[] = lostActionResourcesElementArray[0];
 
     console.log(lostActionTimelineResourceDifferenceArray);
 
     return (
         <div className="LostActionInstanceTimelineResourceManagementContentInnerContainer">
-            
+            <div className="LostActionInstanceTimelineResourceManagementTitles">
+                <div className="LostActionInstanceTimelineResourceManagementGreaterThanZero">
+                    <span>Actions left to spend</span>
+                </div>
+                <div className="LostActionInstanceTimelineResourceManagementLessThanZero">
+                    <span>Actions overflowing</span>
+                </div>
+            </div>
+            <div className="LostActionInstanceTimelineResourceManagementLostActions">
+                <div className="LostActionInstanceTimelineResourceManagementQuantityText">
+                    <span>Quantity:</span>
+                </div>
+                <div className="LostActionInstanceTimelineResourceManagementLostActionDivsGreaterThanZero">
+                    {lostActionResourceQuantityGreaterThanZero}
+                </div>
+                <div className="LostActionInstanceTimelineResourceManagementQuantityGap"></div>
+                <div className="LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero">
+                    {lostActionResourcesQuantityLessThanZero}
+                </div>
+            </div>
         </div>
     )
 }

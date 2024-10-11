@@ -6,7 +6,7 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
 import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
-import { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
+import IHolsterTimeline, { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
 
 export interface LostActionSets {
     Sets: ILostActionSet[],
@@ -70,12 +70,13 @@ export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
     reducers: {
-        addHolsterToSavedSets: (state, action: PayloadAction<[IActionHolster[], number[], number, "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", IUserSlottedActions]>) => {
+        addHolsterToSavedSets: (state, action: PayloadAction<[IActionHolster[], number[], number, "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", IUserSlottedActions, IHolsterTimeline]>) => {
             const currentHolster : IActionHolster[] = action.payload[0];
             const actionQuantities : number[] = action.payload[1];
             const weightOfHolster : number = action.payload[2];
             const roleTypeOfHolster = action.payload[3];
             const PrepopHolster = action.payload[4];
+            const encounters = action.payload[5];
             
             const HolsterToBeSaved : IActionHolster[] = [];
             currentHolster.forEach((actionInHolster) => {              
@@ -91,7 +92,7 @@ export const LostActionSetsSlice = createSlice({
                 weightOfSet: weightOfHolster,
                 setLostActionContents: HolsterToBeSaved,
                 PrepopLostActions: PrepopHolster,
-                HolsterTimeline: {Encounters: testingHolsterTimeline}
+                HolsterTimeline: encounters
             });
 
             

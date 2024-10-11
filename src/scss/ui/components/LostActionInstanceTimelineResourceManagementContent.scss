@@ -1,4 +1,88 @@
 .LostActionInstanceTimelineResourceManagementContentInnerContainer {
     margin: 5px;
     height: 92%;
+    display: flex;
+    flex-direction: column;
+
+    .LostActionInstanceTimelineResourceManagementTitles {
+        display: flex;
+        flex-direction: row;
+        height: 25%;
+        .LostActionInstanceTimelineResourceManagementGreaterThanZero {
+            width: 70%;           
+            text-align: center;
+            margin-left: -20px;
+        }
+
+        .LostActionInstanceTimelineResourceManagementLessThanZero {
+            width: 30%;      
+            text-align: center;
+        }
+    }
+
+    .LostActionInstanceTimelineResourceManagementLostActions {
+        display: flex;
+        flex-direction: row;
+        height: 75%;
+        align-items: center;
+        justify-content: center;
+
+        .LostActionInstanceTimelineResourceManagementQuantityText {
+            width: 15%;
+            display: flex;
+            align-items: end;
+        }
+
+        ::-webkit-scrollbar {
+            display: flex;
+            position: relative;
+            width: 8px;
+            height: 10px;
+        }
+        
+    
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            
+        }
+        
+     
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            
+        }
+
+       
+
+        .LostActionInstanceTimelineResourceManagementLostActionDivsGreaterThanZero {
+            display: flex;
+            flex-direction: row;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            width: 50%;
+           
+        }
+
+        .LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero {
+            display: flex;
+            flex-direction: row;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            width: 30%;   
+            margin-left: 25px;     
+        }
+
+        .LostActionResourceToSpend {
+            margin: auto 3px;
+            .LostActionResourceToSpendImage {
+                img {
+                    height: 40px;
+                }
+            }   
+
+            .LostActionResourceToSpendQuantity {
+                text-align: center;
+            }
+        }
+    }
 }
