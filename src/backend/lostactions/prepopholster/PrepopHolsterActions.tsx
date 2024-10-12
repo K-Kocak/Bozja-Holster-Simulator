@@ -75,9 +75,9 @@ const PrepopHolsterContents = () => {
     const PrepopHolsterLostActionRight = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
     const PrepopHolsterLostActionEssence = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
 
-    const PrepopHolsterLostActionLeftImageToShow : React.JSX.Element = PrepopHolsterLostActionLeft != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionLeft].imgBorder}></img> : <></>
+    const PrepopHolsterLostActionLeftImageToShow : React.JSX.Element = PrepopHolsterLostActionLeft != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionLeft].img}></img> : <></>
 
-    const PrepopHolsterLostActionRightImageToShow : React.JSX.Element = PrepopHolsterLostActionRight != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionRight].imgBorder}></img> : <></>
+    const PrepopHolsterLostActionRightImageToShow : React.JSX.Element = PrepopHolsterLostActionRight != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionRight].img}></img> : <></>
 
     const PrepopHolsterLostActionEssenceImageToShow : React.JSX.Element = PrepopHolsterLostActionEssence != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionEssence].img}></img> : <></>
 

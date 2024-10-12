@@ -16,8 +16,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 20px;
         color: #F4F2F2; 
         text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
     }
@@ -32,7 +33,7 @@
             width: 33.3%;
             display: flex;
             position: relative;
-            align-items: center;
+            align-items: end;
             justify-content: center;
 
             .PrepopHolsterLostActionLeftSideImage, .PrepopHolsterLostActionRightSideImage, .PrepopHolsterLostActionEssenceImage {
@@ -40,10 +41,15 @@
                 position: relative;
                 align-items: center;
                 justify-content: center;
-
+                box-shadow: 0px 0px 3px white;
                 img {
                     height: 64px;
                 }
+            }
+
+            .DropdownArrow {
+                color: #F4F2F2; 
+                text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
             }
 
             .PrepopHolsterLostActionLeftSideSelectorList {
@@ -55,7 +61,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
+                background-color: #444344;
+                
                 &:hover .PrepopHolsterLostActionLeftSideDropdownContent {
                     display: block;
                 }
@@ -85,10 +92,13 @@
                 background-color: white;
                 height: 12px;
                 width: 12px;
-                margin-top: auto;
+                
+                margin-left: 2px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                background-color: #444344;
+                
 
                 &:hover .PrepopHolsterLostActionRightSideDropdownContent {
                     display: block;
@@ -124,7 +134,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-             
+                background-color: #444344;
+                
 
                 &:hover .PrepopHolsterLostActionEssenceDropdownContent {
                     display: block;

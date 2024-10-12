@@ -5,7 +5,7 @@
 
 #PrepopHolsterContainer {
     position: absolute;
-    background-color: red;
+    background: url('../../../ui/pictures/BozjaFragmentWindowCropped475x115pixels.png') no-repeat;
     font-family: ekmukta;
     background-size: 475px;
     width: 475px;
@@ -13,5 +13,5 @@
     z-index: 1;
     left: 800px;
     top: 525px;
-    border-radius: 14px;
+    border-radius: 11px;
 }
