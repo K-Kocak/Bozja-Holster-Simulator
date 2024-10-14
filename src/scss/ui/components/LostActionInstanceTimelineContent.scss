@@ -262,13 +262,7 @@
                         
                     }
                 }
-    
-    
-    
-    
-    
-    
-    
+
                 .LostActionPullBossWithAndNameOfBoss {
                     display: flex;
                     flex-direction: column;
@@ -332,29 +326,43 @@
            
             .LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer {
                 display: flex;
-                align-items: center;
-                justify-content: center;
+               
+                justify-content: end;
+                width: 100%;
 
-                .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent {
-                    
-                    height: 210px;
+                .LostActionInstanceTimelineStateLostActionFunctions {
+                    display: flex;
+                    flex-direction: row;               
+                    width: 32%;
+                    margin: 5px;
+
+                    .LostActionInstanceTimelineStateLostActionFunctionCloseWindow {
+                        position: relative;
+                        top: 25px;
+                        
+                        font-size: 20px;
+                        height: 20%;
+
+                        span {
+                            pointer-events: none;
+                        }
+                    }
+                }
+
+                .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent {                
+                    height: 220px;
                     width: 300px;
                     border-radius: 10px;
-                    position: relative;                         
-                    top: -10px;
-                    z-index: 1;
-                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
-                 
+                    top: 20px;
+                    position: relative;                                         
+                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x220pixels.png') no-repeat;           
 
-                    .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {
-                        
+                    .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {                   
                         margin: 10px;
                         overflow-y: scroll;
-                        height: 93%;
-                        width: 100%;
-                        margin-right: 6px; 
-                        
-                       
+                        height: 92%;
+                        width: 95%;
+                     
                         .DropdownItemLostActionRow {
                             display: flex;
                             flex-direction: row;

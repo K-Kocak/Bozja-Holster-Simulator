@@ -264,6 +264,10 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
 
+    function HandleCloseLostActionDropdownWindow() {
+        dispatch(clearDropdownData());
+    }
+
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
         const encounterNumber = currentDropdownDataToDisplay.EncounterNumber;
         if(currentDropdownDataToDisplay.IsPullWith) {
@@ -283,9 +287,16 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
         }
     }
 
+    const LostActionDropdownCloseButton = currentDropdownDataToDisplay.EncounterNumber != -1 ? "X" : "";
+
     return (
         <div className="LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer">
             {LostActionDropdownElementRows}
+            <div className="LostActionInstanceTimelineStateLostActionFunctions">
+                <div onClick={HandleCloseLostActionDropdownWindow} className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
+                    <span>{LostActionDropdownCloseButton}</span>
+                </div>
+            </div>
         </div>
     )
 }
@@ -297,7 +308,7 @@ function CreateLostActionDropdownElementAllLostActions(encounterNumber : number,
     const DropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, dispatch);
 
     return (
-        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">
+        <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">     
             <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer">
                 {DropdownRowsForNoEssences}
             </div>                      
@@ -461,7 +472,6 @@ const CreateLostActionInstanceTimeline = () => {
                 <div className="LostActionInstanceTimelineStateLostActionDropdownBoxes">
                     {HolsterTimelineDropdownBoxToDisplay}
                 </div>
-                
             </div>
             <div className="LostActionInstanceTimelineTitleAndAddEncounter">
                 <div className="LostActionInstanceTimelineTitle">
