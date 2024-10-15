@@ -3,6 +3,7 @@ export interface ILostActionDropdownDataForUse {
     IsPullWith: boolean,
     LeftOrRightOrEssence: string,
     IndexOfLostActionResource: number,  
-    IsInPull: boolean
+    IsInPull: boolean,
+
 }
 export default ILostActionDropdownDataForUse;

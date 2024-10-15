@@ -14,9 +14,20 @@ import { BaseSyntheticEvent } from 'react';
 import IAction from '@app/backend/interfaces/IAction';
 import { clearDropdownData, setDropdownDataInPull, setDropdownDataPullWith } from '../LostActionDropdownDataSlice';
 
+const GenerateNewBossInTimeline : IEncounter = {
+    NameOfBoss: "New Boss",
+    PullBossWith: {
+        LostActionLeft: 101,
+        LostActionRight: 102,
+        EssenceInUse: 709,
+    },
+    LostActionsSpentInPull: [],
+    LostActionsSpentAfterPull: []
+}
+
 function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch : any) : React.JSX.Element[] {
 
-    const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters); 
+    const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);  
 
     function HandleBossNameChange(event : BaseSyntheticEvent) {
         console.log("function called");
@@ -92,6 +103,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
     function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
         console.log(event);
         dispatch(clearDropdownData());
+        
 
         const isInPull : string = event.target.dataset.isinpull;
 
@@ -172,7 +184,8 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
             )
             LostActionResourcesSpentAfterPullArray.push(LostActionResourceSpentAfterPullToPush);
         });
-       
+
+        
         const EncounterBox = (
         <div key={index} className="LostActionInstanceTimelineIndividualEncounterContainer">
             <div className="LostActionInstanceTimelineIndividualEncounterBossNameAndFunctions">
@@ -262,10 +275,28 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
 function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     const dispatch = useAppDispatch();
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
+    const currentHolsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
+    const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
+
+
+    let LostActionDropdownCloseButton : string = "";
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
 
     function HandleCloseLostActionDropdownWindow() {
         dispatch(clearDropdownData());
+    }
+
+    function HandleSetAllEssencesToPrepop() {
+        const newHolsterTimelineWithPrepopEssence : IEncounter[] = [];
+        currentHolsterTimeline.forEach((Encounter) => {
+            if(Encounter.PullBossWith.EssenceInUse == prepopEssenceId) {
+                newHolsterTimelineWithPrepopEssence.push(Encounter);
+            }
+            else {
+                newHolsterTimelineWithPrepopEssence.push({...Encounter, PullBossWith: {LostActionLeft: Encounter.PullBossWith.LostActionLeft, LostActionRight: Encounter.PullBossWith.LostActionRight, EssenceInUse: prepopEssenceId}})
+            }
+        });
+        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
     }
 
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
@@ -274,9 +305,13 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             
             const LeftOrRightOrEssence = currentDropdownDataToDisplay.LeftOrRightOrEssence;
             if(LeftOrRightOrEssence == "Essence") {
+                LostActionDropdownCloseButton = "X";
                 LostActionDropdownElementRows = CreateLostActionDropdownElementEssence(encounterNumber, dispatch);
+                
+                
             }
             else if (LeftOrRightOrEssence == "Left" || LeftOrRightOrEssence == "Right") {
+                LostActionDropdownCloseButton = "X";
                 LostActionDropdownElementRows = CreateLostActionDropdownElementNoEssence(encounterNumber, LeftOrRightOrEssence, dispatch);
             }
         }
@@ -287,14 +322,15 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
         }
     }
 
-    const LostActionDropdownCloseButton = currentDropdownDataToDisplay.EncounterNumber != -1 ? "X" : "";
-
     return (
         <div className="LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer">
             {LostActionDropdownElementRows}
             <div className="LostActionInstanceTimelineStateLostActionFunctions">
                 <div onClick={HandleCloseLostActionDropdownWindow} className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
                     <span>{LostActionDropdownCloseButton}</span>
+                </div>
+                <div onClick={HandleSetAllEssencesToPrepop} className="LostActionInstanceTimelineStateLostActionFunctionSetAllEssence">
+                    Set Essences To Prepop
                 </div>
             </div>
         </div>
@@ -453,11 +489,15 @@ const CreateLostActionInstanceTimeline = () => {
     const dispatch = useAppDispatch();
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
 
+    const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
+
     const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
     const HolsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 
     function HandleAddEncounterClick() {
-        dispatch(createNewHolsterTimelineEncounter())
+        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: GenerateNewBossInTimeline.PullBossWith.LostActionLeft, LostActionRight: GenerateNewBossInTimeline.PullBossWith.LostActionRight, EssenceInUse: prepopEssenceId}};
+
+        dispatch(createNewHolsterTimelineEncounter(EncounterToPush));
      
     }
 

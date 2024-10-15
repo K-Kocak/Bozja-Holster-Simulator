@@ -8,7 +8,7 @@ const initialState: ILostActionDropdownDataForUse = {
     IsPullWith: true,
     LeftOrRightOrEssence: "None",
     IndexOfLostActionResource: -1,
-    IsInPull: false
+    IsInPull: false,
 };
 
 export const LostActionDropdownDataForUseSlice = createSlice({
@@ -42,6 +42,8 @@ export const LostActionDropdownDataForUseSlice = createSlice({
             state.IsPullWith = false;
             //state.LeftOrRightOrEssence = "None";
         },
+
+        
     },
 })
 
