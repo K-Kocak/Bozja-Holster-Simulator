@@ -29,15 +29,15 @@
     .LostActionInstanceTimelineTitleAndAddEncounter {
         display: flex;
         flex-direction: row;
+        border-top: 2px solid #A5906F;
         
-
         .LostActionInstanceTimelineTitle {
             width: 50%;
             height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-           
+            
         }
 
         .LostActionInstanceTimelineAddEncounter {
@@ -45,9 +45,18 @@
             justify-content: center;
             align-items: center;
             width: 50%;
-        
+            margin: 5px;
             .LostActionInstanceTimelineAddEncounterDiv {
-                
+                height: 100%;
+                width: 50%;
+                display: flex;
+                border: 2px solid #A5906F;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: #595644;
+                }
             }
         }
 
@@ -67,12 +76,14 @@
             width: 50%;
 
             .LostActionInstanceTimelineIndividualEncounterContainer {
-            
+                border: 2px solid #A5906F;
+                border-radius: 3px;
                 flex-shrink: 0;
-                min-height: 100%;
+                min-height: 97%;
                 display: flex;
                 flex-direction: column;
-                
+                margin-top: 3px;
+                margin-right: 2px;
     
                 .LostActionInstanceTimelineIndividualEncounterBossNameAndFunctions {
                     display: flex;
@@ -110,26 +121,27 @@
                     display: flex;
                     flex-direction: row;
                     width: 100%;
-                    height: 60px;
+                    height: 45px;
     
                     .LostActionInstanceTimelineIndividualEncounterPullWithText {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        width: 35%;
+                        width: 34%;
                         margin-left: 5px;
                     }
     
                     .LostActionInstanceTimelineIndividualEncounterPullWithLostActionsContainer {
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-around;
+                        justify-content: start;
                         align-items: center;
-                        width: 75%;
+                        width: 65%;
                         .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithEssence {
                             display: flex;                
                             align-items: center;
                             justify-content: center;
+                            margin-right: 30px;
     
                             .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithLeftEssenceImage {
                                 display: flex;
@@ -152,14 +164,15 @@
                     display: flex;
                     flex-direction: row;
                     
-                    min-height: 70px;
+                    min-height: 76px;
     
                     .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullTextAndAddLostActionButton {
                         display: flex;
                         flex-direction: column;
-                        min-width: 35%;
+                        min-width: 34.6%;
                         align-items: center;
-                        justify-content: space-around;
+                        justify-content: center;
+
                         .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullText {
                             display: flex;
                             align-items: center;
@@ -171,6 +184,16 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            border: 2px solid #A5906F;
+                            border-radius: 5px;
+                            padding-top: 2px;
+                            margin-top: 3px;
+                            width: 65%;
+                            height: 40%;
+
+                            &:hover {
+                                background-color: #595644;
+                            }
                         }
                     }
     
@@ -332,19 +355,35 @@
 
                 .LostActionInstanceTimelineStateLostActionFunctions {
                     display: flex;
-                    flex-direction: row;               
+                    flex-direction: column;               
                     width: 32%;
                     margin: 5px;
+                    align-items: center;
 
                     .LostActionInstanceTimelineStateLostActionFunctionCloseWindow {
                         position: relative;
-                        top: 25px;
-                        
+                        top: -25px;
+                        left: -70px;
                         font-size: 20px;
-                        height: 20%;
+                        
 
                         span {
                             pointer-events: none;
+                        }
+                    }
+
+                    .LostActionInstanceTimelineStateLostActionFunctionSetAllEssence {                   
+                        position: relative;
+                        text-align: center;
+                        border: 2px solid #A5906F;
+                        border-radius: 5px;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;                     
+                        top: 50px;
+                        
+                        &:hover {
+                            background-color: #595644;
                         }
                     }
                 }
@@ -396,4 +435,10 @@
 
         
     }
+}
+
+.LostActionSeparatorSegment {
+    margin: 1px 0px 1px 2px;
+    width: 100%;
+    
 }
