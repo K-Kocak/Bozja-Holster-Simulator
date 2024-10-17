@@ -8,7 +8,7 @@
 .MyHolstersSavedSet {
     display: flex;
     flex-direction: row;
-    height: 79px;
+    height: 120px;
     width: auto;
     border: 2px solid black;
     margin: 2px 0px;
@@ -16,7 +16,6 @@
     margin-left: 3px;
     margin-right: 3px;
     
-
     ::-webkit-scrollbar {
         display: flex;
         position: relative;
@@ -32,7 +31,7 @@
     ::-webkit-scrollbar-thumb {
         background: #888;
     }
-    
+ 
     .SavedHolstersLoadAndDeleteHolster {
         width: 8%;
         display: flex;
@@ -73,7 +72,7 @@
         width: 84%;
 
         .SavedHolstersTitle {
-            height: 50%;
+            height: 40px;
             display: flex;
             align-items: center;
             padding-left: 5px;
@@ -87,26 +86,23 @@
                 &:focus {
                     outline: none;
                 }
-            }
-            
+            }          
         }
-
+        
         .SavedHolstersListActionsInSet {
             display: flex;
-            flex-direction: row;
-            
+            flex-direction: row;        
             float: left;
-            height: 50%;
-            position: relative;
-            top: -1px;
-            padding-bottom: 1px;
+            height: 40px;
+            position: relative;          
             overflow-x: scroll;
-
             overflow-y: hidden;
+
             .SavedHolstersActionInSet {
                 display: flex;
                 align-items: center;
                 position: relative;
+                
                 
                 .SavedHolstersActionInSetSpecificQuantity {
                     pointer-events: none;
@@ -122,6 +118,26 @@
                     text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
                 }
                 
+                img {
+                    height: 35px;
+                }
+            }
+        }
+
+        .SavedHolstersListPrepopActionsInSet {
+            display: flex;
+            flex-direction: row;        
+            float: left;
+            height: 40px;
+            position: relative;          
+            overflow-x: scroll;
+            overflow-y: hidden;
+
+            .SavedHolstersPrepopActionInSet {
+                display: flex;
+                align-items: center;
+                position: relative;
+
                 img {
                     height: 35px;
                 }

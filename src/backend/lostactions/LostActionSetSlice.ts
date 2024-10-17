@@ -16,9 +16,9 @@ const testingHolsterTimeline = [
     {
         NameOfBoss: "Testing Boss",
         PullBossWith: {
-            LostActionLeft: 103,
-            LostActionRight: 104,
-            EssenceInUse: 715
+            LostActionLeft: 201,
+            LostActionRight: 202,
+            EssenceInUse: 720
         },
         LostActionsSpentInPull: [{
             LostActionUsed: 104,
@@ -37,7 +37,7 @@ const initialState: LostActionSets = {
         id: 9999,
         nameOfSet: "Testing Set",
         roleTypeOfSet: "Melee",
-        weightOfSet: 95,
+        weightOfSet: 81,
         setLostActionContents: [{
             id: 101,
             name: "Lost Focus",

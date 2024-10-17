@@ -16,6 +16,7 @@ import { BaseSyntheticEvent } from 'react';
 import IAction from '@app/backend/interfaces/IAction';
 import { clearDropdownData, setDropdownDataInPull, setDropdownDataPullWith } from '../LostActionDropdownDataSlice';
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
+import IActionHolster from '@app/backend/interfaces/IActionHolster';
 
 const GenerateNewBossInTimeline : IEncounter = {
     NameOfBoss: "New Boss",
@@ -279,7 +280,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
     const currentHolsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
     const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
-
+    const currentActionsInHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
 
     let LostActionDropdownCloseButton : string = "";
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
@@ -322,7 +323,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             const indexOfLostActionResource = currentDropdownDataToDisplay.IndexOfLostActionResource;
             const isInPull = currentDropdownDataToDisplay.IsInPull;
             LostActionDropdownCloseButton = "X";
-            LostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, dispatch);
+            LostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentActionsInHolster, dispatch);
         }
     }
 
@@ -344,9 +345,9 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
 //#region All Actions Dropdown
 
-function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: any) : React.JSX.Element {
+function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch: any) : React.JSX.Element {
 
-    const DropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, dispatch);
+    const DropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, currentActionsInHolster, dispatch);
 
     return (
         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">     
@@ -357,10 +358,11 @@ function CreateLostActionDropdownElementAllLostActions(encounterNumber : number,
     )
 }
 
-function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch : any) : React.JSX.Element[] {
-    
+function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch : any) : React.JSX.Element[] {
+
     const DropdownItemsArray : React.JSX.Element[] = [];
-    LostActionsAsObjectArray.forEach((LostAction) => {
+    currentActionsInHolster.forEach((LostActionInHolster) => {   
+        const LostAction = LostActionsAsObjectArray[LostActionInHolster.id];
         const EssenceToPush = CreateDropdownRowForAllLostActions(LostAction, encounterNumber, indexOfLostAction, isInPull, dispatch);
         DropdownItemsArray.push(EssenceToPush);   
     });

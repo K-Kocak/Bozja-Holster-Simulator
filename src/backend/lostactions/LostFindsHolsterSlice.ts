@@ -20,8 +20,8 @@ const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjec
 
 const PrepopHolsterResetState = {
     LostActionLeft: 101,
-    LostActionRight: 102,
-    EssenceInUse: 709
+    LostActionRight: 105,
+    EssenceInUse: 708
 }
 
 const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
