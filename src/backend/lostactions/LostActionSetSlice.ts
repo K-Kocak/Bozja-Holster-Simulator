@@ -6,11 +6,16 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
 import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
+
 import IHolsterTimeline, { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
+
+import { LoadSavedSetsFromLocalStorage } from './holstersetsstorage/SavedHolstersStorage';
 
 export interface LostActionSets {
     Sets: ILostActionSet[],
 }
+
+const loadedSavedSetDataFromLocalStorage = LoadSavedSetsFromLocalStorage();
 
 const testingHolsterTimeline = [
     {
@@ -31,8 +36,9 @@ const testingHolsterTimeline = [
     }
 ];
     
+const initialState: LostActionSets = loadedSavedSetDataFromLocalStorage;
 
-const initialState: LostActionSets = {
+/*const initialState: LostActionSets = {
     Sets: [{
         id: 9999,
         nameOfSet: "Testing Set",
@@ -65,7 +71,7 @@ const initialState: LostActionSets = {
     }],
     
 };
-
+*/
 export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
