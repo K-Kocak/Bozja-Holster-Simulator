@@ -1,26 +1,70 @@
 import '@css/ui/components/SavedHolstersContent.scss';
 import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGen';
 
-import { useAppSelector } from '@app/backend/hooks';
+import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
-import { ClearSavedSetsDataInLocalStorage, LoadSavedSetsFromLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
+import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
+import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, LostActionSets } from '../LostActionSetSlice';
+
+function saveSavedSetsToFile(SavedSetToSaveAsFile : Blob) {
+    const a = document.createElement("a");
+    a.download = "SavedHolsterSets";
+    a.href = URL.createObjectURL(SavedSetToSaveAsFile);
+    a.click();
+    setTimeout(() => {
+        URL.revokeObjectURL(a.href);
+        a.remove();
+    }, 200);
+    
+}
+
 
 const CreateSavedHolsters = () => {
-    const SavedSets = useAppSelector((state) => state.LostActionSets);
-    const SetsToDisplay : JSX.Element = CreateSavedSets(SavedSets.Sets);
+    const dispatch = useAppDispatch();
+    const savedSets = useAppSelector((state) => state.LostActionSets);
+    const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
 
-    function HandleSaveSavedSets() {
-        SaveSavedSetsToLocalStorage(SavedSets);
-    }
+    SaveSavedSetsToLocalStorage(savedSets);
 
     function HandleResetSavedSets() {
         ClearSavedSetsDataInLocalStorage();
+        dispatch(clearAllSavedSets());
     }
 
-    function HandleLoadSavedSets() {
-        LoadSavedSetsFromLocalStorage();
+    function HandleSaveSavedSetsAsJSON() {
+        const savedSetsAsJSON = JSON.stringify(savedSets);
+        const savedSetsAsBlob = new Blob([savedSetsAsJSON], { type: "application/json"});
+        saveSavedSetsToFile(savedSetsAsBlob);
     }
 
+    function HandleUploadSavedSets() {
+        const input = document.createElement('input');
+        
+        input.type = 'file';
+        input.onchange = () => {
+            const fileReader = new FileReader();
+            if(input.files != null) {
+                fileReader.readAsText(input.files[0], "UTF-8");
+                fileReader.onload = JSONSavedSetAsText => {
+                    if(JSONSavedSetAsText.target?.result != null) {
+                        const parsedSavedSet : LostActionSets = JSON.parse(JSONSavedSetAsText.target.result.toString());
+                        if(parsedSavedSet.Sets.length > 0) {
+                            console.log("am i here");
+                            parsedSavedSet.Sets.forEach((SavedSetToAvoidDuplicateId) => {
+                                SavedSetToAvoidDuplicateId.id = Math.random();
+                            })
+                            dispatch(addImportedSavedSetsToCurrentSavedSets(parsedSavedSet.Sets));
+                        }
+                        console.log(parsedSavedSet);
+                    }
+                }
+            }     
+        }
+        input.click();
+        input.remove();      
+    }
+
+   
     return (
     <div className="SavedHolstersContainer">
         <div className="SavedHolstersTitleText">
@@ -28,12 +72,12 @@ const CreateSavedHolsters = () => {
         </div>
         <div style={{color: "white"}} className="SavedHolstersUserButtons">
             <span>PlaceHolder For Buttons</span>
-            <button onClick={HandleSaveSavedSets}>Button For Testing Local Storage Stuff</button>
-            <button onClick={HandleResetSavedSets}>Button For Testing Local Storage Reset</button>
-            <button onClick={HandleLoadSavedSets}>Button For Testing Local Storage Loading</button>
+            <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
+            <button onClick={HandleResetSavedSets}>Reset</button>
+            <button onClick={HandleUploadSavedSets}>LoadTest</button>
         </div>
         
-        {SetsToDisplay}
+        {setsToDisplay}
         
     </div>
     )

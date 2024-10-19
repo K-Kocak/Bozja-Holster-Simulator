@@ -1,6 +1,5 @@
-import LostActionsNoBorder from "@app/ui/pictures/LostActions/LostActionsImgInitialise";
 import { LostActionSets } from "../LostActionSetSlice";
-
+/*
 const testingHolsterTimeline = [
     {
         NameOfBoss: "Testing Boss",
@@ -53,7 +52,7 @@ const temporaryInitialState : LostActionSets = {
     }],
     
 };
-
+*/
 
 export function SaveSavedSetsToLocalStorage(SetsToSave : LostActionSets) {
     const localStorageDataFormat = JSON.stringify(SetsToSave);
@@ -62,14 +61,15 @@ export function SaveSavedSetsToLocalStorage(SetsToSave : LostActionSets) {
 
 export function LoadSavedSetsFromLocalStorage() : LostActionSets {
     const savedSetDataFromLocalStorage = localStorage.getItem("SavedSetData");
+    const emptyLocalStorage : LostActionSets = {Sets : []};
     if(savedSetDataFromLocalStorage != null) {
         const parsedSavedSetData : LostActionSets = JSON.parse(savedSetDataFromLocalStorage)
         return parsedSavedSetData;
     }
     else if(savedSetDataFromLocalStorage == null) {
-        return temporaryInitialState;
+        return emptyLocalStorage;
     }
-    return temporaryInitialState;
+    return emptyLocalStorage;
 }
 
 export function ClearSavedSetsDataInLocalStorage() {

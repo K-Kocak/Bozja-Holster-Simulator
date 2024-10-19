@@ -43,12 +43,11 @@ export const LostFindsHolsterInformation = () => {
     const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
     const roleTypeOfHolster = useAppSelector((state) => state.LostFindsHolster.SelectedRole);
     console.log(currentHolster, actionQuantities, selectedWeight, currentWeight, roleTypeOfHolster);
-    const savedSets = useAppSelector((state) => state.LostActionSets.Sets);
-    console.log(savedSets);
+    
     const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(roleTypeOfHolster);
     const PrepopHolster = useAppSelector((state) => state.LostFindsHolster.PrepopHolster);
     const holsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline);
-
+    console.log("lostfindsholster");
     const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
     const LostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
 
@@ -81,7 +80,7 @@ export const LostFindsHolsterInformation = () => {
     }
 
     function HandleSaveHolsterClick() {
-        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline]));
+        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline]));     
     }
 
     function HandleClearHolsterClick() {
@@ -89,7 +88,7 @@ export const LostFindsHolsterInformation = () => {
     }
 
     return <div className="LostFindsHolsterInnerContainer">
-    <div key={1001} className="LostFindsHolsterPlayerHolster">
+    <div className="LostFindsHolsterPlayerHolster">
         
         {LostFindsHolsterActionCategoryCounts[0] > 0 ? <div className="LostFindsHolsterActionCategoryOffensive">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">

@@ -5,8 +5,6 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import LostActionsNoBorder from '@app/ui/pictures/LostActions/LostActionsImgInitialise';
-
 import IHolsterTimeline, { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
 
 import { LoadSavedSetsFromLocalStorage } from './holstersetsstorage/SavedHolstersStorage';
@@ -17,61 +15,8 @@ export interface LostActionSets {
 
 const loadedSavedSetDataFromLocalStorage = LoadSavedSetsFromLocalStorage();
 
-const testingHolsterTimeline = [
-    {
-        NameOfBoss: "Testing Boss",
-        PullBossWith: {
-            LostActionLeft: 201,
-            LostActionRight: 202,
-            EssenceInUse: 720
-        },
-        LostActionsSpentInPull: [{
-            LostActionUsed: 104,
-            LostActionTimeOfUse: "5s",
-        }],
-        LostActionsSpentAfterPull: [{
-            LostActionUsed: 205,
-            LostActionTimeOfUse: "N/A"
-        }]
-    }
-];
-    
 const initialState: LostActionSets = loadedSavedSetDataFromLocalStorage;
 
-/*const initialState: LostActionSets = {
-    Sets: [{
-        id: 9999,
-        nameOfSet: "Testing Set",
-        roleTypeOfSet: "Melee",
-        weightOfSet: 81,
-        setLostActionContents: [{
-            id: 101,
-            name: "Lost Focus",
-            img: LostActionsNoBorder.Offensive.LostFocus,
-            weight: 6,
-            quantity: 1,
-            category: "Offensive"
-        },
-        {
-            id: 102,
-            name: "Lost Font of Magic",
-            img: LostActionsNoBorder.Offensive.LostFontofMagic,
-            weight: 25,
-            quantity: 3,
-            category: "Offensive" 
-        }],
-        PrepopLostActions: {
-            LostActionLeft: 103,
-            LostActionRight: 104,
-            EssenceInUse: 715
-        },
-        HolsterTimeline: {
-            Encounters: testingHolsterTimeline
-        }
-    }],
-    
-};
-*/
 export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
@@ -113,10 +58,19 @@ export const LostActionSetsSlice = createSlice({
 
         deleteSavedSetFromSets: (state, action: PayloadAction<ILostActionSet[]>) => {         
             state.Sets = action.payload;
+        },
+
+        clearAllSavedSets: (state) => {
+            state.Sets = [];
+        },
+
+        addImportedSavedSetsToCurrentSavedSets: (state, action: PayloadAction<ILostActionSet[]>) => {
+            
+            state.Sets.push(...action.payload);
         }
     },
 })
 
-export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet, deleteSavedSetFromSets } = LostActionSetsSlice.actions;
+export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, clearAllSavedSets, addImportedSavedSetsToCurrentSavedSets } = LostActionSetsSlice.actions;
 
 export default LostActionSetsSlice.reducer;
