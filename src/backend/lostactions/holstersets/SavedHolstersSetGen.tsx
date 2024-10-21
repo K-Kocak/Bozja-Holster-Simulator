@@ -109,7 +109,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                         <img onClick={HandleLoadSetToHolsterClick} src={LoadSetImage}></img>
                     </div>
                     <div className="SavedHolstersCreateLinkForSet">
-                        CLink
+                        CLK
                     </div>
                     <div className="SavedHolstersDeleteHolster">
                         <img id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} src={DeleteSetImage}></img>
@@ -128,6 +128,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                     <div className="SavedHolsterWeightOfSet">
                         <span>{SavedSet.weightOfSet}</span>
                     </div>
+                    <div className="SavedHolsterBlankSpace"></div>
                     <div className="SavedHolstersTypeOfSet">
                         <img src={RetrieveRoleImageUsingLostFindsHolsterState(SavedSet.roleTypeOfSet)}></img>
                 </div>

@@ -39,9 +39,9 @@
         flex-direction: column;
         align-items: center;
         border-right: 2px solid #A5906F;
-
+      
         .SavedHolstersLoadHolster {
-            height: 50%;
+            height: 33.3%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,11 +52,17 @@
             }
         }
 
+        .SavedHolstersCreateLinkForSet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 33.3%;
+        }
         .SavedHolstersDeleteHolster {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 50%;
+            height: 33.3%;
             filter: drop-shadow(0px -1px 2px white);
             img {
                 height: 23px;
@@ -82,12 +88,16 @@
 
             input {
                 width: 100%;
-                background-color: transparent;
+                background-color: rgba(192, 195, 192, 0.16);
                 color: #F4F2F2; 
+                border-color: #C0C3C0;
                 height: 70%;
                 text-shadow: -1px 0px 3px black, 1px 0px 3px black, 0px 1px 3px black, 0px -1px 3px black;
                 font-size: 16px;
-
+                
+                &:hover {
+                    background-color: rgba(192, 195, 192, 0.4);
+                }
                 &:focus {
                     outline: none;
                 }
@@ -98,11 +108,11 @@
             display: flex;
             flex-direction: row;        
             float: left;
-            height: 40px;
+            height: 45px;
             position: relative;          
             overflow-x: scroll;
             overflow-y: hidden;
-
+            
             .SavedHolstersActionInSet {
                 display: flex;
                 align-items: center;
@@ -115,8 +125,8 @@
                     text-align: right;
                     width: 0px;
                     height: 0px;
-                    top: -14px;
-                    left: -22px;
+                    top: -13px;
+                    left: -25px;
                     font-size: 25px;
                     text-align: left;
                     color: #FFFFFF;
@@ -125,6 +135,8 @@
                 
                 img {
                     height: 35px;
+                    box-shadow: 0px 0px 3px white;
+                    margin: 0px 3px;
                 }
             }
         }
@@ -133,19 +145,21 @@
             display: flex;
             flex-direction: row;        
             float: left;
-            height: 40px;
-            width: 10%;
+            height: 44px; 
             position: relative;          
             overflow-x: scroll;
             overflow-y: hidden;
+          
 
             .SavedHolstersPrepopActionInSet {
                 display: flex;
                 align-items: center;
                 position: relative;
-
+                
                 img {
+                    margin: 0px 3px;
                     height: 35px;
+                    box-shadow: 0px 0px 3px white;
                 }
             }
         }
@@ -157,9 +171,14 @@
         align-items: center;
         justify-content: center;
         width: 8%;
+        border-left: 2px solid #A5906F;
+        padding-left: 1px;
+        .SavedHolsterBlankSpace {
+            height: 33.3%;
+        }
 
         .SavedHolsterWeightOfSet {
-            height: 50%;
+            height: 33.3%;
             display: flex;
             align-items: center;
             color: #F4F2F2; 
@@ -169,9 +188,11 @@
         }
 
         .SavedHolstersTypeOfSet {
-            height: 50%;
+            pointer-events: none;
+            height: 33.3%;
             display: flex;
             align-items: center;
+            
             img {
                 height: 35px;
             }
