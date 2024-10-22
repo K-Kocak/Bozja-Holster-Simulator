@@ -4,7 +4,8 @@ import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGe
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
-import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, LostActionSets } from '../LostActionSetSlice';
+import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
+import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 
 function saveSavedSetsToFile(SavedSetToSaveAsFile : Blob) {
     const a = document.createElement("a");
@@ -64,7 +65,36 @@ const CreateSavedHolsters = () => {
         input.remove();      
     }
 
-   
+    function HandleSortSavedSetsByTitle() {
+        // could alternate between desc/asc if asked for.
+        const currentSavedSet = savedSets.Sets;
+        const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
+            if(a.nameOfSet > b.nameOfSet) {
+                return 1;
+            }
+            else if(a.nameOfSet < b.nameOfSet) {
+                return -1;
+            }
+            return 0;
+        });
+        dispatch(deleteSavedSetFromSets(sortedSavedSet));
+    }
+
+    function HandleSortSavedSetsByRoleType() {
+        // TO-DO: alternate between the 5 roles
+        const currentSavedSet = savedSets.Sets;
+        const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
+            if(a.roleTypeOfSet > b.roleTypeOfSet) {
+                return 1;
+            }
+            else if(a.roleTypeOfSet < b.roleTypeOfSet) {
+                return -1;
+            }
+            return 0;
+        });
+        dispatch(deleteSavedSetFromSets(sortedSavedSet));
+    }
+ 
     return (
     <div className="SavedHolstersContainer">
         <div className="SavedHolstersTitleText">
@@ -75,6 +105,8 @@ const CreateSavedHolsters = () => {
             <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
             <button onClick={HandleResetSavedSets}>Reset</button>
             <button onClick={HandleUploadSavedSets}>LoadTest</button>
+            <button onClick={HandleSortSavedSetsByTitle}>SortByTitle</button>
+            <button onClick={HandleSortSavedSetsByRoleType}>SortByRole</button>
         </div>
         
         {setsToDisplay}
