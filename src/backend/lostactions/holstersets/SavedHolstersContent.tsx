@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
-import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 
 function saveSavedSetsToFile(SavedSetToSaveAsFile : Blob) {
     const a = document.createElement("a");
@@ -19,11 +18,13 @@ function saveSavedSetsToFile(SavedSetToSaveAsFile : Blob) {
     
 }
 
+let isSavedSetTitleSortedByAscending : boolean = false;
 
 const CreateSavedHolsters = () => {
     const dispatch = useAppDispatch();
     const savedSets = useAppSelector((state) => state.LostActionSets);
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
+    
 
     SaveSavedSetsToLocalStorage(savedSets);
 
@@ -66,13 +67,13 @@ const CreateSavedHolsters = () => {
     }
 
     function HandleSortSavedSetsByTitle() {
-        // could alternate between desc/asc if asked for.
         const currentSavedSet = savedSets.Sets;
+        isSavedSetTitleSortedByAscending = !isSavedSetTitleSortedByAscending;
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
-            if(a.nameOfSet > b.nameOfSet) {
+            if(a.nameOfSet > b.nameOfSet && isSavedSetTitleSortedByAscending || a.nameOfSet < b.nameOfSet && !isSavedSetTitleSortedByAscending) {
                 return 1;
             }
-            else if(a.nameOfSet < b.nameOfSet) {
+            else if(a.nameOfSet < b.nameOfSet && isSavedSetTitleSortedByAscending || a.nameOfSet > b.nameOfSet && !isSavedSetTitleSortedByAscending) {
                 return -1;
             }
             return 0;
@@ -81,7 +82,7 @@ const CreateSavedHolsters = () => {
     }
 
     function HandleSortSavedSetsByRoleType() {
-        // TO-DO: alternate between the 5 roles
+        // TO-DO: alternate between the 5 roles ?      
         const currentSavedSet = savedSets.Sets;
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
             if(a.roleTypeOfSet > b.roleTypeOfSet) {

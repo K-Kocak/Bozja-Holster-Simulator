@@ -280,6 +280,8 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
     const currentHolsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
     const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
+    const prepopLeftActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionLeft);
+    const prepopRightActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
     const currentActionsInHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
 
     let LostActionDropdownCloseButton : string = "";
@@ -297,6 +299,19 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             }
             else {
                 newHolsterTimelineWithPrepopEssence.push({...Encounter, PullBossWith: {LostActionLeft: Encounter.PullBossWith.LostActionLeft, LostActionRight: Encounter.PullBossWith.LostActionRight, EssenceInUse: prepopEssenceId}})
+            }
+        });
+        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
+    }
+
+    function HandleSetLeftRightActionsToPrepop() {
+        const newHolsterTimelineWithPrepopEssence : IEncounter[] = [];
+        currentHolsterTimeline.forEach((Encounter) => {
+            if(Encounter.PullBossWith.EssenceInUse == prepopEssenceId) {
+                newHolsterTimelineWithPrepopEssence.push(Encounter);
+            }
+            else {
+                newHolsterTimelineWithPrepopEssence.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
             }
         });
         dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
