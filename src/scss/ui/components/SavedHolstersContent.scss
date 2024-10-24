@@ -1,5 +1,4 @@
- /* width */
- .SavedHolstersContainer {
+.SavedHolstersContainer {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -11,7 +10,6 @@
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
     margin: 7px;
-    
 
     .SavedHolstersTitleText {
         position: relative;
@@ -29,7 +27,3 @@
         margin: 0px 10px;
     }
 }
-
-
-
-// to be moved to a different css file, one which is for the div gen

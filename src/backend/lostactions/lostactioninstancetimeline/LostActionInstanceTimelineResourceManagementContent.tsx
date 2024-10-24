@@ -118,7 +118,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
                     <span>Actions left to spend</span>
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLessThanZero">
-                    <span>Actions overflowing</span>
+                    <span>! Overspent !</span>
                 </div>
             </div>
             <div className="LostActionInstanceTimelineResourceManagementLostActions">

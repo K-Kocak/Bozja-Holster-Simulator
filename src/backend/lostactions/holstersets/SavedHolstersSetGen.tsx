@@ -27,7 +27,7 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
     const arrayToReturn : React.JSX.Element[] = [];
     SavedSetOfLostActions.forEach((LostAction) => {
         arrayToReturn.push(
-            <div key={LostAction.id} className="SavedHolstersActionInSet">
+            <div key={LostAction.id} title={LostAction.name} className="SavedHolstersActionInSet">
                 <img src={LostAction.img}></img>
                 <div className="SavedHolstersActionInSetSpecificQuantity">{LostAction.quantity}</div>
             </div>
@@ -46,17 +46,17 @@ const GenerateSavedSetLostActionsPrepop = (SavedSetOfLostActionsPrepop : IUserSl
     const essenceActionPrepopId = LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.EssenceInUse];
     return (
         <div className="SavedHolstersListPrepopActionsInSet">
-            <div key={leftActionPrepop.id} className="SavedHolstersPrepopActionInSet">
+            <div key={leftActionPrepop.id} title={leftActionPrepop.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={leftActionPrepop.img}></img>
             </div>
-            <div key={rightActionPrepopId.id} className="SavedHolstersPrepopActionInSet">
+            <div key={rightActionPrepopId.id} title={rightActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={rightActionPrepopId.img}></img>
             </div>
-            <div key={essenceActionPrepopId.id} className="SavedHolstersPrepopActionInSet">
+            <div key={essenceActionPrepopId.id} title={essenceActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={essenceActionPrepopId.img}></img>
             </div>
-            <div key={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].toString()} className="SavedHolstersPrepopActionInSet">
-                <img src={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].img}></img>
+            <div key={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].toString()} title="Resistance Reraiser" className="SavedHolstersPrepopActionInSet">
+                <img src={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].img} alt="Resistance Reraiser"></img>
             </div>
         </div>
     )

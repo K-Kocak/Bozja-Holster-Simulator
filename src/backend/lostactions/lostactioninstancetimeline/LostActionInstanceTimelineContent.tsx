@@ -153,7 +153,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
@@ -180,7 +180,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={4} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={false}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={index.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={index} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={false}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
@@ -305,16 +305,12 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     }
 
     function HandleSetLeftRightActionsToPrepop() {
-        const newHolsterTimelineWithPrepopEssence : IEncounter[] = [];
+        console.log("i got called");
+        const newHolsterTimelineWithPrepopLeftRightAction : IEncounter[] = [];
         currentHolsterTimeline.forEach((Encounter) => {
-            if(Encounter.PullBossWith.EssenceInUse == prepopEssenceId) {
-                newHolsterTimelineWithPrepopEssence.push(Encounter);
-            }
-            else {
-                newHolsterTimelineWithPrepopEssence.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
-            }
+            newHolsterTimelineWithPrepopLeftRightAction.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
         });
-        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
+        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopLeftRightAction));
     }
 
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
@@ -348,6 +344,9 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             <div className="LostActionInstanceTimelineStateLostActionFunctions">
                 <div onClick={HandleSetAllEssencesToPrepop} className="LostActionInstanceTimelineStateLostActionFunctionSetAllEssence">
                     <span>Set All Essences To Prepop Essence</span>
+                </div>
+                <div onClick={HandleSetLeftRightActionsToPrepop} className="LostActionInstanceTimelineStateLostActionFunctionSetAllActions">
+                    <span>Set All Pull With Actions To Prepop Actions</span>
                 </div>
                 <div onClick={HandleCloseLostActionDropdownWindow} className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
                     <span>{LostActionDropdownCloseButton}</span>
@@ -512,12 +511,14 @@ const CreateLostActionInstanceTimeline = () => {
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
 
     const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
+    const prepopLeftActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionLeft);
+    const prepopRightActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
 
     const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
     const HolsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 
     function HandleAddEncounterClick() {
-        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: GenerateNewBossInTimeline.PullBossWith.LostActionLeft, LostActionRight: GenerateNewBossInTimeline.PullBossWith.LostActionRight, EssenceInUse: prepopEssenceId}};
+        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: prepopEssenceId}};
 
         dispatch(createNewHolsterTimelineEncounter(EncounterToPush));
      

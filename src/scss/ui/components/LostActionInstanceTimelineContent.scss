@@ -362,7 +362,7 @@
 
                     .LostActionInstanceTimelineStateLostActionFunctionCloseWindow {
                         position: relative;
-                        top: -25px;
+                        top: -95px;
                         left: -70px;
                         font-size: 20px;
                         
@@ -381,6 +381,22 @@
                         display: flex;
                         align-items: center;                     
                         top: 50px;
+                        
+                        &:hover {
+                            background-color: #595644;
+                        }
+                    }
+
+                    .LostActionInstanceTimelineStateLostActionFunctionSetAllActions {
+                        position: relative;
+                        text-align: center;
+                        border: 2px solid #A5906F;
+                        border-radius: 5px;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;   
+                                     
+                        top: 60px;
                         
                         &:hover {
                             background-color: #595644;
