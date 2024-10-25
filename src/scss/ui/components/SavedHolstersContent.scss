@@ -23,7 +23,111 @@
 
     .SavedHolstersUserButtons {
         position: relative;
-        height: 50px;
-        margin: 0px 10px;
+        display: flex;
+        flex-direction: row;
+        height: 46px;
+        margin: 0px 4px;
+        margin-top: 4px;
+        color: #F4F2F2; 
+        text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+        font-size: 14px;
+
+        span {
+            pointer-events: none;
+        }
+      
+
+        .SortSetsDiv {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            height: 40px;
+            border: 1px solid #A5906F;
+            border-radius: 5px;
+
+            .SortSetsDivText {
+                text-align: center;
+                height: 21px;
+                margin-top: -3px;
+            }
+
+            .SortSetsDivFunctions {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 0px 4px;
+                
+                .SortSetsByTitleDiv, .SortSetsByRoleDiv {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid #BEAB9D;
+                    height: 70%;
+                    padding: 0px 3px;
+                    border-radius: 8px;
+                    
+                    
+                    &:hover {
+                        background-color: #595644;
+                    }
+                }
+
+
+            }
+        }
+
+        .ImportExportSetsDiv {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            height: 40px;
+            border: 1px solid #A5906F;
+            border-radius: 5px;
+            margin: 0px 4px;
+
+            .ImportSetsDiv {
+                border: 1px solid #BEAB9D;
+                margin: 1px 3px -1px 3px;
+                height: 17px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #595644;
+                }
+            }
+
+            .ExportSetsDiv {           
+                border: 1px solid #BEAB9D;
+                margin: 2px 3px 0px 3px;
+                height: 17px;                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #595644;
+                }
+            }
+
+        }
+
+        .ResetClearSetsDiv {
+            width: 25%;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #E67A6F;
+            border-radius: 5px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+
+            &:hover{
+                background-color: rgba(190, 25, 37, 0.69);
+            }
+        }
     }
 }

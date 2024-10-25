@@ -95,19 +95,44 @@ const CreateSavedHolsters = () => {
         });
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
     }
- 
+    /*
+    <span>PlaceHolder For Buttons</span>
+    <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
+    <button onClick={HandleResetSavedSets}>Reset</button>
+    <button onClick={HandleUploadSavedSets}>LoadTest</button>
+    <button onClick={HandleSortSavedSetsByTitle}>SortByTitle</button>
+    <button onClick={HandleSortSavedSetsByRoleType}>SortByRole</button>
+    */
     return (
     <div className="SavedHolstersContainer">
         <div className="SavedHolstersTitleText">
             <span>Your Holsters</span>
         </div>
         <div style={{color: "white"}} className="SavedHolstersUserButtons">
-            <span>PlaceHolder For Buttons</span>
-            <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
-            <button onClick={HandleResetSavedSets}>Reset</button>
-            <button onClick={HandleUploadSavedSets}>LoadTest</button>
-            <button onClick={HandleSortSavedSetsByTitle}>SortByTitle</button>
-            <button onClick={HandleSortSavedSetsByRoleType}>SortByRole</button>
+            <div className="SortSetsDiv">
+                <div className="SortSetsDivText">
+                    <span>Sort Sets By :</span>
+                </div>
+                <div className="SortSetsDivFunctions">
+                    <div onClick={HandleSortSavedSetsByTitle} className="SortSetsByTitleDiv">
+                        <span>Title Name</span>
+                    </div>
+                    <div onClick={HandleSortSavedSetsByRoleType} className="SortSetsByRoleDiv">
+                        <span>Role Type</span>
+                    </div>
+                </div>
+            </div>
+            <div className="ImportExportSetsDiv">
+                <div onClick={HandleUploadSavedSets} className="ImportSetsDiv">
+                    <span>Import Sets From File</span>
+                </div>
+                <div onClick={HandleSaveSavedSetsAsJSON} className="ExportSetsDiv">
+                    <span>Export Sets To JSON</span>
+                </div>
+            </div>
+            <div onClick={HandleResetSavedSets} className="ResetClearSetsDiv">
+                <span>Clear All Currently Saved Sets</span>
+            </div>
         </div>
         
         {setsToDisplay}
