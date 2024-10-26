@@ -38,7 +38,7 @@
       
 
         .SortSetsDiv {
-            width: 40%;
+            width: 31%;
             display: flex;
             flex-direction: column;
             height: 40px;
@@ -54,8 +54,8 @@
             .SortSetsDivFunctions {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
-                padding: 0px 4px;
+                justify-content: space-evenly;
+                padding: 0px 0px;
                 
                 .SortSetsByTitleDiv, .SortSetsByRoleDiv {
                     display: flex;
@@ -75,48 +75,92 @@
             }
         }
 
-        .ImportExportSetsDiv {
-            width: 35%;
+        .ImportExportOptionsForSetsDiv {
             display: flex;
-            flex-direction: column;
-            text-align: center;
-            height: 40px;
+            flex-direction: row;
+            width: 47%;
+            justify-content: center;
             border: 1px solid #A5906F;
+            height: 40px;
+            margin: 0px 4px;      
             border-radius: 5px;
-            margin: 0px 4px;
 
-            .ImportSetsDiv {
-                border: 1px solid #BEAB9D;
-                margin: 1px 3px -1px 3px;
-                height: 17px;
+            .ImportExportSetsDiv {
+                width: 45%;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 8px;
-
-                &:hover {
-                    background-color: #595644;
+                flex-direction: column;
+                text-align: center;                    
+               
+                .ImportSetsDiv {                 
+                    border: 1px solid #BEAB9D;
+                    margin: 1px 3px -1px 3px;
+                    height: 17px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+    
+                    &:hover {
+                        background-color: #595644;
+                    }
+                }
+    
+                .ExportSetsDiv {           
+                    border: 1px solid #BEAB9D;
+                    margin: 2px 3px 0px 3px;
+                    height: 17px;                
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+    
+                    &:hover {
+                        background-color: #595644;
+                    }
+                }
+    
+            }
+    
+            .ExportSelectedClearSelectedSetsDiv {
+                width: 58%;
+                display: flex;
+                flex-direction: column;
+                text-align: center;            
+    
+                .ClearSelectedSetsDiv {
+                    border: 1px solid #BEAB9D;
+                    margin: 1px 3px -1px 3px;
+                    height: 17px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+    
+                    &:hover {
+                        background-color: #595644;
+                    }
+                }
+    
+                .ExportSelectedSetsDiv {           
+                    border: 1px solid #BEAB9D;
+                    margin: 2px 3px 0px 3px;
+                    height: 17px;                
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+    
+                    &:hover {
+                        background-color: #595644;
+                    }
                 }
             }
-
-            .ExportSetsDiv {           
-                border: 1px solid #BEAB9D;
-                margin: 2px 3px 0px 3px;
-                height: 17px;                
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 8px;
-
-                &:hover {
-                    background-color: #595644;
-                }
-            }
-
         }
 
+        
+
         .ResetClearSetsDiv {
-            width: 25%;
+            width: 20%;
             height: 40px;
             text-align: center;
             border: 1px solid #E67A6F;
@@ -124,6 +168,7 @@
             line-height: 16px;
             display: flex;
             align-items: center;
+            
 
             &:hover{
                 background-color: rgba(190, 25, 37, 0.69);

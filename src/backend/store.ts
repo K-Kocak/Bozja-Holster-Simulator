@@ -6,6 +6,7 @@ import LostFindsHolsterReducer from '@backend/lostactions/LostFindsHolsterSlice'
 import LostActionSetsReducer from '@backend/lostactions/LostActionSetSlice';
 import ForgottenFragmentInfoReducer from '@backend/lostactions/ForgottenFragmentInfoSlice';
 import LostActionDropdownDataForUseReducer from '@backend/lostactions/LostActionDropdownDataSlice';
+import SelectedSavedSetsReducer from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 export const store = configureStore({
     reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
         LostFindsHolster: LostFindsHolsterReducer,
         LostActionSets: LostActionSetsReducer,
         ForgottenFragmentInfo: ForgottenFragmentInfoReducer,
-        LostActionDropdownDataForUse: LostActionDropdownDataForUseReducer
+        LostActionDropdownDataForUse: LostActionDropdownDataForUseReducer,
+        SelectedSavedSets: SelectedSavedSetsReducer
     },
 })
 

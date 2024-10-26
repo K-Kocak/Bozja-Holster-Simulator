@@ -5,11 +5,14 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
+import { clearSelectedSavedSets } from '../LostActionSetSelectedTrackerSlice';
 
-function saveSavedSetsToFile(SavedSetToSaveAsFile : Blob) {
+function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
+    const savedSetsAsJSON = JSON.stringify(SavedSetToSaveAsFile);
+    const savedSetsAsBlob = new Blob([savedSetsAsJSON], { type: "application/json"});
     const a = document.createElement("a");
     a.download = "SavedHolsterSets";
-    a.href = URL.createObjectURL(SavedSetToSaveAsFile);
+    a.href = URL.createObjectURL(savedSetsAsBlob);
     a.click();
     setTimeout(() => {
         URL.revokeObjectURL(a.href);
@@ -23,25 +26,25 @@ let isSavedSetTitleSortedByAscending : boolean = false;
 const CreateSavedHolsters = () => {
     const dispatch = useAppDispatch();
     const savedSets = useAppSelector((state) => state.LostActionSets);
+    const currentSelectedSets = useAppSelector((state) => state.SelectedSavedSets.SelectedSets)
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
-    
+    console.log(currentSelectedSets);
 
     SaveSavedSetsToLocalStorage(savedSets);
 
     function HandleResetSavedSets() {
         ClearSavedSetsDataInLocalStorage();
+        clearSelectedSavedSets();
         dispatch(clearAllSavedSets());
     }
 
     function HandleSaveSavedSetsAsJSON() {
-        const savedSetsAsJSON = JSON.stringify(savedSets);
-        const savedSetsAsBlob = new Blob([savedSetsAsJSON], { type: "application/json"});
-        saveSavedSetsToFile(savedSetsAsBlob);
+        saveSavedSetsToFile(savedSets);
     }
 
     function HandleUploadSavedSets() {
+        clearSelectedSavedSets();
         const input = document.createElement('input');
-        
         input.type = 'file';
         input.onchange = () => {
             const fileReader = new FileReader();
@@ -95,6 +98,22 @@ const CreateSavedHolsters = () => {
         });
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
     }
+
+    function HandleClearSelectedSavedSets() {
+        dispatch(clearSelectedSavedSets());
+    }
+
+    function HandleExportSelectedSavedSets() {
+        const savedSetsToExport : LostActionSets = {Sets: []};
+        savedSets.Sets.forEach((SavedSet) => {
+            console.log(currentSelectedSets);
+            console.log(SavedSet.id);
+            if(currentSelectedSets.includes(SavedSet.id)) {
+                savedSetsToExport.Sets.push(SavedSet);
+            }
+        });
+        saveSavedSetsToFile(savedSetsToExport);
+    }
     /*
     <span>PlaceHolder For Buttons</span>
     <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
@@ -122,16 +141,27 @@ const CreateSavedHolsters = () => {
                     </div>
                 </div>
             </div>
-            <div className="ImportExportSetsDiv">
-                <div onClick={HandleUploadSavedSets} className="ImportSetsDiv">
-                    <span>Import Sets From File</span>
+            <div className="ImportExportOptionsForSetsDiv">
+                <div className="ImportExportSetsDiv">
+                    <div onClick={HandleUploadSavedSets} className="ImportSetsDiv">
+                        <span>Import Sets</span>
+                    </div>
+                    <div onClick={HandleSaveSavedSetsAsJSON} className="ExportSetsDiv">
+                        <span>Export Sets</span>
+                    </div>
                 </div>
-                <div onClick={HandleSaveSavedSetsAsJSON} className="ExportSetsDiv">
-                    <span>Export Sets To JSON</span>
+                <div className="ExportSelectedClearSelectedSetsDiv">
+                    <div onClick={HandleClearSelectedSavedSets} className="ClearSelectedSetsDiv">
+                        Clear Selected
+                    </div>
+                    <div onClick={HandleExportSelectedSavedSets} className="ExportSelectedSetsDiv">
+                        Export Selected
+                    </div>
                 </div>
             </div>
+            
             <div onClick={HandleResetSavedSets} className="ResetClearSetsDiv">
-                <span>Clear All Currently Saved Sets</span>
+                <span>Delete All Saved Sets</span>
             </div>
         </div>
         

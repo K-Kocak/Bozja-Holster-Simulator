@@ -21,6 +21,7 @@ import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
 import LostActions from '../actiondata/ActionData';
 
 import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
+import { addSelectedSavedSet, newSelectedSavedSets } from '../LostActionSetSelectedTrackerSlice';
 
 
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
@@ -64,7 +65,7 @@ const GenerateSavedSetLostActionsPrepop = (SavedSetOfLostActionsPrepop : IUserSl
 
 const CreateSavedSet = (SavedSet : ILostActionSet, 
     dispatch: ThunkDispatch<{ LostFindsHolster: LostFindsHolster; LostActionSets: LostActionSets; }, undefined, UnknownAction> & Dispatch<UnknownAction>
-, allSavedSets : ILostActionSet[]) => {
+, allSavedSets : ILostActionSet[], currentSelectedSavedSets : number[]) => {
     const SavedSetLostActions : React.JSX.Element = GenerateSavedSetLostActions(SavedSet.setLostActionContents);
     const SavedSetLostActionsPrepop : React.JSX.Element = GenerateSavedSetLostActionsPrepop(SavedSet.PrepopLostActions);
     
@@ -102,17 +103,34 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         dispatch(changeTitleOfSpecificSavedSet([idOfSet, titleOfSet]))
     }
 
+    function HandleAddSetAsSelectedSet() {
+        if(currentSelectedSavedSets.includes(SavedSet.id)) {
+            const newSelectedSavedSetsToPlace : number[] = [];
+            currentSelectedSavedSets.forEach((SelectedSavedSetId) => {
+                if(SelectedSavedSetId != SavedSet.id) {
+                    newSelectedSavedSetsToPlace.push(SelectedSavedSetId);
+                }
+            });
+            dispatch(newSelectedSavedSets(newSelectedSavedSetsToPlace));
+        }
+        else {
+            dispatch(addSelectedSavedSet(SavedSet.id));
+        }     
+    }
+
+    const styleToUse = currentSelectedSavedSets.includes(SavedSet.id) ? {backgroundColor: "#595644"} : {};
+    console.log(styleToUse);
     return (
         <div key={SavedSet.id} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
-                    <div className="SavedHolstersLoadHolster">
-                        <img onClick={HandleLoadSetToHolsterClick} src={LoadSetImage}></img>
+                    <div onClick={HandleLoadSetToHolsterClick} className="SavedHolstersLoadHolster">
+                        <img src={LoadSetImage}></img>
                     </div>
-                    <div className="SavedHolstersCreateLinkForSet">
+                    <div onClick={HandleAddSetAsSelectedSet} style={styleToUse} className="SavedHolstersCreateLinkForSet">
                         CLK
                     </div>
-                    <div className="SavedHolstersDeleteHolster">
-                        <img id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} src={DeleteSetImage}></img>
+                    <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster">
+                        <img src={DeleteSetImage}></img>
                     </div>
                 </div>
 
@@ -141,8 +159,10 @@ const CreateSavedSets = (SetsToLoad : ILostActionSet[]) => {
     const dispatch = useAppDispatch();
     const allSavedSets = useAppSelector((state) => state.LostActionSets.Sets);
     const SetsArray : React.JSX.Element[] = [];
+    const currentSelectedSavedSets : number[] = useAppSelector((state) => state.SelectedSavedSets.SelectedSets);
     SetsToLoad.forEach((SetToUse) => {
-        const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets);
+        console.log(currentSelectedSavedSets.includes(SetToUse.id));
+        const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets, currentSelectedSavedSets);
         SetsArray.push(SetCreation);
     });
     return (
