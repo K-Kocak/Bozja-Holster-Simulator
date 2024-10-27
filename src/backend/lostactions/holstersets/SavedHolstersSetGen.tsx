@@ -119,6 +119,17 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     }
 
     const styleToUse = currentSelectedSavedSets.includes(SavedSet.id) ? {backgroundColor: "#595644"} : {};
+    console.log(currentSelectedSavedSets);
+    const isSavedSetChecked = document.getElementById(SavedSet.id.toString())?.ariaChecked;
+    console.log(isSavedSetChecked);
+    
+    if(!currentSelectedSavedSets.includes(SavedSet.id) && isSavedSetChecked) {
+        document.getElementById(SavedSet.id.toString())?.ariaChecked;
+    }
+    else if(currentSelectedSavedSets.includes(SavedSet.id) && !isSavedSetChecked) {
+        document.getElementById(SavedSet.id.toString())?.ariaChecked;
+    }
+    
     console.log(styleToUse);
     return (
         <div key={SavedSet.id} className="MyHolstersSavedSet">
@@ -127,7 +138,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                         <img src={LoadSetImage}></img>
                     </div>
                     <div onClick={HandleAddSetAsSelectedSet} style={styleToUse} className="SavedHolstersCreateLinkForSet">
-                        CLK
+                        <input type="checkbox" id={SavedSet.id.toString()}></input>
                     </div>
                     <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster">
                         <img src={DeleteSetImage}></img>
