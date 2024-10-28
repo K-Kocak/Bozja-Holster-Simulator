@@ -115,22 +115,13 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         }
         else {
             dispatch(addSelectedSavedSet(SavedSet.id));
-        }     
+        }
+        (document.getElementById(checkBoxId) as HTMLInputElement).checked;     
     }
 
     const styleToUse = currentSelectedSavedSets.includes(SavedSet.id) ? {backgroundColor: "#595644"} : {};
-    console.log(currentSelectedSavedSets);
-    const isSavedSetChecked = document.getElementById(SavedSet.id.toString())?.ariaChecked;
-    console.log(isSavedSetChecked);
-    
-    if(!currentSelectedSavedSets.includes(SavedSet.id) && isSavedSetChecked) {
-        document.getElementById(SavedSet.id.toString())?.ariaChecked;
-    }
-    else if(currentSelectedSavedSets.includes(SavedSet.id) && !isSavedSetChecked) {
-        document.getElementById(SavedSet.id.toString())?.ariaChecked;
-    }
-    
-    console.log(styleToUse);
+    const checkBoxId = (SavedSet.id+1).toString();
+
     return (
         <div key={SavedSet.id} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
@@ -138,7 +129,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                         <img src={LoadSetImage}></img>
                     </div>
                     <div onClick={HandleAddSetAsSelectedSet} style={styleToUse} className="SavedHolstersCreateLinkForSet">
-                        <input type="checkbox" id={SavedSet.id.toString()}></input>
+                        <input type="checkbox" name="SavedSetCheckbox" id={checkBoxId}></input>
                     </div>
                     <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster">
                         <img src={DeleteSetImage}></img>

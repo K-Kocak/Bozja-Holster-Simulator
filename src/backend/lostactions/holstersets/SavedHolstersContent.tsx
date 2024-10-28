@@ -99,7 +99,8 @@ const CreateSavedHolsters = () => {
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
     }
 
-    function HandleClearSelectedSavedSets() {
+    function HandleClearSelectedSavedSets() {         
+        (document.getElementsByName("SavedSetCheckbox") as NodeListOf<HTMLInputElement>).forEach((checkBoxToUncheck) => checkBoxToUncheck.checked = false);
         dispatch(clearSelectedSavedSets());
     }
 
