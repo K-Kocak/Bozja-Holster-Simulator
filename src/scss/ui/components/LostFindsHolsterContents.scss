@@ -196,28 +196,28 @@
             justify-content: end;
             left: -2px;
 
-            filter: drop-shadow(0px 0px 3px white);
+            filter: drop-shadow(0px 0px 5px black);
             img {
-                height: 30px;
+                height: 25px;
                 border-radius: 100%;
             }
         }
 
         .LostFindsHolsterClearHolster {
-            width: 13%;
+            width: 11%;
             display: flex;
             position: relative;
             justify-content: center;
-            filter: drop-shadow(0px 0px 4px white);
+            filter: drop-shadow(0px 0px 5px black);
             img {
-                height: 27px;
+                height: 25px;
                 border-radius: 100%;
                 
             }
         }
 
         .LostFindsHolsterMaximumCapacityText {
-            width: 47%;
+            width: 49%;
             text-align: right;
             color: #F4F2F2;
             text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;

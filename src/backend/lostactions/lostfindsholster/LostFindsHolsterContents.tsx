@@ -3,8 +3,8 @@ import '@css/ui/components/LostFindsHolsterContents.scss';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 
-import SaveSetImage from '@ui/pictures/BozjaSaveSetImage81x81.png';
-import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon.png';
+import SaveSetImage from '@ui/pictures/BozjaSaveSetImage62x62.png';
+import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import { AutomateSeparator } from '@app/backend/lostactions/lostfindscache/LostActionsDivGen';
 

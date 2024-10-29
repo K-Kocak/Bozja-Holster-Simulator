@@ -1,0 +1,21 @@
+#root {
+
+
+}
+
+body {
+  background-color: #333232;
+}
+
+.AppContainer {
+  height: 98vh;
+  width: 99vw;
+  
+  .ComponentsContainer {
+    width: 100%;
+    margin: auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

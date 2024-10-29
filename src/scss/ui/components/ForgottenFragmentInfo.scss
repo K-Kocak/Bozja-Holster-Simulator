@@ -4,13 +4,14 @@
 }
 
 #ForgottenFragmentContainer {
-    position: absolute;
+    position: relative;
     background: url('../../../ui/pictures/BozjaFragmentWindowCropped789x260pixels.png') no-repeat;
     font-family: ekmukta;
     line-height: 16px;
     height: 260px;
     width: 789px;
-    top: 685px;
+    top: 0px;
+    left: 0px;
     border-radius: 11px;
     flex-direction: column;
     -webkit-touch-callout: none; /* iOS Safari */

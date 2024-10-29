@@ -1,7 +1,7 @@
 import { BaseSyntheticEvent, Dispatch } from 'react';
 
-import LoadSetImage from '@ui/pictures/BozjaLoadSetImage81x81.png';
-import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon.png';
+import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
+import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/SavedHolstersSetGen.scss';
 
@@ -125,13 +125,13 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     return (
         <div key={SavedSet.id} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
-                    <div onClick={HandleLoadSetToHolsterClick} className="SavedHolstersLoadHolster">
+                    <div onClick={HandleLoadSetToHolsterClick} className="SavedHolstersLoadHolster" title="Load This Set.">
                         <img src={LoadSetImage}></img>
                     </div>
-                    <div onClick={HandleAddSetAsSelectedSet} style={styleToUse} className="SavedHolstersCreateLinkForSet">
+                    <div onClick={HandleAddSetAsSelectedSet} style={styleToUse} className="SavedHolstersCreateLinkForSet" title="Select for Export.">
                         <input type="checkbox" name="SavedSetCheckbox" id={checkBoxId}></input>
                     </div>
-                    <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster">
+                    <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster" title="Delete This Set.">
                         <img src={DeleteSetImage}></img>
                     </div>
                 </div>
