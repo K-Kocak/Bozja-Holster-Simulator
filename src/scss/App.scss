@@ -1,21 +1,46 @@
-#root {
-
-
-}
 
 body {
   background-color: #333232;
 }
 
 .AppContainer {
-  height: 98vh;
-  width: 99vw;
-  
+
   .ComponentsContainer {
-    width: 100%;
-    margin: auto auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-width: 960px;
+    max-width: 1760px;
+    margin: auto;
+
+    .ComponentContainerLostFindsCacheAndForgottenFragmentInfo {
+      display: flex;
+      flex-direction: column;
+      width: 789px;
+      margin-right: 3px;
+    }
+
+    .ComponentContainerEverythingElse {
+      display: flex;
+      flex-direction: column;
+      width: 960px;
+      margin: 0px;
+      padding: 0px;
+      
+      .ComponentContainerLostFindsHolsterAndSavedHolsters {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .ComponentContainerPrepopAndTimelineComponents {
+        display: flex;
+        flex-direction: column;
+
+        .ComponentContainerPrepopAndResourceManagement {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    }
   }
 }

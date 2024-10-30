@@ -4,14 +4,12 @@
 }
 
 #LostFindsHolsterContainer {
-    position: relative;
     background: url('../../../ui/pictures/BozjaLostFindsHolster.png') no-repeat;
     font-family: ekmukta;
     background-size: 475px;
     width: 475px;
     height: 515px;
+    margin-right: 3px;
     z-index: 0;
-    top: 0px;
-    left: 3px;
     border-radius: 14px;
 }

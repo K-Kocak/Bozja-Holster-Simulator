@@ -18,13 +18,27 @@ function App() {
   return (
     <div className="AppContainer">
       <div className="ComponentsContainer">
-        <LostFindsCache />
-        <LostFindsHolster />
-        <SavedHolsters />
-        <ForgottenFragmentInfo />
-        <PrepopHolster />
-        <LostActionInstanceTimelineResourceManagement />
-        <LostActionInstanceTimeline /> 
+        <div className="ComponentContainerLostFindsCacheAndForgottenFragmentInfo">
+          <LostFindsCache />
+          <ForgottenFragmentInfo />
+        </div>
+        <div className="ComponentContainerEverythingElse">
+          <div className="ComponentContainerLostFindsHolsterAndSavedHolsters">
+            <LostFindsHolster />
+            <SavedHolsters />
+          </div>
+          <div className="ComponentContainerPrepopAndTimelineComponents">
+            <div className="ComponentContainerPrepopAndResourceManagement">
+              <PrepopHolster />
+              <LostActionInstanceTimelineResourceManagement />
+            </div>
+            <div className="ComponentContainerInstanceTimeline">
+              <LostActionInstanceTimeline /> 
+            </div>
+            
+          </div>  
+        </div>
+        
       </div>
     </div>
   )

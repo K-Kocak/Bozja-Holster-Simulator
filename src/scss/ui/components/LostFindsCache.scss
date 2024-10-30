@@ -4,14 +4,12 @@
 }
 
 #LostFindsCacheContainer {
-    position: relative;
     background: url('../../../ui/pictures/BozjaLostFindsCache.png') no-repeat;
     font-family: ekmukta;
     line-height: 16px;
     height: 672px;
     width: 789px;
     z-index: 2;
-    left: 0%;
     border-radius: 7px;
     flex-direction: column;
     -webkit-touch-callout: none; /* iOS Safari */
