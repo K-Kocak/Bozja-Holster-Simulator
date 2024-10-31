@@ -1,5 +1,5 @@
 
-import '../../scss/ui/components/LostFindsCache.scss';
+import '@css/ui/components/LostFindsCache/LostFindsCache.scss';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import CreateLostCacheLostActionButtons from '@backend/lostactions/lostfindscache/LostFindsCacheLostActionButtonGen';

@@ -1,4 +1,4 @@
-import '@css/ui/components/LostFindsHolster.scss';
+import '@css/ui/components/LostFindsHolster/LostFindsHolster.scss';
 
 import LostFindsHolsterInformation from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterContents';
 

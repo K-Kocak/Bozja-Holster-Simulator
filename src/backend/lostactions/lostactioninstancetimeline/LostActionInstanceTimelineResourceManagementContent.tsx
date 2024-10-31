@@ -3,8 +3,8 @@ import IActionHolster from '@app/backend/interfaces/IActionHolster';
 
 import { IEncounter } from '@app/backend/interfaces/IHolsterTimeline';
 
-import '@css/ui/components/LostActionInstanceTimelineResourceManagementContent.scss';
-import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
+import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimelineResourceManagementContent.scss';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 /*
 interface LostActionQuantityRemaining {
     id: number,

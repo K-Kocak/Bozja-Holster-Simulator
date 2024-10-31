@@ -1,0 +1,41 @@
+.AppContainer {
+
+    .ComponentsContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      min-width: 960px;
+      max-width: 1760px;
+      margin: auto;
+  
+      .ComponentContainerLostFindsCacheAndForgottenFragmentInfo {
+        display: flex;
+        flex-direction: column;
+        width: 789px;
+        margin-right: 3px;
+      }
+  
+      .ComponentContainerEverythingElse {
+        display: flex;
+        flex-direction: column;
+        width: 960px;
+        margin: 0px;
+        padding: 0px;
+        
+        .ComponentContainerLostFindsHolsterAndSavedHolsters {
+          display: flex;
+          flex-direction: row;
+        }
+  
+        .ComponentContainerPrepopAndTimelineComponents {
+          display: flex;
+          flex-direction: column;
+  
+          .ComponentContainerPrepopAndResourceManagement {
+            display: flex;
+            flex-direction: row;
+          }
+        }
+      }
+    }
+  }

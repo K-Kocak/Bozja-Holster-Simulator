@@ -1,6 +1,6 @@
 import IForgottenFragment from "@app/backend/interfaces/IForgottenFragment";
 
-import '@css/ui/components/ForgottenFragmentInfoSectionFragmentListActions.scss'
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFragmentListActions.scss'
 
 import LostActionsAsObjectArray from "@backend/lostactions/actiondata/ActionDataToObjectArray";
 import IAction from "@backend/interfaces/IAction";

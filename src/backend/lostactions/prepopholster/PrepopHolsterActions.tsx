@@ -1,14 +1,13 @@
+import { BaseSyntheticEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
-import '@css/ui/components/PrepopHolsterActions.scss';
-
-import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
-
-import { BaseSyntheticEvent } from 'react';
-
-import { setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight } from '../LostFindsHolsterSlice';
+import { setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight } from '@backend/lostactions/LostFindsHolsterSlice';
 
 import IAction from '@app/backend/interfaces/IAction';
+
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+
+import '@css/ui/components/PrepopHolster/PrepopHolsterActions.scss';
 
 export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssence : string) => {
 

@@ -1,10 +1,10 @@
 import IForgottenFragment from '@backend/interfaces/IForgottenFragment';
 import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
 
-import '@css/ui/components/ForgottenFragmentInfoSectionFragmentList.scss';
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFragmentList.scss';
 
 import { useAppDispatch } from '@app/backend/hooks';
-import { setFragmentHovered, setFragmentToDisplay } from '../ForgottenFragmentInfoSlice';
+import { setFragmentHovered, setFragmentToDisplay } from '@backend/lostactions/ForgottenFragmentInfoSlice';
 
 
 function CreateForgottenFragmentDiv(ForgottenFragment : IForgottenFragment) {

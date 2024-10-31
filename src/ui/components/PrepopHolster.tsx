@@ -1,6 +1,6 @@
 import PrepopHolsterContents from '@backend/lostactions/prepopholster/PrepopHolsterActions';
 
-import '@css/ui/components/PrepopHolster.scss';
+import '@css/ui/components/PrepopHolster/PrepopHolster.scss';
 
 function LostFindsHolster()  {
     const DisplayPrepopHolster = PrepopHolsterContents();

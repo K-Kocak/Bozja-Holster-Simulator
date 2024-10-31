@@ -1,7 +1,9 @@
+$dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png') no-repeat;
+
+
 .PrepopHolsterInnerContainer {
     display: flex;
     flex-direction: column;
-    
     width: auto;
     margin: 5px;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -121,8 +123,6 @@
                     background: #888;
                     
                 }
-                
-                
             }
 
             .PrepopHolsterLostActionEssenceSelectorList {
@@ -175,12 +175,10 @@
     width: 300px;
     border-radius: 10px;
     position: absolute;
-    //overflow-y: scroll;
     left: 0px;
     top: -250px;
-    //background-color: #444344;
     z-index: 1;
-    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x260pixels.png');
+    background: $dropdownBoxForLostActionsLink;
     
 }
 

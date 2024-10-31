@@ -1,3 +1,5 @@
+$dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindowCropped300x220pixels.png') no-repeat;
+
 .LostActionInstanceTimelineInnerContainer {
     margin: 5px;
     display: flex;
@@ -67,7 +69,7 @@
         flex-direction: row;
         height: 240px;
         width: 100%;
-
+        margin-top: 5px;
         .LostActionInstanceTimelineStateBossBoxes {
             display: flex;
             flex-direction: column;
@@ -410,7 +412,7 @@
                     border-radius: 10px;
                     top: 20px;
                     position: relative;                                         
-                    background: url('../../../ui/pictures/BozjaFragmentWindowCropped300x220pixels.png') no-repeat;           
+                    background: $dropdownBoxForLostActionsLink;           
 
                     .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {                   
                         margin: 10px;

@@ -1,6 +1,6 @@
 import IForgottenFragment from "@app/backend/interfaces/IForgottenFragment";
 
-import '@css/ui/components/ForgottenFragmentInfoSectionFragmentListLootList.scss';
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFragmentListLootList.scss';
 
 function CreateLootSourceRow(LootSource : string) : React.JSX.Element {
     return (

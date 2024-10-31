@@ -1,4 +1,4 @@
-import '../../scss/ui/components/LostActionInstanceTimeline.scss';
+import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimeline.scss';
 
 import CreateLostActionInstanceTimeline from '@backend/lostactions/lostactioninstancetimeline/LostActionInstanceTimelineContent';
 

@@ -1,28 +1,23 @@
 import { BaseSyntheticEvent, Dispatch } from 'react';
-
-import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
-import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
-
-import '@css/ui/components/SavedHolstersSetGen.scss';
-
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
+import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
 
-import { RetrieveRoleImageUsingLostFindsHolsterState } from '../lostfindsholster/LostFindsHolsterContents'
-
-import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
+import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, LostFindsHolster, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
+import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
+import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, LostFindsHolster, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
-
+import { RetrieveRoleImageUsingLostFindsHolsterState } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
-import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
-import LostActions from '../actiondata/ActionData';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import LostActions from '@backend/lostactions/actiondata/ActionData';
 
-import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
-import { addSelectedSavedSet, newSelectedSavedSets } from '../LostActionSetSelectedTrackerSlice';
+import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
+import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
+import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
 
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
     const arrayToReturn : React.JSX.Element[] = [];

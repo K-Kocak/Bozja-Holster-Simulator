@@ -1,11 +1,13 @@
-import '@css/ui/components/SavedHolstersContent.scss';
-import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGen';
-
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
+import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
+import { clearSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
+
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
-import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '../LostActionSetSlice';
-import { clearSelectedSavedSets } from '../LostActionSetSelectedTrackerSlice';
+
+import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGen';
+
+import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
 
 function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
     const savedSetsAsJSON = JSON.stringify(SavedSetToSaveAsFile);

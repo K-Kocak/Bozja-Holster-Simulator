@@ -1,16 +1,16 @@
 @font-face {
     font-family: ekmukta;
-    src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
+    src: url("../../../../backend/fonts/ekmukta-light.ttf") format(truetype);
 }
 
-#ForgottenFragmentContainer {
-    background: url('../../../ui/pictures/BozjaFragmentWindowCropped789x260pixels.png') no-repeat;
+#LostFindsCacheContainer {
+    background: url('../../../../ui/pictures/BozjaLostFindsCache.png') no-repeat;
     font-family: ekmukta;
     line-height: 16px;
-    height: 260px;
+    height: 672px;
     width: 789px;
-    margin-top: 3px;
-    border-radius: 11px;
+    z-index: 2;
+    border-radius: 7px;
     flex-direction: column;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -20,3 +20,5 @@
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
 }
+
+

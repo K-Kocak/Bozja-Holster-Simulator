@@ -1,15 +1,15 @@
 @font-face {
     font-family: ekmukta;
-    src: url("../../../backend/fonts/ekmukta-light.ttf") format(truetype);
+    src: url("../../../../backend/fonts/ekmukta-light.ttf") format(truetype);
 }
 
-#LostActionInstanceTimelineResourceManagementContainer {
-    background: url('../../../ui/pictures/BozjaFragmentWindowCropped475x115pixels.png') no-repeat;
+#LostActionInstanceTimelineContainer {
+    background: url('../../../../ui/pictures/BozjaFragmentWindowCropped300x955pixels.png') no-repeat;
     font-family: ekmukta;
     line-height: 16px;
-    width: 475px;
-    height: 115px;
-    z-index: 0;
+    height: 300px;
+    width: 955px;
+    z-index: 1;
     border-radius: 11px;
     flex-direction: column;
     -webkit-touch-callout: none; /* iOS Safari */

@@ -1,4 +1,4 @@
-import '@css/ui/components/ForgottenFragmentInfoSection.scss';
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSection.scss';
 
 import GenerateForgottenFragmentDivs from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentList';
 import GenerateForgottenFragmentDetailedInfoSection from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentDetailedInfo';

@@ -1,10 +1,11 @@
 // Divs that display when an action is hovered on is created here
 import React from 'react';
 
-import '@css/ui/components/LostActionsDivGen.scss';
 import IAction from '@app/backend/interfaces/IAction';
 
-import ForgottenFragmentsAsObjectArray from '../forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
+import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
+
+import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
 
 function AutomateSectionOneVar(LostAction: IAction) : React.JSX.Element {
 return <div className="LostActionSectionOne">

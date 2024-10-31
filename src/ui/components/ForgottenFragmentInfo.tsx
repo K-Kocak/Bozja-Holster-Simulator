@@ -1,4 +1,4 @@
-import '@css/ui/components/ForgottenFragmentInfo.scss';
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfo.scss';
 
 import ForgottenFragmentInnerContainer from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSection';
 

@@ -1,11 +1,10 @@
 import { useAppSelector } from '@app/backend/hooks';
 
-import '@css/ui/components/ForgottenFragmentInfoSectionFragmentDetailedInfo.scss';
+import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFragmentDetailedInfo.scss';
 
 import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
-
-import ForgottenFragmentLostActionList from './ForgottenFragmentInfoSectionFragmentListActions';
-import ForgottenFragmentLootDropsList from './ForgottenFragmentInfoSectionFragmentListLootList';
+import ForgottenFragmentLostActionList from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentListActions';
+import ForgottenFragmentLootDropsList from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentListLootList';
 //TO DO: INTERACTIVE MAP FOR FRAGMENTS
 const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
