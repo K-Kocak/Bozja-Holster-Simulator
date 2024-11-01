@@ -7,9 +7,10 @@
     width: 380px;
     margin: 0px;
     padding: 0px;
-    color: white;
     box-shadow: 0px 0px 4px black;
     border: 1px solid black;
+    color: #F4F2F2; 
+    text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 2px 3px black;
 
 
     // the inner div for the action, needed so that our information inside our box can be moved around
@@ -19,7 +20,6 @@
         margin-bottom: 5px;
         border-radius: 8px;
         margin-top: 10px;
-
 
         // section one is the top of our div, where we have the image, action name, action type, range and radius displaying
         .LostActionSectionOne {
