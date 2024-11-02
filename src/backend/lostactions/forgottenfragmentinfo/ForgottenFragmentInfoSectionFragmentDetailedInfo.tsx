@@ -5,6 +5,7 @@ import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFra
 import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragmentdata/ForgottenFragmentDataToObjectArray';
 import ForgottenFragmentLostActionList from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentListActions';
 import ForgottenFragmentLootDropsList from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentListLootList';
+import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 //TO DO: INTERACTIVE MAP FOR FRAGMENTS
 const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
@@ -50,6 +51,7 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
                 
             </div>
         </div>
+        {AutomateSeparator()}
         <div className="ForgottenFragmentDetailedInfoActionsAndLootDrops">
             <div className="ForgottenFragmentDetailedInfoActions">
                 <div className="ForgottenFragmentDetailedInfoAppraisal">
