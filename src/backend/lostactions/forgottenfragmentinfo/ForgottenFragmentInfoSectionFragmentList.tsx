@@ -3,19 +3,19 @@ import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragm
 
 import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFragmentList.scss';
 
-import { useAppDispatch } from '@app/backend/hooks';
+import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 import { setFragmentHovered, setFragmentToDisplay } from '@backend/lostactions/ForgottenFragmentInfoSlice';
 
 
-function CreateForgottenFragmentDiv(ForgottenFragment : IForgottenFragment) {
+function CreateForgottenFragmentDiv(forgottenFragment : IForgottenFragment) {
     const dispatch = useAppDispatch();
     
     function HandleForgottenFragmentDivClick() {
-        dispatch(setFragmentToDisplay(ForgottenFragment.id));
+        dispatch(setFragmentToDisplay(forgottenFragment.id));
     }
 
     function HandleMouseEnter() {
-        dispatch(setFragmentHovered(ForgottenFragment.id));
+        dispatch(setFragmentHovered(forgottenFragment.id));
     }
 
     function HandleMouseLeave() {
@@ -23,23 +23,67 @@ function CreateForgottenFragmentDiv(ForgottenFragment : IForgottenFragment) {
     }
 
     return(
-        <div onMouseEnter={HandleMouseEnter} onMouseLeave={HandleMouseLeave}key={ForgottenFragment.id} id={ForgottenFragment.id.toString()} onClick={HandleForgottenFragmentDivClick}className="ForgottenFragmentDiv">
+        <div onMouseEnter={HandleMouseEnter} onMouseLeave={HandleMouseLeave}key={forgottenFragment.id} id={forgottenFragment.id.toString()} onClick={HandleForgottenFragmentDivClick}className="ForgottenFragmentDiv">
             <div className="ForgottenFragmentDivImg">
-                <img src={ForgottenFragment.img}></img>
+                <img src={forgottenFragment.img}></img>
             </div>
             <div className="ForgottenFragmentDivName">
-                <span>{ForgottenFragment.name}</span>
+                <span>{forgottenFragment.name}</span>
             </div>
         </div>
     )
 }
 
+function SortForgottenFragmentObjectArray(forgottenFragmentObjectArray : IForgottenFragment[], isAscending : boolean, filterToUse : "name" | "rank") : IForgottenFragment[] {
+    const isAscendingModifier = isAscending ? 1 : -1;
+    if(filterToUse == "name") {
+        forgottenFragmentObjectArray.sort((a, b) => {
+            if(a.name < b.name) {
+                return -1 * isAscendingModifier;
+            }
+            else if(a.name > b.name) {
+                return 1 * isAscendingModifier;
+            }
+            else return 0;
+        })
+    }
+    else if(filterToUse == "rank") {
+        forgottenFragmentObjectArray.sort((a, b) => {
+            if(a.rank < b.rank) {
+                return -1 * isAscendingModifier;
+            }
+            else if(a.rank > b.rank) {
+                return 1 * isAscendingModifier;
+            }
+            else return 0;
+        })
+    }
+    
+    return forgottenFragmentObjectArray;
+}
+
 const GenerateForgottenFragmentDivs = () => {
-    const ForgottenFragmentDivArray : React.JSX.Element[] = [];
-    ForgottenFragmentsAsObjectArray.forEach((ForgottenFragment) => {
-        const ForgottenFragmentDiv : React.JSX.Element = CreateForgottenFragmentDiv(ForgottenFragment);
-        ForgottenFragmentDivArray.push(ForgottenFragmentDiv);
+    const currentFilter = useAppSelector((state) => state.ForgottenFragmentInfo.currentFilter);
+    const isAscending = useAppSelector((state) => state.ForgottenFragmentInfo.isSortedAscending);
+    const forgottenFragmentObjectArrayCopy : IForgottenFragment[] = ForgottenFragmentsAsObjectArray;
+    const forgottenFragmentCombinedObjectArray : IForgottenFragment[][] = [];
+    const forgottenFragmentDivArray : React.JSX.Element[] = [];
+    const sortedForgottenFragmentArray : IForgottenFragment[] = [];
+    // 0 - 15 bozja
+    // 16 - 23 drs
+    // 24 - 35 zadnor
+    forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(0, 16));
+    forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(16, 24));
+    forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(24, 36));
+    forgottenFragmentCombinedObjectArray.forEach((forgottenFragmentZone) => {
+        const sortedForgottenFragmentZone : IForgottenFragment[] = SortForgottenFragmentObjectArray(forgottenFragmentZone, isAscending, currentFilter);
+        sortedForgottenFragmentArray.push(...sortedForgottenFragmentZone);
     })
-    return ForgottenFragmentDivArray;
+
+    sortedForgottenFragmentArray.forEach((forgottenFragment) => {
+        const forgottenFragmentDiv : React.JSX.Element = CreateForgottenFragmentDiv(forgottenFragment);
+        forgottenFragmentDivArray.push(forgottenFragmentDiv);
+    })
+    return forgottenFragmentDivArray;
 }
 export default GenerateForgottenFragmentDivs;

@@ -1,6 +1,6 @@
 .ForgottenFragmentInfoInnerContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 7px;
 
     ::-webkit-scrollbar {
@@ -23,6 +23,13 @@
         width: 43%;
         height: 245px;
         overflow-y: scroll;
+
+        .ForgottenFragmentInfoFragmentListFilters {
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
     }
 
     .ForgottenFragmentInfoFragmentInformationContainer {

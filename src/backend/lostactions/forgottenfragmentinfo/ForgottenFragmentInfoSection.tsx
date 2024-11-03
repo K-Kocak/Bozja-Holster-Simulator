@@ -8,9 +8,14 @@ export const ForgottenFragmentInnerContainer = () => {
     const ForgottenFragmentDetailedInfo : React.JSX.Element = GenerateForgottenFragmentDetailedInfoSection();
     
     return <div className="ForgottenFragmentInfoInnerContainer">
-            <div className="ForgottenFragmentInfoFragmentListContainer">
-                {ForgottenFragmentDivs}
-            </div>
+            
+                <div className="ForgottenFragmentInfoFragmentListFilters">
+                        Hello
+                </div>
+                <div className="ForgottenFragmentInfoFragmentListContainer">
+                    
+                    {ForgottenFragmentDivs}
+                </div>
             <div></div>
             <div className="ForgottenFragmentInfoFragmentInformationContainer">
                 {ForgottenFragmentDetailedInfo}
