@@ -87,10 +87,6 @@ export const LostFindsHolsterSlice = createSlice({
         addActionToHolster: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload] = {
                 id: LostActionsAsObjectArray[action.payload].id,
-                name: LostActionsAsObjectArray[action.payload].name.EN,
-                img: LostActionsAsObjectArray[action.payload].img,
-                weight: LostActionsAsObjectArray[action.payload].weight,
-                category: LostActionsAsObjectArray[action.payload].category.EN,
                 quantity: 0
             };
         },

@@ -22,9 +22,10 @@ import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
     const arrayToReturn : React.JSX.Element[] = [];
     SavedSetOfLostActions.forEach((LostAction) => {
+        const FullLostActionInfo = LostActionsAsObjectArray[LostAction.id];
         arrayToReturn.push(
-            <div key={LostAction.id} title={LostAction.name} className="SavedHolstersActionInSet">
-                <img src={LostAction.img}></img>
+            <div key={LostAction.id} title={FullLostActionInfo.name.EN} className="SavedHolstersActionInSet">
+                <img src={FullLostActionInfo.img}></img>
                 <div className="SavedHolstersActionInSetSpecificQuantity">{LostAction.quantity}</div>
             </div>
         );

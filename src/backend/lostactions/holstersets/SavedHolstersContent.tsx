@@ -6,8 +6,14 @@ import { clearSelectedSavedSets } from '@backend/lostactions/LostActionSetSelect
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 
 import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGen';
+import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
+import IActionHolster from '@app/backend/interfaces/IActionHolster';
+import IHolsterTimeline, { ILostActionExpenditure, IUserSlottedActions } from '@backend/interfaces/IHolsterTimeline';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
+import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
+
+
 
 function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
     const savedSetsAsJSON = JSON.stringify(SavedSetToSaveAsFile);
@@ -19,8 +25,61 @@ function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
     setTimeout(() => {
         URL.revokeObjectURL(a.href);
         a.remove();
-    }, 200);
-    
+    }, 200);   
+}
+
+function IsSavedSetValid(SavedSetToCheck : ILostActionSet) : boolean {
+    if(!IsSavedSetHasValidActionIds(SavedSetToCheck)) {
+        return false;
+    }
+    return true;
+}
+
+function IsSavedSetHasValidActionIds(SavedSetToCheck : ILostActionSet) : boolean {
+    const actionsInHolster : IActionHolster[] = SavedSetToCheck.setLostActionContents;
+    // holster validation
+    actionsInHolster.forEach((LostAction) => {
+        if(typeof LostActionsAsObjectArray[LostAction.id] == "undefined") {
+            return false;
+        }
+    })
+    // prepop or pull with (in encounter) validation
+    if(!IsCheckPrepopOrPullWithActionIdsValid(SavedSetToCheck.PrepopLostActions)) {
+        return false;
+    }
+    // holster timeline resource spending validation
+    if(!IsCheckHolsterTimelineActionIdsValid(SavedSetToCheck.HolsterTimeline)) {
+        return false;
+    }
+    return true;
+}
+
+function IsCheckPrepopOrPullWithActionIdsValid(PrepopOrPullWithActions : IUserSlottedActions) : boolean {
+    if(typeof LostActionsAsObjectArray[PrepopOrPullWithActions.EssenceInUse] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionLeft] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionRight] == "undefined") {
+        return false;
+    }
+    return true;
+}
+
+function IsCheckHolsterTimelineActionIdsValid(HolsterTimelineToCheck : IHolsterTimeline) : boolean {
+    HolsterTimelineToCheck.Encounters.forEach((EncounterToCheck) => {
+        if(!IsCheckPrepopOrPullWithActionIdsValid(EncounterToCheck.PullBossWith)) {
+            return false;
+        }
+        if(!IsCheckResourcesSpentActionIdsValid(EncounterToCheck.LostActionsSpentInPull) || !IsCheckResourcesSpentActionIdsValid(EncounterToCheck.LostActionsSpentAfterPull)) {
+            return false;
+        }
+    })
+    return true;
+}
+
+function IsCheckResourcesSpentActionIdsValid(ResourcesSpent : ILostActionExpenditure[]) : boolean {
+    ResourcesSpent.forEach((ResourceSpent) => {
+        if(typeof LostActionsAsObjectArray[ResourceSpent.LostActionUsed] == "undefined") {
+            return false;
+        }
+    });
+    return true;
 }
 
 let isSavedSetTitleSortedByAscending : boolean = false;
@@ -57,9 +116,15 @@ const CreateSavedHolsters = () => {
                         const parsedSavedSet : LostActionSets = JSON.parse(JSONSavedSetAsText.target.result.toString());
                         if(parsedSavedSet.Sets.length > 0) {
                             console.log("am i here");
-                            parsedSavedSet.Sets.forEach((SavedSetToAvoidDuplicateId) => {
-                                SavedSetToAvoidDuplicateId.id = Math.random();
+                            const validatedParsedSavedSets : LostActionSets = {Sets: []};
+                            parsedSavedSet.Sets.forEach((SavedSetToValidate) => {
+                                SavedSetToValidate.id = Math.random();
+                                if(IsSavedSetValid(SavedSetToValidate)) {
+                                    validatedParsedSavedSets.Sets.push(SavedSetToValidate);
+                                }
+                                
                             })
+
                             dispatch(addImportedSavedSetsToCurrentSavedSets(parsedSavedSet.Sets));
                         }
                         console.log(parsedSavedSet);
