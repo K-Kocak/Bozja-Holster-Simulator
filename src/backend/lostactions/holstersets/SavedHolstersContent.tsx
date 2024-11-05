@@ -28,18 +28,25 @@ function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
     }, 200);   
 }
 
-function IsSavedSetValid(SavedSetToCheck : ILostActionSet) : boolean {
-    if(!IsSavedSetHasValidActionIds(SavedSetToCheck)) {
-        return false;
-    }
-    return true;
+function WeightOfSavedSet(HolsterActionsToGetTotalWeight : IActionHolster[]) : number {
+    let totalWeightOfHolster : number = 0;
+    HolsterActionsToGetTotalWeight.forEach((LostAction) => {
+        totalWeightOfHolster += LostActionsAsObjectArray[LostAction.id].weight*LostAction.quantity;
+    })
+    return totalWeightOfHolster;
 }
 
-function IsSavedSetHasValidActionIds(SavedSetToCheck : ILostActionSet) : boolean {
+//#region Saved Set Action Id Validation And Quantity
+function IsSavedSetHasValidActionIdsAndQuantities(SavedSetToCheck : ILostActionSet) : boolean {
     const actionsInHolster : IActionHolster[] = SavedSetToCheck.setLostActionContents;
     // holster validation
     actionsInHolster.forEach((LostAction) => {
+        // id validation
         if(typeof LostActionsAsObjectArray[LostAction.id] == "undefined") {
+            return false;
+        }
+        // quantity validation
+        if(LostAction.quantity <= 0) {
             return false;
         }
     })
@@ -82,6 +89,8 @@ function IsCheckResourcesSpentActionIdsValid(ResourcesSpent : ILostActionExpendi
     return true;
 }
 
+//#endregion
+
 let isSavedSetTitleSortedByAscending : boolean = false;
 
 const CreateSavedHolsters = () => {
@@ -113,22 +122,52 @@ const CreateSavedHolsters = () => {
                 fileReader.readAsText(input.files[0], "UTF-8");
                 fileReader.onload = JSONSavedSetAsText => {
                     if(JSONSavedSetAsText.target?.result != null) {
-                        const parsedSavedSet : LostActionSets = JSON.parse(JSONSavedSetAsText.target.result.toString());
-                        if(parsedSavedSet.Sets.length > 0) {
-                            console.log("am i here");
-                            const validatedParsedSavedSets : LostActionSets = {Sets: []};
-                            parsedSavedSet.Sets.forEach((SavedSetToValidate) => {
-                                SavedSetToValidate.id = Math.random();
-                                if(IsSavedSetValid(SavedSetToValidate)) {
-                                    validatedParsedSavedSets.Sets.push(SavedSetToValidate);
-                                }
-                                
-                            })
+                        // check if we have valid file etc
+                        try {
+                            const parsedSavedSet : LostActionSets = JSON.parse(JSONSavedSetAsText.target.result.toString());
+                            if(parsedSavedSet.Sets.length > 0) {
+                                console.log("am i here");
+                                const validatedParsedSavedSets : LostActionSets = {Sets: []};
+                                parsedSavedSet.Sets.forEach((SavedSetToValidate) => {
+                                    SavedSetToValidate.id = Math.random();
 
-                            dispatch(addImportedSavedSetsToCurrentSavedSets(parsedSavedSet.Sets));
+                                    const totalWeightOfSavedSet : number = WeightOfSavedSet(SavedSetToValidate.setLostActionContents)
+                                    try {
+                                        if(IsSavedSetHasValidActionIdsAndQuantities(SavedSetToValidate) && totalWeightOfSavedSet <= 99 && totalWeightOfSavedSet >= 0) {
+                                            if(totalWeightOfSavedSet != SavedSetToValidate.weightOfSet) {
+                                                SavedSetToValidate.weightOfSet = totalWeightOfSavedSet;
+                                                console.log("weight fixed");
+                                            }
+                                            
+                                            console.log(SavedSetToValidate);
+                                            console.log("Set ids are good");
+                                            validatedParsedSavedSets.Sets.push(SavedSetToValidate);
+                                        }
+                                    } catch (exception) {
+                                        if(exception instanceof TypeError) {
+                                            // logic
+                                            console.log("Invalid Set Found!");
+                                        }
+                                        else {
+                                            console.error(exception);
+                                        }
+                                    }
+                                    
+                                    
+                                })
+
+                                dispatch(addImportedSavedSetsToCurrentSavedSets(validatedParsedSavedSets.Sets));
+                            }
+                        } catch (exception) {
+                            if(exception instanceof SyntaxError){
+                                // logic for wrong file type
+                                console.log("Not a JSON File!!!")
+                            }
+                            else {
+                                console.error(exception);
+                            }
                         }
-                        console.log(parsedSavedSet);
-                    }
+                    } 
                 }
             }     
         }
