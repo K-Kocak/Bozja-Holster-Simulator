@@ -5,6 +5,7 @@ import { IEncounter } from '@app/backend/interfaces/IHolsterTimeline';
 
 import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimelineResourceManagementContent.scss';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 /*
 interface LostActionQuantityRemaining {
     id: number,
@@ -115,10 +116,10 @@ function CreateResourceManagementContent() : React.JSX.Element {
         <div className="LostActionInstanceTimelineResourceManagementContentInnerContainer">
             <div className="LostActionInstanceTimelineResourceManagementTitles">
                 <div className="LostActionInstanceTimelineResourceManagementGreaterThanZero">
-                    <span>Actions left to spend</span>
+                    <span>Resources left to spend in the timeline . . .</span>
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLessThanZero">
-                    <span>! Overspent !</span>
+                    <span>&darr; Overspent &darr;</span>
                 </div>
             </div>
             <div className="LostActionInstanceTimelineResourceManagementLostActions">
@@ -128,7 +129,9 @@ function CreateResourceManagementContent() : React.JSX.Element {
                 <div className="LostActionInstanceTimelineResourceManagementLostActionDivsGreaterThanZero">
                     {lostActionResourceQuantityGreaterThanZero}
                 </div>
-                <div className="LostActionInstanceTimelineResourceManagementQuantityGap"></div>
+                <div className="LostActionInstanceTimelineResourceManagementQuantityGap">
+                {AutomateSeparator()}
+                </div>
                 <div className="LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero">
                     {lostActionResourcesQuantityLessThanZero}
                 </div>

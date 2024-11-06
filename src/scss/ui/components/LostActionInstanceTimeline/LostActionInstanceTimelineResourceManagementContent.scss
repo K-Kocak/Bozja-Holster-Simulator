@@ -19,8 +19,8 @@
         }
 
         .LostActionInstanceTimelineResourceManagementLessThanZero {
-            width: 20%;      
-            text-align: right;
+            width: 22%;
+            text-align: center;
         }
     }
 
@@ -67,8 +67,8 @@
             flex-direction: row;
             overflow-x: scroll;
             overflow-y: hidden;
-            width: 60%;
-           
+            width: 59%;
+            margin-right: 7px;
         }
 
         .LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero {
@@ -77,7 +77,7 @@
             overflow-x: scroll;
             overflow-y: hidden;
             width: 20%;   
-            margin-left: 27px;     
+            margin-left: 8px;     
         }
 
         .LostActionResourceToSpend {
@@ -94,6 +94,63 @@
                 text-align: center;
                 color: #F4F2F2; 
                 text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+            }
+        }
+
+        .LostActionInstanceTimelineResourceManagementQuantityGap {
+            height: 80px;
+            margin-bottom: 46px;
+            
+                        
+            .LostActionSeparatorSegment {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                height: 100px;
+                
+                .LostActionSeparatorSegmentLeftEnd, .LostActionSeparatorSegmentRightEnd {
+                    height: 1px;
+                    background-color: white;
+                    width: 3px;
+                    background: linear-gradient(90deg, #242424, #444344, #6A6A6A);
+                    border-radius: 0px;  
+                }
+
+                .LostActionSeparatorSegmentLeftEnd {              
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;       
+                }
+
+                .LostActionSeparatorSegmentRightEnd {
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                .LostActionSeparatorSegmentCenter {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    height: 98%;
+                    
+                    .LostActionSeparatorSegmentCenterUpper, .LostActionSeparatorSegmentCenterMiddle, .LostActionSeparatorSegmentCenterLower {
+                        width: 1px;
+                        height: 100%; 
+                    }
+
+                    .LostActionSeparatorSegmentCenterUpper {                   
+                        background-color: #242424;                  
+                    }
+                    
+                    
+                    .LostActionSeparatorSegmentCenterMiddle {
+                        background-color: #444344;
+                    }
+                
+                    .LostActionSeparatorSegmentCenterLower {
+                        background-color: #6A6A6A;
+                    }
+                }
             }
         }
     }

@@ -3,6 +3,7 @@
     height: 407px;
     width: 100%;    
     overflow-y: scroll;
+    
 }
 
 .MyHolstersSavedSet {
@@ -30,7 +31,7 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: #888;
+        background: white;
     }
  
     .SavedHolstersLoadAndDeleteHolster {
@@ -207,4 +208,23 @@
             }
         }
     }
+}
+
+::-webkit-scrollbar {
+    display: flex;
+    position: relative;
+    width: 8px;
+    height: 30px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: white;
+    
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    
 }

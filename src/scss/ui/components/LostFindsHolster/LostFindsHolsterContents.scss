@@ -11,6 +11,24 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
+    ::-webkit-scrollbar {
+        display: flex;
+        position: relative;
+        width: 8px;
+        height: 30px;
+    }
+    
+    
+    ::-webkit-scrollbar-track {
+        background: white;
+        
+    }
+    
+    
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        
+    }
 }
 
 .LostFindsHolsterPlayerHolster {
