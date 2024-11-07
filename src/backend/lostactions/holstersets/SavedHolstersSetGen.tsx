@@ -13,6 +13,7 @@ import { RetrieveRoleImageUsingLostFindsHolsterState } from '@backend/lostaction
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import LostActions from '@backend/lostactions/actiondata/ActionData';
+import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
 import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
 import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
@@ -38,18 +39,21 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
 }
 
 const GenerateSavedSetLostActionsPrepop = (SavedSetOfLostActionsPrepop : IUserSlottedActions) : React.JSX.Element => {
-    const leftActionPrepop = LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionLeft];
-    const rightActionPrepopId = LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionRight];
-    const essenceActionPrepopId = LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.EssenceInUse];
+    const leftActionPrepop = SavedSetOfLostActionsPrepop.LostActionLeft != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionLeft] : QuestionMarkNoAction;
+    const rightActionPrepopId = SavedSetOfLostActionsPrepop.LostActionRight != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionRight] : QuestionMarkNoAction;
+    const essenceActionPrepopId = SavedSetOfLostActionsPrepop.EssenceInUse != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.EssenceInUse] : QuestionMarkNoAction;
+    const leftActionPrepopKey = Math.random();
+    const rightActionPrepopKey = Math.random();
+    const essenceActionPrepopKey = Math.random();
     return (
         <div className="SavedHolstersListPrepopActionsInSet">
-            <div key={leftActionPrepop.id} title={leftActionPrepop.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={leftActionPrepopKey} title={leftActionPrepop.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={leftActionPrepop.img}></img>
             </div>
-            <div key={rightActionPrepopId.id} title={rightActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={rightActionPrepopKey} title={rightActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={rightActionPrepopId.img}></img>
             </div>
-            <div key={essenceActionPrepopId.id} title={essenceActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={essenceActionPrepopKey} title={essenceActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={essenceActionPrepopId.img}></img>
             </div>
             <div key={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].toString()} title="Resistance Reraiser" className="SavedHolstersPrepopActionInSet">

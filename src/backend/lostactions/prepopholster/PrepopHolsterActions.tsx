@@ -6,6 +6,7 @@ import { setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setP
 import IAction from '@app/backend/interfaces/IAction';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
 import '@css/ui/components/PrepopHolster/PrepopHolsterActions.scss';
 
@@ -57,7 +58,7 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
     }
     else {
         LostActionsAsObjectArray.forEach((LostAction) => {
-            if(LostAction.id < 700) {
+            if(LostAction.id < 700 && LostAction.id > 100) {
                 const LostActionToPush = CreateDropdownRowForLostAction(LostAction, LeftOrRightOrEssence);
                 DropdownItemsArray.push(LostActionToPush);
             }
@@ -74,11 +75,11 @@ const PrepopHolsterContents = () => {
     const PrepopHolsterLostActionRight = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
     const PrepopHolsterLostActionEssence = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
 
-    const PrepopHolsterLostActionLeftImageToShow : React.JSX.Element = PrepopHolsterLostActionLeft != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionLeft].img}></img> : <></>
+    const PrepopHolsterLostActionLeftImageToShow : React.JSX.Element = PrepopHolsterLostActionLeft != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionLeft].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
-    const PrepopHolsterLostActionRightImageToShow : React.JSX.Element = PrepopHolsterLostActionRight != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionRight].img}></img> : <></>
+    const PrepopHolsterLostActionRightImageToShow : React.JSX.Element = PrepopHolsterLostActionRight != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionRight].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
-    const PrepopHolsterLostActionEssenceImageToShow : React.JSX.Element = PrepopHolsterLostActionEssence != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionEssence].img}></img> : <></>
+    const PrepopHolsterLostActionEssenceImageToShow : React.JSX.Element = PrepopHolsterLostActionEssence != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionEssence].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
     return (
         <div className="PrepopHolsterInnerContainer">

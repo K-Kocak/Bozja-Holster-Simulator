@@ -19,13 +19,13 @@ function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
 const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
 
 const PrepopHolsterResetState = {
-    LostActionLeft: 101,
-    LostActionRight: 105,
-    EssenceInUse: 708
+    LostActionLeft: -1,
+    LostActionRight: -1,
+    EssenceInUse: -1
 }
 
 const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
-    LostActionUsed: 101,
+    LostActionUsed: -1,
     LostActionTimeOfUse: "N/A"
 }
 

@@ -42,7 +42,7 @@ function IsSavedSetHasValidActionIdsAndQuantities(SavedSetToCheck : ILostActionS
     // holster validation
     actionsInHolster.forEach((LostAction) => {
         // id validation
-        if(typeof LostActionsAsObjectArray[LostAction.id] == "undefined") {
+        if(typeof LostActionsAsObjectArray[LostAction.id] == "undefined" && LostAction.id != -1) {
             return false;
         }
         // quantity validation
@@ -63,6 +63,9 @@ function IsSavedSetHasValidActionIdsAndQuantities(SavedSetToCheck : ILostActionS
 
 function IsCheckPrepopOrPullWithActionIdsValid(PrepopOrPullWithActions : IUserSlottedActions) : boolean {
     if(typeof LostActionsAsObjectArray[PrepopOrPullWithActions.EssenceInUse] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionLeft] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionRight] == "undefined") {
+        if(PrepopOrPullWithActions.EssenceInUse == -1 && PrepopOrPullWithActions.LostActionLeft == -1 && PrepopOrPullWithActions.LostActionRight == -1) {
+            return true;
+        }
         return false;
     }
     return true;
@@ -82,7 +85,7 @@ function IsCheckHolsterTimelineActionIdsValid(HolsterTimelineToCheck : IHolsterT
 
 function IsCheckResourcesSpentActionIdsValid(ResourcesSpent : ILostActionExpenditure[]) : boolean {
     ResourcesSpent.forEach((ResourceSpent) => {
-        if(typeof LostActionsAsObjectArray[ResourceSpent.LostActionUsed] == "undefined") {
+        if(typeof LostActionsAsObjectArray[ResourceSpent.LostActionUsed] == "undefined" && ResourceSpent.LostActionUsed != -1) {
             return false;
         }
     });
