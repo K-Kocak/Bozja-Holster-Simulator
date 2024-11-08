@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
-import { clearSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
+import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 
@@ -100,16 +100,12 @@ const CreateSavedHolsters = () => {
     const dispatch = useAppDispatch();
     const savedSets = useAppSelector((state) => state.LostActionSets);
     const currentSelectedSets = useAppSelector((state) => state.SelectedSavedSets.SelectedSets)
+    const confirmDeleteSavedSetsBox = useAppSelector((state) => state.SelectedSavedSets.isConfirmDeletionOfSavedSets);
+
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
     console.log(currentSelectedSets);
 
     SaveSavedSetsToLocalStorage(savedSets);
-
-    function HandleResetSavedSets() {
-        ClearSavedSetsDataInLocalStorage();
-        clearSelectedSavedSets();
-        dispatch(clearAllSavedSets());
-    }
 
     function HandleSaveSavedSetsAsJSON() {
         saveSavedSetsToFile(savedSets);
@@ -224,6 +220,46 @@ const CreateSavedHolsters = () => {
         });
         saveSavedSetsToFile(savedSetsToExport);
     }
+
+    function HandleDeleteAllSavedSets() {
+        dispatch(setIsConfirmDeletionOfSavedSets(false));
+        ClearSavedSetsDataInLocalStorage();
+        clearSelectedSavedSets();
+        dispatch(clearAllSavedSets());
+    }
+
+    function HandleNoDeletionOfAllSavedSets() {
+        dispatch(setIsConfirmDeletionOfSavedSets(false));
+    }
+
+    function HandleResetSavedSets() {
+        dispatch(setIsConfirmDeletionOfSavedSets(true));
+    }
+
+    const deleteSavedSetsContent : JSX.Element = confirmDeleteSavedSetsBox ? 
+    (
+        <div className="ResetClearSetsDivConfirmationBox">
+            <div className="ResetClearSetsDivConfirmationBoxText">
+                <span>Are you sure ?</span>
+            </div>
+            <div className="RestClearSetsDivConfirmationBoxReply">
+                <div onClick={HandleDeleteAllSavedSets} className="RestClearSetsDivConfirmationBoxReplyBoxYes">
+                    <span>Yes</span>
+                </div>
+                <div onClick={HandleNoDeletionOfAllSavedSets}className="RestClearSetsDivConfirmationBoxReplyBoxNo">
+                    <span>No</span>
+                </div>
+            </div>
+        </div>
+    )
+    : 
+    (
+        <div onClick={HandleResetSavedSets}>
+                <span>Delete All Saved Sets</span>
+        </div>
+    
+    )
+
     /*
     <span>PlaceHolder For Buttons</span>
     <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
@@ -270,8 +306,8 @@ const CreateSavedHolsters = () => {
                 </div>
             </div>
             
-            <div onClick={HandleResetSavedSets} className="ResetClearSetsDiv">
-                <span>Delete All Saved Sets</span>
+            <div className="ResetClearSetsDiv">
+                {deleteSavedSetsContent}
             </div>
         </div>
         

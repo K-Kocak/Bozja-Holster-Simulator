@@ -174,6 +174,40 @@
             &:hover{
                 background-color: rgba(190, 25, 37, 0.69);
             }
+
+            .ResetClearSetsDivConfirmationBox {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .RestClearSetsDivConfirmationBoxReply {
+                    margin-top: 3px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxYes, .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                        border: 1px solid #E67A6F;
+                        border-radius: 8px;
+                    }
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxYes {
+                        padding: 0px 3px;
+
+                        &:hover{
+                            background-color: rgba(190, 25, 37, 1);
+                        }
+                    }
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                        padding: 0px 7px;
+
+                        &:hover{
+                            background-color: #595644;
+                        }
+                    }
+                }
+            }
         }
     }
 }

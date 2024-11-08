@@ -3,9 +3,10 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface SelectedSavedSets {
     SelectedSets: number[]
+    isConfirmDeletionOfSavedSets: boolean
 }
 
-const initialState: SelectedSavedSets = {SelectedSets: []};
+const initialState: SelectedSavedSets = {SelectedSets: [], isConfirmDeletionOfSavedSets: false};
 
 export const SelectedSavedSetsSlice = createSlice({
     name: 'SelectedSavedSets',
@@ -20,10 +21,13 @@ export const SelectedSavedSetsSlice = createSlice({
         },
         newSelectedSavedSets: (state, action: PayloadAction<number[]>) => {
             state.SelectedSets = action.payload;
+        },
+        setIsConfirmDeletionOfSavedSets: (state, action: PayloadAction<boolean>) => {
+            state.isConfirmDeletionOfSavedSets = action.payload;
         }
     },
 })
 
-export const { clearSelectedSavedSets, addSelectedSavedSet, newSelectedSavedSets } = SelectedSavedSetsSlice.actions;
+export const { clearSelectedSavedSets, addSelectedSavedSet, newSelectedSavedSets, setIsConfirmDeletionOfSavedSets } = SelectedSavedSetsSlice.actions;
 
 export default SelectedSavedSetsSlice.reducer;

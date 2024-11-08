@@ -37,6 +37,7 @@
             span {
                 pointer-events: none;
             }
+
             .ForgottenFragmentInfoFragmentListFiltersText {
                 width: 40%;
                 text-align: left;
@@ -48,6 +49,10 @@
                 margin-right: 3px;
                 border: 1px solid #A5906F;
                 border-radius: 5px;
+
+                &:hover {
+                    background-color: #595644;
+                }
             }
 
             .ForgottenFragmentInfoFragmentListFiltersSortByRank {
@@ -56,6 +61,9 @@
                 margin-right: 8px;
                 border: 1px solid #A5906F;
                 border-radius: 5px;
+                &:hover {
+                    background-color: #595644;
+                }
             }
 
             .ForgottenFragmentInfoFragmentListFiltersAscendingArrow {
