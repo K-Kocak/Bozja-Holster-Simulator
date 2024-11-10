@@ -4668,7 +4668,7 @@ const PureEssenceElder: IAction = {
     fragment: [16],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#F9CEA5"}}>Lost Cure IV</span> grants <span style={{color:"#FFFF66"}}>Bravery</span> to self and nearby party members.{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
