@@ -542,6 +542,9 @@ const CreateLostActionInstanceTimeline = () => {
                 </div>
             </div>
             <div className="LostActionInstanceTimelineTitleAndAddEncounter">
+                <div className="LostActionInstanceTimelineHelpButton">
+                    <span>PH ?</span>
+                </div>
                 <div className="LostActionInstanceTimelineTitle">
                     <span>Instance Timeline</span>
                 </div>

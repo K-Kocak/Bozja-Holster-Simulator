@@ -44,11 +44,22 @@ export const CreateLostCacheLostActionButton = (LostAction: IAction) => {
         event.target.nextSibling.nextSibling.classList.toggle('hidden');
     }
 
-    
-    const LostActionInformationHoverDiv = LostAction.id != LostActions.ItemRelated.ResistanceElixir.id ? 
-    <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div> 
-    :
-    <div style={{marginLeft: "75px", marginTop: "-100px"}}className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>;
+    let LostActionInformationHoverDiv : JSX.Element = <></>;
+
+    if(LostAction.id != LostActions.ItemRelated.ResistanceElixir.id && !LostAction.name.EN.includes("Pure")) {
+        LostActionInformationHoverDiv = <div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
+    }
+    else if(LostAction.id == LostActions.ItemRelated.ResistanceElixir.id) {
+        LostActionInformationHoverDiv = <div style={{marginLeft: "55px", marginTop: "-100px"}} className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
+    }
+    else {
+        LostActionInformationHoverDiv = <div style={{marginLeft: "55px", marginTop: "-100px"}} className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>
+    }
+    //const LostActionInformationHoverDiv = LostAction.id != LostActions.ItemRelated.ResistanceElixir.id ? 
+    //<div className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div> 
+    //:
+    //<div style={{marginLeft: "75px", marginTop: "-100px"}}className="LostActionInformationHover hidden">{LostActionInformationBoxes[LostAction.id]}</div>;
+
 
     const styleChoice = LostAction.fragment.includes(useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentHovered)) ? {filter: "brightness(1.3) drop-shadow(0px 0px 10px white)"} : {};
 

@@ -32,9 +32,16 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         display: flex;
         flex-direction: row;
         border-top: 2px solid #A5906F;
+
+        .LostActionInstanceTimelineHelpButton {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         
         .LostActionInstanceTimelineTitle {
-            width: 50%;
+            width: 40%;
             height: 50px;
             display: flex;
             justify-content: center;
@@ -103,17 +110,19 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     }
     
                     .LostActionInstanceTimelineIndividualEncounterFuntions {
-                        width: 33.3%;
+                        width: 33%;
                         display: flex;
                         flex-direction: row;
                         justify-content: space-around;
                         align-items: center; 
 
                         .LostActionInstanceTimelineIndividualEncounterFunctionMoveLeft, .LostActionInstanceTimelineIndividualEncounterFunctionMoveRight, .LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter {
-
                             span {
                                 pointer-events: none;
                             }
+                        }
+                        .LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter{
+                            padding-top: 4px;
                         }
                     }
 

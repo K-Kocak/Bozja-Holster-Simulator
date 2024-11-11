@@ -346,7 +346,7 @@ const BannerofHonoredSacrifice: IAction = {
     fragment: [9],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honored Sacrifice</span>, increasing damage dealt by 55% while draining your HP.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Storm the field under the <span style={{color:"#FFFF66"}}>Banner of Honored Sacrifice</span>, increasing damage dealt by 55% while draining your HP.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Duelist Effect: </span>Increases duration to 30s and reduces health drain to 1 HP{"\n"}Can only be executed while in combat.{"\n"}Effect cannot be stacked with other Banner actions.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1077,7 +1077,7 @@ const LostCureII: IAction = {
     fragment: [5],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Fiendhunter Effect: </span>Grants <span style={{color:"#FFFF66"}}>Refresh</span> to target.{"\n"}<span style={{color:"#00CC22"}}>Refresh Effect: </span>Recover 1000 MP every 3 seconds{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>18s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1181,7 +1181,7 @@ const LostCureIV: IAction = {
     fragment: [5],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores own or target party member's HP and all party members nearby target.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Elder Effect: </span>Grants <span style={{color:"#FFFF66"}}>Bravery</span> to self and nearby party members{"\n"}<span style={{color:"#00CC22"}}>Bravery Effect: </span>Increases damage dealt by 10%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>60s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1233,7 +1233,7 @@ const LostArise: IAction = {
     fragment: [5],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}If the target was weakened at the time of Raise, the weakness effect will be removed.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}If the target was weakened at the time of Raise, the weakness effect will be removed.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Divine Effect: </span>Action becomes usable in Delubrum Reginae Savage at a rate of 15%</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -1285,7 +1285,7 @@ const LostSacrifice: IAction = {
     fragment: [22],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}Cannot be executed if currently afflicted with <span style={{color:"#FFFF66"}}>Sacrifice</span>.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Inflicts <span style={{color:"#FFFF66"}}>Sacrifice</span> on self{"\n"}<span style={{color:"#00CC22"}}>Sacrifice Effect:</span> When effect expires, you will be KO'd{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores all of a KO'd target's HP.{"\n"}Cannot be executed if currently afflicted with <span style={{color:"#FFFF66"}}>Sacrifice</span>.{"\n"}<span style={{color:"#00CC22"}}>Additional Effect:</span> Inflicts <span style={{color:"#FFFF66"}}>Sacrifice</span> on self{"\n"}<span style={{color:"#00CC22"}}>Sacrifice Effect:</span> When effect expires, you will be KO'd{"\n"}<span style={{color:"#00CC22"}}>Duration:</span> 10s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Indomitable Effect: </span>Reduces chance of inflicting<span style={{color:"#FFFF66"}}> Sacrifice </span>on self to 50%</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -2802,7 +2802,7 @@ const DynamisDice: IAction = {
     fragment: [2],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Place your faith in the goddess Nymeia as she spins the wheel of fate.{"\n"}Can only be executed while in combat.{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Place your faith in the goddess Nymeia as she spins the wheel of fate.{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Gambler Effect: </span>Removes all negative effects except <span style={{color:"#FFFF66"}}>Doom</span>. Greatly increases the chance of rolling <span style={{color:"#FFFF66"}}>Healer LB3</span> while reducing the chance of rolling other positive effects{"\n"}Can only be executed while in combat.{"\n"}Shares a recast timer with <span style={{color:"#FF7B1A"}}>Resistance Potion</span> and <span style={{color:"#FF7B1A"}}>Resistance Elixir</span>.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4619,7 +4619,7 @@ const PureEssenceGambler: IAction = {
     fragment: [18],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases evasion by 11%, critical hit rate by 77%, and direct hit rate by 77%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases evasion by 11%, critical hit rate by 77%, and direct hit rate by 77%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Alters <span style={{color:"#FF7B1A"}}>Dynamis Dice</span> rolls{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4668,7 +4668,7 @@ const PureEssenceElder: IAction = {
     fragment: [16],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#F9CEA5"}}>Lost Cure IV</span> grants <span style={{color:"#FFFF66"}}>Bravery</span> to self and nearby party members.{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 50%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#FF7B1A"}}>Lost Cure IV</span> grants <span style={{color:"#FFFF66"}}>Bravery</span> to self and nearby party members{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4717,7 +4717,7 @@ const PureEssenceDuelist: IAction = {
     fragment: [17],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 60%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 60%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Increases the duration of <span style={{color:"#FF7B1A"}}>Banner of Honored Sacrifice</span> to 30s while reducing health drain to 1 HP{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4766,7 +4766,7 @@ const PureEssenceFiendHunter: IAction = {
     fragment: [20],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#FF7B1A"}}>Lost Cure II</span> grants <span style={{color:"#FFFF66"}}>Refresh</span> to target{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4815,7 +4815,7 @@ const PureEssenceIndomitable: IAction = {
     fragment: [21],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 40%, damage dealt by 72%, and maximum HP by 50%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 40%, damage dealt by 72%, and maximum HP by 50%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#FF7B1A"}}>Lost Sacrifice</span> inflicts <span style={{color:"#FFFF66"}}>Sacrifice</span> 50% of the time{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4864,7 +4864,7 @@ const PureEssenceDivine: IAction = {
     fragment: [19],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 35%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 25%, damage dealt by 35%, and maximum HP by 100%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Allows usage of <span style={{color:"#FF7B1A"}}>Lost Arise</span> in Delubrum Reginae Savage at a rate of 15%{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
