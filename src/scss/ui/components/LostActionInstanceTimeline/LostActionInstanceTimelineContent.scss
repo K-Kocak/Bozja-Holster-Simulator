@@ -33,11 +33,46 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         flex-direction: row;
         border-top: 2px solid #A5906F;
 
-        .LostActionInstanceTimelineHelpButton {
+        .LostActionInstanceTimelineHelpBox {
+            position: relative;
+            top: -30px;
+            left: 50px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .LostActionInstanceTimelineHelpButtonContainer {
             width: 10%;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+
+            .LostActionInstanceTimelineHelpButton{
+                width: 32%;
+                height: 60%;
+                border: 2px solid #A5906F;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    background-color: #595644;
+                }
+            }
+
+            .LostActionInstanceTimelineHelpBox {
+                position: absolute;
+                top: -244px;
+                left: 0px;
+                width: 465px;
+                height: 240px;
+                // background
+                border: 2px solid #A5906F;
+                background-color: #595644;
+            }
         }
         
         .LostActionInstanceTimelineTitle {
@@ -467,5 +502,35 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
 .LostActionSeparatorSegment {
     margin: 1px 0px 1px 2px;
     width: 100%;
-    
+}
+
+.LostActionInstanceTimelineHelpBoxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+
+    .LostActionInstanceTimelineHelpBoxTitleAndClose {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        height: 25px;
+    }
+    .LostActionInstanceTimelineHelpBoxResources {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 5px;
+        align-items: center;
+        line-height: 1.5;
+       
+        padding: 5px;
+        .LostActionInstanceTimelineHelpBoxInPull {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
 }

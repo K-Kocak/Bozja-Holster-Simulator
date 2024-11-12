@@ -362,6 +362,36 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     )
 }
 
+function CreateLostActionInstanceTimelineHelpBox() : React.JSX.Element {
+    return (
+        <div className="LostActionInstanceTimelineHelpBoxContainer">
+            <div className="LostActionInstanceTimelineHelpBoxTitleAndClose">
+                <div style={{width: "95%", paddingLeft: "5px"}}className="LostActionInstanceTimelineHelpBoxTitle">
+                    <span>How To Use This Timeline</span>
+                </div>
+                <div onClick={HandleLostActionInstanceTimelineHelpDisplay} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
+                    <span>X</span>
+                </div>
+            </div>
+            <div className="LostActionInstanceTimelineHelpBoxResources">
+                <div className="LostActionInstanceTimelineHelpBoxPullWith">
+                    <span>Pull Boss With:</span> These are the two lost actions and essence that you will have slotted in when the fight countdown hits 0.
+                </div>
+                <div className="LostActionInstanceTimelineHelpBoxInPull">
+                    <span>In Pull Actions:</span> These are the actions you will spend while the fight is ongoing. The optional textbox is the time in the fight you intend to slot in the action.
+                </div>
+                <div className="LostActionInstanceTimelineHelpBoxAfterPull">
+                    <span>After Pull Actions:</span> These are the actions you will spend after the fight to reach the next encounter's Pull Boss With.
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function HandleLostActionInstanceTimelineHelpDisplay() {
+    document.getElementById("LostActionInstanceTimelineHelpBox")?.classList.toggle("hidden");
+}
+
 //#region All Actions Dropdown
 
 function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch: any) : React.JSX.Element {
@@ -542,8 +572,13 @@ const CreateLostActionInstanceTimeline = () => {
                 </div>
             </div>
             <div className="LostActionInstanceTimelineTitleAndAddEncounter">
-                <div className="LostActionInstanceTimelineHelpButton">
-                    <span>PH ?</span>
+                <div className="LostActionInstanceTimelineHelpButtonContainer">
+                    <div id="LostActionInstanceTimelineHelpBox" className="LostActionInstanceTimelineHelpBox hidden">
+                        {CreateLostActionInstanceTimelineHelpBox()}
+                    </div>
+                    <div onClick={HandleLostActionInstanceTimelineHelpDisplay} className="LostActionInstanceTimelineHelpButton">
+                        <span>?</span>
+                    </div>
                 </div>
                 <div className="LostActionInstanceTimelineTitle">
                     <span>Instance Timeline</span>
