@@ -74,13 +74,13 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                 ::-webkit-scrollbar {
                     display: flex;
                     position: relative;
-                    width: 8px;
+                    width: 13px;
                     height: 30px;
                 }
                 
             
                 ::-webkit-scrollbar-track {
-                    background: transparent;
+                    background: white;
                     
                 }
                 
@@ -111,7 +111,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                 ::-webkit-scrollbar {
                     display: flex;
                     position: relative;
-                    width: 8px;
+                    width: 13px;
                     height: 30px;
                 }
                 
@@ -147,9 +147,10 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                 }
 
                 ::-webkit-scrollbar {
-                   
-                    width: 8px;
-                   
+                    display: flex;
+                    position: relative;
+                    width: 13px;
+                    height: 30px;
                 }
                 
             

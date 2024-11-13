@@ -44,15 +44,21 @@ export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRight
     )
 } 
 
-export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[] => {
-    const DropdownItemsArray : React.JSX.Element[] = [];
-    
-    
+export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[][] => {
+    const DropdownItemsArrayOffensive : React.JSX.Element[] = [];
+    const DropdownItemsArrayDefensive : React.JSX.Element[] = [];
+    const DropdownItemsArrayRestorative : React.JSX.Element[] = [];
+    const DropdownItemsArrayBeneficial : React.JSX.Element[] = [];
+    const DropdownItemsArrayTactical : React.JSX.Element[] = [];
+    const DropdownItemsArrayDetrimental : React.JSX.Element[] = [];
+    const DropdownItemsArrayItemRelated : React.JSX.Element[] = [];
+
     if(LeftOrRightOrEssence == "Essence") {
         LostActionsAsObjectArray.forEach((LostAction) => {
             if(LostAction.id > 707 && LostAction.id < 744) {
                 const EssenceToPush = CreateDropdownRowForLostAction(LostAction, "Essence");
-                DropdownItemsArray.push(EssenceToPush);
+                DropdownItemsArrayItemRelated.push(EssenceToPush);
+                //DropdownItemsArray.push(EssenceToPush);
             }
         })
     }
@@ -60,13 +66,67 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
         LostActionsAsObjectArray.forEach((LostAction) => {
             if(LostAction.id < 700 && LostAction.id > 100) {
                 const LostActionToPush = CreateDropdownRowForLostAction(LostAction, LeftOrRightOrEssence);
-                DropdownItemsArray.push(LostActionToPush);
+                switch (LostAction.category.EN) {
+                    case "Offensive":
+                        DropdownItemsArrayOffensive.push(LostActionToPush);
+                        break;
+                    case "Defensive":
+                        DropdownItemsArrayDefensive.push(LostActionToPush);
+                        break;
+                    case "Restorative":
+                        DropdownItemsArrayRestorative.push(LostActionToPush);
+                        break;
+                    case "Beneficial":
+                        DropdownItemsArrayBeneficial.push(LostActionToPush);
+                        break;
+                    case "Tactical":
+                        DropdownItemsArrayTactical.push(LostActionToPush);
+                        break;
+                    case "Detrimental":
+                        DropdownItemsArrayDetrimental.push(LostActionToPush);
+                        break;
+                    case "Item-Related":
+                        DropdownItemsArrayItemRelated.push(LostActionToPush);
+                        break;
+                    default:
+                        break;
+                }
+                //DropdownItemsArray.push(LostActionToPush);
             }
         })
+        if(DropdownItemsArrayOffensive.length > 0) {
+            DropdownItemsArrayOffensive.unshift(CreateDropdownLostActionHeader("Offensive"));
+        }
+        if(DropdownItemsArrayDefensive.length > 0) {
+            DropdownItemsArrayDefensive.unshift(CreateDropdownLostActionHeader("Defensive"));
+        }
+        if(DropdownItemsArrayRestorative.length > 0) {
+            DropdownItemsArrayRestorative.unshift(CreateDropdownLostActionHeader("Restorative"));
+        }
+        if(DropdownItemsArrayBeneficial.length > 0) {
+            DropdownItemsArrayBeneficial.unshift(CreateDropdownLostActionHeader("Beneficial"));
+        }
+        if(DropdownItemsArrayTactical.length > 0) {
+            DropdownItemsArrayTactical.unshift(CreateDropdownLostActionHeader("Tactical"));
+        }
+        if(DropdownItemsArrayDetrimental.length > 0) {
+            DropdownItemsArrayDetrimental.unshift(CreateDropdownLostActionHeader("Detrimental"));
+        }
+        if(DropdownItemsArrayItemRelated.length > 0) {
+            DropdownItemsArrayItemRelated.unshift(CreateDropdownLostActionHeader("Item-Related"));
+        }
     }
-    
 
-    return DropdownItemsArray;
+    
+    return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
+}
+
+function CreateDropdownLostActionHeader(categoryOfSection: string) : React.JSX.Element {
+    return (
+        <div className="LostActionDropdownCategoryHeader">
+            <span>{categoryOfSection}</span>
+        </div>
+    )
 }
 
 const PrepopHolsterContents = () => {

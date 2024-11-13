@@ -375,13 +375,13 @@ function CreateLostActionInstanceTimelineHelpBox() : React.JSX.Element {
             </div>
             <div className="LostActionInstanceTimelineHelpBoxResources">
                 <div className="LostActionInstanceTimelineHelpBoxPullWith">
-                    <span>Pull Boss With:</span> These are the two lost actions and essence that you will have slotted in when the fight countdown hits 0.
+                    <span>Pull Boss With:</span> These are the two lost actions and essence that you will have slotted in when the fight countdown hits 0.   
                 </div>
                 <div className="LostActionInstanceTimelineHelpBoxInPull">
                     <span>In Pull Actions:</span> These are the actions you will spend while the fight is ongoing. The optional textbox is the time in the fight you intend to slot in the action.
                 </div>
                 <div className="LostActionInstanceTimelineHelpBoxAfterPull">
-                    <span>After Pull Actions:</span> These are the actions you will spend after the fight to reach the next encounter's Pull Boss With.
+                    <span>After Pull Actions:</span> These are the actions you will spend after the fight to reach the next encounter's Pull Boss With state.
                 </div>
             </div>
         </div>

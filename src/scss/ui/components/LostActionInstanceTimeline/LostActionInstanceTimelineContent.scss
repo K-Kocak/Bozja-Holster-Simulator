@@ -518,6 +518,11 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         text-align: center;
         align-items: center;
         height: 25px;
+
+        .LostActionInstanceTimelineHelpBoxTitle{
+            font-size: 20px;
+            text-decoration: underline;
+        }
     }
     .LostActionInstanceTimelineHelpBoxResources {
         display: flex;
