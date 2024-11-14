@@ -45,6 +45,7 @@ export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRight
 } 
 
 export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[][] => {
+    /*
     const DropdownItemsArrayOffensive : React.JSX.Element[] = [];
     const DropdownItemsArrayDefensive : React.JSX.Element[] = [];
     const DropdownItemsArrayRestorative : React.JSX.Element[] = [];
@@ -52,15 +53,24 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
     const DropdownItemsArrayTactical : React.JSX.Element[] = [];
     const DropdownItemsArrayDetrimental : React.JSX.Element[] = [];
     const DropdownItemsArrayItemRelated : React.JSX.Element[] = [];
-
+    */
+    const dropdownItemsAs2DArray : React.JSX.Element[][] = [];
+    
+    for(let i = 0; i < 7; i++) {
+        dropdownItemsAs2DArray.push([]);
+    }
+    const lostActionCategories = ["Offensive", "Defensive", "Restorative", "Beneficial", "Tactical", "Detrimental", "Item-Related"];
+    
     if(LeftOrRightOrEssence == "Essence") {
         LostActionsAsObjectArray.forEach((LostAction) => {
             if(LostAction.id > 707 && LostAction.id < 744) {
                 const EssenceToPush = CreateDropdownRowForLostAction(LostAction, "Essence");
-                DropdownItemsArrayItemRelated.push(EssenceToPush);
+                dropdownItemsAs2DArray[6].push(EssenceToPush);
+                //DropdownItemsArrayItemRelated.push(EssenceToPush);
                 //DropdownItemsArray.push(EssenceToPush);
             }
         })
+
     }
     else {
         LostActionsAsObjectArray.forEach((LostAction) => {
@@ -68,25 +78,32 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
                 const LostActionToPush = CreateDropdownRowForLostAction(LostAction, LeftOrRightOrEssence);
                 switch (LostAction.category.EN) {
                     case "Offensive":
-                        DropdownItemsArrayOffensive.push(LostActionToPush);
+                        dropdownItemsAs2DArray[0].push(LostActionToPush);
+                        //DropdownItemsArrayOffensive.push(LostActionToPush);
                         break;
                     case "Defensive":
-                        DropdownItemsArrayDefensive.push(LostActionToPush);
+                        dropdownItemsAs2DArray[1].push(LostActionToPush);
+                        //DropdownItemsArrayDefensive.push(LostActionToPush);
                         break;
                     case "Restorative":
-                        DropdownItemsArrayRestorative.push(LostActionToPush);
+                        dropdownItemsAs2DArray[2].push(LostActionToPush);
+                        //DropdownItemsArrayRestorative.push(LostActionToPush);
                         break;
                     case "Beneficial":
-                        DropdownItemsArrayBeneficial.push(LostActionToPush);
+                        dropdownItemsAs2DArray[3].push(LostActionToPush);
+                        //DropdownItemsArrayBeneficial.push(LostActionToPush);
                         break;
                     case "Tactical":
-                        DropdownItemsArrayTactical.push(LostActionToPush);
+                        dropdownItemsAs2DArray[4].push(LostActionToPush);
+                        //DropdownItemsArrayTactical.push(LostActionToPush);
                         break;
                     case "Detrimental":
-                        DropdownItemsArrayDetrimental.push(LostActionToPush);
+                        dropdownItemsAs2DArray[5].push(LostActionToPush);
+                        //DropdownItemsArrayDetrimental.push(LostActionToPush);
                         break;
                     case "Item-Related":
-                        DropdownItemsArrayItemRelated.push(LostActionToPush);
+                        dropdownItemsAs2DArray[6].push(LostActionToPush);
+                        //DropdownItemsArrayItemRelated.push(LostActionToPush);
                         break;
                     default:
                         break;
@@ -94,6 +111,12 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
                 //DropdownItemsArray.push(LostActionToPush);
             }
         })
+        dropdownItemsAs2DArray.forEach((dropdownItemCategory, index) => {
+            if(dropdownItemCategory.length > 0) {
+                dropdownItemCategory.unshift(CreateDropdownLostActionHeader(lostActionCategories[index]))
+            }
+        })
+        /*
         if(DropdownItemsArrayOffensive.length > 0) {
             DropdownItemsArrayOffensive.unshift(CreateDropdownLostActionHeader("Offensive"));
         }
@@ -115,15 +138,16 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
         if(DropdownItemsArrayItemRelated.length > 0) {
             DropdownItemsArrayItemRelated.unshift(CreateDropdownLostActionHeader("Item-Related"));
         }
+        */
     }
 
-    
-    return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
+    return dropdownItemsAs2DArray;
+    //return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
 }
 
 function CreateDropdownLostActionHeader(categoryOfSection: string) : React.JSX.Element {
     return (
-        <div className="LostActionDropdownCategoryHeader">
+        <div key={categoryOfSection} className="LostActionDropdownCategoryHeader">
             <span>{categoryOfSection}</span>
         </div>
     )
