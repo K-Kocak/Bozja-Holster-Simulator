@@ -392,6 +392,18 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
             display: flex;
             justify-content: center;
             width: 50%;
+
+            .LostActionDropdownCategoryHeader {
+                width: 95%;
+            
+                .LostActionDropdownCategoryText {
+                    padding: 10px 0px 10px 5px;
+                    color: #FFFFFF;
+                    text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+                    font-size: 21px;
+                }
+            }
+            
            
             .LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer {
                 display: flex;
@@ -539,3 +551,4 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         }
     }
 }
+

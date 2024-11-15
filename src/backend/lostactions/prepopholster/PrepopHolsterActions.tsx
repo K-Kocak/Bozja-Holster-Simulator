@@ -9,6 +9,8 @@ import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionData
 import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
 import '@css/ui/components/PrepopHolster/PrepopHolsterActions.scss';
+import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
+import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 
 export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssence : string) => {
 
@@ -70,7 +72,7 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
                 //DropdownItemsArray.push(EssenceToPush);
             }
         })
-
+        dropdownItemsAs2DArray[6].unshift(CreateDropdownLostActionHeader("Essence"))
     }
     else {
         LostActionsAsObjectArray.forEach((LostAction) => {
@@ -145,10 +147,14 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
     //return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
 }
 
-function CreateDropdownLostActionHeader(categoryOfSection: string) : React.JSX.Element {
+export function CreateDropdownLostActionHeader(categoryOfSection: string) : React.JSX.Element {
     return (
         <div key={categoryOfSection} className="LostActionDropdownCategoryHeader">
-            <span>{categoryOfSection}</span>
+            {AutomateSeparator()}
+            <div className="LostActionDropdownCategoryText">
+                <span>{categoryOfSection} Actions</span>
+            </div>
+
         </div>
     )
 }

@@ -14,9 +14,10 @@ import { IEncounter, ILostActionExpenditure } from '@app/backend/interfaces/IHol
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 
 import IAction from '@app/backend/interfaces/IAction';
-import { clearDropdownData, setDropdownDataInPull, setDropdownDataPullWith } from '../LostActionDropdownDataSlice';
-import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
+import { clearDropdownData, setDropdownDataInPull, setDropdownDataPullWith } from '@backend/lostactions/LostActionDropdownDataSlice';
+import { AutomateSeparator } from '@backend/lostactions/lostfindscache/LostActionsDivGen';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
+import { CreateDropdownLostActionHeader } from '@backend/lostactions/prepopholster/PrepopHolsterActions';
 
 const GenerateNewBossInTimeline : IEncounter = {
     NameOfBoss: "New Boss",
@@ -415,7 +416,13 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
         const EssenceToPush = CreateDropdownRowForAllLostActions(LostAction, encounterNumber, indexOfLostAction, isInPull, dispatch);
         DropdownItemsArray.push(EssenceToPush);   
     });
-
+    if(DropdownItemsArray.length > 0) {
+        DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Holster"))
+    }
+    else {
+        DropdownItemsArray.push(<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%"}}>Add Some Actions to the holster!</div>)
+    }
+    
     return DropdownItemsArray;
 }
 
@@ -457,17 +464,59 @@ function CreateLostActionDropdownElementNoEssence(encounterNumber : number, Left
     )
 }
 
-function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element[] {
+function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element[][] {
+    const dropdownItemsAs2DArray : React.JSX.Element[][] = [];
     
-    const DropdownItemsArray : React.JSX.Element[] = [];
+    for(let i = 0; i < 7; i++) {
+        dropdownItemsAs2DArray.push([]);
+    }
+    //const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
-        if(LostAction.id < 700) {
-            const EssenceToPush = CreateDropdownRowForLostActionNoEssence(LostAction, encounterNumber, LeftOrRight, dispatch);
-            DropdownItemsArray.push(EssenceToPush);
+        if(LostAction.id < 700 && LostAction.id > 100) {
+            const nonEssenceToPush = CreateDropdownRowForLostActionNoEssence(LostAction, encounterNumber, LeftOrRight, dispatch);
+            switch (LostAction.category.EN) {
+                case "Offensive":
+                    dropdownItemsAs2DArray[0].push(nonEssenceToPush);
+                    //DropdownItemsArrayOffensive.push(LostActionToPush);
+                    break;
+                case "Defensive":
+                    dropdownItemsAs2DArray[1].push(nonEssenceToPush);
+                    //DropdownItemsArrayDefensive.push(LostActionToPush);
+                    break;
+                case "Restorative":
+                    dropdownItemsAs2DArray[2].push(nonEssenceToPush);
+                    //DropdownItemsArrayRestorative.push(LostActionToPush);
+                    break;
+                case "Beneficial":
+                    dropdownItemsAs2DArray[3].push(nonEssenceToPush);
+                    //DropdownItemsArrayBeneficial.push(LostActionToPush);
+                    break;
+                case "Tactical":
+                    dropdownItemsAs2DArray[4].push(nonEssenceToPush);
+                    //DropdownItemsArrayTactical.push(LostActionToPush);
+                    break;
+                case "Detrimental":
+                    dropdownItemsAs2DArray[5].push(nonEssenceToPush);
+                    //DropdownItemsArrayDetrimental.push(LostActionToPush);
+                    break;
+                case "Item-Related":
+                    dropdownItemsAs2DArray[6].push(nonEssenceToPush);
+                    //DropdownItemsArrayItemRelated.push(LostActionToPush);
+                    break;
+                default:
+                    break;
+            }
+            //DropdownItemsArray.push(nonEssenceToPush);
         }
     });
-
-    return DropdownItemsArray;
+    const lostActionCategories = ["Offensive", "Defensive", "Restorative", "Beneficial", "Tactical", "Detrimental", "Item-Related"];
+    dropdownItemsAs2DArray.forEach((dropdownItemCategory, index) => {
+        if(dropdownItemCategory.length > 0) {
+            dropdownItemCategory.unshift(CreateDropdownLostActionHeader(lostActionCategories[index]))
+        }
+    })
+    return dropdownItemsAs2DArray;
+    //return DropdownItemsArray;
 }
 
 function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element {
@@ -515,7 +564,7 @@ function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) 
             DropdownItemsArray.push(EssenceToPush);
         }
     });
-
+    DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Essence"));
     return DropdownItemsArray;
 }
 
