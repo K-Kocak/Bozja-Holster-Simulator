@@ -159,13 +159,19 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
 
 const CreateSavedSets = (SetsToLoad : ILostActionSet[]) => {
     const dispatch = useAppDispatch();
+    const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
     const allSavedSets = useAppSelector((state) => state.LostActionSets.Sets);
     const SetsArray : React.JSX.Element[] = [];
     const currentSelectedSavedSets : number[] = useAppSelector((state) => state.SelectedSavedSets.SelectedSets);
     SetsToLoad.forEach((SetToUse) => {
         console.log(currentSelectedSavedSets.includes(SetToUse.id));
-        const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets, currentSelectedSavedSets);
-        SetsArray.push(SetCreation);
+        console.log(SetToUse);
+        console.log(SetToUse.roleTypeOfSet);
+        console.log(currentRoleTypeFilter);
+        if(SetToUse.roleTypeOfSet == currentRoleTypeFilter || currentRoleTypeFilter == "None") {
+            const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets, currentSelectedSavedSets);
+            SetsArray.push(SetCreation);
+        }       
     });
     return (
         <div className="SavedSetsAreaContainer">

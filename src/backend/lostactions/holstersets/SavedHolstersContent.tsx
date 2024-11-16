@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
-import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
+import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets, setTopRoleSort } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 
@@ -94,6 +94,27 @@ function IsCheckResourcesSpentActionIdsValid(ResourcesSpent : ILostActionExpendi
 
 //#endregion
 
+function RotateRoleSort(currentRoleSort : "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged" | "None") : "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged" | "None" {
+    switch (currentRoleSort) {
+        case "None":
+            return "Tank";
+        case "Tank":
+            return "Healer";
+        case "Healer":
+            return "Melee";
+        case "Melee":
+            return "Magical Ranged";
+        case "Magical Ranged":
+            return "Physical Ranged";
+        case "Physical Ranged":
+            return "None";
+        default:
+            console.log("No Such Role or None Exists");
+            break;
+    }
+    return "None";
+}
+
 let isSavedSetTitleSortedByAscending : boolean = false;
 
 const CreateSavedHolsters = () => {
@@ -101,6 +122,7 @@ const CreateSavedHolsters = () => {
     const savedSets = useAppSelector((state) => state.LostActionSets);
     const currentSelectedSets = useAppSelector((state) => state.SelectedSavedSets.SelectedSets)
     const confirmDeleteSavedSetsBox = useAppSelector((state) => state.SelectedSavedSets.isConfirmDeletionOfSavedSets);
+    const currentRoleTypeSort = useAppSelector((state) => state.SelectedSavedSets.currentTopRole);
 
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
     console.log(currentSelectedSets);
@@ -192,7 +214,9 @@ const CreateSavedHolsters = () => {
     function HandleSortSavedSetsByRoleType() {
         // TO-DO: alternate between the 5 roles ?      
         const currentSavedSet = savedSets.Sets;
+        const rotateTopRoleSort = RotateRoleSort(currentRoleTypeSort);
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
+            /*
             if(a.roleTypeOfSet > b.roleTypeOfSet) {
                 return 1;
             }
@@ -200,8 +224,17 @@ const CreateSavedHolsters = () => {
                 return -1;
             }
             return 0;
+            */
+            if(a.roleTypeOfSet == rotateTopRoleSort && b.roleTypeOfSet != rotateTopRoleSort) {
+                return -1;
+            }
+            else if(a.roleTypeOfSet != rotateTopRoleSort && b.roleTypeOfSet == rotateTopRoleSort) {
+                return 1;
+            }
+            return 0;
         });
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
+        dispatch(setTopRoleSort(rotateTopRoleSort));
     }
 
     function HandleClearSelectedSavedSets() {         
