@@ -28,6 +28,7 @@ export const SelectedSavedSetsSlice = createSlice({
             state.isConfirmDeletionOfSavedSets = action.payload;
         },
         setRoleFilter: (state, action: PayloadAction<"None" | "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged">) => {
+            /*
             switch (action.payload) {
                 case "None":
                     state.currentRoleFilter = "Tank";
@@ -51,6 +52,8 @@ export const SelectedSavedSetsSlice = createSlice({
                     console.log("No Such Role or None Exists");
                     break;
             }
+            */
+           state.currentRoleFilter = action.payload;
         },
         resetRoleFilter: (state) => {
             state.currentRoleFilter = "None";

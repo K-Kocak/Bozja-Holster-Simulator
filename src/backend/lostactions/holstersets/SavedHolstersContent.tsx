@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
-import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets, setTopRoleSort } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
+import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets, setRoleFilter, setTopRoleSort } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
 
@@ -123,6 +123,7 @@ const CreateSavedHolsters = () => {
     const currentSelectedSets = useAppSelector((state) => state.SelectedSavedSets.SelectedSets)
     const confirmDeleteSavedSetsBox = useAppSelector((state) => state.SelectedSavedSets.isConfirmDeletionOfSavedSets);
     const currentRoleTypeSort = useAppSelector((state) => state.SelectedSavedSets.currentTopRole);
+    const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
 
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
     console.log(currentSelectedSets);
@@ -237,6 +238,11 @@ const CreateSavedHolsters = () => {
         dispatch(setTopRoleSort(rotateTopRoleSort));
     }
 
+    function HandleRotateRoleFilter() {
+        const rotateRoleFilter = RotateRoleSort(currentRoleTypeFilter);
+        dispatch(setRoleFilter(rotateRoleFilter));
+    }
+
     function HandleClearSelectedSavedSets() {         
         (document.getElementsByName("SavedSetCheckbox") as NodeListOf<HTMLInputElement>).forEach((checkBoxToUncheck) => checkBoxToUncheck.checked = false);
         dispatch(clearSelectedSavedSets());
@@ -303,9 +309,16 @@ const CreateSavedHolsters = () => {
     */
     return (
     <div className="SavedHolstersContainer">
-        <div className="SavedHolstersTitleText">
-            <span>Your Holsters</span>
+        <div className="SavedHolstersTitleTextAndDeleteSavedSets">
+            <div className="SavedHolstersTitleText">
+                <span>Your Holsters</span>
+            </div>
+            
+            <div className="ResetClearSetsDiv">
+                {deleteSavedSetsContent}
+            </div>
         </div>
+        
         <div style={{color: "white"}} className="SavedHolstersUserButtons">
             <div className="SortSetsDiv">
                 <div className="SortSetsDivText">
@@ -318,6 +331,14 @@ const CreateSavedHolsters = () => {
                     <div onClick={HandleSortSavedSetsByRoleType} className="SortSetsByRoleDiv">
                         <span>Role Type</span>
                     </div>
+                </div>
+            </div>
+            <div className="FilterSetsDiv">
+                <div className="FilterSetsDivText">
+                    <span>Filter Sets</span>
+                </div>
+                <div onClick={HandleRotateRoleFilter} className="FilterSetsDivRole">
+                    <span>Test</span>
                 </div>
             </div>
             <div className="ImportExportOptionsForSetsDiv">
@@ -339,9 +360,6 @@ const CreateSavedHolsters = () => {
                 </div>
             </div>
             
-            <div className="ResetClearSetsDiv">
-                {deleteSavedSetsContent}
-            </div>
         </div>
         
         {setsToDisplay}

@@ -12,14 +12,73 @@
     margin: 7px;
     
 
-    .SavedHolstersTitleText {
+    .SavedHolstersTitleTextAndDeleteSavedSets {
         position: relative;
         height: 34px;
         top: -3px;
         padding-left: 12px;
-        font-size: 24px;
-        color: #F9CEA5;
-        text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .SavedHolstersTitleText {
+            width: 50%;
+            font-size: 24px;
+            color: #F9CEA5;
+            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+        }
+
+        
+        .ResetClearSetsDiv {
+            width: 20%;
+            height: 31px;
+            text-align: center;
+            border: 1px solid #E67A6F;
+            border-radius: 5px;
+            line-height: 12px;
+            display: flex;
+            align-items: center;
+            color: #F4F2F2; 
+            text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+            font-size: 14px;
+
+            &:hover{
+                background-color: rgba(190, 25, 37, 0.69);
+            }
+
+            .ResetClearSetsDivConfirmationBox {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .RestClearSetsDivConfirmationBoxReply {
+                    margin-top: 3px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxYes, .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                        border: 1px solid #E67A6F;
+                        border-radius: 8px;
+                    }
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxYes {
+                        padding: 0px 4px;
+
+                        &:hover{
+                            background-color: rgba(190, 25, 37, 1);
+                        }
+                    }
+
+                    .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                        padding: 0px 7px;
+
+                        &:hover{
+                            background-color: #595644;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .SavedHolstersUserButtons {
@@ -76,6 +135,34 @@
             }
         }
 
+        .FilterSetsDiv {
+            display: flex;
+            flex-direction: column;
+    
+            height: 40px;
+            border: 1px solid #A5906F;
+            border-radius: 5px;
+            width: 20%;
+            margin: 0px 4px;
+            .FilterSetsDivText {
+                text-align: center;
+            }
+
+            .FilterSetsDivRole {
+                border: 1px solid #BEAB9D;
+                margin: -3px 3px 0px 3px;
+                height: 17px;                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #595644;
+                }
+            }
+        }
+
         .ImportExportOptionsForSetsDiv {
             display: flex;
             flex-direction: row;
@@ -83,7 +170,6 @@
             justify-content: center;
             border: 1px solid #A5906F;
             height: 40px;
-            margin: 0px 4px;      
             border-radius: 5px;
 
             .ImportExportSetsDiv {
@@ -153,58 +239,6 @@
     
                     &:hover {
                         background-color: #595644;
-                    }
-                }
-            }
-        }
-
-        
-
-        .ResetClearSetsDiv {
-            width: 20%;
-            height: 40px;
-            text-align: center;
-            border: 1px solid #E67A6F;
-            border-radius: 5px;
-            line-height: 16px;
-            display: flex;
-            align-items: center;
-            
-
-            &:hover{
-                background-color: rgba(190, 25, 37, 0.69);
-            }
-
-            .ResetClearSetsDivConfirmationBox {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-
-                .RestClearSetsDivConfirmationBoxReply {
-                    margin-top: 3px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-
-                    .RestClearSetsDivConfirmationBoxReplyBoxYes, .RestClearSetsDivConfirmationBoxReplyBoxNo {
-                        border: 1px solid #E67A6F;
-                        border-radius: 8px;
-                    }
-
-                    .RestClearSetsDivConfirmationBoxReplyBoxYes {
-                        padding: 0px 3px;
-
-                        &:hover{
-                            background-color: rgba(190, 25, 37, 1);
-                        }
-                    }
-
-                    .RestClearSetsDivConfirmationBoxReplyBoxNo {
-                        padding: 0px 7px;
-
-                        &:hover{
-                            background-color: #595644;
-                        }
                     }
                 }
             }
