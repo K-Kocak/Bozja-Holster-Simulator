@@ -9,9 +9,11 @@ import CreateSavedSets from '@backend/lostactions/holstersets/SavedHolstersSetGe
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import IHolsterTimeline, { ILostActionExpenditure, IUserSlottedActions } from '@backend/interfaces/IHolsterTimeline';
+import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import { FFXIVRolePicturesAsObject } from '@backend/lostactions/RolePictureImport';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
-import LostActionsAsObjectArray from '../actiondata/ActionDataToObjectArray';
+
 
 
 
@@ -115,6 +117,24 @@ function RotateRoleSort(currentRoleSort : "Tank" | "Healer" | "Melee" | "Magical
     return "None";
 }
 
+function getAssociatedRoleImageForRole(roleToGetImageOf : string) : string {
+    switch(roleToGetImageOf) {
+        case "None":
+            return "None";
+        case "Healer":
+            return FFXIVRolePicturesAsObject.Healer;
+        case "Tank":
+            return FFXIVRolePicturesAsObject.Tank;
+        case "Melee":
+            return FFXIVRolePicturesAsObject.MeleeDPS;
+        case "Physical Ranged":
+            return FFXIVRolePicturesAsObject.PhysicalRangedDPS;
+        case "Magical Ranged":
+            return FFXIVRolePicturesAsObject.MagicalRangedDPS;
+    }
+    return "None";
+}
+
 let isSavedSetTitleSortedByAscending : boolean = false;
 
 const CreateSavedHolsters = () => {
@@ -124,8 +144,11 @@ const CreateSavedHolsters = () => {
     const confirmDeleteSavedSetsBox = useAppSelector((state) => state.SelectedSavedSets.isConfirmDeletionOfSavedSets);
     const currentRoleTypeSort = useAppSelector((state) => state.SelectedSavedSets.currentTopRole);
     const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
-
+    const roleTypeSortImage : string = getAssociatedRoleImageForRole(currentRoleTypeSort);
+    const roleTypeFilterImage: string = getAssociatedRoleImageForRole(currentRoleTypeFilter);
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
+    const roleTypeSortElement : JSX.Element = currentRoleTypeSort != "None" ? <img style={{height: "23px"}} src={roleTypeSortImage}></img> : <span>None</span>
+    const roleTypeFilterElement : JSX.Element = currentRoleTypeFilter != "None" ? <img style={{height: "23px"}} src={roleTypeFilterImage}></img> : <span>None</span>
     console.log(currentSelectedSets);
 
     SaveSavedSetsToLocalStorage(savedSets);
@@ -329,7 +352,7 @@ const CreateSavedHolsters = () => {
                         <span>Title Name</span>
                     </div>
                     <div onClick={HandleSortSavedSetsByRoleType} className="SortSetsByRoleDiv">
-                        <span>Role Type</span>
+                        {roleTypeSortElement}
                     </div>
                 </div>
             </div>
@@ -338,7 +361,7 @@ const CreateSavedHolsters = () => {
                     <span>Filter Sets</span>
                 </div>
                 <div onClick={HandleRotateRoleFilter} className="FilterSetsDivRole">
-                    <span>Test</span>
+                    {roleTypeFilterElement}
                 </div>
             </div>
             <div className="ImportExportOptionsForSetsDiv">

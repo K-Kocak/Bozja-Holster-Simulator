@@ -146,12 +146,14 @@
             margin: 0px 4px;
             .FilterSetsDivText {
                 text-align: center;
+                height: 20px;
+                margin-top: -3px;
             }
 
             .FilterSetsDivRole {
                 border: 1px solid #BEAB9D;
-                margin: -3px 3px 0px 3px;
-                height: 17px;                
+                margin: 0px 3px 0px 3px;
+                height: 21px;                
                 display: flex;
                 align-items: center;
                 justify-content: center;
