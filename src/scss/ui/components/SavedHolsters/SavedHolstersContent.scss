@@ -116,11 +116,12 @@
                 flex-direction: row;
                 justify-content: space-evenly;
                 padding: 0px 0px;
+                width: 100%;
                 
                 .SortSetsByTitleDiv, .SortSetsByRoleDiv {
                     display: flex;
                     align-items: center;
-                    border: 1px solid #BEAB9D;
+                    
                     height: 70%;
                     padding: 0px 3px;
                     border-radius: 8px;
@@ -131,6 +132,20 @@
                     }
                 }
 
+                .SortSetsByTitleDiv {
+                    border: 1px solid #BEAB9D;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .SortSetsByRoleDiv {
+                    width: 35%;
+                    margin: 0px 3px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
             }
         }

@@ -147,8 +147,8 @@ const CreateSavedHolsters = () => {
     const roleTypeSortImage : string = getAssociatedRoleImageForRole(currentRoleTypeSort);
     const roleTypeFilterImage: string = getAssociatedRoleImageForRole(currentRoleTypeFilter);
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
-    const roleTypeSortElement : JSX.Element = currentRoleTypeSort != "None" ? <img style={{height: "23px"}} src={roleTypeSortImage}></img> : <span>None</span>
-    const roleTypeFilterElement : JSX.Element = currentRoleTypeFilter != "None" ? <img style={{height: "23px"}} src={roleTypeFilterImage}></img> : <span>None</span>
+    const roleTypeSortElement : JSX.Element = currentRoleTypeSort != "None" ? <img style={{height: "23px"}} src={roleTypeSortImage}></img> : <span>No Role</span>
+    const roleTypeFilterElement : JSX.Element = currentRoleTypeFilter != "None" ? <img style={{height: "23px"}} src={roleTypeFilterImage}></img> : <span>No Role</span>
     console.log(currentSelectedSets);
 
     SaveSavedSetsToLocalStorage(savedSets);
