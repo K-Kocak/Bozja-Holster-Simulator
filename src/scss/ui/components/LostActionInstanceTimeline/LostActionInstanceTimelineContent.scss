@@ -76,7 +76,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         }
         
         .LostActionInstanceTimelineTitle {
-            width: 40%;
+            width: 50%;
             height: 50px;
             display: flex;
             justify-content: center;
@@ -88,11 +88,12 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 50%;
+            width: 30%;
             margin: 5px;
+            
             .LostActionInstanceTimelineAddEncounterDiv {
                 height: 100%;
-                width: 50%;
+                width: 70%;
                 display: flex;
                 border: 2px solid #A5906F;
                 align-items: center;
@@ -392,6 +393,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
             display: flex;
             justify-content: center;
             width: 50%;
+            
 
             .LostActionDropdownCategoryHeader {
                 width: 95%;
@@ -407,7 +409,6 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
            
             .LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer {
                 display: flex;
-               
                 justify-content: end;
                 width: 100%;
 
@@ -485,15 +486,18 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     height: 220px;
                     width: 300px;
                     border-radius: 10px;
-                    top: 20px;
-                    position: relative;                                         
-                    background: $dropdownBoxForLostActionsLink;           
+                    top: 5px;
+                    left: 2px;
+                    position: relative;    
+                    background: $dropdownBoxForLostActionsLink;         
 
                     .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {                   
                         margin: 10px;
                         overflow-y: scroll;
-                        height: 92%;
+                        height: 90%;
                         width: 95%;
+                        position: relative;
+                        top: 10px;
                      
                         .DropdownItemLostActionRow {
                             display: flex;

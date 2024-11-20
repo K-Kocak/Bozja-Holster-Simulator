@@ -334,7 +334,7 @@ const ForgottenFragmentData : ForgottenFragmentData = {
         name: "Forgotten Fragment of Tenacity",
         img: ZADFragment,
         descriptionContainsLostAction: [LostActions.Beneficial.LostBubble.id],
-        descriptionLootSources: ["(11.8, 8.0) Critical Engagement - Worn to a Shadow","(16.6, 17.1) - Feeling the Burn", "(17.3, 9.9) - Looks to Die For", "(15.3, 13.0) - Lean, Mean, Magitek Machines"],
+        descriptionLootSources: ["(11.8, 8.0) Critical Engagement - Worn to a Shadow","(16.6, 17.1) Critical Engagement - Feeling the Burn", "(17.3, 9.9) Critical Engagement - Looks to Die For", "(15.3, 13.0) Critical Engagement - Lean, Mean, Magitek Machines"],
         descriptionMapLocation: "Image That points to circles on a map."
     },
 }

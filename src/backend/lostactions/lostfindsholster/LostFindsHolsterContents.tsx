@@ -80,7 +80,13 @@ export const LostFindsHolsterInformation = () => {
     }
 
     function HandleSaveHolsterClick() {
-        dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline]));     
+        if(currentWeight <= 99 && currentWeight > 0) {
+            dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline])); 
+        }
+        else {
+            // logic for user to know their weight isn't 0 < weight of set < 100
+            console.log("Bad Holster Weight");
+        }      
     }
 
     function HandleClearHolsterClick() {

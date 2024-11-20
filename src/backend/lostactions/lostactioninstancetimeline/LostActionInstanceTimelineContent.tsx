@@ -346,7 +346,10 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
     return (
         <div className="LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer">
-            {LostActionDropdownElementRows}
+            <div style={{border: "2px solid #A5906F", width: "304px", height: "235px", borderRadius: "15px"}}className="LostActionInstanceTimelineStateLostActionDropdownBoxElementContainer">
+                {LostActionDropdownElementRows}
+            </div>
+           
             <div className="LostActionInstanceTimelineStateLostActionFunctions">
                 <div onClick={HandleSetAllEssencesToPrepop} className="LostActionInstanceTimelineStateLostActionFunctionSetAllEssence">
                     <span>Set All Essences To Prepop Essence</span>
@@ -629,13 +632,14 @@ const CreateLostActionInstanceTimeline = () => {
                         <span>?</span>
                     </div>
                 </div>
-                <div className="LostActionInstanceTimelineTitle">
-                    <span>Instance Timeline</span>
-                </div>
+                
                 <div className="LostActionInstanceTimelineAddEncounter">
                     <div className="LostActionInstanceTimelineAddEncounterDiv" onClick={HandleAddEncounterClick}>
                         <span>!!  Click to Add Encounter  !!</span>
                     </div>
+                </div>
+                <div className="LostActionInstanceTimelineTitle">
+                    <span>Instance Timeline</span>
                 </div>
             </div>
         </div>
