@@ -1077,7 +1077,7 @@ const LostCureII: IAction = {
     fragment: [5],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Fiendhunter Effect: </span>Grants <span style={{color:"#FFFF66"}}>Refresh</span> to target.{"\n"}<span style={{color:"#00CC22"}}>Refresh Effect: </span>Recover 1000 MP every 3 seconds{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>18s</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Restores target's HP.{"\n"}<span style={{color:"#00CC22"}}>Cure Potency:</span> 21,700{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Savior Effect: </span><span style={{color:"#FFFF66"}}>Regen</span>{"\n"}<span style={{color:"#00CC22"}}>Cure Potency: </span>6,000{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>21s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Fiendhunter Effect: </span>Grants <span style={{color:"#FFFF66"}}>Refresh</span> to target, while inflicting a stack of <span style={{color:"#FFFF66"}}>Slow+</span> to self{"\n"}<span style={{color:"#00CC22"}}>Refresh Effect: </span>Recover 1000 MP every 3 seconds{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>18s{"\n"}<span style={{color:"#00CC22"}}>Slow+ Effect: </span>Weaponskill cast time and recast time, spell cast time and recast time, and auto-attack delay are increased by 1% per stack to a maximum of 16. Effect cannot be nullified.{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>18s</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
@@ -4766,7 +4766,7 @@ const PureEssenceFiendHunter: IAction = {
     fragment: [20],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#FF7B1A"}}>Lost Cure II</span> grants <span style={{color:"#FFFF66"}}>Refresh</span> to target{"\n"}※This action can only be used in Delubrum Reginae.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Increases defense by 60%, damage dealt by 50%, and maximum HP by 81%.{"\n"}Effect ends upon reuse.{"\n"}Cannot be used with other Essence, Deep Essence, or Pure Essence actions.{"\n"}It is said that Pure Essences may grant unexpected effects...{"\n"}<span style={{color:"#00CC22"}}>Unexpected Effect: </span>Using <span style={{color:"#FF7B1A"}}>Lost Cure II</span> grants <span style={{color:"#FFFF66"}}>Refresh</span> to target while inflicting a stack of <span style={{color:"#FFFF66"}}>Slow+</span> to self.{"\n"}※This action can only be used in Delubrum Reginae.</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>
