@@ -234,6 +234,8 @@
             }
         }
 
+        
+
         .LostFindsHolsterMaximumCapacityText {
             width: 49%;
             text-align: right;
@@ -246,6 +248,14 @@
             text-align: right;
             
         }
+    }
+
+    .LostFindsHolsterSetSavedNotification {
+        position: relative;
+        top: -8px;
+        left: 0px;
+        font-size: 15px;
+        display: none;
     }
 }
 

@@ -79,18 +79,40 @@ export const LostFindsHolsterInformation = () => {
         }
     }
 
+    function LostFindsHolsterSetSavedNotificationHide() {
+        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        savedSetNotificationBox.style.display = "none";
+        savedSetNotificationBox.childNodes[0].textContent = "";
+        savedSetNotificationBox.style.color = "";
+    }
+
     function HandleSaveHolsterClick() {
         if(currentWeight <= 99 && currentWeight > 0) {
             dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline])); 
+            const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+            savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
+            savedSetNotificationBox.style.color = "#A5D6A7";
+            savedSetNotificationBox.style.display = "block";
+            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
         }
         else {
             // logic for user to know their weight isn't 0 < weight of set < 100
             console.log("Bad Holster Weight");
-        }      
+            const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+            savedSetNotificationBox.childNodes[0].textContent = "Holster maximum capacity must be between 1 and 99!";
+            savedSetNotificationBox.style.color = "red";
+            savedSetNotificationBox.style.display = "block";
+            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
+        }  
     }
 
     function HandleClearHolsterClick() {
         dispatch(clearHolster());
+        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        savedSetNotificationBox.childNodes[0].textContent = "Holster Cleared.";
+        savedSetNotificationBox.style.color = "white";
+        savedSetNotificationBox.style.display = "block";
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
     }
 
     return <div className="LostFindsHolsterInnerContainer">
@@ -185,6 +207,8 @@ export const LostFindsHolsterInformation = () => {
                 <img onClick={HandleClearHolsterClick} title="Clear the holster." src={ClearHolsterImage}></img>
             </div>
 
+            
+
             <div className="LostFindsHolsterMaximumCapacityText">
                 <span>Maximum Capacity</span>
             </div>
@@ -198,7 +222,12 @@ export const LostFindsHolsterInformation = () => {
             <div className="LostFindsHolsterMaximumCapacity200">
                 <span>/ 200</span>
             </div>  
+
+            
         </div>  
+        <div id="LostFindsHolsterSetSavedNotificationBox" className="LostFindsHolsterSetSavedNotification">
+                <span></span>
+        </div>
     </div>
 </div>
 }
