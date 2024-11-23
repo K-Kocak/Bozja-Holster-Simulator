@@ -14,6 +14,7 @@ import SaveSetImage from '@ui/pictures/BozjaSaveSetImage62x62.png';
 import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/LostFindsHolster/LostFindsHolsterContents.scss';
+import { clearDropdownData } from '../LostActionDropdownDataSlice';
 //import '@css/ui/components/LostActionsDivGen.scss';
 
 const LostFindsHolsterSeparator = AutomateSeparator();
@@ -60,30 +61,48 @@ export const LostFindsHolsterInformation = () => {
     });
 
     function LostFindsHolsterCycleSelectedRole() {
+        let roleToShow : string = "";
         switch (roleTypeOfHolster) {
             case "Tank":
                 dispatch(setSelectedRole("Healer"));
+                roleToShow = "Healer";
                 break;
             case "Healer":
                 dispatch(setSelectedRole("Melee"));
+                roleToShow = "Melee";
                 break;
             case "Melee":
                 dispatch(setSelectedRole("Physical Ranged"));
+                roleToShow = "Physical Ranged";
                 break;
             case "Physical Ranged":
-                dispatch(setSelectedRole("Magical Ranged"));               
+                dispatch(setSelectedRole("Magical Ranged"));
+                roleToShow = "Magical Ranged";               
                 break;
             case "Magical Ranged":
                 dispatch(setSelectedRole("Tank"));
+                roleToShow = "Tank";
                 break;
         }
+        LostFindsHolsterRoleOfSetChangeNotification(roleToShow);
     }
 
-    function LostFindsHolsterSetSavedNotificationHide() {
+    function LostFindsHolsterRoleOfSetChangeNotification(roleToShow : string) {     
+        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;   
+        savedSetNotificationBox.style.display = "block";
+        savedSetNotificationBox.childNodes[0].textContent = roleToShow + " selected.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
+    }
+
+    function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
-        savedSetNotificationBox.style.display = "none";
-        savedSetNotificationBox.childNodes[0].textContent = "";
-        savedSetNotificationBox.style.color = "";
+        if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
+            savedSetNotificationBox.style.display = "none";
+            savedSetNotificationBox.childNodes[0].textContent = "";
+            savedSetNotificationBox.style.color = "";
+        }
+        
     }
 
     function HandleSaveHolsterClick() {
@@ -93,7 +112,7 @@ export const LostFindsHolsterInformation = () => {
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";
             savedSetNotificationBox.style.display = "block";
-            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
+            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
         }
         else {
             // logic for user to know their weight isn't 0 < weight of set < 100
@@ -102,17 +121,18 @@ export const LostFindsHolsterInformation = () => {
             savedSetNotificationBox.childNodes[0].textContent = "Holster maximum capacity must be between 1 and 99!";
             savedSetNotificationBox.style.color = "red";
             savedSetNotificationBox.style.display = "block";
-            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
+            setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
         }  
     }
 
     function HandleClearHolsterClick() {
         dispatch(clearHolster());
+        dispatch(clearDropdownData());
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         savedSetNotificationBox.childNodes[0].textContent = "Holster Cleared.";
         savedSetNotificationBox.style.color = "white";
         savedSetNotificationBox.style.display = "block";
-        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000);
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
     }
 
     return <div className="LostFindsHolsterInnerContainer">
