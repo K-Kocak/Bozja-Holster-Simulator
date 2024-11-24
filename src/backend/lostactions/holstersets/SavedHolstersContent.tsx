@@ -259,11 +259,36 @@ const CreateSavedHolsters = () => {
         });
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
         dispatch(setTopRoleSort(rotateTopRoleSort));
+        SavedHolstersSortSetsByRoleNotification(rotateTopRoleSort);
+    }
+
+    function SavedHolstersSortSetsByRoleNotification(roleToShow : string) {     
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;   
+        savedSetNotificationBox.childNodes[0].textContent = roleToShow + " brought to top.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
+    }
+
+    function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;
+        if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
+            savedSetNotificationBox.childNodes[0].textContent = "";
+            savedSetNotificationBox.style.color = "";
+        }
+        
     }
 
     function HandleRotateRoleFilter() {
         const rotateRoleFilter = RotateRoleSort(currentRoleTypeFilter);
         dispatch(setRoleFilter(rotateRoleFilter));
+        SavedHolstersFilterSetsByRoleNotification(rotateRoleFilter);
+    }
+
+    function SavedHolstersFilterSetsByRoleNotification(roleToShow : string) {     
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;   
+        savedSetNotificationBox.childNodes[0].textContent = "Showing " + roleToShow + " sets only.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
     function HandleClearSelectedSavedSets() {         
@@ -336,7 +361,9 @@ const CreateSavedHolsters = () => {
             <div className="SavedHolstersTitleText">
                 <span>Your Holsters</span>
             </div>
-            
+            <div id="SavedHolstersNotificationBox" className="SavedHolstersNotificationBox">
+                <span></span>
+            </div>
             <div className="ResetClearSetsDiv">
                 {deleteSavedSetsContent}
             </div>
