@@ -155,6 +155,10 @@ const CreateSavedHolsters = () => {
 
     function HandleSaveSavedSetsAsJSON() {
         saveSavedSetsToFile(savedSets);
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "All sets exported.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
     function HandleUploadSavedSets() {
@@ -202,6 +206,10 @@ const CreateSavedHolsters = () => {
                                 })
 
                                 dispatch(addImportedSavedSetsToCurrentSavedSets(validatedParsedSavedSets.Sets));
+                                const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+                                savedSetNotificationBox.childNodes[0].textContent = "Sets imported.";
+                                savedSetNotificationBox.style.color = "white";   
+                                setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
                             }
                         } catch (exception) {
                             if(exception instanceof SyntaxError){
@@ -233,6 +241,10 @@ const CreateSavedHolsters = () => {
             return 0;
         });
         dispatch(deleteSavedSetFromSets(sortedSavedSet));
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "Sets sorted by title.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
     function HandleSortSavedSetsByRoleType() {
@@ -294,6 +306,11 @@ const CreateSavedHolsters = () => {
     function HandleClearSelectedSavedSets() {         
         (document.getElementsByName("SavedSetCheckbox") as NodeListOf<HTMLInputElement>).forEach((checkBoxToUncheck) => checkBoxToUncheck.checked = false);
         dispatch(clearSelectedSavedSets());
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "Cleared selected sets.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
+
     }
 
     function HandleExportSelectedSavedSets() {
@@ -306,6 +323,10 @@ const CreateSavedHolsters = () => {
             }
         });
         saveSavedSetsToFile(savedSetsToExport);
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "Exported selected sets.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
     function HandleDeleteAllSavedSets() {
