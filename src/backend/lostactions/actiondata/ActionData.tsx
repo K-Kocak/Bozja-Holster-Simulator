@@ -190,7 +190,7 @@ const LostSlash: IAction = {
     fragment: [15],
 
     description: {
-        EN: <div style={{whiteSpace: 'pre-line'}}>Increases damage dealt by 30% and critical hit rate by 40%.{"\n"} <span style={{color: "#00CC22"}}>Duration: </span>30s{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Irregular Effect: </span>Damage bonus effect is increased to 40%{"\n"}<span style={{color:"#00CC22"}}>Spirit of the Platebearer Effect: </span>Grants <span style={{color:"#ffff66"}}>Solid Shield</span> to self{"\n"}<span style={{color:"#00CC22"}}>Solid Shield Effect: </span>Reduces physical damage taken by 50%{"\n"}<span style={{color:"#00CC22"}}>Duration: </span>15s{"\n"}Can only be executed while in combat.</div>,
+        EN: <div style={{whiteSpace: 'pre-line'}}>Delivers an attack with a potency of 800 to all enemies in a cone before you. When critical damage is dealt, potency is tripled.{"\n"}This action does not share a recast timer with any other actions. Furthermore, the recast timer cannot be affected by other actions."</div>,
         DE: <div></div>,
         FR: <div></div>,
         JA: <div></div>

@@ -57,18 +57,18 @@
                 flex-direction: column;
                 width: 100%;
 
-                .RestClearSetsDivConfirmationBoxReply {
+                .ResetClearSetsDivConfirmationBoxReply {
                     margin-top: 3px;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
 
-                    .RestClearSetsDivConfirmationBoxReplyBoxYes, .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                    .ResetClearSetsDivConfirmationBoxReplyBoxYes, .ResetClearSetsDivConfirmationBoxReplyBoxNo {
                         border: 1px solid #E67A6F;
                         border-radius: 8px;
                     }
 
-                    .RestClearSetsDivConfirmationBoxReplyBoxYes {
+                    .ResetClearSetsDivConfirmationBoxReplyBoxYes {
                         padding: 0px 4px;
 
                         &:hover{
@@ -76,7 +76,7 @@
                         }
                     }
 
-                    .RestClearSetsDivConfirmationBoxReplyBoxNo {
+                    .ResetClearSetsDivConfirmationBoxReplyBoxNo {
                         padding: 0px 7px;
 
                         &:hover{

@@ -334,6 +334,10 @@ const CreateSavedHolsters = () => {
         ClearSavedSetsDataInLocalStorage();
         clearSelectedSavedSets();
         dispatch(clearAllSavedSets());
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "All saved sets deleted.";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
     function HandleNoDeletionOfAllSavedSets() {
@@ -350,11 +354,11 @@ const CreateSavedHolsters = () => {
             <div className="ResetClearSetsDivConfirmationBoxText">
                 <span>Are you sure ?</span>
             </div>
-            <div className="RestClearSetsDivConfirmationBoxReply">
-                <div onClick={HandleDeleteAllSavedSets} className="RestClearSetsDivConfirmationBoxReplyBoxYes">
+            <div className="ResetClearSetsDivConfirmationBoxReply">
+                <div onClick={HandleDeleteAllSavedSets} className="ResetClearSetsDivConfirmationBoxReplyBoxYes">
                     <span>Yes</span>
                 </div>
-                <div onClick={HandleNoDeletionOfAllSavedSets}className="RestClearSetsDivConfirmationBoxReplyBoxNo">
+                <div onClick={HandleNoDeletionOfAllSavedSets}className="ResetClearSetsDivConfirmationBoxReplyBoxNo">
                     <span>No</span>
                 </div>
             </div>
