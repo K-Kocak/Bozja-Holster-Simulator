@@ -308,6 +308,10 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             }
         });
         dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
+        const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
+        SetAllNotificationBox.childNodes[0].textContent = "'Pull With' essences set to prepop for all encounters.";
+        SetAllNotificationBox.style.color = "white";
+        setTimeout(ClearSetAllNotificationBox, 3000, SetAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
     }
 
     function HandleSetLeftRightActionsToPrepop() {
@@ -317,6 +321,18 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             newHolsterTimelineWithPrepopLeftRightAction.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
         });
         dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopLeftRightAction));
+        const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
+        SetAllNotificationBox.childNodes[0].textContent = "'Pull With' actions set to prepop for all encounters.";
+        SetAllNotificationBox.style.color = "white";
+        setTimeout(ClearSetAllNotificationBox, 3000, SetAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
+    }
+
+    function ClearSetAllNotificationBox(messageToCheck : string, idOfNotificationBox : string) {
+        const SetAllNotificationBox = document.getElementById(idOfNotificationBox) as HTMLElement;
+        if(SetAllNotificationBox.childNodes[0].textContent?.includes(messageToCheck)) {
+            SetAllNotificationBox.childNodes[0].textContent = "";
+            //SetAllNotificationBox.style.color = "";
+        }
     }
 
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
@@ -640,6 +656,9 @@ const CreateLostActionInstanceTimeline = () => {
                 </div>
                 <div className="LostActionInstanceTimelineTitle">
                     <span>Instance Timeline</span>
+                </div>
+                <div id="LostActionInstanceTimelineSetAllNotificationBox" className="LostActionInstanceTimelineSetAllNotificationBox">
+                    <span></span>
                 </div>
             </div>
         </div>

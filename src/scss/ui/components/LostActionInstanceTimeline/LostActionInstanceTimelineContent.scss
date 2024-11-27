@@ -76,12 +76,25 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         }
         
         .LostActionInstanceTimelineTitle {
-            width: 50%;
+            width: 31%;
             height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-left: 11%;
             
+        }
+
+        .LostActionInstanceTimelineSetAllNotificationBox {
+            width: 14%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: -54px;
+            text-wrap: wrap;
+            text-align: center;
+            padding: 0px 10px;
         }
 
         .LostActionInstanceTimelineAddEncounter {
