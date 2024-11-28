@@ -297,8 +297,24 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
         dispatch(clearDropdownData());
     }
 
+    function CheckIfAnyEncounterExists() : boolean {
+        console.log(currentHolsterTimeline);
+        if(currentHolsterTimeline.length == 0) {
+            const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
+            SetAllNotificationBox.childNodes[0].textContent = "No encounters to change.";
+            SetAllNotificationBox.style.color = "white";
+            setTimeout(ClearSetAllNotificationBox, 3000, SetAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
+            return false;
+        }
+        return true;
+    }
+
     function HandleSetAllEssencesToPrepop() {
         const newHolsterTimelineWithPrepopEssence : IEncounter[] = [];
+        if(!CheckIfAnyEncounterExists()) {
+            console.log("hi");
+            return;
+        }
         currentHolsterTimeline.forEach((Encounter) => {
             if(Encounter.PullBossWith.EssenceInUse == prepopEssenceId) {
                 newHolsterTimelineWithPrepopEssence.push(Encounter);
@@ -315,8 +331,10 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     }
 
     function HandleSetLeftRightActionsToPrepop() {
-        console.log("i got called");
         const newHolsterTimelineWithPrepopLeftRightAction : IEncounter[] = [];
+        if(!CheckIfAnyEncounterExists()) {
+            return;
+        }
         currentHolsterTimeline.forEach((Encounter) => {
             newHolsterTimelineWithPrepopLeftRightAction.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
         });
