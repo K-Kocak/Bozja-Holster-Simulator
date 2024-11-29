@@ -201,6 +201,9 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
     height: 40px;
     width: 270px;
    
+    &:hover{
+        background-color: rgba(29, 7, 11, 0.3);
+    }
     
     .DropdownItemLostActionImage {
         display: flex;
