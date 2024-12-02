@@ -380,7 +380,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
     return (
         <div className="LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer">
-            <div style={{border: "2px solid #A5906F", width: "304px", height: "235px", borderRadius: "15px"}}className="LostActionInstanceTimelineStateLostActionDropdownBoxElementContainer">
+            <div style={{border: "2px solid #A5906F", width: "304px", height: "225px", borderRadius: "15px", display : "flex", alignItems : "center", justifyContent : "center", position : "relative", top : "5px"}}className="LostActionInstanceTimelineStateLostActionDropdownBoxElementContainer">
                 {LostActionDropdownElementRows}
             </div>
            

@@ -499,8 +499,8 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     height: 220px;
                     width: 300px;
                     border-radius: 10px;
-                    top: 5px;
-                    left: 2px;
+                    top: 0px;
+                    left: 0px;
                     position: relative;    
                     background: $dropdownBoxForLostActionsLink;         
 
@@ -510,7 +510,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                         height: 90%;
                         width: 95%;
                         position: relative;
-                        top: 10px;
+                     
                      
                         .DropdownItemLostActionRow {
                             display: flex;
