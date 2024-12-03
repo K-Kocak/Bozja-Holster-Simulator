@@ -135,6 +135,11 @@ function getAssociatedRoleImageForRole(roleToGetImageOf : string) : string {
     return "None";
 }
 
+function HandleSavedSetsDisplayHelpBox() {
+    console.log("i was clicked");
+    document.getElementById("SavedSetsHelpBox")?.classList.toggle("hidden");  
+}
+
 let isSavedSetTitleSortedByAscending : boolean = false;
 
 const CreateSavedHolsters = () => {
@@ -386,6 +391,9 @@ const CreateSavedHolsters = () => {
             <div className="SavedHolstersTitleText">
                 <span>Your Holsters</span>
             </div>
+            <div onClick={HandleSavedSetsDisplayHelpBox} className="SavedSetsHelpButton">
+                <span>?</span>
+            </div>
             <div id="SavedHolstersNotificationBox" className="SavedHolstersNotificationBox">
                 <span></span>
             </div>
@@ -438,7 +446,27 @@ const CreateSavedHolsters = () => {
         </div>
         
         {setsToDisplay}
-        
+        <div id="SavedSetsHelpBox" className="SavedSetsHelpBox hidden">
+            <div style={{marginTop: "5px"}}className="LostActionInstanceTimelineHelpBoxTitleAndClose">
+                <div style={{width: "95%", paddingLeft: "5px"}} className="LostActionInstanceTimelineHelpBoxTitle">
+                    <span>How To Use This Timeline</span>
+                </div>
+                <div onClick={HandleSavedSetsDisplayHelpBox} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
+                    <span>X</span>
+                </div>
+            </div>
+            <div className="LostActionInstanceTimelineHelpBoxResources">
+                <div>
+                    Sorting and Filters: Click to sort by the title of the set, ascending or descending. You can also sort by a specific role which puts them at the top. You can also choose to filter by a specific role so that only that role shows up in your saved sets. 
+                </div>
+                <div className="LostActionInstanceTimelineHelpBoxInPull">
+                    Importing and Exporting: You can export all of your saved sets as a JSON file, and share it with other people. You can import and select a JSON file and the sets within the file will be added to your saved sets. You can also choose to only export specific sets with the checkbox with each respective set and share that with other users.
+                </div>
+                <div className="LostActionInstanceTimelineHelpBoxAfterPull">
+                    Sets Information: Every set can either be loaded up, selected (for exporting) or deleted. The title of the set, its prepop actions and essence and the holster itself are all displayed to you. The number in the top right for each set, is the weight of the set, with the role it was made to be played with.
+                </div>
+            </div>
+        </div>
     </div>
     )
 }

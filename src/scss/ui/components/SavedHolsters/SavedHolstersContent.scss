@@ -16,12 +16,28 @@
         position: relative;
         height: 34px;
         top: -3px;
-        padding-left: 12px;
+        padding-left: 4px;
         display: flex;
         flex-direction: row;
 
+        .SavedSetsHelpButton {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #A5906F;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+            top: 7px;
+            &:hover {
+                background-color: #595644;
+            }
+        }
+
         .SavedHolstersTitleText {
-            width: 33%;
+            width: 31%;
             font-size: 24px;
             color: #F9CEA5;
             text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
@@ -268,5 +284,48 @@
                 }
             }
         }
+    }
+
+    .SavedSetsHelpBox {
+        position: relative;
+        top: -410px;
+        width: 455px;
+        height: 410px;
+        border: 2px solid #A5906F;
+        background: rgba(89, 86, 68, 0.9);
+        color: #F4F2F2; 
+        text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
+
+
+        .LostActionInstanceTimelineHelpBoxTitleAndClose {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            height: 25px;
+    
+            .LostActionInstanceTimelineHelpBoxTitle{
+                font-size: 20px;
+                text-decoration: underline;
+            }
+        }
+        .LostActionInstanceTimelineHelpBoxResources {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            margin: 5px;
+            align-items: center;
+            line-height: 1.5;
+           
+            padding: 5px;
+            .LostActionInstanceTimelineHelpBoxInPull {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .hidden {
+        display: none;
     }
 }

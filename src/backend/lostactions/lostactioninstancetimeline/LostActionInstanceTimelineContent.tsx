@@ -404,7 +404,7 @@ function CreateLostActionInstanceTimelineHelpBox() : React.JSX.Element {
     return (
         <div className="LostActionInstanceTimelineHelpBoxContainer">
             <div className="LostActionInstanceTimelineHelpBoxTitleAndClose">
-                <div style={{width: "95%", paddingLeft: "5px"}}className="LostActionInstanceTimelineHelpBoxTitle">
+                <div style={{width: "95%", paddingLeft: "5px"}} className="LostActionInstanceTimelineHelpBoxTitle">
                     <span>How To Use This Timeline</span>
                 </div>
                 <div onClick={HandleLostActionInstanceTimelineHelpDisplay} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
