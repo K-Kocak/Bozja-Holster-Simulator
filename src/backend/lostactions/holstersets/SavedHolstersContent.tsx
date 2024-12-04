@@ -447,23 +447,23 @@ const CreateSavedHolsters = () => {
         
         {setsToDisplay}
         <div id="SavedSetsHelpBox" className="SavedSetsHelpBox hidden">
-            <div style={{marginTop: "5px"}}className="LostActionInstanceTimelineHelpBoxTitleAndClose">
-                <div style={{width: "95%", paddingLeft: "5px"}} className="LostActionInstanceTimelineHelpBoxTitle">
-                    <span>How To Use This Timeline</span>
+            <div style={{marginTop: "5px"}} className="SavedSetsHelpBoxTitleAndClose">
+                <div style={{width: "95%", paddingLeft: "5px"}} className="SavedSetsHelpBoxTitle">
+                    <span>How To Managed Your Saved Holsters</span>
                 </div>
                 <div onClick={HandleSavedSetsDisplayHelpBox} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
                     <span>X</span>
                 </div>
             </div>
-            <div className="LostActionInstanceTimelineHelpBoxResources">
+            <div className="SavedSetsHelpBoxResources">
                 <div>
-                    Sorting and Filters: Click to sort by the title of the set, ascending or descending. You can also sort by a specific role which puts them at the top. You can also choose to filter by a specific role so that only that role shows up in your saved sets. 
+                    Sorting and Filters <br></br> You can sort your sets by title name or by the role it's intended for. You can also display only one role at a time with the filter.
                 </div>
-                <div className="LostActionInstanceTimelineHelpBoxInPull">
-                    Importing and Exporting: You can export all of your saved sets as a JSON file, and share it with other people. You can import and select a JSON file and the sets within the file will be added to your saved sets. You can also choose to only export specific sets with the checkbox with each respective set and share that with other users.
+                <div className="SavedSetsHelpBoxMiddleParagraph">
+                    Importing and Exporting <br></br> Your sets can be exported (as a JSON) for other users to import. You can select (with the checkboxes) which specific sets you wish to export too, rather than all of your sets.
                 </div>
-                <div className="LostActionInstanceTimelineHelpBoxAfterPull">
-                    Sets Information: Every set can either be loaded up, selected (for exporting) or deleted. The title of the set, its prepop actions and essence and the holster itself are all displayed to you. The number in the top right for each set, is the weight of the set, with the role it was made to be played with.
+                <div>
+                    Sets Information <br></br> Every set will show its name, its prepop actions and the actions in the holster, plus the total weight of the set with the role it's intended to be used on. You can load up, select (for export) or delete a set.
                 </div>
             </div>
         </div>
