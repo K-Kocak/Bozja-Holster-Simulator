@@ -65,13 +65,15 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
 
             .LostActionInstanceTimelineHelpBox {
                 position: absolute;
-                top: -244px;
+                top: -242px;
                 left: 0px;
                 width: 465px;
-                height: 240px;
+                height: 235px;
                 // background
                 border: 2px solid #A5906F;
-                background-color: #595644;
+                //background-color: #595644;
+                background: rgba(89, 86, 68, 0.9);
+                border-radius: 15px;
             }
         }
         
@@ -562,14 +564,14 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
     align-items: center;
     justify-content: center;
     margin: 15px;
-
+    
     .LostActionInstanceTimelineHelpBoxTitleAndClose {
         display: flex;
         flex-direction: row;
         width: 100%;
         text-align: center;
         align-items: center;
-        height: 25px;
+        height: 20px;
 
         .LostActionInstanceTimelineHelpBoxTitle{
             font-size: 20px;

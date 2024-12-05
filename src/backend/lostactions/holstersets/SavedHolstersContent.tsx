@@ -449,21 +449,21 @@ const CreateSavedHolsters = () => {
         <div id="SavedSetsHelpBox" className="SavedSetsHelpBox hidden">
             <div style={{marginTop: "5px"}} className="SavedSetsHelpBoxTitleAndClose">
                 <div style={{width: "95%", paddingLeft: "5px"}} className="SavedSetsHelpBoxTitle">
-                    <span>How To Managed Your Saved Holsters</span>
+                    <span>How To Manage Your Saved Holsters</span>
                 </div>
                 <div onClick={HandleSavedSetsDisplayHelpBox} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
-                    <span>X</span>
+                    <span style={{fontSize: "20px"}}>X</span>
                 </div>
             </div>
             <div className="SavedSetsHelpBoxResources">
                 <div>
-                    Sorting and Filters <br></br> You can sort your sets by title name or by the role it's intended for. You can also display only one role at a time with the filter.
+                    <span style={{fontSize: "18px", textDecoration: "underline"}}>Sorting and Filters</span> <br></br> You can sort your sets by title name or by the role it's intended for. You can also display only one role at a time with the filter.
                 </div>
                 <div className="SavedSetsHelpBoxMiddleParagraph">
-                    Importing and Exporting <br></br> Your sets can be exported (as a JSON) for other users to import. You can select (with the checkboxes) which specific sets you wish to export too, rather than all of your sets.
+                    <span style={{fontSize: "18px", textDecoration: "underline"}}>Importing and Exporting</span> <br></br> Your sets can be exported (as a JSON) for other users to import. You can select (with the checkboxes) which specific sets you wish to export too, rather than all of your sets.
                 </div>
                 <div>
-                    Sets Information <br></br> Every set will show its name, its prepop actions and the actions in the holster, plus the total weight of the set with the role it's intended to be used on. You can load up, select (for export) or delete a set.
+                <span style={{fontSize: "18px", textDecoration: "underline"}}>Set Details</span> <br></br> Every set will show its name, its prepop actions and the actions contained in its holster, plus the total weight of the set with the role it's intended to be used on. You can load up, select (for export) or delete a set.
                 </div>
             </div>
         </div>
