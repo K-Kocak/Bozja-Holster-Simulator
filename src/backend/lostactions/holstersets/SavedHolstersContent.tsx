@@ -281,7 +281,7 @@ const CreateSavedHolsters = () => {
 
     function SavedHolstersSortSetsByRoleNotification(roleToShow : string) {     
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;   
-        savedSetNotificationBox.childNodes[0].textContent = roleToShow + " brought to top.";
+        savedSetNotificationBox.childNodes[0].textContent = roleToShow == "None" ? "Sets No Longer Sorted." : roleToShow + " brought to top.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
@@ -302,8 +302,9 @@ const CreateSavedHolsters = () => {
     }
 
     function SavedHolstersFilterSetsByRoleNotification(roleToShow : string) {     
-        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;   
-        savedSetNotificationBox.childNodes[0].textContent = "Showing " + roleToShow + " sets only.";
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+
+        savedSetNotificationBox.childNodes[0].textContent = roleToShow == "None" ? "Showing All Sets." : "Showing " + roleToShow + " sets only.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
@@ -449,7 +450,7 @@ const CreateSavedHolsters = () => {
         <div id="SavedSetsHelpBox" className="SavedSetsHelpBox hidden">
             <div style={{marginTop: "5px"}} className="SavedSetsHelpBoxTitleAndClose">
                 <div style={{width: "95%", paddingLeft: "5px"}} className="SavedSetsHelpBoxTitle">
-                    <span>How To Manage Your Saved Holsters</span>
+                    <span>How To Use Your Saved Holsters</span>
                 </div>
                 <div onClick={HandleSavedSetsDisplayHelpBox} style={{width: "5%"}} className="LostActionInstanceTimelineHelpBoxCloseButton">
                     <span style={{fontSize: "20px"}}>X</span>
@@ -457,7 +458,7 @@ const CreateSavedHolsters = () => {
             </div>
             <div className="SavedSetsHelpBoxResources">
                 <div>
-                    <span style={{fontSize: "18px", textDecoration: "underline"}}>Sorting and Filters</span> <br></br> You can sort your sets by title name or by the role it's intended for. You can also display only one role at a time with the filter.
+                    <span style={{fontSize: "18px", textDecoration: "underline"}}>Sorting and Filters</span> <br></br> You can sort your sets by title name or by role. You can also choose to display only one role at a time with the filter.
                 </div>
                 <div className="SavedSetsHelpBoxMiddleParagraph">
                     <span style={{fontSize: "18px", textDecoration: "underline"}}>Importing and Exporting</span> <br></br> Your sets can be exported (as a JSON) for other users to import. You can select (with the checkboxes) which specific sets you wish to export too, rather than all of your sets.
