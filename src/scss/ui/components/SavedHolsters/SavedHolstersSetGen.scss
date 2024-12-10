@@ -88,7 +88,6 @@
             height: 40px;
             display: flex;
             align-items: center;
-            
             width: 90%;
 
             input {
@@ -98,7 +97,7 @@
                 border-color: #C0C3C0;
                 height: 70%;
                 text-shadow: -1px 0px 3px black, 1px 0px 3px black, 0px 1px 3px black, 0px -1px 3px black;
-                font-size: 16px;
+                font-size: 20px;
                 
                 &:hover {
                     background-color: rgba(192, 195, 192, 0.4);
@@ -193,7 +192,7 @@
             align-items: center;
             color: #F4F2F2; 
             text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
-            font-size: 18px;
+            font-size: 22px;
 
         }
 
