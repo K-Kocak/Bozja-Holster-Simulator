@@ -21,8 +21,8 @@
         flex-direction: row;
 
         .SavedSetsHelpButton {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border: 2px solid #A5906F;
             border-radius: 50%;
             display: flex;
@@ -30,14 +30,16 @@
             align-items: center;
             position: relative;
             color: white;
-            top: 7px;
+            top: 5px;
+            left: 3px;
+            font-size: 18px;
             &:hover {
                 background-color: #595644;
             }
         }
 
         .SavedHolstersTitleText {
-            width: 31%;
+            width: 30%;
             font-size: 24px;
             color: #F9CEA5;
             text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
