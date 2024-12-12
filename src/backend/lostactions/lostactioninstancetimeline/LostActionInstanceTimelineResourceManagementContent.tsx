@@ -112,6 +112,10 @@ function CreateResourceManagementContent() : React.JSX.Element {
 
     console.log(lostActionTimelineResourceDifferenceArray);
 
+    function HandleLostActionInstanceTimelineResourceManagementHelpDisplay() {
+        document.getElementById("LostActionInstanceTimelineResourceManagementHelpBox")?.classList.toggle("hidden");
+    }
+
     return (
         <div className="LostActionInstanceTimelineResourceManagementContentInnerContainer">
             <div className="LostActionInstanceTimelineResourceManagementTitles">
@@ -134,6 +138,27 @@ function CreateResourceManagementContent() : React.JSX.Element {
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero">
                     {lostActionResourcesQuantityLessThanZero}
+                </div>
+            </div>
+            <div className="LostActionInstanceTimelineResourceManagementHelpBoxContainer">
+                <div onClick={HandleLostActionInstanceTimelineResourceManagementHelpDisplay} className="LostActionInstanceTimelineResourceManagementHelpButton">
+                        <span>?</span>
+                </div>
+                <div id="LostActionInstanceTimelineResourceManagementHelpBox" className="LostActionInstanceTimelineResourceManagementHelpBox hidden">
+                    <div style={{marginTop: "5px"}} className="LostActionInstanceTimelineResourceManagementHelpBoxTitleAndClose">
+                        <div style={{width: "95%", paddingLeft: "5px"}} className="LostActionInstanceTimelineResourceManagementHelpBoxTitle">
+                                <span>Resource Management</span>
+                        </div>
+                        <div onClick={HandleLostActionInstanceTimelineResourceManagementHelpDisplay} style={{width: "5%"}} className="LostActionInstanceTimelineResourceManagementHelpBoxCloseButton">
+                                <span style={{fontSize: "20px"}}>X</span>
+                        </div>
+                    </div>
+                    <div className="LostActionInstanceTimelineResourceManagementHelpBoxResources">
+                        <div>
+                             <span>This is a tracker for action spending in your timeline, tracking what lost actions you have yet to spend -- or have spent too much of, in your holster.</span>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
