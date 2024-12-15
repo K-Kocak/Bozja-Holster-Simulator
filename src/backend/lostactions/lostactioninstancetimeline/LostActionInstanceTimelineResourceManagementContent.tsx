@@ -128,7 +128,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
             </div>
             <div className="LostActionInstanceTimelineResourceManagementLostActions">
                 <div className="LostActionInstanceTimelineResourceManagementQuantityText">
-                    <span>Quantity:</span>
+                    <span>Quantity :</span>
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLostActionDivsGreaterThanZero">
                     {lostActionResourceQuantityGreaterThanZero}
