@@ -60,6 +60,7 @@
             height: 33%;
             border: 2px solid #A5906F;
             width: 100%;
+
         }
         .SavedHolstersDeleteHolster {
             display: flex;
@@ -129,12 +130,13 @@
                     text-align: right;
                     width: 0px;
                     height: 0px;
-                    top: -13px;
-                    left: -25px;
-                    font-size: 25px;
-                    text-align: left;
+                    top: -16px;
+                    left: -27px;
+                    font-size: 28px;
+                    text-align: right;
                     color: #FFFFFF;
-                    text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+                    //text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+                    text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
                 }
                 
                 img {

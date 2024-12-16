@@ -128,7 +128,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                     <div onClick={HandleLoadSetToHolsterClick} className="SavedHolstersLoadHolster" title="Load This Set.">
                         <img src={LoadSetImage}></img>
                     </div>
-                    <div  style={styleToUse} className="SavedHolstersCreateLinkForSet" title="Select for Export.">
+                    <div style={styleToUse} className="SavedHolstersCreateLinkForSet" title="Select for Export.">
                         <input type="checkbox" onClick={HandleAddSetAsSelectedSet} name="SavedSetCheckbox" id={checkBoxId}></input>
                     </div>
                     <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster" title="Delete This Set.">
