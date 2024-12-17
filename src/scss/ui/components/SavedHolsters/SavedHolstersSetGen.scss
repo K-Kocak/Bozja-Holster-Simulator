@@ -85,6 +85,7 @@
         width: 81%;
         margin-left: 5px;
         margin-right: 3px;
+
         .SavedHolstersTitle {
             height: 40px;
             display: flex;
@@ -97,7 +98,7 @@
                 color: #F4F2F2; 
                 border-color: #C0C3C0;
                 height: 70%;
-                text-shadow: -1px 0px 3px black, 1px 0px 3px black, 0px 1px 3px black, 0px -1px 3px black;
+                text-shadow: -1px 0px 1px black, 1px 0px 1px black, 0px 1px 1px black, 0px -1px 1px black;
                 font-size: 20px;
                 
                 &:hover {
