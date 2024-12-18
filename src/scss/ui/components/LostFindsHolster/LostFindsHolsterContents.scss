@@ -164,7 +164,8 @@
             position: relative;
             align-items: start;
             justify-content: right;
-            
+            top: -2px;
+            left: 1px;
             img {
                 height: 35px;
                 
@@ -213,7 +214,7 @@
             align-items: end;
             justify-content: end;
             left: -2px;
-            top: 5px;
+            
 
             filter: drop-shadow(0px 0px 2px black);
             img {
@@ -228,7 +229,7 @@
             position: relative;
             justify-content: center;
             filter: drop-shadow(0px 0px 2px black);
-            top: 5px;
+            
             img {
                 height: 25px;
                 border-radius: 100%;
@@ -254,7 +255,7 @@
 
     .LostFindsHolsterSetSavedNotification {
         position: relative;
-        top: -8px;
+        top: -6px;
         left: 0px;
         font-size: 15px;
         display: none;
