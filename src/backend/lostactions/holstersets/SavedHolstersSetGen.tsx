@@ -146,7 +146,12 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
 
                 <div className="SavedHolstersWeightAndTypeOfSet">
                     <div className="SavedHolsterWeightOfSet">
-                        <span>{SavedSet.weightOfSet}</span>
+                        <div className="SavedHolsterWeightOfSetText">
+                            <span>Weight</span>
+                        </div>
+                        <div className="SavedHolsterWeightOfSetValue">
+                            <span>{SavedSet.weightOfSet}</span>
+                        </div>                
                     </div>
                     <div className="SavedHolsterBlankSpace"></div>
                     <div className="SavedHolstersTypeOfSet">

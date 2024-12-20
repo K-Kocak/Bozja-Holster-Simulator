@@ -192,11 +192,17 @@
         .SavedHolsterWeightOfSet {
             height: 33.3%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             color: #F4F2F2; 
             text-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black;
             font-size: 22px;
-
+            .SavedHolsterWeightOfSetText {
+                font-size: 12px;
+            }
+            .SavedHolsterWeightOfSetValue {
+                margin-top: -9px;
+            }
         }
 
         .SavedHolstersTypeOfSet {
