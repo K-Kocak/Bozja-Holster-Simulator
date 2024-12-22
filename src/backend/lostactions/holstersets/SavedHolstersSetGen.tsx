@@ -27,7 +27,9 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
         arrayToReturn.push(
             <div key={LostAction.id} title={FullLostActionInfo.name.EN} className="SavedHolstersActionInSet">
                 <img src={FullLostActionInfo.img}></img>
-                <div className="SavedHolstersActionInSetSpecificQuantity">{LostAction.quantity}</div>
+                <div className="SavedHolstersActionInSetSpecificQuantity">
+                    <span>{LostAction.quantity}</span>
+                </div>
             </div>
         );
     });

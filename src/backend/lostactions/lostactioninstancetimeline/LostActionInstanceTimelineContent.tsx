@@ -247,7 +247,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         <span>In Pull Actions:</span>
                     </div>
                     <div id={index.toString()} onClick={HandleLostActionAddResourceInPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
-                            <span id={index.toString()}>Add Resource</span>
+                            <span id={index.toString()}>Add Action</span>
                     </div>
                 </div>
                 
@@ -264,7 +264,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                         <span>After Pull Actions:</span>
                     </div>
                     <div id={index.toString()} onClick={HandleLostActionAddResourceAfterPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
-                            <span id={index.toString()}>Add Resource</span>
+                            <span id={index.toString()}>Add Action</span>
                     </div>
                 </div>
                 
@@ -457,7 +457,7 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
         DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Holster"))
     }
     else {
-        DropdownItemsArray.push(<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%"}}>Add Some Actions to the holster!</div>)
+        DropdownItemsArray.push(<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
     }
     
     return DropdownItemsArray;
@@ -669,7 +669,7 @@ const CreateLostActionInstanceTimeline = () => {
                 
                 <div className="LostActionInstanceTimelineAddEncounter">
                     <div className="LostActionInstanceTimelineAddEncounterDiv" onClick={HandleAddEncounterClick}>
-                        <span>!!  Click to Add Encounter  !!</span>
+                        <span>Add New Encounter</span>
                     </div>
                 </div>
                 <div className="LostActionInstanceTimelineTitle">

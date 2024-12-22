@@ -120,7 +120,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
         <div className="LostActionInstanceTimelineResourceManagementContentInnerContainer">
             <div className="LostActionInstanceTimelineResourceManagementTitles">
                 <div className="LostActionInstanceTimelineResourceManagementGreaterThanZero">
-                    <span>Resources left to spend in the timeline . . .</span>
+                    <span>Actions left to spend in the timeline . . .</span>
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLessThanZero">
                     <span>&darr; Overspent &darr;</span>
@@ -147,7 +147,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
                 <div id="LostActionInstanceTimelineResourceManagementHelpBox" className="LostActionInstanceTimelineResourceManagementHelpBox hidden">
                     <div style={{marginTop: "5px"}} className="LostActionInstanceTimelineResourceManagementHelpBoxTitleAndClose">
                         <div style={{width: "95%", paddingLeft: "5px"}} className="LostActionInstanceTimelineResourceManagementHelpBoxTitle">
-                                <span>Resource Management</span>
+                                <span>Action Management</span>
                         </div>
                         <div onClick={HandleLostActionInstanceTimelineResourceManagementHelpDisplay} style={{width: "5%"}} className="LostActionInstanceTimelineResourceManagementHelpBoxCloseButton">
                                 <span style={{fontSize: "20px"}}>X</span>
