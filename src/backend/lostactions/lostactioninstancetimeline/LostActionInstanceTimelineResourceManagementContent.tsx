@@ -155,7 +155,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
                     </div>
                     <div className="LostActionInstanceTimelineResourceManagementHelpBoxResources">
                         <div>
-                             <span>This is a tracker for action spending in your timeline, tracking what lost actions you have yet to spend -- or have spent too much of, in your holster.</span>
+                             <span>This is a tracker for the actions in your Lost Finds Holster that you still haven't spent -- or have spent too much of, in the Instance Timeline.</span>
                         </div>
                         
                     </div>
