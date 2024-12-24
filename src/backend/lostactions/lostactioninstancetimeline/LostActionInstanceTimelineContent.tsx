@@ -455,6 +455,7 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
     });
     if(DropdownItemsArray.length > 0) {
         DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Holster"))
+        DropdownItemsArray.push(<div style={{width: "95%"}}>{AutomateSeparator()}</div>)
     }
     else {
         DropdownItemsArray.push(<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
