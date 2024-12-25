@@ -144,7 +144,7 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
         */
     }
     if(dropdownItemsAs2DArray.length > 0) {
-        dropdownItemsAs2DArray[dropdownItemsAs2DArray.length-1].push(<div style={{width: "95%"}}>{AutomateSeparator()}</div>);
+        dropdownItemsAs2DArray[dropdownItemsAs2DArray.length-1].push(<div key={"PrepopActionsDropdownSeparator"} style={{width: "95%"}}>{AutomateSeparator()}</div>);
     }
     return dropdownItemsAs2DArray;
     //return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
