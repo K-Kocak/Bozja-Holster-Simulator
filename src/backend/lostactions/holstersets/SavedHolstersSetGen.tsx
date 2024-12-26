@@ -20,6 +20,16 @@ import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
 
+function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
+    const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+    if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
+        savedSetNotificationBox.style.display = "none";
+        savedSetNotificationBox.childNodes[0].textContent = "";
+        savedSetNotificationBox.style.color = "";
+    }
+    
+}
+
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
     const arrayToReturn : React.JSX.Element[] = [];
     SavedSetOfLostActions.forEach((LostAction) => {
@@ -74,6 +84,11 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     function HandleLoadSetToHolsterClick() {
         console.log(SavedSet);
         console.log(SavedSet.PrepopLostActions);
+        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        savedSetNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
+        savedSetNotificationBox.style.color = "#A5D6A7";
+        savedSetNotificationBox.style.display = "block";
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
         dispatch(clearHolster());
         dispatch(setSelectedRole(SavedSet.roleTypeOfSet));
         dispatch(increaseCurrentWeight(SavedSet.weightOfSet));
