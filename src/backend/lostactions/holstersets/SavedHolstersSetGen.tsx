@@ -27,7 +27,14 @@ function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {
         savedSetNotificationBox.childNodes[0].textContent = "";
         savedSetNotificationBox.style.color = "";
     }
-    
+}
+
+function SavedSetSavedNotificationHide(expectedText : string) {  
+    const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;
+    if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
+        savedSetNotificationBox.childNodes[0].textContent = "";
+        savedSetNotificationBox.style.color = "";
+    }
 }
 
 const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
@@ -84,11 +91,18 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     function HandleLoadSetToHolsterClick() {
         console.log(SavedSet);
         console.log(SavedSet.PrepopLostActions);
-        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
+        LostFindsHolsterSetSavedNotificationBox.style.color = "#A5D6A7";
+        LostFindsHolsterSetSavedNotificationBox.style.display = "block";
+
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
-        savedSetNotificationBox.style.color = "#A5D6A7";
-        savedSetNotificationBox.style.display = "block";
-        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
+        savedSetNotificationBox.style.color = "white";   
+
+        setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
+
         dispatch(clearHolster());
         dispatch(setSelectedRole(SavedSet.roleTypeOfSet));
         dispatch(increaseCurrentWeight(SavedSet.weightOfSet));
@@ -108,7 +122,17 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
     function HandleDeleteSetClick(event : BaseSyntheticEvent) {
         const filteredSavedSets : ILostActionSet[] = allSavedSets.filter((SavedSet) => SavedSet.id != event.target.id);
         dispatch(deleteSavedSetFromSets(filteredSavedSets));
-        
+        const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";
+        LostFindsHolsterSetSavedNotificationBox.style.color = "#A5D6A7";
+        LostFindsHolsterSetSavedNotificationBox.style.display = "block";
+
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "Saved Set Deleted!";
+        savedSetNotificationBox.style.color = "white";   
+
+        setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
     }
 
     function HandleTitleChange(event : BaseSyntheticEvent) {
