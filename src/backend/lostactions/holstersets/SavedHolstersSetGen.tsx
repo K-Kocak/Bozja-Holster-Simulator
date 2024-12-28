@@ -153,8 +153,16 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                 }
             });
             dispatch(newSelectedSavedSets(newSelectedSavedSetsToPlace));
+            const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+            savedSetNotificationBox.childNodes[0].textContent = "Set unselected!";
+            savedSetNotificationBox.style.color = "white";   
+            setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
         }
         else {
+            const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+            savedSetNotificationBox.childNodes[0].textContent = "Set selected!";
+            savedSetNotificationBox.style.color = "white";   
+            setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
             dispatch(addSelectedSavedSet(SavedSet.id));
         }
         (document.getElementById(checkBoxId) as HTMLInputElement).checked;     
