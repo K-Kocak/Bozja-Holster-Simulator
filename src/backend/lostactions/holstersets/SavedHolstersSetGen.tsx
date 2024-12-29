@@ -93,7 +93,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         console.log(SavedSet.PrepopLostActions);
         const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
-        LostFindsHolsterSetSavedNotificationBox.style.color = "#A5D6A7";
+        LostFindsHolsterSetSavedNotificationBox.style.color = "white";
         LostFindsHolsterSetSavedNotificationBox.style.display = "block";
 
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
@@ -124,7 +124,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         dispatch(deleteSavedSetFromSets(filteredSavedSets));
         const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";
-        LostFindsHolsterSetSavedNotificationBox.style.color = "#A5D6A7";
+        LostFindsHolsterSetSavedNotificationBox.style.color = "white";
         LostFindsHolsterSetSavedNotificationBox.style.display = "block";
 
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
