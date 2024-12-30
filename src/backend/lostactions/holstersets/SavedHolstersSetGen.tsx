@@ -124,12 +124,12 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         dispatch(deleteSavedSetFromSets(filteredSavedSets));
         const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";
-        LostFindsHolsterSetSavedNotificationBox.style.color = "white";
+        LostFindsHolsterSetSavedNotificationBox.style.color = "red";
         LostFindsHolsterSetSavedNotificationBox.style.display = "block";
 
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
-        savedSetNotificationBox.childNodes[0].textContent = "Saved Set Deleted!";
-        savedSetNotificationBox.style.color = "white";   
+        savedSetNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";
+        savedSetNotificationBox.style.color = "red";   
 
         setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
