@@ -134,7 +134,7 @@ function CreateResourceManagementContent() : React.JSX.Element {
                     {lostActionResourceQuantityGreaterThanZero}
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementQuantityGap">
-                {AutomateSeparator()}
+                    {AutomateSeparator()}
                 </div>
                 <div className="LostActionInstanceTimelineResourceManagementLostActionDivsLessThanZero">
                     {lostActionResourcesQuantityLessThanZero}

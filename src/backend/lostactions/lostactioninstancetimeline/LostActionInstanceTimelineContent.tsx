@@ -294,6 +294,9 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
 
     function HandleCloseLostActionDropdownWindow() {
+        const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
+        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "none"
+        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "0px";
         dispatch(clearDropdownData());
     }
 
@@ -355,25 +358,29 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
         const encounterNumber = currentDropdownDataToDisplay.EncounterNumber;
+        LostActionDropdownCloseButton = "X";
+        const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
+        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "2px solid #A5906F"
+        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "3px";
         if(currentDropdownDataToDisplay.IsPullWith) {
             
             const LeftOrRightOrEssence = currentDropdownDataToDisplay.LeftOrRightOrEssence;
             console.log(LeftOrRightOrEssence);
             if(LeftOrRightOrEssence == "Essence") {
-                LostActionDropdownCloseButton = "X";
+                //LostActionDropdownCloseButton = "X";
                 LostActionDropdownElementRows = CreateLostActionDropdownElementEssence(encounterNumber, dispatch);
                 
                 
             }
             else if (LeftOrRightOrEssence == "Left" || LeftOrRightOrEssence == "Right") {
-                LostActionDropdownCloseButton = "X";
+                //LostActionDropdownCloseButton = "X";
                 LostActionDropdownElementRows = CreateLostActionDropdownElementNoEssence(encounterNumber, LeftOrRightOrEssence, dispatch);
             }
         }
         else {
             const indexOfLostActionResource = currentDropdownDataToDisplay.IndexOfLostActionResource;
             const isInPull = currentDropdownDataToDisplay.IsInPull;
-            LostActionDropdownCloseButton = "X";
+            //LostActionDropdownCloseButton = "X";
             LostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentActionsInHolster, dispatch);
         }
     }
@@ -391,7 +398,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
                 <div onClick={HandleSetLeftRightActionsToPrepop} className="LostActionInstanceTimelineStateLostActionFunctionSetAllActions">
                     <span>Set All Pull With Actions To Prepop Actions</span>
                 </div>
-                <div onClick={HandleCloseLostActionDropdownWindow} className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
+                <div onClick={HandleCloseLostActionDropdownWindow} id="LostActionInstanceTimelineStateLostActionFunctionCloseWindow" className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
                     <span>{LostActionDropdownCloseButton}</span>
                 </div>
                 
@@ -458,7 +465,7 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
         DropdownItemsArray.push(<div key={"HolsterActionsDropdownSeparator"} style={{width: "95%"}}>{AutomateSeparator()}</div>)
     }
     else {
-        DropdownItemsArray.push(<div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
+        DropdownItemsArray.push(<div key={"EmptyHolsterForActionTimelineMessage"} style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
     }
     
     return DropdownItemsArray;
@@ -653,6 +660,9 @@ const CreateLostActionInstanceTimeline = () => {
             <div className="LostActionInstanceTimelineStateContainer">
                 <div className="LostActionInstanceTimelineStateBossBoxes">
                     {HolsterTimelineBossBoxes}
+                </div>
+                <div className="LostActionInstanceTimelineGap">
+                    {AutomateSeparator()}
                 </div>
                 <div className="LostActionInstanceTimelineStateLostActionDropdownBoxes">
                     {HolsterTimelineDropdownBoxToDisplay}
