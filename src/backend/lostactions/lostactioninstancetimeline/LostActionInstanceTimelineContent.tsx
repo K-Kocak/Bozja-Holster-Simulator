@@ -202,13 +202,13 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
                     <input id={index.toString()} onChange={HandleBossNameChange} name={index.toString()} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" value={Encounter.NameOfBoss}></input>
                 </div>
                 <div className="LostActionInstanceTimelineIndividualEncounterFuntions">
-                    <div onClick={HandleEncounterFunction} id={"Up"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveLeft">
+                    <div onClick={HandleEncounterFunction} id={"Up"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveUp" title="Click to Move Encounter Up">
                         <span id={"Up"}>&uarr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Down"} data-encounterindex={index} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveRight">
+                    <div onClick={HandleEncounterFunction} id={"Down"} data-encounterindex={index} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveDown" title="Click to Move Encounter Down">
                         <span id={"Down"}>&darr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Delete"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter">
+                    <div onClick={HandleEncounterFunction} id={"Delete"} data-encounterindex={index}  className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter" title="Click to Remove Encounter">
                         <span id={"Delete"}>X</span>
                     </div>
                 </div>
