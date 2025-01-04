@@ -43,7 +43,7 @@ const LostFocus: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -94,7 +94,7 @@ const LostFontofMagic: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者"
@@ -145,7 +145,7 @@ const LostFontofPower: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR VPR",
         DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
@@ -197,7 +197,7 @@ const LostSlash: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR VPR",
         DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー"
@@ -249,7 +249,7 @@ const LostDeath: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",    
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -301,7 +301,7 @@ const BannerofNobleEnds: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -353,7 +353,7 @@ const BannerofHonoredSacrifice: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -405,7 +405,7 @@ const BannerofHonedAcuity: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -457,7 +457,7 @@ const LostFairTrade: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -509,7 +509,7 @@ const LostFlareStar: IAction = {
     },
 
     affinity: {
-        EN: "BLM SMN RDM",
+        EN: "BLM SMN RDM PCT",
         DE: "SMA BSW RMA",
         FR: "MNO INV MRG",
         JA: "黒魔道士 召喚士 赤魔道士",
@@ -561,7 +561,7 @@ const LostChainspell: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -614,7 +614,7 @@ const LostAssassination: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR VPR",
         DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
@@ -669,7 +669,7 @@ const LostManawall: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -771,10 +771,10 @@ const BannerofFirmResolve: IAction = {
     },
 
     affinity: {
-       EN: "MNK DRG BRD WHM BLM SMN SCH NIN MCH AST SAM RDM DNC RPR SGE",
-    DE: "MÖN DRG BRD WMA SMA BSW GLT NIN MCH AST SAM RMA TÄN SNT WEI",
-    FR: "MOI DRG BRD MBL MNO INV ÉRU NIN MCH AST SAM MRG DNS FCH SAG",
-    JA: "モンク 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 占星術師 侍 赤魔道士 踊り子 リーパー 賢者",
+        EN: "MNK DRG BRD WHM BLM SMN SCH NIN MCH AST SAM RDM DNC RPR SGE VPR PCT",
+        DE: "MÖN DRG BRD WMA SMA BSW GLT NIN MCH AST SAM RMA TÄN SNT WEI",
+        FR: "MOI DRG BRD MBL MNO INV ÉRU NIN MCH AST SAM MRG DNS FCH SAG",
+        JA: "モンク 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 占星術師 侍 赤魔道士 踊り子 リーパー 賢者",
     },
 
     category: {
@@ -822,7 +822,7 @@ const LostIncense: IAction = {
     },
 
     affinity: {
-       EN: "MNK DRG BRD WHM BLM SMN SCH NIN MCH AST SAM RDM DNC RPR SGE",
+       EN: "MNK DRG BRD WHM BLM SMN SCH NIN MCH AST SAM RDM DNC RPR SGE VPR PCT",
         DE: "MÖN DRG BRD WMA SMA BSW GLT NIN MCH AST SAM RMA TÄN SNT WEI",
         FR: "MOI DRG BRD MBL MNO INV ÉRU NIN MCH AST SAM MRG DNS FCH SAG",
         JA: "モンク 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 占星術師 侍 赤魔道士 踊り子 リーパー 賢者",
@@ -874,7 +874,7 @@ const LostExcellence: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -980,7 +980,7 @@ const BannerofSolemnClarity: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1032,7 +1032,7 @@ const LostCure: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
@@ -1084,7 +1084,7 @@ const LostCureII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー"
@@ -1136,7 +1136,7 @@ const LostCureIII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
@@ -1188,7 +1188,7 @@ const LostCureIV: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー"
@@ -1292,7 +1292,7 @@ const LostSacrifice: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者"
@@ -1344,7 +1344,7 @@ const LostReraise: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1451,7 +1451,7 @@ const LostSpellforge: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1502,7 +1502,7 @@ const LostSteelsting: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1553,7 +1553,7 @@ const LostProtect: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1604,7 +1604,7 @@ const LostShell: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1656,7 +1656,7 @@ const LostReflect: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1708,7 +1708,7 @@ const LostStoneskin: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1760,7 +1760,7 @@ const LostBravery: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1916,7 +1916,7 @@ const LostStoneskinII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -1967,7 +1967,7 @@ const LostProtectII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2018,7 +2018,7 @@ const LostShellII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2069,7 +2069,7 @@ const LostBubble: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2125,7 +2125,7 @@ const LostStealth: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2177,7 +2177,7 @@ const LostSwift: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2229,7 +2229,7 @@ const LostFontofSkill: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2281,7 +2281,7 @@ const Mimic: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2333,7 +2333,7 @@ const LostPerception: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2385,7 +2385,7 @@ const LostImpetus: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2441,7 +2441,7 @@ const LostParalyzeIII: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR VPR",
         DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
@@ -2493,7 +2493,7 @@ const LostBanishIII: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -2546,7 +2546,7 @@ const LostDispel: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2599,7 +2599,7 @@ const LostRendArmor: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG NIN SAM RPR",
+        EN: "MNK DRG NIN SAM RPR VPR",
         DE: "MÖN DRG NIN SAM SNT",
         FR: "MOI DRG NIN SAM FCH",
         JA: "モンク 竜騎士 忍者 侍 リーパー",
@@ -2703,7 +2703,7 @@ const LostBurst: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -2755,7 +2755,7 @@ const LostRampage: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD NIN MCH DRK SAM GNB DNC RPR VPR",
         DE: "PLD MÖN KRG DRG BRD NIN MCH DKR SAM REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD NIN MCH CHN SAM PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 忍者 機工士 暗黒騎士 侍 ガンブレイカー 踊り子 リーパー",
@@ -2809,7 +2809,7 @@ const DynamisDice: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2858,7 +2858,7 @@ const ResistancePhoenix: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2907,7 +2907,7 @@ const ResistanceReraiser: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -2957,7 +2957,7 @@ const ResistancePotionKit: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -3007,7 +3007,7 @@ const ResistanceEtherKit: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -3057,7 +3057,7 @@ const ResistanceMedikit: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -3107,7 +3107,7 @@ const ResistancePotion: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -3352,7 +3352,7 @@ const EssenceSavior: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
@@ -3401,7 +3401,7 @@ const DeepEssenceSavior: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR",
+        EN: "PLD MNK WAR DRG BRD BLM SMN NIN MCH DRK SAM RDM GNB DNC RPR VPR PCT",
         DE: "PLD MÖN KRG DRG BRD SMA BSW NIN MCH DKR SAM RMA REV TÄN SNT",
         FR: "PLD MOI GUE DRG BRD MNO INV NIN MCH CHN SAM MRG PSB DNS FCH",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 暗黒騎士 侍 赤魔道士 ガンブレイカー 踊り子 リーパー",
@@ -3450,7 +3450,7 @@ const EssenceVeteran: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -3499,7 +3499,7 @@ const DeepEssenceVeteran: IAction = {
     },
 
     affinity: {
-        EN: "WHM BLM SMN SCH AST RDM SGE",
+        EN: "WHM BLM SMN SCH AST RDM SGE PCT",
         DE: "WMA SMA BSW GLT AST RMA WEI",
         FR: "MBL MNO INV ÉRU AST MRG SAG",
         JA: "白魔道士 黒魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -3548,7 +3548,7 @@ const EssencePlatebearer: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD NIN MCH SAM DNC RPR",
+        EN: "MNK DRG BRD NIN MCH SAM DNC RPR VPR",
         DE: "MÖN DRG BRD NIN MCH SAM TÄN SNT",
         FR: "MOI DRG BRD NIN MCH SAM DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 忍者 機工士 侍 踊り子 リーパー",
@@ -3597,7 +3597,7 @@ const DeepEssencePlatebearer: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD NIN MCH SAM DNC RPR",
+        EN: "MNK DRG BRD NIN MCH SAM DNC RPR VPR",
         DE: "MÖN DRG BRD NIN MCH SAM TÄN SNT",
         FR: "MOI DRG BRD NIN MCH SAM DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 忍者 機工士 侍 踊り子 リーパー",
@@ -3744,7 +3744,7 @@ const EssenceOrdained: IAction = {
     },
 
     affinity: {
-        EN: "WHM SMN SCH AST RDM SGE",
+        EN: "WHM SMN SCH AST RDM SGE PCT",
         DE: "WMA BSW GLT AST RMA WEI",
         FR: "MBL INV ÉRU AST MRG SAG",
         JA: "白魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -3793,7 +3793,7 @@ const DeepEssenceOrdained: IAction = {
     },
 
     affinity: {
-        EN: "WHM SMN SCH AST RDM SGE",
+        EN: "WHM SMN SCH AST RDM SGE PCT",
         DE: "WMA BSW GLT AST RMA WEI",
         FR: "MBL INV ÉRU AST MRG SAG",
         JA: "白魔道士 召喚士 学者 占星術師 赤魔道士 賢者",
@@ -3842,7 +3842,7 @@ const EssenceSkirmisher: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -3891,7 +3891,7 @@ const DeepEssenceSkirmisher: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -3940,7 +3940,7 @@ const EssenceWatcher: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -3989,7 +3989,7 @@ const DeepEssenceWatcher: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -4234,7 +4234,7 @@ const EssenceBreathtaker: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -4283,7 +4283,7 @@ const DeepEssenceBreathtaker: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -4430,7 +4430,7 @@ const EssenceBeast: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -4479,7 +4479,7 @@ const DeepEssenceBeast: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -4626,7 +4626,7 @@ const PureEssenceGambler: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR",
+        EN: "MNK DRG BRD BLM SMN NIN MCH SAM RDM DNC RPR VPR PCT",
         DE: "MÖN DRG BRD SMA BSW NIN MCH SAM RMA TÄN SNT",
         FR: "MOI DRG BRD MNO INV NIN MCH SAM MRG DNS FCH",
         JA: "モンク 竜騎士 吟遊詩人 黒魔道士 召喚士 忍者 機工士 侍 赤魔道士 踊り子 リーパー",
@@ -4675,7 +4675,7 @@ const PureEssenceElder: IAction = {
     },
 
     affinity: {
-        EN: "BLM SMN RDM",
+        EN: "BLM SMN RDM PCT",
         DE: "SMA BSW RMA",
         FR: "MNO INV MRG",
         JA: "黒魔道士 召喚士 赤魔道士",
@@ -4724,7 +4724,7 @@ const PureEssenceDuelist: IAction = {
     },
 
     affinity: {
-        EN: "MNK DRG NIN SAM RPR",
+        EN: "MNK DRG NIN SAM RPR VPR",
         DE: "MÖN DRG NIN SAM SNT",
         FR: "MOI DRG NIN SAM FCH",
         JA: "モンク 竜騎士 忍者 侍 リーパー",
@@ -4921,7 +4921,7 @@ const Lodestone: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -4971,7 +4971,7 @@ const LightCurtain: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",
@@ -5020,7 +5020,7 @@ const ResistanceElixir: IAction = {
     },
 
     affinity: {
-        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE",
+        EN: "PLD MNK WAR DRG BRD WHM BLM SMN SCH NIN MCH DRK AST SAM RDM GNB DNC RPR SGE VPR PCT",
         DE: "PLD MÖN KRG DRG BRD WMA SMA BSW GLT NIN MCH DKR AST SAM RMA REV TÄN SNT WEI",
         FR: "PLD MOI GUE DRG BRD MBL MNO INV ÉRU NIN MCH CHN AST SAM MRG PSB DNS FCH SAG",
         JA: "ナイト モンク 戦士 竜騎士 吟遊詩人 白魔道士 黒魔道士 召喚士 学者 忍者 機工士 暗黒騎士 占星術師 侍 赤魔道士 ガンブレイカー 踊り子 リーパー 賢者",

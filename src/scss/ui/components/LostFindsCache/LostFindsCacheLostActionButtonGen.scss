@@ -10,16 +10,12 @@
         position: relative;
         display: flex;
         flex-wrap: wrap;
-        float: left;
-        margin: 0px;
-        padding: 0px;
+        float: left;    
         width: 100%;
-        margin-bottom: 9px;
+        margin-bottom: 15px;
 
-        .LostCacheLostActionButton {
-            margin: 0px;
-            padding: 0px 1px;
-            margin-bottom: 6px;
+        .LostCacheLostActionButton {      
+            padding: 0px 1px;         
             height: 49px;
 
             .LostActionButtonImage {
@@ -31,8 +27,6 @@
             .LostActionButtonWeight {
                 pointer-events: none;
                 position: relative;
-                text-align: right;
-                width: 20px;
                 top: -44px;
                 left: 3px;
                 font-size: 21px;
@@ -58,31 +52,28 @@
     .LostActionItemRelated {
         margin-top: 3px;
 
-         .LostCacheLostActionButton {         
-             margin-bottom: 0px;
-             margin-left: 3px;
-             margin-right: 3px;
+         .LostCacheLostActionButton {  
+            margin-bottom: 0px;
+            margin-left: 3px;
+            margin-right: 3px;
 
-             .LostActionButtonImage {
-                 height: 41px;
-                 width: 40px;
-                 box-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black;
-             }
-
-             .LostActionButtonWeight {
-                pointer-events: none;
-                position: relative;       
-                width: 20px;
-                top: -38px;
-                left: 2px;
-                font-size: 21px;
-                text-align: left;
-                color: #FFFFFF;
-                text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
-
-
+            .LostActionButtonImage {
+                height: 41px;
+                width: 40px;
+                box-shadow: -1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black;
             }
-         }       
+
+            .LostActionButtonWeight {
+            pointer-events: none;
+            position: relative;       
+            top: -38px;
+            left: 2px;
+            font-size: 21px;
+            text-align: left;
+            color: #FFFFFF;
+            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
+            }
+        }       
      }
 }
 

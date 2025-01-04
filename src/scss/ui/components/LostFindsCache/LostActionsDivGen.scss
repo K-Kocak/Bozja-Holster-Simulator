@@ -210,15 +210,13 @@
         }
 
         .LostActionSectionFive {
-
             .LostActionForgottenFragment {
                 display: flex;
                 flex-direction: row;
                 margin: 6px 0px;
                 align-items: center;
                 position: relative;
-                height: 100%;
-                width: 100%;
+                
                 .LostActionForgottenFragmentImg {
                     width: 25%;
                     display: flex;
@@ -278,8 +276,7 @@
 
         .LostActionSeparatorSegmentCenterUpper {                   
             background-color: #242424;                  
-        }
-        
+        }       
         
         .LostActionSeparatorSegmentCenterMiddle {
             background-color: #444344;
