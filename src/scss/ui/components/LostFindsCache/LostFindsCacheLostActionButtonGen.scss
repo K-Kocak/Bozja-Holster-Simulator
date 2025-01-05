@@ -9,8 +9,7 @@
     .LostActionOffensive, .LostActionDefensive, .LostActionRestorative, .LostActionBeneficial, .LostActionTactical, .LostActionDetrimental, .LostActionItemRelated {
         position: relative;
         display: flex;
-        flex-wrap: wrap;
-        float: left;    
+        flex-wrap: wrap; 
         width: 100%;
         margin-bottom: 15px;
 
@@ -53,9 +52,7 @@
         margin-top: 3px;
 
          .LostCacheLostActionButton {  
-            margin-bottom: 0px;
-            margin-left: 3px;
-            margin-right: 3px;
+            margin: 0px 3px;
 
             .LostActionButtonImage {
                 height: 41px;

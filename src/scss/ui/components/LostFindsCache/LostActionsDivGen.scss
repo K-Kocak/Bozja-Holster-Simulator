@@ -5,36 +5,25 @@
     background-color: #464646;
     border-radius: 8px;
     width: 380px;
-    margin: 0px;
-    padding: 0px;
     box-shadow: 0px 0px 4px black;
     border: 1px solid black;
     color: #F4F2F2; 
     
     // the inner div for the action, needed so that our information inside our box can be moved around
-    .LostActionInnerDetailedInfoBox {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 5px;
+    .LostActionInnerDetailedInfoBox {      
         border-radius: 8px;
-        margin-top: 10px;
+        margin: 10px 10px 5px 10px;
 
         // section one is the top of our div, where we have the image, action name, action type, range and radius displaying
         .LostActionSectionOne {
             display: flex;
             flex-direction: row;
-            align-items: start;
             height: 50px;
-            margin: 0px;
             margin-bottom: 6px;
-            padding: 0px;
 
             // targets the div the image sits inside of
             .LostActionImage {               
                 width: 50px;
-                padding: 0px;
-                margin: 0px;
-                
                 // targets images inside this div, aka our lost action
                 img {
                     height: 50px;
@@ -47,28 +36,21 @@
             .LostActionNameTypeRangeRadius {              
                 display: flex;
                 flex-direction: column;
-                width: 100%;     
-                justify-content: center;     
+                width: 100%;         
                 height: 100%;
-                
+
                 // name is 1st div of inner div
                 .LostActionName {                  
                     height: 60%;
-                    width: 100%;
                     display: flex;
                     align-items: center;
                     margin-left: -1px;
 
                     .ActionName {
-                        padding: 0px;
                         padding-left: 9px;
-                        margin: 0px;
-                        font-size: 18px;
-                        
-                    }
-                    
+                        font-size: 18px;                
+                    }               
                 }
-
                 // this is 2nd div or inner div, split in 2
                 // 1 is for type, 2nd is for range/radius
                 .LostActionTypeRangeRadius {                   
@@ -81,7 +63,6 @@
                         width: 50%;
 
                         .ActionType {
-                            margin: 0px;
                             color: #b7b2a1;
                             padding-left: 8px;
                         }             
@@ -108,7 +89,6 @@
                 }
             }
         }
-       
         // section two is the cast/recast/available part of our div
         .LostActionSectionTwo {
             display: flex;
@@ -118,7 +98,6 @@
             height: 40px;
             margin-bottom: 5px;
             margin-right: 2px;
-
             
             // alignment of the 3 divs
             .LostActionCastInfo {
@@ -141,9 +120,7 @@
                 background-color: #656565;
                 position: relative;
                 border-radius: 35px;
-                top: -5px;          
-                padding: 0px;
-                margin: 0px;
+                top: -5px;                       
             }
             
             // aligning francy graphics
@@ -163,8 +140,7 @@
             }
             
             // aligning text/title name
-            .LostActionCastRecastAvailableText {
-                margin: 1px 0px;           
+            .LostActionCastRecastAvailableText {                         
                 color: #b7b2a1;
             }
         
@@ -182,7 +158,6 @@
                 padding-top: 6px;
             }          
         }     
-
         // description of the lost action, its HTML code has been made already in ActionData.tsx
         .LostActionSectionThree {
             margin-bottom: 5px;
@@ -191,12 +166,12 @@
             margin-top: 7px;   
               
         }
-
         // affinity and jobs, the jobs are what jobs are able to use this lost action
         .LostActionSectionFour {
             display: flex;
             flex-direction: row;
             padding-left: 2px;
+
             .LostActionAffinity {
                 width: 25%;
                 color: #b7b2a1;
@@ -208,7 +183,7 @@
                 font-size: 16px;
             }
         }
-
+        // forgotten fragment section
         .LostActionSectionFive {
             .LostActionForgottenFragment {
                 display: flex;
@@ -236,7 +211,6 @@
         }
     }
 }
-
 // the fancy graphic line separating section two and three
 .LostActionSeparatorSegment {
     display: flex;
