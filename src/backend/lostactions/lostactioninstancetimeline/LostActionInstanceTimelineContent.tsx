@@ -30,6 +30,12 @@ const GenerateNewBossInTimeline : IEncounter = {
     LostActionsSpentAfterPull: []
 }
 
+function LostActionInstanceTimelineDropdownCloseButtonReset() {
+    const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
+    LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "none"
+    LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "0px";
+}
+
 function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch : any) : React.JSX.Element[] {
 
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);  
@@ -108,7 +114,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
     function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
         console.log(event);
         dispatch(clearDropdownData());
-        
+        LostActionInstanceTimelineDropdownCloseButtonReset()
 
         const isInPull : string = event.target.dataset.isinpull;
 
@@ -294,9 +300,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     let LostActionDropdownElementRows : React.JSX.Element = <></>;
 
     function HandleCloseLostActionDropdownWindow() {
-        const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
-        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "none"
-        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "0px";
+        LostActionInstanceTimelineDropdownCloseButtonReset()
         dispatch(clearDropdownData());
     }
 
@@ -477,6 +481,7 @@ function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumbe
         const idOfLostAction = event.target.id;
         console.log(isInPull);
         dispatch(setHolsterTimelineEncounterLostActionSpent([encounterNumber, indexOfLostAction, idOfLostAction, isInPull]));
+        LostActionInstanceTimelineDropdownCloseButtonReset()
         dispatch(clearDropdownData());
     }
 
@@ -569,6 +574,7 @@ function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounter
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfLostAction = event.target.id;
         dispatch(setHolsterTimelineEncounterPullBossWith([encounterNumber, idOfLostAction, LeftOrRight]));
+        LostActionInstanceTimelineDropdownCloseButtonReset()
         dispatch(clearDropdownData());
     }
 
@@ -618,6 +624,7 @@ function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNu
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfEssence = event.target.id;
         dispatch(setHolsterTimelineEncounterPullBossWith([encounterNumber, idOfEssence, "Essence"]));
+        LostActionInstanceTimelineDropdownCloseButtonReset()
         dispatch(clearDropdownData());
     }
 

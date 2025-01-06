@@ -336,72 +336,16 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                                     justify-content: start;
                                     align-items: left;
                                     width: 100%;
+
                                     .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText {
                                         width: 30px;
                                         font-size: 12px;
-                                        padding-left: 3px;
-                                       
+                                        padding-left: 3px;  
                                         text-align: center;
                                     }
                                 }
                             }
-                        }
-    
-                        
-                    }
-                }
-
-                .LostActionPullBossWithAndNameOfBoss {
-                    display: flex;
-                    flex-direction: column;
-                    width: 40%;
-                    height: 100%;
-                    .LostActionNameOfBoss {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-bottom: 10px;
-                        height: 20%;
-                        .LostActionNameOfBossInputField {        
-                            width: 100%;
-                            background-color: transparent;
-                            border: transparent;
-    
-                            &:focus {
-                                outline: none;
-                            }
-                            
-                    
-                        }
-                    }
-    
-                    .LostActionPullBossWith {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        height: 80%;
-    
-                        .LostActionPullBossWithLeftAction {
-                            width: 33.3%;
-                            display: flex;
-                            
-                            align-items: center;
-                            justify-content: center;
-    
-                            .LostActionPullBossWithLeftActionImage {
-                                display: flex;
-                                
-                                align-items: center;
-                                justify-content: center;
-    
-                                img {
-                                    height: 40px;
-                                }
-                            }
-                           
-                        }
-                       
+                        }                     
                     }
                 }
             }
@@ -410,8 +354,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         .LostActionInstanceTimelineStateLostActionDropdownBoxes {
             display: flex;
             justify-content: center;
-            width: 50%;
-            
+            width: 50%;         
 
             .LostActionDropdownCategoryHeader {
                 width: 95%;
@@ -435,15 +378,11 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     position: relative;
                     width: 13px;
                     height: 30px;
-                }
-                
-            
+                }         
                 ::-webkit-scrollbar-track {
                     background: white;
                     
-                }
-                
-             
+                }                        
                 ::-webkit-scrollbar-thumb {
                     background: #888;
                     
@@ -461,7 +400,6 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                         top: -100px;
                         left: -67px;
                         font-size: 20px;
-
                         &:hover {
                             background-color: #595644;
                         }
@@ -470,35 +408,26 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                         }
                     }
 
-                    .LostActionInstanceTimelineStateLostActionFunctionSetAllEssence {                   
+                    .LostActionInstanceTimelineStateLostActionFunctionSetAllEssence, .LostActionInstanceTimelineStateLostActionFunctionSetAllActions {
                         position: relative;
                         text-align: center;
                         border: 2px solid #A5906F;
                         border-radius: 5px;
-                        height: 50px;
                         display: flex;
-                        align-items: center;                     
-                        top: 50px;
-                        
+                        align-items: center; 
                         &:hover {
                             background-color: #595644;
                         }
                     }
 
+                    .LostActionInstanceTimelineStateLostActionFunctionSetAllEssence {                   
+                        height: 50px;                    
+                        top: 50px;                    
+                    }
+
                     .LostActionInstanceTimelineStateLostActionFunctionSetAllActions {
-                        position: relative;
-                        text-align: center;
-                        border: 2px solid #A5906F;
-                        border-radius: 5px;
-                        height: 60px;
-                        display: flex;
-                        align-items: center;   
-                                     
-                        top: 60px;
-                        
-                        &:hover {
-                            background-color: #595644;
-                        }
+                        height: 60px;        
+                        top: 60px;                     
                     }
                 }
 
@@ -506,37 +435,29 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     height: 220px;
                     width: 300px;
                     border-radius: 10px;
-                    top: 0px;
-                    left: 0px;
                     position: relative;    
-                    background: $dropdownBoxForLostActionsLink;         
+                    background: $dropdownBoxForLostActionsLink;   
 
                     .LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer {                   
                         margin: 10px;
                         overflow-y: scroll;
                         height: 90%;
                         width: 95%;
-                        position: relative;
-                     
+                        position: relative;                  
                      
                         .DropdownItemLostActionRow {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
                             height: 40px;
-                            width: 270px;
-
                             &:hover{
                                 background-color: rgba(29, 7, 11, 0.3);
                             }
 
                             .DropdownItemLostActionImage {
                                 display: flex;
-                                align-items: center;
-                                justify-content: center;
                                 pointer-events: none;
-                                margin-right: 5px;
-                                margin-left: 5px;
+                             
                                 img {
                                     height: 30px;
                                 }
@@ -549,12 +470,9 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                             }
                         }
                     }
-                }
-               
+                } 
             }
         }
-
-        
     }
 }
 
@@ -566,8 +484,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
 .LostActionInstanceTimelineHelpBoxContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center;  
     margin: 15px;
     
     .LostActionInstanceTimelineHelpBoxTitleAndClose {
@@ -575,14 +492,13 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
         flex-direction: row;
         width: 100%;
         text-align: center;
-        align-items: center;
-        height: 20px;
-
+       
         .LostActionInstanceTimelineHelpBoxTitle{
             font-size: 20px;
             text-decoration: underline;
         }
     }
+
     .LostActionInstanceTimelineHelpBoxResources {
         display: flex;
         flex-direction: column;
