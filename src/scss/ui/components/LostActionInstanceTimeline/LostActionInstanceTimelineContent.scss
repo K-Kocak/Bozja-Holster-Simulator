@@ -197,38 +197,27 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     }
     
                     .LostActionInstanceTimelineIndividualEncounterPullWithLostActionsContainer {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: start;
-                        align-items: center;
+                        display: flex;           
                         width: 65%;
-                        .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithEssence {
-                            display: flex;                
-                            align-items: center;
-                            justify-content: center;
+
+                        .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithEssence {                
                             margin-right: 30px;
     
                             .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithLeftEssenceImage {
-                                display: flex;
+                                display: flex;  
                                 
-                                align-items: center;
-                                justify-content: center;
-    
                                 img {
                                     pointer-events: none;
                                     height: 40px;
                                 }
-                            }
-                            
-                        }
-                        
+                            }                    
+                        }   
                     }
                 }
     
                 .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullSection {
                     display: flex;
-                    flex-direction: row;
-                    
+                    flex-direction: row;   
                     min-height: 76px;
     
                     .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullTextAndAddLostActionButton {
@@ -241,8 +230,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                         .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullText {
                             display: flex;
                             align-items: center;
-                            justify-content: center;
-                               
+                            justify-content: center;                       
                         }
     
                         .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton {
@@ -255,73 +243,45 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                             margin-top: 3px;
                             width: 65%;
                             height: 40%;
-
                             &:hover {
                                 background-color: #595644;
                             }
                         }
                     }
-    
-                    
-    
-                    .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsContainer {
-                       
-                        display: flex;
-                        flex-direction: row;
-                        height: auto;
+
+                    .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsContainer {                   
+                        display: flex;                    
                         overflow-y: scroll;
     
                         .LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsArray {
-                            
-                            
                             display: flex;
                             flex-direction: row;
                             align-items: center;
-                            justify-content: start;
-    
-                            .LostActionInstanceTimelineIndividualEncounterInPullLostActionResource {
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: space-around;
-                                
+                            
+                            .LostActionInstanceTimelineIndividualEncounterInPullLostActionResource {                                                
                                 margin-right: 10px;
     
-                                .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown {
-                                   
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-    
+                                .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown {                                 
+
                                     .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction, .LostActionInstanceTimelineIndividualEncounterPullWithEssence {
                                         display: flex;                
                                         align-items: center;
-                                        justify-content: center;
-                
+                                        
                                         .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionImage, .LostActionInstanceTimelineIndividualEncounterPullWithLeftEssenceImage {
-                                            display: flex;
-                                            
+                                            display: flex;                                      
                                             align-items: center;
-                                            justify-content: center;
-                
+                                            
                                             img {
                                                 pointer-events: none;
                                                 height: 40px;
                                             }
                                         }
     
-                                        .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton {
-                                            display: flex;
-                                            flex-direction: column;
-                                            height: 100%;
-                                            justify-content: space-between;
-                                            align-items: stretch;
+                                        .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton { 
     
-                                            .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton {
-                                                height: 50%;
+                                            .LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton {                                          
                                                 margin-bottom: 12px;
-                                                text-align: center;
-                                                
+
                                                 .RemoveResourceButton {
                                                     pointer-events: none;
                                                 }
@@ -330,11 +290,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                                     }
                                 }
     
-                                .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse {
-                                    height: 25%;
-                                    display: flex;
-                                    justify-content: start;
-                                    align-items: left;
+                                .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse {                               
                                     width: 100%;
 
                                     .LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText {
@@ -365,8 +321,7 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                     text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
                     font-size: 21px;
                 }
-            }
-            
+            }      
            
             .LostActionInstanceTimelineStateLostActionDropdownBoxesInnerContainer {
                 display: flex;
@@ -376,16 +331,14 @@ $dropdownBoxForLostActionsLink: url('../../../../ui/pictures/BozjaFragmentWindow
                 ::-webkit-scrollbar {
                     display: flex;
                     position: relative;
-                    width: 13px;
+                    width: 8px;
                     height: 30px;
                 }         
                 ::-webkit-scrollbar-track {
-                    background: white;
-                    
+                    background: white;              
                 }                        
                 ::-webkit-scrollbar-thumb {
                     background: #888;
-                    
                 }
 
                 .LostActionInstanceTimelineStateLostActionFunctions {
