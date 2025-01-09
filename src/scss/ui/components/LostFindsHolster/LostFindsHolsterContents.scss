@@ -17,17 +17,12 @@
         width: 8px;
         height: 30px;
     }
-    
-    
     ::-webkit-scrollbar-track {
         background: white;
         
     }
-    
-    
     ::-webkit-scrollbar-thumb {
-        background: #888;
-        
+        background: #888; 
     }
 }
 
@@ -36,9 +31,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
     margin-top: -4px;
-
-    
-    
 }
 
 .LostFindsHolsterActionCategoryOffensive, .LostFindsHolsterActionCategoryDefensive, .LostFindsHolsterActionCategoryRestorative, .LostFindsHolsterActionCategoryBeneficial, .LostFindsHolsterActionCategoryTactical, .LostFindsHolsterActionCategoryDetrimental, .LostFindsHolsterActionCategoryItemRelated {
@@ -74,9 +66,6 @@
     align-items: center;
     padding-left: 1px;
     height: 36px;
-    
-    
-
     &:hover {
         .LostFindsHolsterActionBoxName {
             background-color: #1D070B;
@@ -94,7 +83,6 @@
         }
     }
 
-
     .LostFindsHolsterActionBoxNameAndQuantity {
         display: flex;
         flex-direction: row;
@@ -102,10 +90,7 @@
         align-items: center;
         width: 100%;
         pointer-events: none;
-        overflow: visible;
 
-        
-    
         .hidden {
             visibility: hidden;
         }
@@ -132,15 +117,12 @@
             text-align: right;
             top: 10px;
             width: 20px;
-            
+
             span {
                 text-shadow: -1px 0px 6px black, 1px 0px 6px black, 0px 1px 6px black, 0px -2px 4px black;
             }
         }
     }
-
-    
-    
 }
 
 .LostFindsHolsterWeightAndCapacityBox {
@@ -154,15 +136,12 @@
 
     .LostFindsHolsterSelectedActionWeight {
         display: flex;
-        flex-direction: row;
-        width: 100%;
         height: 50%;
 
         .LostFindsHolsterRoleSelection {
             width: 15%;
             display: flex;
             position: relative;
-            align-items: start;
             justify-content: right;
             top: -2px;
             left: 1px;
@@ -194,8 +173,7 @@
     .LostFindsHolsterMaximumCapacity {
         display: flex;
         flex-direction: row;
-        height: 50%;
-        width: 100%;
+        height: 50%;      
         align-items: center;
         margin-top: 6px;
 
@@ -203,8 +181,7 @@
             width: auto;
             padding-left: 5px;
             color: #F9CEA5;
-            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C;
-            
+            text-shadow: -1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C; 
         }
 
         .LostFindsHolsterSaveHolster {
@@ -213,8 +190,7 @@
             position: relative;
             align-items: end;
             justify-content: end;
-            left: -2px;
-            
+            left: -2px; 
 
             filter: drop-shadow(0px 0px 2px black);
             img {
@@ -232,12 +208,9 @@
             
             img {
                 height: 25px;
-                border-radius: 100%;
-                
+                border-radius: 100%;    
             }
         }
-
-        
 
         .LostFindsHolsterMaximumCapacityText {
             width: 49%;
@@ -248,8 +221,7 @@
 
         .LostFindsHolsterMaximumCapacityNumber {
             width: 10%;
-            text-align: right;
-            
+            text-align: right;       
         }
     }
 
@@ -262,8 +234,7 @@
     }
 }
 
-// temporarily code to make editing the css easier
-// keep only code that changes properties
+/*
 .LostActionSeparatorSegment {
     display: flex;
     justify-content: center;
@@ -294,10 +265,7 @@
         justify-content: center;
         width: 98%;
         
-        .LostActionSeparatorSegmentCenterUpper, .LostActionSeparatorSegmentCenterMiddle, .LostActionSeparatorSegmentCenterLower {
-            height: 1px;
-            width: 100%; 
-        }
+        
 
         .LostActionSeparatorSegmentCenterUpper {                   
             background-color: #242424;                  
@@ -312,5 +280,5 @@
             background-color: #6A6A6A;
         }
     }
-}
-
+} css that does nothing but kept just incase
+*/
