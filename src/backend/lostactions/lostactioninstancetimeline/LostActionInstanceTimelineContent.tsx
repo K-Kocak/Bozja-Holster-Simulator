@@ -36,8 +36,9 @@ function LostActionInstanceTimelineDropdownCloseButtonReset() {
     LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "0px";
 }
 
-function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispatch : any) : React.JSX.Element[] {
-
+function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[]) : React.JSX.Element[] {
+    const dispatch = useAppDispatch();
+    console.log("desired hook called");
     const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);  
 
     function HandleBossNameChange(event : BaseSyntheticEvent) {
@@ -140,7 +141,7 @@ function CreateHolsterTimelineBossBoxes(ArrayOfEncounters : IEncounter[], dispat
 
     console.log("CreateHolsterTimelineBossBoxes");
     const ArrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
-    ArrayOfEncounters.forEach((Encounter, index) => {
+    currentStateOfAllEncounters.forEach((Encounter, index) => {
         // track the index of lost action spent, make 2 new functions ??
         const LostActionResourcesSpentInPullArray : React.JSX.Element[] = [];
         Encounter.LostActionsSpentInPull.forEach((LostActionSpent, indexOfLostActionSpent) => {
@@ -642,37 +643,34 @@ function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNu
 
 //#endregion
 
+//#region Creation of Lost Action Instance Timeline
 const CreateLostActionInstanceTimeline = () => {
     const dispatch = useAppDispatch();
-    const currentStateOfAllEncounters = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
 
-    const prepopEssenceId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
-    const prepopLeftActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionLeft);
-    const prepopRightActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
+    const currentLostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
-    const HolsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentStateOfAllEncounters, dispatch);
-    const HolsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
+    const holsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentLostFindsHolster.HolsterTimeline.Encounters);
+    const holsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 
     function HandleAddEncounterClick() {
-        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: prepopEssenceId}};
+        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: currentLostFindsHolster.PrepopHolster.LostActionLeft, LostActionRight: currentLostFindsHolster.PrepopHolster.LostActionRight, EssenceInUse: currentLostFindsHolster.PrepopHolster.EssenceInUse}};
 
         dispatch(createNewHolsterTimelineEncounter(EncounterToPush));
      
     }
 
-    console.log(currentStateOfAllEncounters);
     return (
         <div className="LostActionInstanceTimelineInnerContainer">
            
             <div className="LostActionInstanceTimelineStateContainer">
                 <div className="LostActionInstanceTimelineStateBossBoxes">
-                    {HolsterTimelineBossBoxes}
+                    {holsterTimelineBossBoxes}
                 </div>
                 <div className="LostActionInstanceTimelineGap">
                     {AutomateSeparator()}
                 </div>
                 <div className="LostActionInstanceTimelineStateLostActionDropdownBoxes">
-                    {HolsterTimelineDropdownBoxToDisplay}
+                    {holsterTimelineDropdownBoxToDisplay}
                 </div>
             </div>
             <div className="LostActionInstanceTimelineTitleAndAddEncounter">
@@ -700,5 +698,5 @@ const CreateLostActionInstanceTimeline = () => {
         </div>
     )
 }
-
+//#endregion
 export default CreateLostActionInstanceTimeline;
