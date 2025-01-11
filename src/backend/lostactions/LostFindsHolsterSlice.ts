@@ -155,10 +155,8 @@ export const LostFindsHolsterSlice = createSlice({
             
         },
         
-        setHolsterTimelineEncounterTitleChange: (state, action: PayloadAction<[number, string]>) => {
-            const encounterNumber = action.payload[0];
-            const newTitle = action.payload[1];
-            state.HolsterTimeline.Encounters[encounterNumber].NameOfBoss = newTitle;
+        setHolsterTimelineEncounterTitleChange: (state, action: PayloadAction<{ encounterNumber: number, newNameOfBoss: string}>) => {
+            state.HolsterTimeline.Encounters[action.payload.encounterNumber].NameOfBoss = action.payload.newNameOfBoss;
         },
 
         setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<[number, number, number, boolean]>) => {
