@@ -114,7 +114,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
             dispatch(addActionToHolster(LostActionInSavedSet.id));
             dispatch(setActionQuantity([LostActionInSavedSet.id, LostActionInSavedSet.quantity]));
         });
-        dispatch(loadHolsterTimelineEncounters(SavedSet.HolsterTimeline.Encounters));
+        dispatch(loadHolsterTimelineEncounters({encountersToLoad: SavedSet.HolsterTimeline.Encounters}));
         
 
     }

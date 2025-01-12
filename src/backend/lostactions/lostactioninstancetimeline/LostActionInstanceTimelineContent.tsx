@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimelineContent.scss';
 import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
-import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, loadHolsterTimelineEncounters, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime, setHolsterTimelineEncounterLostActionsSpentInOrAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange } from '@backend/lostactions/LostFindsHolsterSlice';
+import { createNewHolsterTimelineEncounter, createNewHolsterTimelineLostActionSpentAfterPull, createNewHolsterTimelineLostActionSpentInPull, editHolsterTimelineEncounter, loadHolsterTimelineEncounters, setHolsterTimelineEncounterLostActionSpent, setHolsterTimelineEncounterLostActionSpentTime, setHolsterTimelineEncounterLostActionsSpentInOrAfterPull, setHolsterTimelineEncounterPullBossWith, setHolsterTimelineEncounterTitleChange } from '@backend/lostactions/LostFindsHolsterSlice';
 
 import { IEncounter, ILostActionExpenditure } from '@app/backend/interfaces/IHolsterTimeline';
 
@@ -38,7 +38,6 @@ function LostActionInstanceTimelineDropdownCloseButtonReset() {
 
 function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : React.JSX.Element[] {
     const dispatch = useAppDispatch();
-    console.log("desired hook called");
 
     function HandleBossNameChange(event : BaseSyntheticEvent) {
         console.log("BossNameChange");
@@ -47,61 +46,41 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
 
     function HandleLostActionAddResourceInPull(event : BaseSyntheticEvent) {
         console.log("HandleLostActionAddResourceInPull");
-        dispatch(createNewHolsterTimelineLostActionSpentInPull(event.target.id));
+        dispatch(createNewHolsterTimelineLostActionSpentInPull({encounterNumber: event.target.id}));
     }
 
     function HandleLostActionAddResourceAfterPull(event : BaseSyntheticEvent) {
-        dispatch(createNewHolsterTimelineLostActionSpentAfterPull(event.target.id));
+        dispatch(createNewHolsterTimelineLostActionSpentAfterPull({encounterNumber: event.target.id}));
     }
 
-    function HandleEncounterFunction(event : BaseSyntheticEvent) {
-        const encounterIndexPressed : number = event.target.dataset.encounterindex;
-        const lengthOfAllEncounters = arrayOfEncounters.length;
-        console.log(encounterIndexPressed);
-        const NewEncounterArray : IEncounter[] = [];
-        if(event.target.id == 'Up') {
-            if(encounterIndexPressed != 0) {
-                arrayOfEncounters.forEach((Encounter, index) => {
-                    if(encounterIndexPressed - 1 == index) {
-                        NewEncounterArray.push(arrayOfEncounters[index+1]);
-                    }
-                    else if(encounterIndexPressed == index) {
-                        NewEncounterArray.push(arrayOfEncounters[index-1]);
-                    }
-                    else {
-                        NewEncounterArray.push(Encounter);
-                    }
-                })
-                dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
+    //
+    function HandleEncounterFunctionPress(event : BaseSyntheticEvent) {
+        const encounterNumberOfFunction: number = event.target.dataset.encounternumber;
+        const typeOfFunctionPressed: string = event.target.id;
+        const copyOfEncounterPressed = arrayOfEncounters[encounterNumberOfFunction];
+
+        if(typeOfFunctionPressed == 'Up') {
+            if(encounterNumberOfFunction > 0) {
+                dispatch(editHolsterTimelineEncounter({encounter: arrayOfEncounters[Number(encounterNumberOfFunction) - 1], positionToPlace: encounterNumberOfFunction}));
+                dispatch(editHolsterTimelineEncounter({encounter: copyOfEncounterPressed, positionToPlace: Number(encounterNumberOfFunction) - 1}))
             }
         }
-        else if(event.target.id == "Down") {  
-            if(encounterIndexPressed != lengthOfAllEncounters-1) {
-                arrayOfEncounters.forEach((Encounter, index) => { 
-                    // this doesn't work if i do indexPressed + 1 == index for some reason, no clue why.
-                    if(encounterIndexPressed == index - 1) {
-                        NewEncounterArray.push(arrayOfEncounters[index-1]);
-                    }
-                    else if(encounterIndexPressed == index) {
-                        NewEncounterArray.push(arrayOfEncounters[index+1]);
-                    }
-                    else {
-                        NewEncounterArray.push(Encounter);
-                    }
-                })
-                console.log(NewEncounterArray);
-                dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
+        else if(typeOfFunctionPressed == "Down") {  
+            if(encounterNumberOfFunction < arrayOfEncounters.length - 1) {
+                dispatch(editHolsterTimelineEncounter({encounter: arrayOfEncounters[Number(encounterNumberOfFunction) + 1], positionToPlace: encounterNumberOfFunction}));      
+                dispatch(editHolsterTimelineEncounter({encounter: copyOfEncounterPressed, positionToPlace: Number(encounterNumberOfFunction) + 1}))
             }
         }
-        else if(event.target.id == "Delete") {
-            arrayOfEncounters.forEach((Encounter, index) => {
-                if(index != encounterIndexPressed) {
-                    NewEncounterArray.push(Encounter);
+        else if(typeOfFunctionPressed == "Delete") {
+            const newEncounterOrder: IEncounter[] = [];
+
+            arrayOfEncounters.forEach((encounter, encounterNumber) => {
+                if(encounterNumber != encounterNumberOfFunction) {
+                    newEncounterOrder.push(encounter);
                 }
             });
-            dispatch(loadHolsterTimelineEncounters(NewEncounterArray));
-        }
-        
+            dispatch(loadHolsterTimelineEncounters({encountersToLoad: newEncounterOrder}));
+        }  
     }
 
     function HandleTimeOfUseUpdate(event : BaseSyntheticEvent) {
@@ -206,13 +185,13 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                     <input id={encounterPosition.toString()} onChange={HandleBossNameChange} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" value={Encounter.NameOfBoss}></input>
                 </div>
                 <div className="LostActionInstanceTimelineIndividualEncounterFuntions">
-                    <div onClick={HandleEncounterFunction} id={"Up"} data-encounterindex={encounterPosition}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveUp" title="Click to Move Encounter Up">
+                    <div onClick={HandleEncounterFunctionPress} id={"Up"} data-encounternumber={encounterPosition}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveUp" title="Click to Move Encounter Up">
                         <span id={"Up"}>&uarr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Down"} data-encounterindex={encounterPosition} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveDown" title="Click to Move Encounter Down">
+                    <div onClick={HandleEncounterFunctionPress} id={"Down"} data-encounternumber={encounterPosition} className="LostActionInstanceTimelineIndividualEncounterFunctionMoveDown" title="Click to Move Encounter Down">
                         <span id={"Down"}>&darr;</span>
                     </div>
-                    <div onClick={HandleEncounterFunction} id={"Delete"} data-encounterindex={encounterPosition}  className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter" title="Click to Remove Encounter">
+                    <div onClick={HandleEncounterFunctionPress} id={"Delete"} data-encounternumber={encounterPosition}  className="LostActionInstanceTimelineIndividualEncounterFunctionDeleteEncounter" title="Click to Remove Encounter">
                         <span id={"Delete"}>X</span>
                     </div>
                 </div>
@@ -250,7 +229,7 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                     <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullText">
                         <span>In Pull Actions:</span>
                     </div>
-                    <div id={encounterPosition.toString()} onClick={HandleLostActionAddResourceInPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
+                    <div onClick={HandleLostActionAddResourceInPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
                             <span id={encounterPosition.toString()}>Add Action</span>
                     </div>
                 </div>
@@ -328,7 +307,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
                 newHolsterTimelineWithPrepopEssence.push({...Encounter, PullBossWith: {LostActionLeft: Encounter.PullBossWith.LostActionLeft, LostActionRight: Encounter.PullBossWith.LostActionRight, EssenceInUse: prepopEssenceId}})
             }
         });
-        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopEssence));
+        dispatch(loadHolsterTimelineEncounters({encountersToLoad: newHolsterTimelineWithPrepopEssence}));
         const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
         SetAllNotificationBox.childNodes[0].textContent = "'Pull With' essences set to prepop for all encounters.";
         SetAllNotificationBox.style.color = "white";
@@ -343,7 +322,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
         currentHolsterTimeline.forEach((Encounter) => {
             newHolsterTimelineWithPrepopLeftRightAction.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
         });
-        dispatch(loadHolsterTimelineEncounters(newHolsterTimelineWithPrepopLeftRightAction));
+        dispatch(loadHolsterTimelineEncounters({encountersToLoad: newHolsterTimelineWithPrepopLeftRightAction}));
         const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
         SetAllNotificationBox.childNodes[0].textContent = "'Pull With' actions set to prepop for all encounters.";
         SetAllNotificationBox.style.color = "white";
