@@ -15,14 +15,12 @@ export const LostActionDropdownDataForUseSlice = createSlice({
     name: 'LostActionDropdownDataForUse',
     initialState,
     reducers: {
+        /**
+         * Resets the dropdown data encounter to -1. As no encounter can have -1 as a number, this prevents any dropdown box from displaying.
+         * @param state, the current state
+         */
         clearDropdownData: (state) => {
             state.EncounterNumber = -1;
-            /*
-            state.IsPullWith = true;
-            state.LeftOrRightOrEssence = "None";
-            state.IndexOfLostActionResource = -1;
-            state.IsInPull = false;
-            */
         },
 
         setDropdownDataPullWith: (state, action: PayloadAction<[number, string]>) => {

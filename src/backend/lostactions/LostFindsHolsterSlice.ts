@@ -179,18 +179,22 @@ export const LostFindsHolsterSlice = createSlice({
             }
         },
 
-        setHolsterTimelineEncounterLostActionSpentTime: (state, action: PayloadAction<[number, number, string, boolean]>) => {
-            const encounterNumber = action.payload[0];
-            const lostActionPositionInArrayOfSpentResources = action.payload[1];
-            const newTimeOfUseForLostAction = action.payload[2];
-            const isInPull = action.payload[3].toString();
-            if(isInPull == 'true') {
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
+        /**
+         * Sets a new string value for the time of use of a lost action
+         * @param state, the current state
+         * @param encounterNumber, the encounter which the lost action is located in
+         * @param lostActionPositionInEncounter, the position of the lost action within the encounter's 'In Pull' or 'After Pull'
+         * @param newTimeOfLostActionSpent, the new time to set
+         * @param isInPull, whether the action is 'In Pull' or 'After Pull'.  
+         */
+        setHolsterTimelineEncounterLostActionSpentTime: (state, action: PayloadAction<{encounterNumber: number, lostActionPositionInEncounter: number, newTimeOfLostActionSpent: string, isInPull: string}>) => {
+            if(action.payload.isInPull == 'true') {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentInPull[action.payload.lostActionPositionInEncounter].LostActionTimeOfUse = action.payload.newTimeOfLostActionSpent;
                 
             }
-            else if (isInPull == 'false') {
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionTimeOfUse = newTimeOfUseForLostAction;
-            }
+            else if (action.payload.isInPull == 'false') {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentAfterPull[action.payload.lostActionPositionInEncounter].LostActionTimeOfUse = action.payload.newTimeOfLostActionSpent;
+            }           
         },
 
         setHolsterTimelineEncounterLostActionsSpentInOrAfterPull: (state, action: PayloadAction<[number, ILostActionExpenditure[], boolean]>) => {

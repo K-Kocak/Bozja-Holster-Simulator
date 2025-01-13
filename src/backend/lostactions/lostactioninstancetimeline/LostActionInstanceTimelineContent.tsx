@@ -30,30 +30,49 @@ const GenerateNewBossInTimeline : IEncounter = {
     LostActionsSpentAfterPull: []
 }
 
+
+/**
+ * Resets some css properties of the dropdown close button for the lost action timeline
+ */
 function LostActionInstanceTimelineDropdownCloseButtonReset() {
-    const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
-    LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "none"
-    LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "0px";
+    const lostActionInstanceTimelineDropdownCloseButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
+    lostActionInstanceTimelineDropdownCloseButton.style.border = "none"
+    lostActionInstanceTimelineDropdownCloseButton.style.padding = "0px";
 }
 
 function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : React.JSX.Element[] {
     const dispatch = useAppDispatch();
 
+    /**
+     * Changes the name of the boss to what was inputted
+     * @param event, the new title of the boss to set and the encounter number
+     */
     function HandleBossNameChange(event : BaseSyntheticEvent) {
         console.log("BossNameChange");
         dispatch(setHolsterTimelineEncounterTitleChange({encounterNumber: event.target.id, newNameOfBoss: event.target.value}));
     }
 
+    /**
+     * Adds a new resource (IN PULL) to spend for the encounter that was pressed
+     * @param event, the encounter number of the add resource button that was pressed
+     */
     function HandleLostActionAddResourceInPull(event : BaseSyntheticEvent) {
         console.log("HandleLostActionAddResourceInPull");
         dispatch(createNewHolsterTimelineLostActionSpentInPull({encounterNumber: event.target.id}));
     }
 
+    /**
+     * Adds a new resource (AFTER PULL) to spend for the encounter that was pressed
+     * @param event, the encounter number of the add resource button that was pressed
+     */
     function HandleLostActionAddResourceAfterPull(event : BaseSyntheticEvent) {
         dispatch(createNewHolsterTimelineLostActionSpentAfterPull({encounterNumber: event.target.id}));
     }
 
-    //
+    /**
+     * Moves an encounter up, down, or deletes it, depending on what button was pressed
+     * @param event, the function button that was pressed
+     */
     function HandleEncounterFunctionPress(event : BaseSyntheticEvent) {
         const encounterNumberOfFunction: number = event.target.dataset.encounternumber;
         const typeOfFunctionPressed: string = event.target.id;
@@ -83,9 +102,12 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
         }  
     }
 
+    /**
+     * Sets the new time for a lost action in state
+     * @param event, the lost action time that was edited, containing its encounter number, the lost action position, the new time to set and whether the lost action is 'In Pull' or 'After Pull
+     */
     function HandleTimeOfUseUpdate(event : BaseSyntheticEvent) {
-  
-        dispatch(setHolsterTimelineEncounterLostActionSpentTime([event.target.dataset.encounternumber, event.target.dataset.lostactionresourceposition, event.target.value, event.target.dataset.isinpull]))
+        dispatch(setHolsterTimelineEncounterLostActionSpentTime({encounterNumber: event.target.dataset.encounternumber, lostActionPositionInEncounter: event.target.dataset.lostactionresourceposition, newTimeOfLostActionSpent: event.target.value, isInPull: event.target.dataset.isinpull}))
     }
 
     function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
