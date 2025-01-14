@@ -197,21 +197,21 @@ export const LostFindsHolsterSlice = createSlice({
             }           
         },
 
-        setHolsterTimelineEncounterLostActionsSpentInOrAfterPull: (state, action: PayloadAction<[number, ILostActionExpenditure[], boolean]>) => {
-            const encounterNumber = action.payload[0];
-            const newLostActionsToSet = action.payload[1];
-            const isInPull = action.payload[2].toString();
-
-            if(isInPull == 'true') {
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull = newLostActionsToSet;
+        /**
+         * Sets new set of lost actions spent for an encounter, at 'In Pull' or 'After Pull'
+         * @param state, the current state
+         * @param encounterNumber, the encounter which the to set new lost actions spent
+         * @param lostActionsSpentInOrAfterPullForEncounter, the actions to be set
+         * @param isInPull, whether to set actions 'In Pull' or 'After Pull'
+         */
+        setHolsterTimelineEncounterLostActionsSpentInOrAfterPull: (state, action: PayloadAction<{encounterNumber: number, lostActionsSpentInOrAfterPullForEncounter: ILostActionExpenditure[], isInPull: string}>) => {
+            if(action.payload.isInPull == 'true') {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentInPull = action.payload.lostActionsSpentInOrAfterPullForEncounter;
             }
-            else if (isInPull == 'false') {
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull = newLostActionsToSet;
+            else if (action.payload.isInPull == 'false') {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentAfterPull = action.payload.lostActionsSpentInOrAfterPullForEncounter;
             }
         }
-
-
-
     },
 })
 

@@ -110,31 +110,46 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
         dispatch(setHolsterTimelineEncounterLostActionSpentTime({encounterNumber: event.target.dataset.encounternumber, lostActionPositionInEncounter: event.target.dataset.lostactionresourceposition, newTimeOfLostActionSpent: event.target.value, isInPull: event.target.dataset.isinpull}))
     }
 
+    /**
+     * Removes the selected lost action from spent lost actions in an encounter
+     * @param event, the lost action that will be removed from spent lost actions at an encounter encounternumber, with position lostactionresourceposition, in the 'In Pull' or 'After Pull' area.
+     */
     function HandleLostActionRemoveResource(event : BaseSyntheticEvent) {
         console.log(event);
         dispatch(clearDropdownData());
         LostActionInstanceTimelineDropdownCloseButtonReset()
 
-        const isInPull : string = event.target.dataset.isinpull;
+        const isInPull: string = event.target.dataset.isinpull;
+        const encounterNumber: number = Number(event.target.dataset.encounternumber);
+        const lostActionSpentClicked: number = Number(event.target.dataset.lostactionresourceposition);
 
-        const currentLostActionsSpentInOrAfterPullForEncounter : ILostActionExpenditure[] = isInPull == 'true' ? arrayOfEncounters[event.target.dataset.encounternumber].LostActionsSpentInPull : arrayOfEncounters[event.target.dataset.encounternumber].LostActionsSpentAfterPull;
+        const lostActionsSpentInOrAfterPullForEncounter : ILostActionExpenditure[] = isInPull == 'true' ? arrayOfEncounters[encounterNumber].LostActionsSpentInPull : arrayOfEncounters[encounterNumber].LostActionsSpentAfterPull;
 
         const newLostActionsSpentInOrAfterPullForEncounter : ILostActionExpenditure[] = [];
-        currentLostActionsSpentInOrAfterPullForEncounter.forEach((LostActionSpent, indexTest) => {
-            if(event.target.dataset.lostactionresourceposition != indexTest) {              
-                newLostActionsSpentInOrAfterPullForEncounter.push(LostActionSpent);
+
+        lostActionsSpentInOrAfterPullForEncounter.forEach((lostActionSpent, lostActionPosition) => {
+            if(lostActionSpentClicked != lostActionPosition) {              
+                newLostActionsSpentInOrAfterPullForEncounter.push(lostActionSpent);
             }
         });
-        dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull([event.target.dataset.encounternumber, newLostActionsSpentInOrAfterPullForEncounter, event.target.dataset.isinpull]));
 
+        dispatch(setHolsterTimelineEncounterLostActionsSpentInOrAfterPull({encounterNumber: encounterNumber, lostActionsSpentInOrAfterPullForEncounter: newLostActionsSpentInOrAfterPullForEncounter, isInPull: isInPull}))
     }
 
+    /**
+     * Sets state such that the dropdown displayed comes from Pull With
+     * @param event, containing the encounter number and the type of lost action that was clicked. ('Left', 'Right', 'Essence')
+     */
     function HandleLostActionPullWithClicked(event : BaseSyntheticEvent) {
-        dispatch(setDropdownDataPullWith([event.target.dataset.encounternumber, event.target.dataset.leftorrightoressence]))
+        dispatch(setDropdownDataPullWith({encounterNumber: event.target.dataset.encounternumber, actionTypeLeftOrRightOrEssence: event.target.dataset.leftorrightoressence}));
     }
 
+    /**
+     * Sets state such that the dropdown displayed comes from 'In Pull' or 'Pull With'
+     * @param event, containing the encounter number, position of the lost action and whether it is 'In Pull' or 'After Pull'
+     */
     function HandleChangeLostActionResourceClicked(event : BaseSyntheticEvent) {
-        dispatch(setDropdownDataInPull([event.target.dataset.encounternumber, event.target.dataset.positionoflostaction, event.target.dataset.isinpull]));
+        dispatch(setDropdownDataInPull({encounterNumber: event.target.dataset.encounternumber, positionOfLostAction: event.target.dataset.positionoflostaction, isInPull: event.target.dataset.isinpull}));
     }
 
     console.log("CreateHolsterTimelineBossBoxes");
