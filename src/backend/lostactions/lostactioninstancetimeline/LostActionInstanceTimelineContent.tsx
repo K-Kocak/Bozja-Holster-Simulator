@@ -153,18 +153,21 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
     }
 
     console.log("CreateHolsterTimelineBossBoxes");
-    const ArrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
-    arrayOfEncounters.forEach((Encounter, encounterPosition) => {
-        // track the index of lost action spent, make 2 new functions ??
-        const LostActionResourcesSpentInPullArray : React.JSX.Element[] = [];
-        Encounter.LostActionsSpentInPull.forEach((LostActionSpent, indexOfLostActionSpent) => {
-            const LostActionResourceUsedImageLink = LostActionSpent.LostActionUsed != -1 ? LostActionsAsObjectArray[LostActionSpent.LostActionUsed].img : QuestionMarkNoAction.img;
-            const LostActionResourceSpentInPullToPush : React.JSX.Element = (         
+    const arrayOfEncounterBoxesToReturn : React.JSX.Element[] = [];
+
+    arrayOfEncounters.forEach((encounter, encounterPosition) => {
+        const lostActionResourcesSpentInPullArray : React.JSX.Element[] = [];
+        // processing in pull actions and creating the HTML.
+        encounter.LostActionsSpentInPull.forEach((lostActionSpent, indexOfLostActionSpent) => {
+            // determine whether to display the question mark image or not if the id of lost action is -1
+            const lostActionResourceUsedImageLink = lostActionSpent.LostActionUsed != -1 ? LostActionsAsObjectArray[lostActionSpent.LostActionUsed].img : QuestionMarkNoAction.img;
+            // could change this into a function
+            const lostActionResourceSpentInPullToPush : React.JSX.Element = (         
                 <div key={indexOfLostActionSpent} className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResource">
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown">
                         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
                             <div onClick={HandleChangeLostActionResourceClicked} data-encounternumber={encounterPosition} data-positionoflostaction={indexOfLostActionSpent} data-isinpull={true} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
-                                <img src={LostActionResourceUsedImageLink}></img>
+                                <img src={lostActionResourceUsedImageLink}></img>
                             </div>
                             <div  className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton">
                                 <div id={indexOfLostActionSpent.toString()} onClick={HandleLostActionRemoveResource} data-encounternumber={encounterPosition} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
@@ -175,24 +178,27 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                         </div>  
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                        <input onChange={HandleTimeOfUseUpdate} name={encounterPosition.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={encounterPosition} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={LostActionSpent.LostActionTimeOfUse}></input>
+                        <input onChange={HandleTimeOfUseUpdate} name={encounterPosition.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={encounterPosition} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={lostActionSpent.LostActionTimeOfUse}></input>
                     </div>
                 </div>
                 
             )
-            LostActionResourcesSpentInPullArray.push(LostActionResourceSpentInPullToPush);
+            // push after html made, go next item in loop
+            lostActionResourcesSpentInPullArray.push(lostActionResourceSpentInPullToPush);
         });
 
-        const LostActionResourcesSpentAfterPullArray : React.JSX.Element[] = [];
-        Encounter.LostActionsSpentAfterPull.forEach((LostActionSpent, indexOfLostActionSpent) => {
-            const LostActionResourceUsedImageLink = LostActionSpent.LostActionUsed != -1 ? LostActionsAsObjectArray[LostActionSpent.LostActionUsed].img : QuestionMarkNoAction.img;
-            const LostActionResourceSpentAfterPullToPush : React.JSX.Element = (         
+        const lostActionResourcesSpentAfterPullArray : React.JSX.Element[] = [];
+        // TO DO
+        // same as in pull, definitely make a function to half the length of this code
+        encounter.LostActionsSpentAfterPull.forEach((LostActionSpent, indexOfLostActionSpent) => {
+            const lostActionResourceUsedImageLink = LostActionSpent.LostActionUsed != -1 ? LostActionsAsObjectArray[LostActionSpent.LostActionUsed].img : QuestionMarkNoAction.img;
+            const lostActionResourceSpentAfterPullToPush : React.JSX.Element = (         
                 <div key={indexOfLostActionSpent} className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResource">
                     <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceImageAndDropdown">
 
                         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
                             <div onClick={HandleChangeLostActionResourceClicked} data-encounternumber={encounterPosition} data-positionoflostaction={indexOfLostActionSpent} data-isinpull={false} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
-                                <img src={LostActionResourceUsedImageLink}></img>
+                                <img src={lostActionResourceUsedImageLink}></img>
                             </div>
                             <div  className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton">
                                 <div id={indexOfLostActionSpent.toString()} onClick={HandleLostActionRemoveResource} data-encounternumber={encounterPosition} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={false} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
@@ -208,18 +214,18 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                 </div>
                 
             )
-            LostActionResourcesSpentAfterPullArray.push(LostActionResourceSpentAfterPullToPush);
+            lostActionResourcesSpentAfterPullArray.push(lostActionResourceSpentAfterPullToPush);
         });
 
-        const LeftActionImageLink = Encounter.PullBossWith.LostActionLeft != -1 ? LostActionsAsObjectArray[Encounter.PullBossWith.LostActionLeft].img : QuestionMarkNoAction.img
-        const RightActionImageLink = Encounter.PullBossWith.LostActionRight != -1 ? LostActionsAsObjectArray[Encounter.PullBossWith.LostActionRight].img : QuestionMarkNoAction.img
-        const EssenceActionImageLink = Encounter.PullBossWith.EssenceInUse != -1 ? LostActionsAsObjectArray[Encounter.PullBossWith.EssenceInUse].img : QuestionMarkNoAction.img
+        const leftActionImageLink = encounter.PullBossWith.LostActionLeft != -1 ? LostActionsAsObjectArray[encounter.PullBossWith.LostActionLeft].img : QuestionMarkNoAction.img
+        const rightActionImageLink = encounter.PullBossWith.LostActionRight != -1 ? LostActionsAsObjectArray[encounter.PullBossWith.LostActionRight].img : QuestionMarkNoAction.img
+        const essenceActionImageLink = encounter.PullBossWith.EssenceInUse != -1 ? LostActionsAsObjectArray[encounter.PullBossWith.EssenceInUse].img : QuestionMarkNoAction.img
         
         const EncounterBox = (
         <div key={encounterPosition} className="LostActionInstanceTimelineIndividualEncounterContainer">
             <div className="LostActionInstanceTimelineIndividualEncounterBossNameAndFunctions">
                 <div className="LostActionInstanceTimelineIndividualEncounterBossName">
-                    <input id={encounterPosition.toString()} onChange={HandleBossNameChange} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" value={Encounter.NameOfBoss}></input>
+                    <input id={encounterPosition.toString()} onChange={HandleBossNameChange} type="string" contentEditable="true"  className="LostActionNameOfBossInputField" value={encounter.NameOfBoss}></input>
                 </div>
                 <div className="LostActionInstanceTimelineIndividualEncounterFuntions">
                     <div onClick={HandleEncounterFunctionPress} id={"Up"} data-encounternumber={encounterPosition}  className="LostActionInstanceTimelineIndividualEncounterFunctionMoveUp" title="Click to Move Encounter Up">
@@ -242,19 +248,19 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                     
                     <div className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostAction">
                         <div onClick={HandleLostActionPullWithClicked} data-encounternumber={encounterPosition} data-leftorrightoressence={"Left"} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionImage">
-                            <img src={LeftActionImageLink}></img>
+                            <img src={leftActionImageLink}></img>
                         </div>
                        
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostAction">
                         <div onClick={HandleLostActionPullWithClicked} data-encounternumber={encounterPosition} data-leftorrightoressence={"Right"} className="LostActionInstanceTimelineIndividualEncounterPullWithRightLostActionImage">
-                        <img src={RightActionImageLink}></img>
+                        <img src={rightActionImageLink}></img>
                         </div>
                         
                     </div>
                     <div className="LostActionInstanceTimelineIndividualEncounterPullWithEssence">
                         <div onClick={HandleLostActionPullWithClicked} data-encounternumber={encounterPosition} data-leftorrightoressence={"Essence"} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftEssenceImage">
-                        <img src={EssenceActionImageLink}></img>
+                        <img src={essenceActionImageLink}></img>
                         </div>
                        
                     </div>
@@ -273,7 +279,7 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                 
                 <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsContainer">
                     <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsArray">                       
-                        {LostActionResourcesSpentInPullArray}
+                        {lostActionResourcesSpentInPullArray}
                     </div>
                 </div>
             </div>
@@ -290,15 +296,15 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                 
                 <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsContainer">
                     <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsArray">                       
-                        {LostActionResourcesSpentAfterPullArray}
+                        {lostActionResourcesSpentAfterPullArray}
                     </div>
                 </div>
             </div>
         </div>)
-        ArrayOfEncounterBoxesToReturn.push(EncounterBox);
+        arrayOfEncounterBoxesToReturn.push(EncounterBox);
     })
 
-    return ArrayOfEncounterBoxesToReturn;
+    return arrayOfEncounterBoxesToReturn;
 }
 
 function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
