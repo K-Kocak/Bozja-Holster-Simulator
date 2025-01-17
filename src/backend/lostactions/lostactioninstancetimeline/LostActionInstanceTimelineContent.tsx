@@ -299,10 +299,6 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
 function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
     const dispatch = useAppDispatch();
     const currentDropdownDataToDisplay = useAppSelector((state) => state.LostActionDropdownDataForUse);
-    const currentHolsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
-    const prepopLeftActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionLeft);
-    const prepopRightActionId : number = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
-    const currentActionsInHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
     const currentLostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
     let lostActionDropdownCloseButton : string = "";
@@ -322,11 +318,9 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
      * @returns a boolean on whether any Pull With's exist or not.
      */
     function CheckIfAnyEncounterExists() : boolean {
-        console.log(currentHolsterTimeline);
-        if(currentHolsterTimeline.length == 0) {
+        if(currentLostFindsHolster.HolsterTimeline.Encounters.length == 0) {
             const setAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
             setAllNotificationBox.childNodes[0].textContent = "No encounters to change.";
-            setAllNotificationBox.style.color = "white";
             setTimeout(ClearSetAllNotificationBox, 3000, setAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
             return false;
         }
@@ -335,14 +329,14 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
     /**
      * Sets all the Pull With essences to the prepop essence if any encounter exists
-     * 
+     * State is read only, so a copy must be made and sent through to state
      */
     function HandleSetAllEssencesToPrepop() {
         const newHolsterTimelineWithPrepopEssence : IEncounter[] = [];
         if(!CheckIfAnyEncounterExists()) {
             return;
         }
-        currentHolsterTimeline.forEach((encounter) => {
+        currentLostFindsHolster.HolsterTimeline.Encounters.forEach((encounter) => {
             if(encounter.PullBossWith.EssenceInUse == currentLostFindsHolster.PrepopHolster.EssenceInUse) {
                 newHolsterTimelineWithPrepopEssence.push(encounter);
             }
@@ -350,26 +344,28 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
                 newHolsterTimelineWithPrepopEssence.push({...encounter, PullBossWith: {LostActionLeft: encounter.PullBossWith.LostActionLeft, LostActionRight: encounter.PullBossWith.LostActionRight, EssenceInUse: currentLostFindsHolster.PrepopHolster.EssenceInUse}})
             }
         });
-        
+
         dispatch(loadHolsterTimelineEncounters({encountersToLoad: newHolsterTimelineWithPrepopEssence}));
-        const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
-        SetAllNotificationBox.childNodes[0].textContent = "'Pull With' essences set to prepop for all encounters.";
-        SetAllNotificationBox.style.color = "white";
-        setTimeout(ClearSetAllNotificationBox, 3000, SetAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
+        const setAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
+        setAllNotificationBox.childNodes[0].textContent = "'Pull With' essences set to prepop for all encounters.";
+        setTimeout(ClearSetAllNotificationBox, 3000, setAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
     }
 
+    /**
+     * Sets all the Pull With left & right action to the prepop left & right action if any encounter exists
+     * State is read only, so a copy must be made and sent through to state
+     */
     function HandleSetLeftRightActionsToPrepop() {
         const newHolsterTimelineWithPrepopLeftRightAction : IEncounter[] = [];
         if(!CheckIfAnyEncounterExists()) {
             return;
         }
-        currentHolsterTimeline.forEach((Encounter) => {
-            newHolsterTimelineWithPrepopLeftRightAction.push({...Encounter, PullBossWith: {LostActionLeft: prepopLeftActionId, LostActionRight: prepopRightActionId, EssenceInUse: Encounter.PullBossWith.EssenceInUse}})
+        currentLostFindsHolster.HolsterTimeline.Encounters.forEach((encounter) => {
+            newHolsterTimelineWithPrepopLeftRightAction.push({...encounter, PullBossWith: {LostActionLeft: currentLostFindsHolster.PrepopHolster.LostActionLeft, LostActionRight: currentLostFindsHolster.PrepopHolster.LostActionRight, EssenceInUse: encounter.PullBossWith.EssenceInUse}})
         });
         dispatch(loadHolsterTimelineEncounters({encountersToLoad: newHolsterTimelineWithPrepopLeftRightAction}));
         const SetAllNotificationBox = document.getElementById("LostActionInstanceTimelineSetAllNotificationBox") as HTMLElement; 
         SetAllNotificationBox.childNodes[0].textContent = "'Pull With' actions set to prepop for all encounters.";
-        SetAllNotificationBox.style.color = "white";
         setTimeout(ClearSetAllNotificationBox, 3000, SetAllNotificationBox.childNodes[0].textContent, "LostActionInstanceTimelineSetAllNotificationBox"); 
     }
 
@@ -387,30 +383,31 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
 
     if(currentDropdownDataToDisplay.EncounterNumber != -1) {
         const encounterNumber = currentDropdownDataToDisplay.EncounterNumber;
+        // setting up close button styles/X text
         lostActionDropdownCloseButton = "X";
-        const LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
-        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "2px solid #A5906F"
-        LostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "3px";
-        if(currentDropdownDataToDisplay.IsPullWith) {
-            
-            const LeftOrRightOrEssence = currentDropdownDataToDisplay.LeftOrRightOrEssence;
-            console.log(LeftOrRightOrEssence);
-            if(LeftOrRightOrEssence == "Essence") {
+        const lostActionInstanceTimelineStateLostActionFunctionCloseWindowButton = document.getElementById("LostActionInstanceTimelineStateLostActionFunctionCloseWindow") as HTMLElement;
+        lostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.border = "2px solid #A5906F"
+        lostActionInstanceTimelineStateLostActionFunctionCloseWindowButton.style.padding = "3px";
+
+        if(currentDropdownDataToDisplay.IsPullWith) {        
+            const leftOrRightOrEssence = currentDropdownDataToDisplay.LeftOrRightOrEssence;
+
+            if(leftOrRightOrEssence == "Essence") {
                 //LostActionDropdownCloseButton = "X";
                 lostActionDropdownElementRows = CreateLostActionDropdownElementEssence(encounterNumber, dispatch);
                 
                 
             }
-            else if (LeftOrRightOrEssence == "Left" || LeftOrRightOrEssence == "Right") {
+            else if (leftOrRightOrEssence == "Left" || leftOrRightOrEssence == "Right") {
                 //LostActionDropdownCloseButton = "X";
-                lostActionDropdownElementRows = CreateLostActionDropdownElementNoEssence(encounterNumber, LeftOrRightOrEssence, dispatch);
+                lostActionDropdownElementRows = CreateLostActionDropdownElementNoEssence(encounterNumber, leftOrRightOrEssence, dispatch);
             }
         }
         else {
             const indexOfLostActionResource = currentDropdownDataToDisplay.IndexOfLostActionResource;
             const isInPull = currentDropdownDataToDisplay.IsInPull;
             //LostActionDropdownCloseButton = "X";
-            lostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentActionsInHolster, dispatch);
+            lostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentLostFindsHolster.Holster, dispatch);
         }
     }
 
@@ -618,25 +615,37 @@ function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounter
 //#endregion
 
 //#region Essence Dropdown
+/**
+ * Creates and returns the dropdown box for essences.
+ * @param encounterNumber, the encounter number it is displaying the dropdown for
+ * @param dispatch, required for onClick event for a row to change some data
+ * @returns the rows of lost action images and names for essences in the dropdown area
+ */
 function CreateLostActionDropdownElementEssence(encounterNumber : number, dispatch : any) : React.JSX.Element {
     
-    const DropdownRowsForEssences = CreateDropdownRowsForEssences(encounterNumber, dispatch);
+    const dropdownRowsForEssences = CreateDropdownRowsForEssences(encounterNumber, dispatch);
 
     return (
         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">
             <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer">
-                {DropdownRowsForEssences}
+                {dropdownRowsForEssences}
             </div>                      
         </div>  
     )
 }
 
+/**
+ * Creates an array of rows as React.JSX.Elements for essences and returns it
+ * @param encounterNumber, the encounter number it is displaying the dropdown for
+ * @param dispatch, required for onClick event for a row to change some data
+ * @returns Returns an Array containg the rows of lost action and lost action image as React.JSX.Element
+ */
 function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) : React.JSX.Element[] {
     
     const DropdownItemsArray : React.JSX.Element[] = [];
-    LostActionsAsObjectArray.forEach((LostAction) => {
-        if(LostAction.id > 707 && LostAction.id < 744) {
-            const EssenceToPush = CreateDropdownRowForLostActionEssence(LostAction, encounterNumber, dispatch);
+    LostActionsAsObjectArray.forEach((lostAction) => {
+        if(lostAction.id > 707 && lostAction.id < 744) {
+            const EssenceToPush = CreateDropdownRowForLostActionEssence(lostAction, encounterNumber, dispatch);
             DropdownItemsArray.push(EssenceToPush);
         }
     });
@@ -644,7 +653,9 @@ function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) 
     return DropdownItemsArray;
 }
 
-function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNumber : number, dispatch: (arg0: { payload: [number, number, string] | undefined; type: "LostActionDropdownDataForUse/clearDropdownData" | "LostFindsHolsterBag/setHolsterTimelineEncounterPullBossWith"; }) => void) : React.JSX.Element {
+
+
+function CreateDropdownRowForLostActionEssence(lostAction : IAction, encounterNumber : number, dispatch: any) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfEssence = event.target.id;
@@ -654,12 +665,12 @@ function CreateDropdownRowForLostActionEssence(LostAction : IAction, encounterNu
     }
 
     return (
-        <div key={Math.random()} id={LostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
+        <div key={Math.random()} id={lostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
                 <div className="DropdownItemLostActionImage">
-                    <img src={LostAction.img}></img>
+                    <img src={lostAction.img}></img>
                 </div>
                 <div className="DropdownItemLostActionName">
-                    <span>{LostAction.name.EN}</span>
+                    <span>{lostAction.name.EN}</span>
                 </div>
         </div>
     )
