@@ -523,14 +523,21 @@ function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumbe
 
 //#region No Essence Dropdown
 
+/**
+ * Creates dropdown menu from a clicked left or right lost action at an encounter number with no essence rows 
+ * @param encounterNumber, the encounter number that the action that was click on is in
+ * @param LeftOrRight, whether it is the left action or the right action
+ * @param dispatch, for onclick event for dropdown rows
+ * @returns React.JSX.Element containing the dropdown HTML
+ */
 function CreateLostActionDropdownElementNoEssence(encounterNumber : number, LeftOrRight : string, dispatch : any) : React.JSX.Element {
 
-    const DropdownRowsForNoEssences = CreateDropdownRowsForNoEssences(encounterNumber, LeftOrRight, dispatch);
+    const dropdownRowsForNoEssences = CreateDropdownRowsForNoEssences(encounterNumber, LeftOrRight, dispatch);
 
     return (
         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">
             <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer">
-                {DropdownRowsForNoEssences}
+                {dropdownRowsForNoEssences}
             </div>                      
         </div>  
     )
@@ -538,14 +545,16 @@ function CreateLostActionDropdownElementNoEssence(encounterNumber : number, Left
 
 function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element[][] {
     const dropdownItemsAs2DArray : React.JSX.Element[][] = [];
-    
-    for(let i = 0; i < 7; i++) {
+    const lostActionCategories = ["Offensive", "Defensive", "Restorative", "Beneficial", "Tactical", "Detrimental", "Item-Related"];
+
+    for(let i = 0; i < lostActionCategories.length; i++) {
         dropdownItemsAs2DArray.push([]);
     }
     //const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((LostAction) => {
         if(LostAction.id < 700 && LostAction.id > 100) {
-            const nonEssenceToPush = CreateDropdownRowForLostActionNoEssence(LostAction, encounterNumber, LeftOrRight, dispatch);
+            // TO DO: Merge the no essence and essence functions together, as they essentially do the same thing but with a different type of action (left, right or essence)
+            const nonEssenceToPush = CreateDropdownRowForLostAction(LostAction, encounterNumber, LeftOrRight, dispatch);
             switch (LostAction.category.EN) {
                 case "Offensive":
                     dropdownItemsAs2DArray[0].push(nonEssenceToPush);
@@ -581,7 +590,7 @@ function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight :
             //DropdownItemsArray.push(nonEssenceToPush);
         }
     });
-    const lostActionCategories = ["Offensive", "Defensive", "Restorative", "Beneficial", "Tactical", "Detrimental", "Item-Related"];
+    
     dropdownItemsAs2DArray.forEach((dropdownItemCategory, index) => {
         if(dropdownItemCategory.length > 0) {
             dropdownItemCategory.unshift(CreateDropdownLostActionHeader(lostActionCategories[index]))
@@ -591,22 +600,29 @@ function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight :
     //return DropdownItemsArray;
 }
 
-function CreateDropdownRowForLostActionNoEssence(LostAction : IAction, encounterNumber : number, LeftOrRight : string, dispatch: any) : React.JSX.Element {
+/**
+ * Returns a dropdown row for a lost action
+ * @param lostAction, the lost action to create the row for
+ * @param encounterNumber, the encounter number for the lost action
+ * @param dispatch, to change state for onclick event
+ * @returns a React.JSX.Element, the row itself
+ */
+function CreateDropdownRowForLostAction(lostAction : IAction, encounterNumber : number, leftOrRight : string, dispatch: any) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
-        const idOfLostAction = event.target.id;
-        dispatch(setHolsterTimelineEncounterPullBossWith([encounterNumber, idOfLostAction, LeftOrRight]));
+        const idOfLostAction : number = Number(event.target.id);
+        dispatch(setHolsterTimelineEncounterPullBossWith({encounterNumber: encounterNumber, idOfLostAction: idOfLostAction, leftOrRightOrEssence: leftOrRight}));
         LostActionInstanceTimelineDropdownCloseButtonReset()
         dispatch(clearDropdownData());
     }
 
     return (
-        <div key={Math.random()} id={LostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
+        <div key={Math.random()} id={lostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
                 <div className="DropdownItemLostActionImage">
-                    <img src={LostAction.img}></img>
+                    <img src={lostAction.img}></img>
                 </div>
                 <div className="DropdownItemLostActionName">
-                    <span>{LostAction.name.EN}</span>
+                    <span>{lostAction.name.EN}</span>
                 </div>
         </div>
     )
@@ -638,42 +654,19 @@ function CreateLostActionDropdownElementEssence(encounterNumber : number, dispat
  * Creates an array of rows as React.JSX.Elements for essences and returns it
  * @param encounterNumber, the encounter number it is displaying the dropdown for
  * @param dispatch, required for onClick event for a row to change some data
- * @returns Returns an Array containg the rows of lost action and lost action image as React.JSX.Element
+ * @returns Returns an Array containg the rows of lost action name and lost action image as React.JSX.Element
  */
 function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) : React.JSX.Element[] {
     
     const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((lostAction) => {
         if(lostAction.id > 707 && lostAction.id < 744) {
-            const EssenceToPush = CreateDropdownRowForLostActionEssence(lostAction, encounterNumber, dispatch);
+            const EssenceToPush = CreateDropdownRowForLostAction(lostAction, encounterNumber, "Essence", dispatch);
             DropdownItemsArray.push(EssenceToPush);
         }
     });
     DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Essence"));
     return DropdownItemsArray;
-}
-
-
-
-function CreateDropdownRowForLostActionEssence(lostAction : IAction, encounterNumber : number, dispatch: any) : React.JSX.Element {
-
-    function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
-        const idOfEssence = event.target.id;
-        dispatch(setHolsterTimelineEncounterPullBossWith([encounterNumber, idOfEssence, "Essence"]));
-        LostActionInstanceTimelineDropdownCloseButtonReset()
-        dispatch(clearDropdownData());
-    }
-
-    return (
-        <div key={Math.random()} id={lostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
-                <div className="DropdownItemLostActionImage">
-                    <img src={lostAction.img}></img>
-                </div>
-                <div className="DropdownItemLostActionName">
-                    <span>{lostAction.name.EN}</span>
-                </div>
-        </div>
-    )
 }
 
 //#endregion

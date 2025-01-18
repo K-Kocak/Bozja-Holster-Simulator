@@ -137,22 +137,18 @@ export const LostFindsHolsterSlice = createSlice({
             state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentAfterPull.push(GenerateBlankLostActionResourceSpent)
         },
 
-        setHolsterTimelineEncounterPullBossWith: (state, action: PayloadAction<[number, number, string]>) => {
-            const EncounterNumber = action.payload[0];
-            const NewLostActionToSet = action.payload[1];
-            const LeftOrRightOrEssence = action.payload[2];
-
-            switch (LeftOrRightOrEssence) {
+        setHolsterTimelineEncounterPullBossWith: (state, action: PayloadAction<{encounterNumber: number, idOfLostAction: number, leftOrRightOrEssence: string}>) => {
+            switch (action.payload.leftOrRightOrEssence) {
                 case "Left": {
-                    state.HolsterTimeline.Encounters[EncounterNumber].PullBossWith.LostActionLeft = NewLostActionToSet;
+                    state.HolsterTimeline.Encounters[action.payload.encounterNumber].PullBossWith.LostActionLeft = action.payload.idOfLostAction;
                     break;
                 }
                 case "Right": {
-                    state.HolsterTimeline.Encounters[EncounterNumber].PullBossWith.LostActionRight = NewLostActionToSet;
+                    state.HolsterTimeline.Encounters[action.payload.encounterNumber].PullBossWith.LostActionRight = action.payload.idOfLostAction;
                     break;
                 }
                 case "Essence": {
-                    state.HolsterTimeline.Encounters[EncounterNumber].PullBossWith.EssenceInUse = NewLostActionToSet;
+                    state.HolsterTimeline.Encounters[action.payload.encounterNumber].PullBossWith.EssenceInUse = action.payload.idOfLostAction;
                     break;
                 }
             }

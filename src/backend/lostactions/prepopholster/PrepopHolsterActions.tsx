@@ -150,6 +150,11 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
     //return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
 }
 
+/**
+ * Creates a category header for dropdown menu using categoryOfSection as the text
+ * @param categoryOfSection, the name of the category to place
+ * @returns a div HTML
+ */
 export function CreateDropdownLostActionHeader(categoryOfSection: string) : React.JSX.Element {
     return (
         <div key={categoryOfSection} className="LostActionDropdownCategoryHeader">
@@ -157,7 +162,6 @@ export function CreateDropdownLostActionHeader(categoryOfSection: string) : Reac
             <div className="LostActionDropdownCategoryText">
                 <span>{categoryOfSection} Actions</span>
             </div>
-
         </div>
     )
 }
