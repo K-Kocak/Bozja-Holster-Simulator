@@ -395,8 +395,6 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             if(leftOrRightOrEssence == "Essence") {
                 //LostActionDropdownCloseButton = "X";
                 lostActionDropdownElementRows = CreateLostActionDropdownElementEssence(encounterNumber, dispatch);
-                
-                
             }
             else if (leftOrRightOrEssence == "Left" || leftOrRightOrEssence == "Right") {
                 //LostActionDropdownCloseButton = "X";
@@ -404,8 +402,8 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
             }
         }
         else {
-            const indexOfLostActionResource = currentDropdownDataToDisplay.IndexOfLostActionResource;
-            const isInPull = currentDropdownDataToDisplay.IsInPull;
+            const indexOfLostActionResource : number = currentDropdownDataToDisplay.IndexOfLostActionResource;
+            const isInPull : boolean = currentDropdownDataToDisplay.IsInPull;
             //LostActionDropdownCloseButton = "X";
             lostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentLostFindsHolster.Holster, dispatch);
         }
@@ -426,8 +424,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
                 </div>
                 <div onClick={HandleCloseLostActionDropdownWindow} id="LostActionInstanceTimelineStateLostActionFunctionCloseWindow" className="LostActionInstanceTimelineStateLostActionFunctionCloseWindow">
                     <span>{lostActionDropdownCloseButton}</span>
-                </div>
-                
+                </div>               
             </div>
         </div>
     )
@@ -465,55 +462,82 @@ function HandleLostActionInstanceTimelineHelpDisplay() {
 
 //#region All Actions Dropdown
 
+/**
+ * Creates the dropdown menu when a lost action 'In Pull' or 'After Pull' is clicked
+ * @param encounterNumber, the encounter number the dropdown box is for
+ * @param indexOfLostAction, the id of the lost action in 'In Pull' or 'After Pull' that the dropdown box is for
+ * @param isInPull, whether it is 'In Pull' or 'After Pull'
+ * @param currentActionsInHolster, the actions in your lost action holster
+ * @param dispatch, for onclick event of dropdown rows
+ * @returns dropdown menu for all possible lost actions
+ */
 function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch: any) : React.JSX.Element {
 
-    const DropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, currentActionsInHolster, dispatch);
+    const dropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, currentActionsInHolster, dispatch);
 
     return (
         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">     
             <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer">
-                {DropdownRowsForNoEssences}
+                {dropdownRowsForNoEssences}
             </div>                      
         </div>  
     )
 }
 
+/**
+ * Creates and returns the lost action rows for a dropdown menu consisting of the lost actions in the holster
+ * @param encounterNumber 
+ * @param indexOfLostAction 
+ * @param isInPull 
+ * @param currentActionsInHolster 
+ * @param dispatch 
+ * @returns lost action rows for dropdown menu
+ */
 function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch : any) : React.JSX.Element[] {
+    const dropdownItemsArray : React.JSX.Element[] = [];
 
-    const DropdownItemsArray : React.JSX.Element[] = [];
-    currentActionsInHolster.forEach((LostActionInHolster) => {   
-        const LostAction = LostActionsAsObjectArray[LostActionInHolster.id];
-        const EssenceToPush = CreateDropdownRowForAllLostActions(LostAction, encounterNumber, indexOfLostAction, isInPull, dispatch);
-        DropdownItemsArray.push(EssenceToPush);   
+    currentActionsInHolster.forEach((lostActionInHolster) => {   
+        const lostAction : IAction = LostActionsAsObjectArray[lostActionInHolster.id];
+        const actionToPush = CreateDropdownRowForAllLostActions(lostAction, encounterNumber, indexOfLostAction, isInPull, dispatch);
+        dropdownItemsArray.push(actionToPush);   
     });
-    if(DropdownItemsArray.length > 0) {
-        DropdownItemsArray.unshift(CreateDropdownLostActionHeader("Holster"))
-        DropdownItemsArray.push(<div key={"HolsterActionsDropdownSeparator"} style={{width: "95%"}}>{AutomateSeparator()}</div>)
+
+    if(dropdownItemsArray.length > 0) {
+        dropdownItemsArray.unshift(CreateDropdownLostActionHeader("Holster"))
+        dropdownItemsArray.push(<div key={"HolsterActionsDropdownSeparator"} style={{width: "95%"}}>{AutomateSeparator()}</div>)
     }
     else {
-        DropdownItemsArray.push(<div key={"EmptyHolsterForActionTimelineMessage"} style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
+        dropdownItemsArray.push(<div key={"EmptyHolsterForActionTimelineMessage"} style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100%", width:"100%", textAlign:"center", }}>Add some actions to the holster to get started!</div>)
     }
     
-    return DropdownItemsArray;
+    return dropdownItemsArray;
 }
 
-function CreateDropdownRowForAllLostActions(LostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: (arg0: { payload: [number, number, number, boolean] | undefined; type: "LostActionDropdownDataForUse/clearDropdownData" | "LostFindsHolsterBag/setHolsterTimelineEncounterLostActionSpent"; }) => void) : React.JSX.Element {
+/**
+ * Creates a lost action row based of an action in the holster
+ * @param lostAction, the lost action to create the row for
+ * @param encounterNumber, the encounter this lost action is from
+ * @param indexOfLostAction, the position of the lost action in 'In Pull' or 'After Pull' for its encounter
+ * @param isInPull, whether it is 'In Pull' or 'After Pull'
+ * @param dispatch, for onclick event
+ * @returns a lost action row
+ */
+function CreateDropdownRowForAllLostActions(lostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: any) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfLostAction = event.target.id;
-        console.log(isInPull);
-        dispatch(setHolsterTimelineEncounterLostActionSpent([encounterNumber, indexOfLostAction, idOfLostAction, isInPull]));
-        LostActionInstanceTimelineDropdownCloseButtonReset()
+        dispatch(setHolsterTimelineEncounterLostActionSpent({encounterNumber: encounterNumber, indexOfLostAction: indexOfLostAction, idOfLostAction: idOfLostAction, isInPull: isInPull}));
+        LostActionInstanceTimelineDropdownCloseButtonReset();
         dispatch(clearDropdownData());
     }
 
     return (
-        <div key={Math.random()} id={LostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
+        <div key={Math.random()} id={lostAction.id.toString()} onClick={HandleLostActionResourceSelected} className="DropdownItemLostActionRow">
                 <div className="DropdownItemLostActionImage">
-                    <img src={LostAction.img}></img>
+                    <img src={lostAction.img}></img>
                 </div>
                 <div className="DropdownItemLostActionName">
-                    <span>{LostAction.name.EN}</span>
+                    <span>{lostAction.name.EN}</span>
                 </div>
         </div>
     )
@@ -551,11 +575,11 @@ function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight :
         dropdownItemsAs2DArray.push([]);
     }
     //const DropdownItemsArray : React.JSX.Element[] = [];
-    LostActionsAsObjectArray.forEach((LostAction) => {
-        if(LostAction.id < 700 && LostAction.id > 100) {
+    LostActionsAsObjectArray.forEach((lostAction) => {
+        if(lostAction.id < 700 && lostAction.id > 100) {
             // TO DO: Merge the no essence and essence functions together, as they essentially do the same thing but with a different type of action (left, right or essence)
-            const nonEssenceToPush = CreateDropdownRowForLostAction(LostAction, encounterNumber, LeftOrRight, dispatch);
-            switch (LostAction.category.EN) {
+            const nonEssenceToPush = CreateDropdownRowForLostAction(lostAction, encounterNumber, LeftOrRight, dispatch);
+            switch (lostAction.category.EN) {
                 case "Offensive":
                     dropdownItemsAs2DArray[0].push(nonEssenceToPush);
                     //DropdownItemsArrayOffensive.push(LostActionToPush);
@@ -627,7 +651,6 @@ function CreateDropdownRowForLostAction(lostAction : IAction, encounterNumber : 
         </div>
     )
 }
-
 //#endregion
 
 //#region Essence Dropdown
@@ -638,9 +661,7 @@ function CreateDropdownRowForLostAction(lostAction : IAction, encounterNumber : 
  * @returns the rows of lost action images and names for essences in the dropdown area
  */
 function CreateLostActionDropdownElementEssence(encounterNumber : number, dispatch : any) : React.JSX.Element {
-    
     const dropdownRowsForEssences = CreateDropdownRowsForEssences(encounterNumber, dispatch);
-
     return (
         <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContent">
             <div className="LostActionInstanceTimelineIndividualEncounterPullWithLostActionDropdownContentInnerContainer">

@@ -159,19 +159,13 @@ export const LostFindsHolsterSlice = createSlice({
             state.HolsterTimeline.Encounters[action.payload.encounterNumber].NameOfBoss = action.payload.newNameOfBoss;
         },
 
-        setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<[number, number, number, boolean]>) => {
-            const encounterNumber = action.payload[0];
-            const lostActionPositionInArrayOfSpentResources = action.payload[1];
-            const newLostAction = action.payload[2];
-            const isInPull = action.payload[3].toString();
+        setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<{encounterNumber: number, indexOfLostAction: number, idOfLostAction: number, isInPull: boolean}>) => {
             
-            if(isInPull == 'true') {
-                console.log("true came out");
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentInPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
+            if(action.payload.isInPull) {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentInPull[action.payload.indexOfLostAction].LostActionUsed = action.payload.idOfLostAction;
             }
-            else if (isInPull == 'false') {
-                console.log("false came out");
-                state.HolsterTimeline.Encounters[encounterNumber].LostActionsSpentAfterPull[lostActionPositionInArrayOfSpentResources].LostActionUsed = newLostAction;
+            else if (!action.payload.isInPull) {
+                state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentAfterPull[action.payload.indexOfLostAction].LostActionUsed = action.payload.idOfLostAction;
             }
         },
 
