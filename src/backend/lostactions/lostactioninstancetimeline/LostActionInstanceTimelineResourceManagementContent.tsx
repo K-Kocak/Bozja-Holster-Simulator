@@ -4,33 +4,33 @@ import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import { IEncounter } from '@app/backend/interfaces/IHolsterTimeline';
 
 import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimelineResourceManagementContent.scss';
+
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
-/*
-interface LostActionQuantityRemaining {
-    id: number,
-    quantity: number
-}
-*/
-function CalculateTotalResourcesSpentInHolsterTimeline(currentStateOfHolsterTimeline : IEncounter[]) : number[] {
+
+/**
+ * Creates an array containing how many times a lost action has been used in the instance timeline
+ * @param currentEncountersInHolsterTimeline, the encounters in this encounter timeline for this holster
+ * @returns the number of each lost action in the holster that is spent in the timeline
+ */
+function CalculateTotalResourcesSpentInHolsterTimeline(currentEncountersInHolsterTimeline : IEncounter[]) : number[] {
     const lostActionQuantitySpentArray : number[] = [];
-    // const lostActionTypesSpentDictionary : number[] = [];
-    // creates array of ids + quantities spent
-    currentStateOfHolsterTimeline.forEach((Encounter) => {
-        Encounter.LostActionsSpentInPull.forEach((LostActionSpent) => {
+    // TO DO: turn the undefined/defined section into one function
+    currentEncountersInHolsterTimeline.forEach((encounter) => {
+        encounter.LostActionsSpentInPull.forEach((lostActionSpent) => {
 
-            const idOfLostActionSpent = LostActionSpent.LostActionUsed;
-
+            const idOfLostActionSpent = lostActionSpent.LostActionUsed;
+            // checks if the action exists yet in the array. if it does, reduce value by 1
             if(typeof lostActionQuantitySpentArray[idOfLostActionSpent] !== "undefined") {
                 lostActionQuantitySpentArray[idOfLostActionSpent]--;
             }
-
+            // if action doesn't exist yet (undefined) set quantity to -1
             else if(typeof lostActionQuantitySpentArray[idOfLostActionSpent] === "undefined") {
                 //lostActionTypesSpentDictionary.push(idOfLostActionSpent);
                 lostActionQuantitySpentArray[idOfLostActionSpent] = -1;
             }
         })
-        Encounter.LostActionsSpentAfterPull.forEach((LostActionSpent) => {
+        encounter.LostActionsSpentAfterPull.forEach((LostActionSpent) => {
 
             const idOfLostActionSpent = LostActionSpent.LostActionUsed;
 
@@ -98,8 +98,8 @@ function CreateLostActionResourceArrayDivs(lostActionResourceDifferenceArrayToUs
 
 function CreateResourceManagementContent() : React.JSX.Element {
 
-    const currentStateOfHolsterTimeline : IEncounter[] = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters)
-    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(currentStateOfHolsterTimeline);
+    const currentEncountersInHolsterTimeline : IEncounter[] = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters)
+    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(currentEncountersInHolsterTimeline);
 
     const currentStateOfLostActionsInHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
     const lostActionQuantitiesInHolster = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);

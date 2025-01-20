@@ -121,8 +121,8 @@ export const LostFindsHolsterSlice = createSlice({
             state.HolsterTimeline.Encounters = action.payload.encountersToLoad;
         },
 
-        createNewHolsterTimelineEncounter: (state, action: PayloadAction<IEncounter>) => {
-            state.HolsterTimeline.Encounters.push(action.payload);
+        createNewHolsterTimelineEncounter: (state, action: PayloadAction<{newBlankEncounter: IEncounter}>) => {
+            state.HolsterTimeline.Encounters.push(action.payload.newBlankEncounter);
         },
 
         editHolsterTimelineEncounter: (state, action: PayloadAction<{ encounter : IEncounter, positionToPlace : number}>) => {

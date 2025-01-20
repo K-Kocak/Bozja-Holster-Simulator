@@ -20,11 +20,11 @@ import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import { CreateDropdownLostActionHeader } from '@backend/lostactions/prepopholster/PrepopHolsterActions';
 
 const GenerateNewBossInTimeline : IEncounter = {
-    NameOfBoss: "New Boss",
+    NameOfBoss: "Boss Name",
     PullBossWith: {
-        LostActionLeft: 101,
-        LostActionRight: 102,
-        EssenceInUse: 709,
+        LostActionLeft: -1,
+        LostActionRight: -1,
+        EssenceInUse: -1,
     },
     LostActionsSpentInPull: [],
     LostActionsSpentAfterPull: []
@@ -693,6 +693,11 @@ function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) 
 //#endregion
 
 //#region Creation of Lost Action Instance Timeline
+
+/**
+ * Creates lost action timeline component
+ * @returns Returns a lost action timeline component
+ */
 const CreateLostActionInstanceTimeline = () => {
     const dispatch = useAppDispatch();
 
@@ -702,15 +707,13 @@ const CreateLostActionInstanceTimeline = () => {
     const holsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 
     function HandleAddEncounterClick() {
-        const EncounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: currentLostFindsHolster.PrepopHolster.LostActionLeft, LostActionRight: currentLostFindsHolster.PrepopHolster.LostActionRight, EssenceInUse: currentLostFindsHolster.PrepopHolster.EssenceInUse}};
+        const encounterToPush : IEncounter = {...GenerateNewBossInTimeline, PullBossWith : { LostActionLeft: currentLostFindsHolster.PrepopHolster.LostActionLeft, LostActionRight: currentLostFindsHolster.PrepopHolster.LostActionRight, EssenceInUse: currentLostFindsHolster.PrepopHolster.EssenceInUse}};
 
-        dispatch(createNewHolsterTimelineEncounter(EncounterToPush));
-     
+        dispatch(createNewHolsterTimelineEncounter({newBlankEncounter: encounterToPush}));
     }
 
     return (
-        <div className="LostActionInstanceTimelineInnerContainer">
-           
+        <div className="LostActionInstanceTimelineInnerContainer">        
             <div className="LostActionInstanceTimelineStateContainer">
                 <div className="LostActionInstanceTimelineStateBossBoxes">
                     {holsterTimelineBossBoxes}
