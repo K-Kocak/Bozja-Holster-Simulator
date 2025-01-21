@@ -403,7 +403,7 @@ function CreateHolsterTimelineDropdownBoxToDisplay() : React.JSX.Element {
         }
         else {
             const indexOfLostActionResource : number = currentDropdownDataToDisplay.IndexOfLostActionResource;
-            const isInPull : boolean = currentDropdownDataToDisplay.IsInPull;
+            const isInPull : string = currentDropdownDataToDisplay.IsInPull.toString();
             //LostActionDropdownCloseButton = "X";
             lostActionDropdownElementRows = CreateLostActionDropdownElementAllLostActions(encounterNumber, indexOfLostActionResource, isInPull, currentLostFindsHolster.Holster, dispatch);
         }
@@ -471,7 +471,7 @@ function HandleLostActionInstanceTimelineHelpDisplay() {
  * @param dispatch, for onclick event of dropdown rows
  * @returns dropdown menu for all possible lost actions
  */
-function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch: any) : React.JSX.Element {
+function CreateLostActionDropdownElementAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : string, currentActionsInHolster : IActionHolster[], dispatch: any) : React.JSX.Element {
 
     const dropdownRowsForNoEssences = CreateDropdownRowsForAllLostActions(encounterNumber, indexOfLostAction, isInPull, currentActionsInHolster, dispatch);
 
@@ -493,7 +493,7 @@ function CreateLostActionDropdownElementAllLostActions(encounterNumber : number,
  * @param dispatch 
  * @returns lost action rows for dropdown menu
  */
-function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : boolean, currentActionsInHolster : IActionHolster[], dispatch : any) : React.JSX.Element[] {
+function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLostAction : number, isInPull : string, currentActionsInHolster : IActionHolster[], dispatch : any) : React.JSX.Element[] {
     const dropdownItemsArray : React.JSX.Element[] = [];
 
     currentActionsInHolster.forEach((lostActionInHolster) => {   
@@ -522,7 +522,7 @@ function CreateDropdownRowsForAllLostActions(encounterNumber : number, indexOfLo
  * @param dispatch, for onclick event
  * @returns a lost action row
  */
-function CreateDropdownRowForAllLostActions(lostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : boolean, dispatch: any) : React.JSX.Element {
+function CreateDropdownRowForAllLostActions(lostAction : IAction, encounterNumber : number, indexOfLostAction : number, isInPull : string, dispatch: any) : React.JSX.Element {
 
     function HandleLostActionResourceSelected(event : BaseSyntheticEvent) {
         const idOfLostAction = event.target.id;

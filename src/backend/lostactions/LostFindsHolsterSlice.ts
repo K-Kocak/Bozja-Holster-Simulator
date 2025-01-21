@@ -159,12 +159,11 @@ export const LostFindsHolsterSlice = createSlice({
             state.HolsterTimeline.Encounters[action.payload.encounterNumber].NameOfBoss = action.payload.newNameOfBoss;
         },
 
-        setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<{encounterNumber: number, indexOfLostAction: number, idOfLostAction: number, isInPull: boolean}>) => {
-            
-            if(action.payload.isInPull) {
+        setHolsterTimelineEncounterLostActionSpent: (state, action: PayloadAction<{encounterNumber: number, indexOfLostAction: number, idOfLostAction: number, isInPull: string}>) => {
+            if(action.payload.isInPull == 'true') {
                 state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentInPull[action.payload.indexOfLostAction].LostActionUsed = action.payload.idOfLostAction;
             }
-            else if (!action.payload.isInPull) {
+            else if (action.payload.isInPull == 'false') {
                 state.HolsterTimeline.Encounters[action.payload.encounterNumber].LostActionsSpentAfterPull[action.payload.indexOfLostAction].LostActionUsed = action.payload.idOfLostAction;
             }
         },
