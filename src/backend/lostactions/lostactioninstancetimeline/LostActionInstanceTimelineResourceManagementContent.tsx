@@ -7,6 +7,7 @@ import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimeline
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
+import { LostFindsHolster } from '../LostFindsHolsterSlice';
 
 /**
  * Creates an array containing how many times a lost action has been used in the instance timeline
@@ -45,70 +46,85 @@ function AddActionSpentToQuantityArray(lostActionSpent : ILostActionExpenditure,
     }
 }
 
-function CalculateResourceDifferencesForHolster(TotalResourcesSpentInTimeline : number[], LostActionsInHolster : IActionHolster[], QuantitiesOfLostActionsInHolster : number[]) : number[] {
-    LostActionsInHolster.forEach((LostActionInHolster) => {
-        const idOfLostAction = LostActionInHolster.id;
-        if(typeof TotalResourcesSpentInTimeline[idOfLostAction] !== "undefined") {
-            TotalResourcesSpentInTimeline[idOfLostAction] = TotalResourcesSpentInTimeline[idOfLostAction] + QuantitiesOfLostActionsInHolster[idOfLostAction];
+/**
+ * Calculates the difference between the lost actions spent in the timeline and the lost actions in the holster
+ * @param totalResourcesSpentInTimeline, the array of lost action ids spent in the timeline
+ * @param lostActionsInHolster, the current lost actions in your holster
+ * @param quantitiesOfLostActionsInHolster, the array of quantities of lost actions in your holster
+ * @returns an array containing the total resources remaining to spend or have spend too much off
+ */
+function CalculateResourceDifferencesForHolster(totalResourcesSpentInTimeline : number[], lostActionsInHolster : IActionHolster[], quantitiesOfLostActionsInHolster : number[]) : number[] {
+    lostActionsInHolster.forEach((lostActionInHolster) => {
+        const idOfLostAction = lostActionInHolster.id;
+        if(typeof totalResourcesSpentInTimeline[idOfLostAction] !== "undefined") {
+            totalResourcesSpentInTimeline[idOfLostAction] += quantitiesOfLostActionsInHolster[idOfLostAction];
         }
-        else if(typeof TotalResourcesSpentInTimeline[idOfLostAction] == "undefined") {
-            TotalResourcesSpentInTimeline[idOfLostAction] = QuantitiesOfLostActionsInHolster[idOfLostAction];
+        else if(typeof totalResourcesSpentInTimeline[idOfLostAction] == "undefined") {
+            totalResourcesSpentInTimeline[idOfLostAction] = quantitiesOfLostActionsInHolster[idOfLostAction];
         }
     })
-
-    return TotalResourcesSpentInTimeline;
+    return totalResourcesSpentInTimeline;
 }
 
+/**
+ * Creates and returns two arrays containing the HTML about lost actions that still need to be spent or have spent too much of
+ * @param lostActionResourceDifferenceArrayToUse, the lost actions to spend or have spent too much of
+ * @returns two arrays containing the lost actions that still need to be spent and the lost actions that have been overspent
+ */
 function CreateLostActionResourceArrayDivs(lostActionResourceDifferenceArrayToUse : number[]) : React.JSX.Element[][] {
 
     const lostActionResourcesStillToSpend : React.JSX.Element[] = [];
     const lostActionResourcesOverflowSpend : React.JSX.Element[] = [];
-    lostActionResourceDifferenceArrayToUse.forEach((LostActionResource, idOfAction) => {
-        if(LostActionResource > 0) {
-            lostActionResourcesStillToSpend.push(
-                <div key={idOfAction} className="LostActionResourceToSpend">
-                    <div className="LostActionResourceToSpendImage">
-                        <img src={LostActionsAsObjectArray[idOfAction].img}></img>
-                    </div>
-                    <div className="LostActionResourceToSpendQuantity">
-                        <span>{LostActionResource}</span>
-                    </div>
-                </div>
-            )
+    lostActionResourceDifferenceArrayToUse.forEach((lostActionResource, idOfAction) => {
+        if(lostActionResource > 0) {
+            lostActionResourcesStillToSpend.push(CreateLostActionResourceToSpendDiv(lostActionResource, idOfAction));
         }
-        else if(LostActionResource < 0) {
-            lostActionResourcesOverflowSpend.push(
-                <div key={idOfAction} className="LostActionResourceToSpend">
-                    <div className="LostActionResourceToSpendImage">
-                        <img src={LostActionsAsObjectArray[idOfAction].img}></img>
-                    </div>
-                    <div className="LostActionResourceToSpendQuantity">
-                        <span>{LostActionResource}</span>
-                    </div>
-                </div>
-            )
+        else if(lostActionResource < 0) {
+            lostActionResourcesOverflowSpend.push(CreateLostActionResourceToSpendDiv(lostActionResource, idOfAction))
         }
     })
 
     return [lostActionResourcesStillToSpend, lostActionResourcesOverflowSpend]
 }
 
+/**
+ * Creates the HTML for a lost action that still needs to be spent or have spent too much of
+ * @param lostActionSpentCount, the amount the lost action needs to be spent more of or less of
+ * @param idOfLostAction, the id of the lost action
+ * @returns HTML element displaying info about the resource
+ */
+function CreateLostActionResourceToSpendDiv(lostActionSpentCount: number, idOfLostAction: number) {
+    return (
+        <div key={idOfLostAction} className="LostActionResourceToSpend">
+            <div className="LostActionResourceToSpendImage">
+                <img src={LostActionsAsObjectArray[idOfLostAction].img}></img>
+            </div>
+            <div className="LostActionResourceToSpendQuantity">
+                <span>{lostActionSpentCount}</span>
+            </div>
+        </div>
+    )
+}
+
+/**
+ * Creates and returns the resource management content
+ * @returns The resource management content
+ */
 function CreateResourceManagementContent() : React.JSX.Element {
+    const currentHolsterTimeline : LostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
-    const currentEncountersInHolsterTimeline : IEncounter[] = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters)
-    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(currentEncountersInHolsterTimeline);
-
-    const currentStateOfLostActionsInHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
-    const lostActionQuantitiesInHolster = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
-    // essentially an array that determines what you need to spend more of (>0) and what you've spent too much of (<0)
-    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentStateOfLostActionsInHolster, lostActionQuantitiesInHolster);
+    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(currentHolsterTimeline.HolsterTimeline.Encounters);
+    
+    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentHolsterTimeline.Holster, currentHolsterTimeline.ActionQuantities);
 
     const lostActionResourcesElementArray : React.JSX.Element[][] = CreateLostActionResourceArrayDivs(lostActionTimelineResourceDifferenceArray);
+
     const lostActionResourcesQuantityLessThanZero : React.JSX.Element[] = lostActionResourcesElementArray[1];
     const lostActionResourceQuantityGreaterThanZero : React.JSX.Element[] = lostActionResourcesElementArray[0];
 
-    console.log(lostActionTimelineResourceDifferenceArray);
-
+    /**
+     * Toggles the hidden class for the help box in the timeline area
+     */
     function HandleLostActionInstanceTimelineResourceManagementHelpDisplay() {
         document.getElementById("LostActionInstanceTimelineResourceManagementHelpBox")?.classList.toggle("hidden");
     }
