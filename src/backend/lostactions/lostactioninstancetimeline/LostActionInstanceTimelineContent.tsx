@@ -256,8 +256,8 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                     <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullText">
                         <span>In Pull Actions:</span>
                     </div>
-                    <div onClick={HandleLostActionAddResourceInPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
-                            <span id={encounterPosition.toString()}>Add Action</span>
+                    <div id={encounterPosition.toString()} onClick={HandleLostActionAddResourceInPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
+                            <span style={{pointerEvents: "none"}}>Add Action</span>
                     </div>
                 </div>
                 
@@ -276,7 +276,7 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                         <span>After Pull Actions:</span>
                     </div>
                     <div id={encounterPosition.toString()} onClick={HandleLostActionAddResourceAfterPull} className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullAddLostActionButton">
-                            <span id={encounterPosition.toString()}>Add Action</span>
+                            <span style={{pointerEvents: "none"}}>Add Action</span>
                     </div>
                 </div>        
                 <div className="LostActionInstanceTimelineIndividualEncounterResourcesSpentInPullLostActionsContainer">

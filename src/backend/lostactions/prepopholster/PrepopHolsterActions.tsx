@@ -10,52 +10,54 @@ import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
 import '@css/ui/components/PrepopHolster/PrepopHolsterActions.scss';
 import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
+
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 
-export const CreateDropdownRowForLostAction = (LostAction : IAction, LeftOrRightorEssence : string) => {
-
+/**
+ * Creates a lost action row for the dropdown
+ * @param LostAction, the lost action to create the row for
+ * @param leftOrRightorEssence, whether the lost action row is for the left, right or for the essence action
+ * @returns A lost action row
+ */
+export const CreateDropdownRowForLostAction = (lostAction : IAction, leftOrRightorEssence : string) => {
     const dispatch = useAppDispatch();
 
     function HandleLostActionSelected(event : BaseSyntheticEvent) {
-        const ActionToSet : number = event.target.id;
-        switch (LeftOrRightorEssence) {
+        const actionToSet : number = event.target.id;
+        switch (leftOrRightorEssence) {
             case "Left": {
-                dispatch(setPrepopHolsterLostActionLeft(ActionToSet));
+                dispatch(setPrepopHolsterLostActionLeft(actionToSet));
                 break;
             }
             case "Right": {
-                dispatch(setPrepopHolsterLostActionRight(ActionToSet));
+                dispatch(setPrepopHolsterLostActionRight(actionToSet));
                 break;
             }
             case "Essence": {
-                dispatch(setPrepopHolsterLostActionEssence(ActionToSet));
+                dispatch(setPrepopHolsterLostActionEssence(actionToSet));
                 break;
             }
         }
     }
 
     return (
-        <div key={LostAction.id} id={LostAction.id.toString()} onClick={HandleLostActionSelected} className="DropdownItemLostActionRow">
+        <div key={lostAction.id} id={lostAction.id.toString()} onClick={HandleLostActionSelected} className="DropdownItemLostActionRow">
                 <div className="DropdownItemLostActionImage">
-                    <img src={LostAction.img}></img>
+                    <img src={lostAction.img}></img>
                 </div>
                 <div className="DropdownItemLostActionName">
-                    <span>{LostAction.name.EN}</span>
+                    <span>{lostAction.name.EN}</span>
                 </div>
         </div>
     )
 } 
 
-export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) : React.JSX.Element[][] => {
-    /*
-    const DropdownItemsArrayOffensive : React.JSX.Element[] = [];
-    const DropdownItemsArrayDefensive : React.JSX.Element[] = [];
-    const DropdownItemsArrayRestorative : React.JSX.Element[] = [];
-    const DropdownItemsArrayBeneficial : React.JSX.Element[] = [];
-    const DropdownItemsArrayTactical : React.JSX.Element[] = [];
-    const DropdownItemsArrayDetrimental : React.JSX.Element[] = [];
-    const DropdownItemsArrayItemRelated : React.JSX.Element[] = [];
-    */
+/**
+ * Creates and returns the dropdown menu for a prepop holster lost action (left, right, essence)
+ * @param leftOrRightOrEssence, the prepop action to make the dropdown for
+ * @returns dropdown menu containing array of lost actions for prepop action
+ */
+export const CreatePrepopHolsterDropdownItems = (leftOrRightOrEssence : string) : React.JSX.Element[][] => {
     const dropdownItemsAs2DArray : React.JSX.Element[][] = [];
     
     for(let i = 0; i < 7; i++) {
@@ -63,91 +65,56 @@ export const CreatePrepopHolsterDropdownItems = (LeftOrRightOrEssence : string) 
     }
     const lostActionCategories = ["Offensive", "Defensive", "Restorative", "Beneficial", "Tactical", "Detrimental", "Item-Related"];
     
-    if(LeftOrRightOrEssence == "Essence") {
-        LostActionsAsObjectArray.forEach((LostAction) => {
-            if(LostAction.id > 707 && LostAction.id < 744) {
-                const EssenceToPush = CreateDropdownRowForLostAction(LostAction, "Essence");
-                dropdownItemsAs2DArray[6].push(EssenceToPush);
-                //DropdownItemsArrayItemRelated.push(EssenceToPush);
-                //DropdownItemsArray.push(EssenceToPush);
+    if(leftOrRightOrEssence == "Essence") {
+        LostActionsAsObjectArray.forEach((lostAction) => {
+            if(lostAction.id > 707 && lostAction.id < 744) {
+                const essenceToPush = CreateDropdownRowForLostAction(lostAction, "Essence");
+                dropdownItemsAs2DArray[6].push(essenceToPush);
             }
         })
         dropdownItemsAs2DArray[6].unshift(CreateDropdownLostActionHeader("Essence"))
     }
-    else {
-        LostActionsAsObjectArray.forEach((LostAction) => {
-            if(LostAction.id < 700 && LostAction.id > 100) {
-                const LostActionToPush = CreateDropdownRowForLostAction(LostAction, LeftOrRightOrEssence);
-                switch (LostAction.category.EN) {
+    else if(leftOrRightOrEssence == "Left" || leftOrRightOrEssence == "Right"){
+        LostActionsAsObjectArray.forEach((lostAction) => {
+            if(lostAction.id < 700 && lostAction.id > 100) {
+                const lostActionToPush = CreateDropdownRowForLostAction(lostAction, leftOrRightOrEssence);
+                switch (lostAction.category.EN) {
                     case "Offensive":
-                        dropdownItemsAs2DArray[0].push(LostActionToPush);
-                        //DropdownItemsArrayOffensive.push(LostActionToPush);
+                        dropdownItemsAs2DArray[0].push(lostActionToPush);
                         break;
                     case "Defensive":
-                        dropdownItemsAs2DArray[1].push(LostActionToPush);
-                        //DropdownItemsArrayDefensive.push(LostActionToPush);
+                        dropdownItemsAs2DArray[1].push(lostActionToPush);
                         break;
                     case "Restorative":
-                        dropdownItemsAs2DArray[2].push(LostActionToPush);
-                        //DropdownItemsArrayRestorative.push(LostActionToPush);
+                        dropdownItemsAs2DArray[2].push(lostActionToPush);
                         break;
                     case "Beneficial":
-                        dropdownItemsAs2DArray[3].push(LostActionToPush);
-                        //DropdownItemsArrayBeneficial.push(LostActionToPush);
+                        dropdownItemsAs2DArray[3].push(lostActionToPush);
                         break;
                     case "Tactical":
-                        dropdownItemsAs2DArray[4].push(LostActionToPush);
-                        //DropdownItemsArrayTactical.push(LostActionToPush);
+                        dropdownItemsAs2DArray[4].push(lostActionToPush);
                         break;
                     case "Detrimental":
-                        dropdownItemsAs2DArray[5].push(LostActionToPush);
-                        //DropdownItemsArrayDetrimental.push(LostActionToPush);
+                        dropdownItemsAs2DArray[5].push(lostActionToPush);
                         break;
                     case "Item-Related":
-                        dropdownItemsAs2DArray[6].push(LostActionToPush);
-                        //DropdownItemsArrayItemRelated.push(LostActionToPush);
+                        dropdownItemsAs2DArray[6].push(lostActionToPush);
                         break;
                     default:
                         break;
                 }
-                //DropdownItemsArray.push(LostActionToPush);
             }
         })
-        dropdownItemsAs2DArray.forEach((dropdownItemCategory, index) => {
+        dropdownItemsAs2DArray.forEach((dropdownItemCategory, indexOfCategory) => {
             if(dropdownItemCategory.length > 0) {
-                dropdownItemCategory.unshift(CreateDropdownLostActionHeader(lostActionCategories[index]))
+                dropdownItemCategory.unshift(CreateDropdownLostActionHeader(lostActionCategories[indexOfCategory]))
             }
         })
-        
-        /*
-        if(DropdownItemsArrayOffensive.length > 0) {
-            DropdownItemsArrayOffensive.unshift(CreateDropdownLostActionHeader("Offensive"));
-        }
-        if(DropdownItemsArrayDefensive.length > 0) {
-            DropdownItemsArrayDefensive.unshift(CreateDropdownLostActionHeader("Defensive"));
-        }
-        if(DropdownItemsArrayRestorative.length > 0) {
-            DropdownItemsArrayRestorative.unshift(CreateDropdownLostActionHeader("Restorative"));
-        }
-        if(DropdownItemsArrayBeneficial.length > 0) {
-            DropdownItemsArrayBeneficial.unshift(CreateDropdownLostActionHeader("Beneficial"));
-        }
-        if(DropdownItemsArrayTactical.length > 0) {
-            DropdownItemsArrayTactical.unshift(CreateDropdownLostActionHeader("Tactical"));
-        }
-        if(DropdownItemsArrayDetrimental.length > 0) {
-            DropdownItemsArrayDetrimental.unshift(CreateDropdownLostActionHeader("Detrimental"));
-        }
-        if(DropdownItemsArrayItemRelated.length > 0) {
-            DropdownItemsArrayItemRelated.unshift(CreateDropdownLostActionHeader("Item-Related"));
-        }
-        */
     }
     if(dropdownItemsAs2DArray.length > 0) {
         dropdownItemsAs2DArray[dropdownItemsAs2DArray.length-1].push(<div key={"PrepopActionsDropdownSeparator"} style={{width: "95%"}}>{AutomateSeparator()}</div>);
     }
     return dropdownItemsAs2DArray;
-    //return [DropdownItemsArrayOffensive, DropdownItemsArrayDefensive, DropdownItemsArrayRestorative, DropdownItemsArrayBeneficial, DropdownItemsArrayTactical, DropdownItemsArrayDetrimental, DropdownItemsArrayItemRelated];
 }
 
 /**
@@ -166,17 +133,19 @@ export function CreateDropdownLostActionHeader(categoryOfSection: string) : Reac
     )
 }
 
+/**
+ * Creates and returns the prepop holster contents
+ * @returns Prepop component
+ */
 const PrepopHolsterContents = () => {
 
-    const PrepopHolsterLostActionLeft = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionLeft);
-    const PrepopHolsterLostActionRight = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.LostActionRight);
-    const PrepopHolsterLostActionEssence = useAppSelector((state) => state.LostFindsHolster.PrepopHolster.EssenceInUse);
+    const prepopHolsterLostActions = useAppSelector((state) => state.LostFindsHolster.PrepopHolster);
 
-    const PrepopHolsterLostActionLeftImageToShow : React.JSX.Element = PrepopHolsterLostActionLeft != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionLeft].img}></img> : <img src={QuestionMarkNoAction.img}></img>
+    const prepopHolsterLostActionLeftImageToShow : React.JSX.Element = prepopHolsterLostActions.LostActionLeft != -1 ? <img src={LostActionsAsObjectArray[prepopHolsterLostActions.LostActionLeft].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
-    const PrepopHolsterLostActionRightImageToShow : React.JSX.Element = PrepopHolsterLostActionRight != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionRight].img}></img> : <img src={QuestionMarkNoAction.img}></img>
+    const prepopHolsterLostActionRightImageToShow : React.JSX.Element = prepopHolsterLostActions.LostActionRight != -1 ? <img src={LostActionsAsObjectArray[prepopHolsterLostActions.LostActionRight].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
-    const PrepopHolsterLostActionEssenceImageToShow : React.JSX.Element = PrepopHolsterLostActionEssence != -1 ? <img src={LostActionsAsObjectArray[PrepopHolsterLostActionEssence].img}></img> : <img src={QuestionMarkNoAction.img}></img>
+    const prepopHolsterLostActionEssenceImageToShow : React.JSX.Element = prepopHolsterLostActions.EssenceInUse != -1 ? <img src={LostActionsAsObjectArray[prepopHolsterLostActions.EssenceInUse].img}></img> : <img src={QuestionMarkNoAction.img}></img>
 
     return (
         <div className="PrepopHolsterInnerContainer">
@@ -186,7 +155,7 @@ const PrepopHolsterContents = () => {
             <div className="PrepopHolsterLostActionsAndEssence">
                 <div className="PrepopHolsterLostActionLeftSide">
                     <div className="PrepopHolsterLostActionLeftSideImage">
-                        {PrepopHolsterLostActionLeftImageToShow}
+                        {prepopHolsterLostActionLeftImageToShow}
                     </div>
                     <div className="PrepopHolsterLostActionLeftSideSelectorList">                      
                         <span className="DropdownArrow">V</span>
@@ -201,7 +170,7 @@ const PrepopHolsterContents = () => {
                 </div>
                 <div className="PrepopHolsterLostActionRightSide">
                     <div className="PrepopHolsterLostActionRightSideImage">
-                        {PrepopHolsterLostActionRightImageToShow}
+                        {prepopHolsterLostActionRightImageToShow}
                     </div>
                     <div className="PrepopHolsterLostActionRightSideSelectorList">                      
                         <span className="DropdownArrow">V</span>
@@ -216,7 +185,7 @@ const PrepopHolsterContents = () => {
                 </div>
                 <div className="PrepopHolsterLostActionEssence">
                     <div className="PrepopHolsterLostActionEssenceImage">
-                        {PrepopHolsterLostActionEssenceImageToShow}
+                        {prepopHolsterLostActionEssenceImageToShow}
                     </div>
                     <div className="PrepopHolsterLostActionEssenceSelectorList">                      
                         <span className="DropdownArrow">V</span>
