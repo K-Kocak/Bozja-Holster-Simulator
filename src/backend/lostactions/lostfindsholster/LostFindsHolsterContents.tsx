@@ -14,11 +14,14 @@ import SaveSetImage from '@ui/pictures/BozjaSaveSetImage62x62.png';
 import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/LostFindsHolster/LostFindsHolsterContents.scss';
+
 import { clearDropdownData } from '../LostActionDropdownDataSlice';
-//import '@css/ui/components/LostActionsDivGen.scss';
 
-const LostFindsHolsterSeparator = AutomateSeparator();
-
+/**
+ * Retrieves the role picture of the role passed in
+ * @param roleToUse, the role you want to retrieve the role picture for
+ * @returns the image link for the role you want a role picture for
+ */
 export function RetrieveRoleImageUsingLostFindsHolsterState(roleToUse : string) : string {
     switch (roleToUse) {
         case "Tank":
@@ -35,34 +38,34 @@ export function RetrieveRoleImageUsingLostFindsHolsterState(roleToUse : string) 
     return "";
 }
 
+/**
+ * Creates and returns the lost finds holster window
+ * @returns the lost finds holster component
+ */
 export const LostFindsHolsterInformation = () => {   
     const dispatch = useAppDispatch();
 
-    const currentWeight = useAppSelector((state) => state.LostFindsHolster.CurrentWeight);
-    const selectedWeight = useAppSelector((state) => state.LostFindsHolster.SelectedWeight);
-    const currentHolster = useAppSelector((state) => state.LostFindsHolster.Holster);
-    const actionQuantities = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
-    const roleTypeOfHolster = useAppSelector((state) => state.LostFindsHolster.SelectedRole);
-    console.log(currentHolster, actionQuantities, selectedWeight, currentWeight, roleTypeOfHolster);
-    
-    const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(roleTypeOfHolster);
-    const PrepopHolster = useAppSelector((state) => state.LostFindsHolster.PrepopHolster);
-    const holsterTimeline = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline);
-    console.log("lostfindsholster");
-    const LostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
-    const LostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
+    const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
-    LostFindsHolsterActionBoxes.forEach((LostFindsHolsterActionBoxCategory, indexCategory : number) => {
-        LostFindsHolsterActionBoxCategory.forEach((LostFindsHolsterActionBox) => {
-            if(LostFindsHolsterActionBox.type == "div") {
-                LostFindsHolsterActionCategoryCounts[indexCategory] += 1;
+    const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(lostFindsHolster.SelectedRole);
+    const lostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+    const lostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
+
+    lostFindsHolsterActionBoxes.forEach((lostFindsHolsterActionBoxCategory, indexCategory : number) => {
+        lostFindsHolsterActionBoxCategory.forEach((lostFindsHolsterActionBox) => {
+            if(lostFindsHolsterActionBox.type == "div") {
+                lostFindsHolsterActionCategoryCounts[indexCategory] += 1;
             }
         });
     });
 
+    /**
+     * Rotates the role to display in the holster menu depending on what the currently selected role is
+     * Rotation: Tank -> Healer -> Melee -> Physical Ranged -> Magical Ranged -> Loop
+     */
     function LostFindsHolsterCycleSelectedRole() {
         let roleToShow : string = "";
-        switch (roleTypeOfHolster) {
+        switch (lostFindsHolster.SelectedRole) {
             case "Tank":
                 dispatch(setSelectedRole("Healer"));
                 roleToShow = "Healer";
@@ -87,6 +90,10 @@ export const LostFindsHolsterInformation = () => {
         LostFindsHolsterRoleOfSetChangeNotification(roleToShow);
     }
 
+    /**
+     * Displays the current role the holster is made for in the notification box for 3 seconds
+     * @param roleToShow, the current role that will be displayed to the user
+     */
     function LostFindsHolsterRoleOfSetChangeNotification(roleToShow : string) {     
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;   
         savedSetNotificationBox.style.display = "block";
@@ -106,8 +113,8 @@ export const LostFindsHolsterInformation = () => {
     }
 
     function HandleSaveHolsterClick() {
-        if(currentWeight <= 99 && currentWeight > 0) {
-            dispatch(addHolsterToSavedSets([currentHolster, actionQuantities, currentWeight, roleTypeOfHolster, PrepopHolster, holsterTimeline])); 
+        if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
+            dispatch(addHolsterToSavedSets([lostFindsHolster.Holster, lostFindsHolster.ActionQuantities, lostFindsHolster.CurrentWeight, lostFindsHolster.SelectedRole, lostFindsHolster.PrepopHolster, lostFindsHolster.HolsterTimeline])); 
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";
@@ -138,64 +145,64 @@ export const LostFindsHolsterInformation = () => {
     return <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
         
-        {LostFindsHolsterActionCategoryCounts[0] > 0 ? <div className="LostFindsHolsterActionCategoryOffensive">
+        {lostFindsHolsterActionCategoryCounts[0] > 0 ? <div className="LostFindsHolsterActionCategoryOffensive">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Offensive</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[0]}
+        {lostFindsHolsterActionBoxes[0]}
 
-        {LostFindsHolsterActionCategoryCounts[1] > 0 ? <div className="LostFindsHolsterActionCategoryDefensive">
+        {lostFindsHolsterActionCategoryCounts[1] > 0 ? <div className="LostFindsHolsterActionCategoryDefensive">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Defensive</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[1]}  
+        {lostFindsHolsterActionBoxes[1]}  
 
-        {LostFindsHolsterActionCategoryCounts[2] > 0 ? <div className="LostFindsHolsterActionCategoryRestorative">
+        {lostFindsHolsterActionCategoryCounts[2] > 0 ? <div className="LostFindsHolsterActionCategoryRestorative">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Restorative</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[2]} 
+        {lostFindsHolsterActionBoxes[2]} 
 
-        {LostFindsHolsterActionCategoryCounts[3] > 0 ? <div className="LostFindsHolsterActionCategoryBeneficial">
+        {lostFindsHolsterActionCategoryCounts[3] > 0 ? <div className="LostFindsHolsterActionCategoryBeneficial">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Beneficial</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[3]}  
+        {lostFindsHolsterActionBoxes[3]}  
 
-        {LostFindsHolsterActionCategoryCounts[4] > 0 ? <div className="LostFindsHolsterActionCategoryTactical">
+        {lostFindsHolsterActionCategoryCounts[4] > 0 ? <div className="LostFindsHolsterActionCategoryTactical">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Tactical</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[4]}  
+        {lostFindsHolsterActionBoxes[4]}  
 
-        {LostFindsHolsterActionCategoryCounts[5] > 0 ? <div className="LostFindsHolsterActionCategoryDetrimental">
+        {lostFindsHolsterActionCategoryCounts[5] > 0 ? <div className="LostFindsHolsterActionCategoryDetrimental">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Detrimental</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[5]}  
+        {lostFindsHolsterActionBoxes[5]}  
 
-        {LostFindsHolsterActionCategoryCounts[6] > 0 ? <div className="LostFindsHolsterActionCategoryItemRelated">
+        {lostFindsHolsterActionCategoryCounts[6] > 0 ? <div className="LostFindsHolsterActionCategoryItemRelated">
             <div className="LostFindsHolsterActionCategoryFancyGraphic">
                 <img className="LostFindsHolsterActionCategoryFancyGraphicPicture" src={FancyGraphicSymbol}></img>
                 <span className="LostFindsHolsterActionCategoryName">Item-Related</span>
             </div>
         </div> : <></>}
-        {LostFindsHolsterActionBoxes[6]}  
+        {lostFindsHolsterActionBoxes[6]}  
 
     </div>
-    {LostFindsHolsterSeparator}
+    {AutomateSeparator()}
     <div className="LostFindsHolsterWeightAndCapacityBox">
 
         <div className="LostFindsHolsterSelectedActionWeight">
@@ -210,7 +217,7 @@ export const LostFindsHolsterInformation = () => {
             </div>
 
             <div className="LostFindsHolsterSelectedActionWeightDisplay">
-                <span>{selectedWeight}</span>  
+                <span>{lostFindsHolster.SelectedWeight}</span>  
             </div>
 
             <div className="LostFindsHolsterSelectedActionWeightBlankSpace"></div>
@@ -234,9 +241,9 @@ export const LostFindsHolsterInformation = () => {
             </div>
 
             <div className="LostFindsHolsterMaximumCapacityNumber">
-                <span style={{color: currentWeight > 99 ? "#EE6A97" : "#F9CEA5",
-                    textShadow: currentWeight > 99 ? "-1px 0px 1px #DC3C77, 1px 0px 1px #DC3C77, 0px 1px 1px #DC3C77, 0px -1px 1px #DC3C77" : "-1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C"  
-                }}>{currentWeight}</span>
+                <span style={{color: lostFindsHolster.CurrentWeight > 99 ? "#EE6A97" : "#F9CEA5",
+                    textShadow: lostFindsHolster.CurrentWeight > 99 ? "-1px 0px 1px #DC3C77, 1px 0px 1px #DC3C77, 0px 1px 1px #DC3C77, 0px -1px 1px #DC3C77" : "-1px 0px 1px #C07A3C, 1px 0px 1px #C07A3C, 0px 1px 1px #C07A3C, 0px -1px 1px #C07A3C"  
+                }}>{lostFindsHolster.CurrentWeight}</span>
             </div>
 
             <div className="LostFindsHolsterMaximumCapacity200">

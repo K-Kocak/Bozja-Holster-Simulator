@@ -13,6 +13,12 @@ import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
 
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 
+/* TO DO: Possibly change it so that the prepop dropdowns only display when necessary just like
+    the lost actions in the timeline, leading to faster load time of the website.
+    Hover over prepop -> edits a state -> box displays because a state has a certain value
+    Leave hover -> resets state -> nothing displays due to state value
+*/ 
+
 /**
  * Creates a lost action row for the dropdown
  * @param LostAction, the lost action to create the row for
