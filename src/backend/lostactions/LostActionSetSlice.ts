@@ -21,32 +21,23 @@ export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
     reducers: {
-        addHolsterToSavedSets: (state, action: PayloadAction<[IActionHolster[], number[], number, "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", IUserSlottedActions, IHolsterTimeline]>) => {
-            const currentHolster : IActionHolster[] = action.payload[0];
-            const actionQuantities : number[] = action.payload[1];
-            const weightOfHolster : number = action.payload[2];
-            const roleTypeOfHolster = action.payload[3];
-            const PrepopHolster = action.payload[4];
-            const encounters = action.payload[5];
-            
-            const HolsterToBeSaved : IActionHolster[] = [];
-            currentHolster.forEach((actionInHolster) => {              
-                const actionToAdd : IActionHolster = {...currentHolster[actionInHolster.id], quantity: actionQuantities[actionInHolster.id]};
-                HolsterToBeSaved.push(actionToAdd);             
+        addHolsterToSavedSets: (state, action: PayloadAction<{actionsInHolster: IActionHolster[], quantitiesOfActionsInHolster: number[], weightOfHolster: number, roleTypeOfHolster: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", prepopOfHolster: IUserSlottedActions, timelineOfHolster: IHolsterTimeline}>) => {
+
+            const holsterToBeSaved : IActionHolster[] = [];
+            action.payload.actionsInHolster.forEach((actionInHolster) => {              
+                const actionToAdd : IActionHolster = {...action.payload.actionsInHolster[actionInHolster.id], quantity: action.payload.quantitiesOfActionsInHolster[actionInHolster.id]};
+                holsterToBeSaved.push(actionToAdd);             
             });
-            
 
             state.Sets.push({
                 id: Math.random()*10000,
-                nameOfSet: "Title",
-                roleTypeOfSet: roleTypeOfHolster,
-                weightOfSet: weightOfHolster,
-                setLostActionContents: HolsterToBeSaved,
-                PrepopLostActions: PrepopHolster,
-                HolsterTimeline: encounters
+                nameOfSet: action.payload.roleTypeOfHolster + " Holster",
+                roleTypeOfSet: action.payload.roleTypeOfHolster,
+                weightOfSet: action.payload.weightOfHolster,
+                setLostActionContents: holsterToBeSaved,
+                PrepopLostActions: action.payload.prepopOfHolster,
+                HolsterTimeline: action.payload.timelineOfHolster
             });
-
-            
         },
         changeTitleOfSpecificSavedSet: (state, action: PayloadAction<[number, string]>) => {
             state.Sets.forEach((SetInSets, index : number) => {

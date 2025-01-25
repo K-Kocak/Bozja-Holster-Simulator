@@ -102,6 +102,11 @@ export const LostFindsHolsterInformation = () => {
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Checks if the notification box has the same text now as it did 3 seconds ago.
+     * If it does, hides the text. Else does nothing (for multiple notification changes)
+     * @param expectedText, the text that notification box is expected to be
+     */
     function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
@@ -112,9 +117,13 @@ export const LostFindsHolsterInformation = () => {
         
     }
 
+    /**
+     * Gathers the current state of the holster, quantities of actions in the holster, the holster weight, the selected role, the prepop actions and the holster timeline
+     * information and saves it as a new saved set, if the current weight is valid
+     */
     function HandleSaveHolsterClick() {
         if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
-            dispatch(addHolsterToSavedSets([lostFindsHolster.Holster, lostFindsHolster.ActionQuantities, lostFindsHolster.CurrentWeight, lostFindsHolster.SelectedRole, lostFindsHolster.PrepopHolster, lostFindsHolster.HolsterTimeline])); 
+            dispatch(addHolsterToSavedSets({actionsInHolster: lostFindsHolster.Holster, quantitiesOfActionsInHolster: lostFindsHolster.ActionQuantities, weightOfHolster: lostFindsHolster.CurrentWeight, roleTypeOfHolster: lostFindsHolster.SelectedRole, prepopOfHolster: lostFindsHolster.PrepopHolster, timelineOfHolster: lostFindsHolster.HolsterTimeline}))
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";
@@ -132,6 +141,9 @@ export const LostFindsHolsterInformation = () => {
         }  
     }
 
+    /**
+     * Clears the holster and dropdown states
+     */
     function HandleClearHolsterClick() {
         dispatch(clearHolster());
         dispatch(clearDropdownData());

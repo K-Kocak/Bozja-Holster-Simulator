@@ -1,6 +1,5 @@
 import React from 'react';
 
-//import '@css/ui/components/LostFindsHolsterContents.scss';
 import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
