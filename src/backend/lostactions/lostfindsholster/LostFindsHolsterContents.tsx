@@ -48,7 +48,7 @@ export const LostFindsHolsterInformation = () => {
     const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
     const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(lostFindsHolster.SelectedRole);
-    const lostFindsHolsterActionBoxes = CreateLostFindsHolsterActionBoxes();
+    const lostFindsHolsterActionBoxes : JSX.Element[][] = CreateLostFindsHolsterActionBoxes();
     const lostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
 
     lostFindsHolsterActionBoxes.forEach((lostFindsHolsterActionBoxCategory, indexCategory : number) => {
