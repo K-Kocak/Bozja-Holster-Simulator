@@ -82,7 +82,6 @@ export const LostFindsHolsterSlice = createSlice({
             action.payload.forEach((LostActionInFilteredHolster) => {
                 state.Holster[LostActionInFilteredHolster.id] = LostActionInFilteredHolster;
             });
-            
         },
         addActionToHolster: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload] = {

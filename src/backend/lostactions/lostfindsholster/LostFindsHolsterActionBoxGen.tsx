@@ -22,13 +22,18 @@ const CreateLostFindsHolsterActionBox = (lostAction : IAction, quantityOfLostAct
     if(!quantityOfLostAction) {
         return <></>;
     }
+    
+    /**
+     * Removes one quantity from the clicked lost action in the holster. If quantity hits 0, removes the lost action from the holster
+     * @returns updates holster state for quantity of action
+     */
     function HandleButtonClick() {
         if(quantityOfLostAction == 0) {
             // debugging
             return;
         }
         if(quantityOfLostAction - 1 == 0) {
-            const filteredHolster = currentHolster.filter((Actions) => Actions.id != lostAction.id);
+            const filteredHolster = currentHolster.filter((actions) => actions.id != lostAction.id);
             dispatch(removeActionFromHolster(filteredHolster));
         }
         dispatch(decrementActionQuantity(lostAction.id))
@@ -55,21 +60,30 @@ const CreateLostFindsHolsterActionBox = (lostAction : IAction, quantityOfLostAct
     )
 }
 
-
+/*
+This function does not do anything, but was originally intended to reset the lost action quantity property on lost actions
 export function LostFindsHolsterResetLostActionQuantitiesToZero() : void {
-    LostActionsAsObjectArray.forEach((LostAction) => {
-        LostAction.quantity = 0;
+    LostActionsAsObjectArray.forEach((lostAction) => {
+        lostAction.quantity = 0;
     })
 }
+*/
 
+
+/**
+ * Creates and returns the JSX Elements of the lost actions inside the lost finds holster.
+ * @returns A 2D array containing the JSX Element of lost actions separated by the lost action's category
+ */
 export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
-
-    const lostFindsHolsterActionBoxesAs2DArray : React.JSX.Element[][] = [];
+    
     const quantities : number[]= useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
 
+    const lostFindsHolsterActionBoxesAs2DArray : React.JSX.Element[][] = [];
+    
     for(let i = 0; i < 7; i++) {
         lostFindsHolsterActionBoxesAs2DArray.push([]);
     }
+
     LostActionsAsObjectArray.forEach((lostAction) => {
 
         const lostFindsHolsterActionBox = CreateLostFindsHolsterActionBox(lostAction, quantities[lostAction.id]);
