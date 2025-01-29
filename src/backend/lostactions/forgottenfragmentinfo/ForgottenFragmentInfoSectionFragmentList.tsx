@@ -6,18 +6,31 @@ import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFra
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 import { setFragmentHovered, setFragmentToDisplay } from '@backend/lostactions/ForgottenFragmentInfoSlice';
 
-
+/**
+ * Creates a JSX.Element for a forgotten fragment in the forgotten fragment section
+ * @param forgottenFragment, the forgotten fragment you want to create the div for
+ * @returns a JSX.Element containing an image of the forgotten fragment and its name
+ */
 function CreateForgottenFragmentDiv(forgottenFragment : IForgottenFragment) {
     const dispatch = useAppDispatch();
     
+    /**
+     * Changes fragment to display state if this forgotten fragment is clicked on
+     */
     function HandleForgottenFragmentDivClick() {
         dispatch(setFragmentToDisplay(forgottenFragment.id));
     }
 
+    /**
+     * Changes fragment hovered state when mouse enters this forgotten fragment div
+     */
     function HandleMouseEnter() {
         dispatch(setFragmentHovered(forgottenFragment.id));
     }
 
+    /**
+     * Resets fragment hovered state when mouse leaves this forgotten fragment div
+     */
     function HandleMouseLeave() {
         dispatch(setFragmentHovered(-1));
     }
@@ -34,6 +47,13 @@ function CreateForgottenFragmentDiv(forgottenFragment : IForgottenFragment) {
     )
 }
 
+/**
+ * Sorts a forgotten fragment array by name or rank and ascending or descending
+ * @param forgottenFragmentObjectArray, the array of forgotten fragments to sort
+ * @param isAscending, whether to sort ascending or descending
+ * @param filterToUse, whether to sort by name or by rank
+ * @returns an array containing the forgotten fragments sorted
+ */
 function SortForgottenFragmentObjectArray(forgottenFragmentObjectArray : IForgottenFragment[], isAscending : boolean, filterToUse : "name" | "rank") : IForgottenFragment[] {
     const isAscendingModifier = isAscending ? 1 : -1;
     if(filterToUse == "name") {
@@ -62,11 +82,16 @@ function SortForgottenFragmentObjectArray(forgottenFragmentObjectArray : IForgot
     return forgottenFragmentObjectArray;
 }
 
+/**
+ * Creates an array of the forgotten fragments containing a picture of the forgotten fragment and its name
+ * @returns An array containing JSX.Elements of every forgotten fragment
+ */
 const GenerateForgottenFragmentDivs = () => {
-    const currentFilter = useAppSelector((state) => state.ForgottenFragmentInfo.currentFilter);
-    const isAscending = useAppSelector((state) => state.ForgottenFragmentInfo.isSortedAscending);
+    const forgottenFragmentInfo = useAppSelector((state) => state.ForgottenFragmentInfo);
+
     const forgottenFragmentObjectArrayCopy : IForgottenFragment[] = ForgottenFragmentsAsObjectArray;
     const forgottenFragmentCombinedObjectArray : IForgottenFragment[][] = [];
+
     const forgottenFragmentDivArray : React.JSX.Element[] = [];
     const sortedForgottenFragmentArray : IForgottenFragment[] = [];
     // 0 - 15 bozja
@@ -75,8 +100,9 @@ const GenerateForgottenFragmentDivs = () => {
     forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(0, 16));
     forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(16, 24));
     forgottenFragmentCombinedObjectArray.push(forgottenFragmentObjectArrayCopy.slice(24, 36));
+
     forgottenFragmentCombinedObjectArray.forEach((forgottenFragmentZone) => {
-        const sortedForgottenFragmentZone : IForgottenFragment[] = SortForgottenFragmentObjectArray(forgottenFragmentZone, isAscending, currentFilter);
+        const sortedForgottenFragmentZone : IForgottenFragment[] = SortForgottenFragmentObjectArray(forgottenFragmentZone, forgottenFragmentInfo.isSortedAscending, forgottenFragmentInfo.currentFilter);
         sortedForgottenFragmentArray.push(...sortedForgottenFragmentZone);
     })
 

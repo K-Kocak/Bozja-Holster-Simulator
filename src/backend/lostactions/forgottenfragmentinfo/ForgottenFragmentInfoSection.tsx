@@ -7,17 +7,22 @@ import GenerateForgottenFragmentDetailedInfoSection from '@backend/lostactions/f
 
 import { setFilterValue, setIsSortedAscending } from '@backend/lostactions/ForgottenFragmentInfoSlice';
 
-
+/**
+ * Creates and returns the inner part of the forgotten fragment container. This does not include
+ * The background of the container and the size of it.
+ * @returns the contents of the forgotten fragment container
+ */
 export const ForgottenFragmentInnerContainer = () => {
-    const ForgottenFragmentDivs : React.JSX.Element[] = GenerateForgottenFragmentDivs();
-    const ForgottenFragmentDetailedInfo : React.JSX.Element = GenerateForgottenFragmentDetailedInfoSection();
     const dispatch = useAppDispatch();
-    const isSortedAscending = useAppSelector((state) => state.ForgottenFragmentInfo.isSortedAscending);
-    const currentFilter = useAppSelector((state) => state.ForgottenFragmentInfo.currentFilter);
+
+    const forgottenFragmentDivs : React.JSX.Element[] = GenerateForgottenFragmentDivs();
+    const forgottenFragmentDetailedInfo : React.JSX.Element = GenerateForgottenFragmentDetailedInfoSection();
+
+    const forgottenFragmentInfo = useAppSelector((state) => state.ForgottenFragmentInfo);
 
     function HandleSortFragmentsByName() {
-        if(currentFilter == "name") {
-            dispatch(setIsSortedAscending(!isSortedAscending));
+        if(forgottenFragmentInfo.currentFilter == "name") {
+            dispatch(setIsSortedAscending(!forgottenFragmentInfo.isSortedAscending));
         }
         else {
             dispatch(setFilterValue("name"));
@@ -26,8 +31,8 @@ export const ForgottenFragmentInnerContainer = () => {
     }
 
     function HandleSortFragmentsByRank() {
-        if(currentFilter == "rank") {
-            dispatch(setIsSortedAscending(!isSortedAscending));
+        if(forgottenFragmentInfo.currentFilter == "rank") {
+            dispatch(setIsSortedAscending(!forgottenFragmentInfo.isSortedAscending));
         }
         else {
             dispatch(setFilterValue("rank"));
@@ -35,7 +40,7 @@ export const ForgottenFragmentInnerContainer = () => {
         }
     }
 
-    const arrowDirection = isSortedAscending ? <span>&uarr;</span> : <span>&darr;</span>
+    const arrowDirection = forgottenFragmentInfo.isSortedAscending ? <span>&uarr;</span> : <span>&darr;</span>
     
     return <div className="ForgottenFragmentInfoInnerContainer">
                 <div className="ForgottenFragmentInfoFragmentListContainer">
@@ -53,14 +58,13 @@ export const ForgottenFragmentInnerContainer = () => {
                                 {arrowDirection}
                             </div>
                     </div>
-                    <div className="ForgottenFragmentInfoFragmentListDisplayContainer">
-                        
-                        {ForgottenFragmentDivs}
+                    <div className="ForgottenFragmentInfoFragmentListDisplayContainer">                     
+                        {forgottenFragmentDivs}
                     </div>
                 </div>
             <div></div>
             <div className="ForgottenFragmentInfoFragmentInformationContainer">
-                {ForgottenFragmentDetailedInfo}
+                {forgottenFragmentDetailedInfo}
             </div>
     </div>
 }

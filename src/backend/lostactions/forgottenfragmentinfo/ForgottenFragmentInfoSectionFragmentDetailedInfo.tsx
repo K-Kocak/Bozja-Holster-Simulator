@@ -7,12 +7,16 @@ import ForgottenFragmentLostActionList from '@backend/lostactions/forgottenfragm
 import ForgottenFragmentLootDropsList from '@backend/lostactions/forgottenfragmentinfo/ForgottenFragmentInfoSectionFragmentListLootList';
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
 //TO DO: INTERACTIVE MAP FOR FRAGMENTS
+
+/**
+ * Creates and returns the forgotten fragment detailed info section
+ * @returns A forgotten fragment's detailed info (such as what lost actions it gives, loot drops etc)
+ */
 const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
-    console.log(currentSelectedForgottenFragment);
 
-    
     if(currentSelectedForgottenFragment == -1) {
+        // TO DO: Change this to display text encouraging the user to select a forgotten fragment
         return <></>;
     }
 
@@ -21,9 +25,9 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
         event.target.nextSibling.classList.toggle("hidden");
     }*/
 
-    const ForgottenFragmentInUse = ForgottenFragmentsAsObjectArray[currentSelectedForgottenFragment];
-    const ForgottenFragmentLostActionListToDisplay : React.JSX.Element = ForgottenFragmentLostActionList(ForgottenFragmentInUse);
-    const ForgottenFragmentLootListToDisplay : React.JSX.Element = ForgottenFragmentLootDropsList(ForgottenFragmentInUse);
+    const forgottenFragmentInUse = ForgottenFragmentsAsObjectArray[currentSelectedForgottenFragment];
+    const forgottenFragmentLostActionListToDisplay : React.JSX.Element = ForgottenFragmentLostActionList(forgottenFragmentInUse);
+    const forgottenFragmentLootListToDisplay : React.JSX.Element = ForgottenFragmentLootDropsList(forgottenFragmentInUse);
     // map stuff is hidden for now
 
     /*
@@ -42,10 +46,10 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
                 <span>={'>'}</span>
             </div>
             <div className="ForgottenFragmentDetailedInfoImage">
-                {<img src={ForgottenFragmentInUse.img}></img>}
+                {<img src={forgottenFragmentInUse.img}></img>}
             </div>
             <div className="ForgottenFragmentDetailedInfoName">
-                <span>{ForgottenFragmentInUse.name}</span>
+                <span>{forgottenFragmentInUse.name}</span>
             </div>
             <div className="ForgottenFragmentDetailedInfoMap hidden">
                 
@@ -55,15 +59,15 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
         <div className="ForgottenFragmentDetailedInfoActionsAndLootDrops">
             <div className="ForgottenFragmentDetailedInfoActions">
                 <div className="ForgottenFragmentDetailedInfoAppraisal">
-                    <span>Appraise at Rank<span className="ForgottenFragmentDetailedInfoAppraisalRank"> {ForgottenFragmentInUse.rank}</span>  for . . .</span>
+                    <span>Appraise at Rank<span className="ForgottenFragmentDetailedInfoAppraisalRank"> {forgottenFragmentInUse.rank}</span>  for . . .</span>
                 </div>
-                {ForgottenFragmentLostActionListToDisplay}
+                {forgottenFragmentLostActionListToDisplay}
             </div>
             <div className="ForgottenFragmentDetailedInfoLootDrops">
                 <div className="ForgottenFragmentDetailedInfoLootDropText">
                     <span>Fragment Sources . . .</span>
                 </div>
-                {ForgottenFragmentLootListToDisplay}
+                {forgottenFragmentLootListToDisplay}
             </div>
         </div>
     </div>

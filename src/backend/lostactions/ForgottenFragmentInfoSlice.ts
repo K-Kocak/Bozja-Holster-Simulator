@@ -21,7 +21,6 @@ export const ForgottenFragmentInfoSlice = createSlice({
     reducers: {
         setFragmentHovered: (state, action: PayloadAction<number>) => {
             state.idOfFragmentHovered = action.payload;
-          
         },
         setFragmentToDisplay: (state, action: PayloadAction<number>) => {
             state.idOfFragmentDisplayed = action.payload;
