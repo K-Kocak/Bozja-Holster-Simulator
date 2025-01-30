@@ -5,30 +5,39 @@ import '@css/ui/components/ForgottenFragmentInfo/ForgottenFragmentInfoSectionFra
 import LostActionsAsObjectArray from "@backend/lostactions/actiondata/ActionDataToObjectArray";
 import IAction from "@backend/interfaces/IAction";
 
-
-const CreateLostActionRow = (LostAction : IAction) : React.JSX.Element => {
+/**
+ * Creates and returns a lost action row for a forgotten fragment. This forgotten fragment drops this lost action
+ * @param lostAction creates a lost action row in the forgotten fragment action list area
+ * @returns the JSX.Element containing the lost action row
+ */
+const CreateLostActionRow = (lostAction : IAction) : React.JSX.Element => {
     return (
-        <div key={LostAction.id} className="ForgottenFragmentDetailedInfoLostActionRow">
+        <div key={lostAction.id} className="ForgottenFragmentDetailedInfoLostActionRow">
             <div className="ForgottenFragmentDetailedInfoLostActionRowImage">
-                <img src={LostAction.img}></img>
+                <img src={lostAction.img}></img>
             </div>
             <div className="ForgottenFragmentDetailedInfoLostActionRowName">
-                <span>{LostAction.name.EN}</span>
+                <span>{lostAction.name.EN}</span>
             </div>
         </div>
     )
 }
 
+/**
+ * Creates and returns lost action rows for a forgotten fragment based off what lost actions can be opened up from this forgotten fragment
+ * @param forgottenFragment, the forgotten fragment to generate the lost action rows for
+ * @returns JSX.Element containing all the lost action rows for a forgotten fragment
+ */
+const ForgottenFragmentLostActionList = (forgottenFragment : IForgottenFragment) : React.JSX.Element => {
 
-const ForgottenFragmentLostActionList = (ForgottenFragment : IForgottenFragment) : React.JSX.Element => {
-
-    const LostActionList : React.JSX.Element[] = [];
-    ForgottenFragment.descriptionContainsLostAction.forEach((IdOfLostAction) => {
-        const LostActionRowToPush = CreateLostActionRow(LostActionsAsObjectArray[IdOfLostAction]);
-        LostActionList.push(LostActionRowToPush);
+    const lostActionList : React.JSX.Element[] = [];
+    forgottenFragment.descriptionContainsLostAction.forEach((idOfLostAction) => {
+        const lostActionRowToPush = CreateLostActionRow(LostActionsAsObjectArray[idOfLostAction]);
+        lostActionList.push(lostActionRowToPush);
     })
+    
     return (<div className="ForgottenFragmentDetailedInfoActionList">
-        {LostActionList}
+        {lostActionList}
     </div>)
 }
 export default ForgottenFragmentLostActionList
