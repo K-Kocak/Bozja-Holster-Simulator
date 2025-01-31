@@ -3,10 +3,11 @@ import React from 'react';
 import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import { PlaceLostActionElementTo2DArray } from '@backend/lostactions/lostfindscache/LostFindsCacheLostActionButtonGen';
 
-import IAction from '../../interfaces/IAction';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster } from '../LostFindsHolsterSlice';
+import IAction from '@backend/interfaces/IAction';
+import { useAppDispatch, useAppSelector } from '@backend/hooks';
+import { decreaseCurrentWeight, decrementActionQuantity, removeActionFromHolster } from '@backend/lostactions/LostFindsHolsterSlice';
 
 /**
  * Creates and returns an Element for a lost action in the lost finds holster
@@ -88,8 +89,9 @@ export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
 
         const lostFindsHolsterActionBox = CreateLostFindsHolsterActionBox(lostAction, quantities[lostAction.id]);
 
-        if(quantities[lostAction.id]) {       
-            switch (lostAction.category.EN) {
+        if(quantities[lostAction.id]) { 
+            PlaceLostActionElementTo2DArray(lostFindsHolsterActionBoxesAs2DArray, lostFindsHolsterActionBox, lostAction.id, lostAction.category.EN);      
+            /*switch (lostAction.category.EN) {
                 case "Offensive": {
                     lostFindsHolsterActionBoxesAs2DArray[0][lostAction.id] = lostFindsHolsterActionBox;
                     break;
@@ -117,7 +119,7 @@ export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
                 case "Item-Related": {
                     lostFindsHolsterActionBoxesAs2DArray[6][lostAction.id] = lostFindsHolsterActionBox;
                 }
-            }
+            }*/
         }  
     })
     return lostFindsHolsterActionBoxesAs2DArray;

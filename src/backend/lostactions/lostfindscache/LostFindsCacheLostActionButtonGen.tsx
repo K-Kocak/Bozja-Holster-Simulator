@@ -123,41 +123,59 @@ export const CreateLostActionButtonsByCategory = (LostActionsAsObjectArray: IAct
     for(let i = 0; i < 7; i++) {
         lostActionButtonArrayActions.push([]);
     }
-    // TO DO: category stuff happens in 3 places, make it into one function
+
     LostActionsAsObjectArray.forEach((lostAction) => {
         const lostActionButton : React.JSX.Element = CreateLostCacheLostActionButton(lostAction);
-        switch (lostAction.category.EN) {
-            case "Offensive": {
-                lostActionButtonArrayActions[0][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Defensive": {
-                lostActionButtonArrayActions[1][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Restorative": {
-                lostActionButtonArrayActions[2][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Beneficial": {
-                lostActionButtonArrayActions[3][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Tactical": {
-                lostActionButtonArrayActions[4][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Detrimental": {
-                lostActionButtonArrayActions[5][lostAction.id] = lostActionButton;
-                break;
-            }
-            case "Item-Related": {
-                lostActionButtonArrayActions[6][lostAction.id] = lostActionButton;
-                break;
-            }
-        }
+        PlaceLostActionElementTo2DArray(lostActionButtonArrayActions, lostActionButton, lostAction.id, lostAction.category.EN);
     })
+    
     return lostActionButtonArrayActions;
+}
+
+/**
+ * Helper function for sorting a lost action into its category within a 2D array.
+ * @param array2D, the 2D array being added to
+ * @param element, the JSX.Element to add
+ * @param idOfLostAction, the id of the lost action to add
+ * @param categoryOfLostAction, the category of the lost action to add
+ * @returns edited 2D array now containing the JSX.Element for the lost action in its category
+ * 
+ * Will probably get moved to a separate helper file
+ */
+export function PlaceLostActionElementTo2DArray(array2D : React.JSX.Element[][], element: JSX.Element, idOfLostAction: number, categoryOfLostAction: "Offensive" | "Defensive" | "Restorative" | "Beneficial" | "Tactical" | "Detrimental" | "Item-Related") {
+    if(array2D.length != 7 || element == <></> || idOfLostAction == -1) {
+        return;
+    }
+    switch (categoryOfLostAction) {
+        case "Offensive": {
+            array2D[0][idOfLostAction] = element;
+            break;
+        }
+        case "Defensive": {
+            array2D[1][idOfLostAction] = element;
+            break;
+        }
+        case "Restorative": {
+            array2D[2][idOfLostAction] = element;
+            break;
+        }
+        case "Beneficial": {
+            array2D[3][idOfLostAction] = element;
+            break;
+        }
+        case "Tactical": {
+            array2D[4][idOfLostAction] = element;
+            break;
+        }
+        case "Detrimental": {
+            array2D[5][idOfLostAction] = element;
+            break;
+        }
+        case "Item-Related": {
+            array2D[6][idOfLostAction] = element;
+            break;
+        }
+    }
 }
 
 export default CreateLostCacheLostActionButtons;

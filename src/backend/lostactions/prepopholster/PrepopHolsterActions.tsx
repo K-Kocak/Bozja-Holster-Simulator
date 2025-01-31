@@ -3,6 +3,8 @@ import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight } from '@backend/lostactions/LostFindsHolsterSlice';
 
+import { PlaceLostActionElementTo2DArray } from '@backend/lostactions/lostfindscache/LostFindsCacheLostActionButtonGen';
+
 import IAction from '@app/backend/interfaces/IAction';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
@@ -84,31 +86,7 @@ export const CreatePrepopHolsterDropdownItems = (leftOrRightOrEssence : string) 
         LostActionsAsObjectArray.forEach((lostAction) => {
             if(lostAction.id < 700 && lostAction.id > 100) {
                 const lostActionToPush = CreateDropdownRowForLostAction(lostAction, leftOrRightOrEssence);
-                switch (lostAction.category.EN) {
-                    case "Offensive":
-                        dropdownItemsAs2DArray[0].push(lostActionToPush);
-                        break;
-                    case "Defensive":
-                        dropdownItemsAs2DArray[1].push(lostActionToPush);
-                        break;
-                    case "Restorative":
-                        dropdownItemsAs2DArray[2].push(lostActionToPush);
-                        break;
-                    case "Beneficial":
-                        dropdownItemsAs2DArray[3].push(lostActionToPush);
-                        break;
-                    case "Tactical":
-                        dropdownItemsAs2DArray[4].push(lostActionToPush);
-                        break;
-                    case "Detrimental":
-                        dropdownItemsAs2DArray[5].push(lostActionToPush);
-                        break;
-                    case "Item-Related":
-                        dropdownItemsAs2DArray[6].push(lostActionToPush);
-                        break;
-                    default:
-                        break;
-                }
+                PlaceLostActionElementTo2DArray(dropdownItemsAs2DArray, lostActionToPush, lostAction.id, lostAction.category.EN);
             }
         })
         dropdownItemsAs2DArray.forEach((dropdownItemCategory, indexOfCategory) => {
