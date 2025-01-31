@@ -700,9 +700,11 @@ function CreateDropdownRowsForEssences(encounterNumber : number, dispatch: any) 
  */
 const CreateLostActionInstanceTimeline = () => {
     const dispatch = useAppDispatch();
+    console.log("check");
 
+    // TO DO: Decouple this from selected weight and selected role so we don't have this component remaking itself for no reason
     const currentLostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
-
+    
     const holsterTimelineBossBoxes = CreateHolsterTimelineBossBoxes(currentLostFindsHolster.HolsterTimeline.Encounters);
     const holsterTimelineDropdownBoxToDisplay = CreateHolsterTimelineDropdownBoxToDisplay();
 

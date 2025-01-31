@@ -14,12 +14,10 @@ import '@css/ui/components/LostFindsCache/LostFindsCacheLostActionButtonGen.scss
 
 const lostActionInformationBoxes : React.JSX.Element[] = CreateLostActionInformationBoxes(LostActionsAsObjectArray);
 
-const minimumLostActionInformationClassListLength = 1;
-
 /**
- * 
- * @param lostAction 
- * @returns 
+ * Creates and returns a JSX Element containing a lost action's button and its information
+ * @param lostAction, the lost action to create a button for in the lost cache
+ * @returns JSX.Element containing the button and the lost action's information
  */
 export const CreateLostCacheLostActionButton = (lostAction: IAction) => {
     const dispatch = useAppDispatch();
@@ -27,9 +25,9 @@ export const CreateLostCacheLostActionButton = (lostAction: IAction) => {
     const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
     /**
-     * 
-     * @param event 
-     * @returns 
+     * Adds a lost action to the lost finds holster state while increasing the total weight of the holster
+     * @param event, the lost action that was clicked in the lost cache
+     * @returns A lost action being added to the lost finds holster
      */
     function HandleButtonClick(event : BaseSyntheticEvent) {
         const idOfAction : number = event.target.id;
@@ -48,10 +46,11 @@ export const CreateLostCacheLostActionButton = (lostAction: IAction) => {
     }
 
     /**
-     * 
-     * @param event 
+     * Displays information for a lost action that was hovered over in the lost finds cache
+     * @param event, the lost action button that was hovered over
      */
     function ToggleLostActionInformation(event: BaseSyntheticEvent) {
+        const minimumLostActionInformationClassListLength = 1;
         event.target.nextSibling.nextSibling.classList.length > minimumLostActionInformationClassListLength ? 
             dispatch(setSelectedWeight(LostActionsAsObjectArray[event.target.id].weight)) : dispatch(setSelectedWeight(0))
 
@@ -74,87 +73,91 @@ export const CreateLostCacheLostActionButton = (lostAction: IAction) => {
     const styleChoice = lostAction.fragment.includes(useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentHovered)) ? {filter: "brightness(1.3) drop-shadow(0px 0px 10px white)"} : {};
    
     return <div key={lostAction.id} id={lostAction.id.toString()} onClick={HandleButtonClick} className="LostCacheLostActionButton">
-                
                 <img style={styleChoice} key={lostAction.id} id={lostAction.id.toString()} className="LostActionButtonImage" onMouseEnter={ToggleLostActionInformation} onMouseLeave={ToggleLostActionInformation} src={lostAction.category.EN == "Item-Related" ? lostAction.img : lostAction.imgBorder}></img>
                 <div className="LostActionButtonWeight">{lostAction.weight}</div>
             {lostActionInformationHoverDiv}
         </div>;
 }
 
-// Creates all the HTML for the lost action buttons inside the lost cache
+/**
+ * Creates lost action buttons for the lost finds cache
+ * @param LostActionsAsObjectArray, the lost actions to create the buttons from
+ * @returns JSX.Element containing the lost action buttons
+ */
 export const CreateLostCacheLostActionButtons = (LostActionsAsObjectArray: IAction[]) : React.JSX.Element => {
-    const LostActionButtonsByCategory : React.JSX.Element[][] = CreateLostActionButtonsByCategory(LostActionsAsObjectArray);
+    const lostActionButtonsByCategory : React.JSX.Element[][] = CreateLostActionButtonsByCategory(LostActionsAsObjectArray);
 
     return <div className="LostCacheLostActionButtons">
         <div className="LostActionOffensive">
-            {LostActionButtonsByCategory[0]}
+            {lostActionButtonsByCategory[0]}
         </div> 
         <div className="LostActionDefensive">
-            {LostActionButtonsByCategory[1]}
+            {lostActionButtonsByCategory[1]}
         </div> 
         <div className="LostActionRestorative">
-            {LostActionButtonsByCategory[2]}
+            {lostActionButtonsByCategory[2]}
         </div> 
         <div className="LostActionBeneficial">
-            {LostActionButtonsByCategory[3]}
+            {lostActionButtonsByCategory[3]}
         </div> 
         <div className="LostActionTactical">
-            {LostActionButtonsByCategory[4]}
+            {lostActionButtonsByCategory[4]}
         </div> 
         <div className="LostActionDetrimental">
-            {LostActionButtonsByCategory[5]}
+            {lostActionButtonsByCategory[5]}
         </div> 
         <div className="LostActionItemRelated">
-            {LostActionButtonsByCategory[6]}
+            {lostActionButtonsByCategory[6]}
         </div> 
     </div>
 }
 
+/**
+ * Creates and returns lost action buttons for given lost actions
+ * @param LostActionsAsObjectArray, the lost actions to turn into buttons
+ * @returns JSX.Element 2D Array containing the lost action buttons split by category
+ */
 export const CreateLostActionButtonsByCategory = (LostActionsAsObjectArray: IAction[]) : React.JSX.Element[][] => {
-    const LostActionButtonArrayOffensiveActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayDefensiveActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayRestorativeActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayBeneficialActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayTacticalActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayDetrimentalActions : React.JSX.Element[] = [];
-    const LostActionButtonArrayItemRelatedActions : React.JSX.Element[] = [];
 
-    LostActionsAsObjectArray.forEach((LostAction) => {
-        const LostActionButton : React.JSX.Element = CreateLostCacheLostActionButton(LostAction);
-        switch (LostAction.category.EN) {
+    const lostActionButtonArrayActions : React.JSX.Element[][] = [];
+    for(let i = 0; i < 7; i++) {
+        lostActionButtonArrayActions.push([]);
+    }
+    // TO DO: category stuff happens in 3 places, make it into one function
+    LostActionsAsObjectArray.forEach((lostAction) => {
+        const lostActionButton : React.JSX.Element = CreateLostCacheLostActionButton(lostAction);
+        switch (lostAction.category.EN) {
             case "Offensive": {
-                LostActionButtonArrayOffensiveActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[0][lostAction.id] = lostActionButton;
                 break;
             }
             case "Defensive": {
-                LostActionButtonArrayDefensiveActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[1][lostAction.id] = lostActionButton;
                 break;
             }
             case "Restorative": {
-                LostActionButtonArrayRestorativeActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[2][lostAction.id] = lostActionButton;
                 break;
             }
             case "Beneficial": {
-                LostActionButtonArrayBeneficialActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[3][lostAction.id] = lostActionButton;
                 break;
             }
             case "Tactical": {
-                LostActionButtonArrayTacticalActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[4][lostAction.id] = lostActionButton;
                 break;
             }
             case "Detrimental": {
-                LostActionButtonArrayDetrimentalActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[5][lostAction.id] = lostActionButton;
                 break;
             }
             case "Item-Related": {
-                LostActionButtonArrayItemRelatedActions[LostAction.id] = LostActionButton;
+                lostActionButtonArrayActions[6][lostAction.id] = lostActionButton;
+                break;
             }
         }
     })
-
-    return [LostActionButtonArrayOffensiveActions, LostActionButtonArrayDefensiveActions,LostActionButtonArrayRestorativeActions,
-        LostActionButtonArrayBeneficialActions, LostActionButtonArrayTacticalActions, LostActionButtonArrayDetrimentalActions,
-        LostActionButtonArrayItemRelatedActions]
+    return lostActionButtonArrayActions;
 }
 
 export default CreateLostCacheLostActionButtons;
