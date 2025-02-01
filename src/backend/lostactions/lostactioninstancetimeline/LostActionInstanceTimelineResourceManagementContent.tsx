@@ -7,7 +7,6 @@ import '@css/ui/components/LostActionInstanceTimeline/LostActionInstanceTimeline
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import { AutomateSeparator } from '../lostfindscache/LostActionsDivGen';
-import { LostFindsHolster } from '../LostFindsHolsterSlice';
 
 /**
  * Creates an array containing how many times a lost action has been used in the instance timeline
@@ -111,11 +110,12 @@ function CreateLostActionResourceToSpendDiv(lostActionSpentCount: number, idOfLo
  * @returns The resource management content
  */
 function CreateResourceManagementContent() : React.JSX.Element {
-    const currentHolsterTimeline : LostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
+    const holsterTimelineEncounters : IEncounter[] = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
+    const currentHolster : IActionHolster[] = useAppSelector((state) => state.LostFindsHolster.Holster);
+    const actionQuantitiesInHolster : number[] = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
 
-    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(currentHolsterTimeline.HolsterTimeline.Encounters);
-    
-    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentHolsterTimeline.Holster, currentHolsterTimeline.ActionQuantities);
+    const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(holsterTimelineEncounters);
+    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentHolster, actionQuantitiesInHolster);
 
     const lostActionResourcesElementArray : React.JSX.Element[][] = CreateLostActionResourceArrayDivs(lostActionTimelineResourceDifferenceArray);
 

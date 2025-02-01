@@ -122,7 +122,7 @@ export function CreateDropdownLostActionHeader(categoryOfSection: string) : Reac
  * @returns Prepop component
  */
 const PrepopHolsterContents = () => {
-
+    console.log("prepop");
     const prepopHolsterLostActions = useAppSelector((state) => state.LostFindsHolster.PrepopHolster);
 
     const prepopHolsterLostActionLeftImageToShow : React.JSX.Element = prepopHolsterLostActions.LostActionLeft != -1 ? <img src={LostActionsAsObjectArray[prepopHolsterLostActions.LostActionLeft].img}></img> : <img src={QuestionMarkNoAction.img}></img>

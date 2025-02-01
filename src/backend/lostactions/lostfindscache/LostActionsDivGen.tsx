@@ -7,34 +7,39 @@ import ForgottenFragmentsAsObjectArray from '@backend/lostactions/forgottenfragm
 
 import '@css/ui/components/LostFindsCache/LostActionsDivGen.scss';
 
-function AutomateSectionOneVar(LostAction: IAction) : React.JSX.Element {
+/**
+ * Creates and returns jsx.element info for a lost action, namely its image, type of action, range and radius, and name
+ * @param lostAction, the lost action to create the jsx.element for
+ * @returns jsx element
+ */
+function CreateLostActionInfoImageTypeRangeRadiusName(lostAction: IAction) : React.JSX.Element {
 return <div className="LostActionSectionOne">
     
     <div className="LostActionImage">
-        <img src={LostAction.img}></img>
+        <img src={lostAction.img}></img>
     </div>
 
     <div className="LostActionNameTypeRangeRadius">
         <div className="LostActionName">
-            <span className="ActionName">{LostAction.name.EN}</span>
+            <span className="ActionName">{lostAction.name.EN}</span>
         </div>
         
         <div className="LostActionTypeRangeRadius">
             
             <div className="LostActionType">
-                <span className="ActionType">{LostAction.skillType.EN}</span>
+                <span className="ActionType">{lostAction.skillType.EN}</span>
             </div>
 
             <div className="LostActionRangeRadius">
 
                 <div className="LostActionRange">
                     <span>Range </span> 
-                    {LostAction.range}
+                    {lostAction.range}
                 </div>
 
                 <div className="LostActionRadius">
                     <span>Radius </span> 
-                    {LostAction.radius}
+                    {lostAction.radius}
                 </div>
             </div>
         </div>            
@@ -42,32 +47,29 @@ return <div className="LostActionSectionOne">
 </div>
 }
 
-// first div - cast part
-// second div - recast part
-// final div - available part
-
-// tie the inner part of the second div to a variable
-// check if the recast parameter exists, and if it does, create the variable and use it when building the overall div
-// same thing with final div.
-// second check: for "available", lost flare star and lost seraph strike use "MP Cost" instead of "available"
-// actions with no "available" parameter need to have that entire div not appear at all
-// some actions (namely items) dont have a "recast" part either, so that needs to be gone too sometimes.
-// "Cast" is present in all actions, this is static
-// we will need an if condition for "recast", if it exists then we present the information as established below, else, we will just have the basic div but its contents will be empty.
-// for available, we will need an if condition to check if our action has an available defined. same idea as "recast". we will however need to perform an additional check if the action is flare star or seraph strike, where the text must say "MP Cost" instead of "available".
-function AutomateSectionTwoVar(LostAction: IAction) : React.JSX.Element { 
+/**
+ * 
+ * @param lostAction 
+ * @returns 
+ */
+function CreateLostActionCastInfo(lostAction: IAction) : React.JSX.Element { 
 return <div className="LostActionSectionTwo">
 
     <div className="LostActionCastInfo">
         <div className="LostActionCastRecastAvailable"><span className="LostActionCastRecastAvailableText">Cast</span></div>
-        <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{LostAction.cast}</p></div>
+        <div className="LostActionCastRecastAvailable"><p className="LostActionParameterData">{lostAction.cast}</p></div>
         <div className="LostActionFancyGraphicCast"></div>
     </div>    
-    {CreateLostActionSectionTwoRecast(LostAction)}
-    {CreateLostActionSectionTwoAvailable(LostAction)}
+    {CreateLostActionSectionTwoRecast(lostAction)}
+    {CreateLostActionSectionTwoAvailable(lostAction)}
 </div>
 }
 
+/**
+ * 
+ * @param LostAction 
+ * @returns 
+ */
 function CreateLostActionSectionTwoRecast(LostAction : IAction) : React.JSX.Element {
     if('recast' in LostAction) {
         return (<div className="LostActionRecastInfo">
@@ -82,6 +84,11 @@ function CreateLostActionSectionTwoRecast(LostAction : IAction) : React.JSX.Elem
     } else return <div className="LostActionRecastInfo"></div>
 }
 
+/**
+ * 
+ * @param LostAction 
+ * @returns 
+ */
 function CreateLostActionSectionTwoAvailable(LostAction: IAction) : React.JSX.Element {
     if('available' in LostAction) {   
         const IsMPCostAction = (LostAction.name.EN == "Lost Flare Star" || LostAction.name.EN == "Lost Seraph Strike") ? true : false;
@@ -97,8 +104,12 @@ function CreateLostActionSectionTwoAvailable(LostAction: IAction) : React.JSX.El
     } else return <div className="LostActionAvailableInfo"></div>
 }
 
-// Separator line in the lost action info.
-// this is static for all actions
+/**
+ * Creates the separator graphic.
+ * It is made up of 3 horizontal lines with slightly differing colours.
+ * Left and right ends are rounded out to create the bar
+ * @returns separator component
+ */
 export function AutomateSeparator() : React.JSX.Element { 
 return <div className="LostActionSeparatorSegment">
     <div className="LostActionSeparatorSegmentLeftEnd"></div>
@@ -147,25 +158,25 @@ function AutomateSectionFiveVar(LostAction: IAction) : React.JSX.Element {
     </div>;
 }
 
-export function CreateLostActionInformationBoxes(LostActionInformationBoxesStorage : IAction[]) : React.JSX.Element[] {
-    const CreatedLostActionInformationBoxes : React.JSX.Element[] = [];
-    console.log()
-    LostActionInformationBoxesStorage.forEach((LostAction: IAction) => {
-        CreatedLostActionInformationBoxes[LostAction.id] = CreateLostActionBox(LostAction);
+export function CreateLostActionInformationBoxes(lostActions : IAction[]) : React.JSX.Element[] {
+    const createdLostActionInformationBoxes : React.JSX.Element[] = [];
+    console.log("test");
+    lostActions.forEach((lostAction: IAction) => {
+        createdLostActionInformationBoxes[lostAction.id] = CreateLostActionBox(lostAction);
     });
-    return CreatedLostActionInformationBoxes;
+    return createdLostActionInformationBoxes;
 }
 
-function CreateLostActionBox(LostAction: IAction) : React.JSX.Element {
+function CreateLostActionBox(lostAction: IAction) : React.JSX.Element {
 return <div className="LostActionDetailedInfoBox">
         <div className="LostActionInnerDetailedInfoBox">
-            {AutomateSectionOneVar(LostAction)}
-            {AutomateSectionTwoVar(LostAction)}
+            {CreateLostActionInfoImageTypeRangeRadiusName(lostAction)}
+            {CreateLostActionCastInfo(lostAction)}
             {AutomateSeparator()}
-            {AutomateSectionThreeVar(LostAction)}
-            {AutomateSectionFourVar(LostAction)}
+            {AutomateSectionThreeVar(lostAction)}
+            {AutomateSectionFourVar(lostAction)}
             {AutomateSeparator()}
-            {AutomateSectionFiveVar(LostAction)}
+            {AutomateSectionFiveVar(lostAction)}
         </div>
     </div>
 }

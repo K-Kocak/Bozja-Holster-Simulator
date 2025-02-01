@@ -91,37 +91,9 @@ export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
 
         if(quantities[lostAction.id]) { 
             PlaceLostActionElementTo2DArray(lostFindsHolsterActionBoxesAs2DArray, lostFindsHolsterActionBox, lostAction.id, lostAction.category.EN);      
-            /*switch (lostAction.category.EN) {
-                case "Offensive": {
-                    lostFindsHolsterActionBoxesAs2DArray[0][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Defensive": {
-                    lostFindsHolsterActionBoxesAs2DArray[1][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Restorative": {
-                    lostFindsHolsterActionBoxesAs2DArray[2][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Beneficial": {
-                    lostFindsHolsterActionBoxesAs2DArray[3][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Tactical": {
-                    lostFindsHolsterActionBoxesAs2DArray[4][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Detrimental": {
-                    lostFindsHolsterActionBoxesAs2DArray[5][lostAction.id] = lostFindsHolsterActionBox;
-                    break;
-                }
-                case "Item-Related": {
-                    lostFindsHolsterActionBoxesAs2DArray[6][lostAction.id] = lostFindsHolsterActionBox;
-                }
-            }*/
         }  
-    })
+    });
+
     return lostFindsHolsterActionBoxesAs2DArray;
 }
 
