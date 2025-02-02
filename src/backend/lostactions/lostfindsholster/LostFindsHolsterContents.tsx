@@ -21,8 +21,10 @@ import { clearDropdownData } from '../LostActionDropdownDataSlice';
  * Retrieves the role picture of the role passed in
  * @param roleToUse, the role you want to retrieve the role picture for
  * @returns the image link for the role you want a role picture for
+ * 
+ * TO DO: PLACE INTO A SEPARATE FILE AS A HELPER FUNCTION
  */
-export function RetrieveRoleImageUsingLostFindsHolsterState(roleToUse : string) : string {
+export function GetRoleImageForCurrentRole(roleToUse : string) : string {
     switch (roleToUse) {
         case "Tank":
             return FFXIVRolePicturesAsObject.Tank;
@@ -34,6 +36,8 @@ export function RetrieveRoleImageUsingLostFindsHolsterState(roleToUse : string) 
             return FFXIVRolePicturesAsObject.PhysicalRangedDPS;
         case "Magical Ranged":
             return FFXIVRolePicturesAsObject.MagicalRangedDPS;
+        case "None":
+            return "None";
     }
     return "";
 }
@@ -47,7 +51,7 @@ export const LostFindsHolsterInformation = () => {
 
     const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
 
-    const roleImageToUse = RetrieveRoleImageUsingLostFindsHolsterState(lostFindsHolster.SelectedRole);
+    const roleImageToUse = GetRoleImageForCurrentRole(lostFindsHolster.SelectedRole);
     const lostFindsHolsterActionBoxes : JSX.Element[][] = CreateLostFindsHolsterActionBoxes();
     const lostFindsHolsterActionCategoryCounts : number[] = Array<number>(7).fill(0);
 

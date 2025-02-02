@@ -10,9 +10,10 @@ import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import IHolsterTimeline, { ILostActionExpenditure, IUserSlottedActions } from '@backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
-import { FFXIVRolePicturesAsObject } from '@backend/lostactions/RolePictureImport';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
+
+import { GetRoleImageForCurrentRole } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents';
 
 
 
@@ -117,24 +118,6 @@ function RotateRoleSort(currentRoleSort : "Tank" | "Healer" | "Melee" | "Magical
     return "None";
 }
 
-function getAssociatedRoleImageForRole(roleToGetImageOf : string) : string {
-    switch(roleToGetImageOf) {
-        case "None":
-            return "None";
-        case "Healer":
-            return FFXIVRolePicturesAsObject.Healer;
-        case "Tank":
-            return FFXIVRolePicturesAsObject.Tank;
-        case "Melee":
-            return FFXIVRolePicturesAsObject.MeleeDPS;
-        case "Physical Ranged":
-            return FFXIVRolePicturesAsObject.PhysicalRangedDPS;
-        case "Magical Ranged":
-            return FFXIVRolePicturesAsObject.MagicalRangedDPS;
-    }
-    return "None";
-}
-
 function HandleSavedSetsDisplayHelpBox() {
     console.log("i was clicked");
     document.getElementById("SavedSetsHelpBox")?.classList.toggle("hidden");  
@@ -142,19 +125,24 @@ function HandleSavedSetsDisplayHelpBox() {
 
 let isSavedSetTitleSortedByAscending : boolean = false;
 
-const CreateSavedHolsters = () => {
+/**
+ * 
+ * @returns 
+ */
+function CreateSavedHolsters() {
     const dispatch = useAppDispatch();
+
     const savedSets = useAppSelector((state) => state.LostActionSets);
-    const currentSelectedSets = useAppSelector((state) => state.SelectedSavedSets.SelectedSets)
-    const confirmDeleteSavedSetsBox = useAppSelector((state) => state.SelectedSavedSets.isConfirmDeletionOfSavedSets);
-    const currentRoleTypeSort = useAppSelector((state) => state.SelectedSavedSets.currentTopRole);
-    const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
-    const roleTypeSortImage : string = getAssociatedRoleImageForRole(currentRoleTypeSort);
-    const roleTypeFilterImage: string = getAssociatedRoleImageForRole(currentRoleTypeFilter);
+    const selectedSavedSetsState = useAppSelector((state) => state.SelectedSavedSets);
+
+    // gets role picture for current role. role/filter same type
+    const roleTypeSortImage : string = GetRoleImageForCurrentRole(selectedSavedSetsState.currentTopRole);
+    const roleTypeFilterImage: string = GetRoleImageForCurrentRole(selectedSavedSetsState.currentRoleFilter);
+
     const setsToDisplay : JSX.Element = CreateSavedSets(savedSets.Sets);
-    const roleTypeSortElement : JSX.Element = currentRoleTypeSort != "None" ? <img style={{height: "23px"}} src={roleTypeSortImage}></img> : <span>No Role</span>
-    const roleTypeFilterElement : JSX.Element = currentRoleTypeFilter != "None" ? <img style={{height: "23px"}} src={roleTypeFilterImage}></img> : <span>All Roles</span>
-    console.log(currentSelectedSets);
+
+    const roleTypeSortElement : JSX.Element = selectedSavedSetsState.currentTopRole != "None" ? <img style={{height: "23px"}} src={roleTypeSortImage}></img> : <span>No Role</span>
+    const roleTypeFilterElement : JSX.Element = selectedSavedSetsState.currentRoleFilter != "None" ? <img style={{height: "23px"}} src={roleTypeFilterImage}></img> : <span>All Roles</span>
 
     SaveSavedSetsToLocalStorage(savedSets);
 
@@ -255,7 +243,7 @@ const CreateSavedHolsters = () => {
     function HandleSortSavedSetsByRoleType() {
         // TO-DO: alternate between the 5 roles ?      
         const currentSavedSet = savedSets.Sets;
-        const rotateTopRoleSort = RotateRoleSort(currentRoleTypeSort);
+        const rotateTopRoleSort = RotateRoleSort(selectedSavedSetsState.currentTopRole);
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
             /*
             if(a.roleTypeOfSet > b.roleTypeOfSet) {
@@ -296,7 +284,7 @@ const CreateSavedHolsters = () => {
     }
 
     function HandleRotateRoleFilter() {
-        const rotateRoleFilter = RotateRoleSort(currentRoleTypeFilter);
+        const rotateRoleFilter = RotateRoleSort(selectedSavedSetsState.currentRoleFilter);
         dispatch(setRoleFilter(rotateRoleFilter));
         SavedHolstersFilterSetsByRoleNotification(rotateRoleFilter);
     }
@@ -322,9 +310,7 @@ const CreateSavedHolsters = () => {
     function HandleExportSelectedSavedSets() {
         const savedSetsToExport : LostActionSets = {Sets: []};
         savedSets.Sets.forEach((SavedSet) => {
-            console.log(currentSelectedSets);
-            console.log(SavedSet.id);
-            if(currentSelectedSets.includes(SavedSet.id)) {
+            if(selectedSavedSetsState.SelectedSets.includes(SavedSet.id)) {
                 savedSetsToExport.Sets.push(SavedSet);
             }
         });
@@ -354,7 +340,7 @@ const CreateSavedHolsters = () => {
         dispatch(setIsConfirmDeletionOfSavedSets(true));
     }
 
-    const deleteSavedSetsContent : JSX.Element = confirmDeleteSavedSetsBox ? 
+    const deleteSavedSetsContent : JSX.Element = selectedSavedSetsState.isConfirmDeletionOfSavedSets ? 
     (
         <div className="ResetClearSetsDivConfirmationBox">
             <div className="ResetClearSetsDivConfirmationBoxText">

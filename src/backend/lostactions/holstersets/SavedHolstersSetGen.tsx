@@ -9,7 +9,7 @@ import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import { RetrieveRoleImageUsingLostFindsHolsterState } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
+import { GetRoleImageForCurrentRole } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import LostActions from '@backend/lostactions/actiondata/ActionData';
@@ -204,7 +204,7 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                     </div>
                     <div className="SavedHolsterBlankSpace"></div>
                     <div className="SavedHolstersTypeOfSet">
-                        <img src={RetrieveRoleImageUsingLostFindsHolsterState(SavedSet.roleTypeOfSet)}></img>
+                        <img src={GetRoleImageForCurrentRole(SavedSet.roleTypeOfSet)}></img>
                 </div>
             </div>
         </div>
