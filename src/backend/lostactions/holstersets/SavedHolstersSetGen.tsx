@@ -1,9 +1,8 @@
-import { BaseSyntheticEvent, Dispatch } from 'react';
+import { BaseSyntheticEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
-import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
 
-import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, LostFindsHolster, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
-import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
+import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
+import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets } from '@backend/lostactions/LostActionSetSlice';
 import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
@@ -19,7 +18,12 @@ import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
 import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
+/**
+ * Checks if the notification box for the lost finds holster has the same text as expectedText, and if it does, resets the text.
+ * @param expectedText, the text the saved set notification box is expected to have
+ */
 function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
     const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
     if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
@@ -29,6 +33,10 @@ function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {
     }
 }
 
+/**
+ * Checks if the notification box for the saved sets has the same text as expectedText, and if it does, resets the text.
+ * @param expectedText, the text the saved set notification box is expected to have
+ */
 function SavedSetSavedNotificationHide(expectedText : string) {  
     const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;
     if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
@@ -37,15 +45,20 @@ function SavedSetSavedNotificationHide(expectedText : string) {
     }
 }
 
-const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
+/**
+ * Creates a jsx.element for the lost actions in a saved set, (or the lost actions in the holster of the saved set)
+ * @param savedSetOfLostActions, the lost actions to use
+ * @returns jsx.element containing the lost actions in the holster for this saved set
+ */
+const GenerateSavedSetLostActions = (savedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
     const arrayToReturn : React.JSX.Element[] = [];
-    SavedSetOfLostActions.forEach((LostAction) => {
-        const FullLostActionInfo = LostActionsAsObjectArray[LostAction.id];
+    savedSetOfLostActions.forEach((lostAction) => {
+        const lostActionInfo = LostActionsAsObjectArray[lostAction.id];
         arrayToReturn.push(
-            <div key={LostAction.id} title={FullLostActionInfo.name.EN} className="SavedHolstersActionInSet">
-                <img src={FullLostActionInfo.img}></img>
+            <div key={lostAction.id} title={lostActionInfo.name.EN} className="SavedHolstersActionInSet">
+                <img src={lostActionInfo.img}></img>
                 <div className="SavedHolstersActionInSetSpecificQuantity">
-                    <span>{LostAction.quantity}</span>
+                    <span>{lostAction.quantity}</span>
                 </div>
             </div>
         );
@@ -57,22 +70,26 @@ const GenerateSavedSetLostActions = (SavedSetOfLostActions : IActionHolster[]) :
     )
 }
 
-const GenerateSavedSetLostActionsPrepop = (SavedSetOfLostActionsPrepop : IUserSlottedActions) : React.JSX.Element => {
-    const leftActionPrepop = SavedSetOfLostActionsPrepop.LostActionLeft != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionLeft] : QuestionMarkNoAction;
-    const rightActionPrepopId = SavedSetOfLostActionsPrepop.LostActionRight != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.LostActionRight] : QuestionMarkNoAction;
-    const essenceActionPrepopId = SavedSetOfLostActionsPrepop.EssenceInUse != -1 ? LostActionsAsObjectArray[SavedSetOfLostActionsPrepop.EssenceInUse] : QuestionMarkNoAction;
-    const leftActionPrepopKey = Math.random();
-    const rightActionPrepopKey = Math.random();
-    const essenceActionPrepopKey = Math.random();
+/**
+ * Creates a jsx.element for the PREPOP lost actions in a saved set
+ * @param savedSetOfLostActions, the PREPOP lost actions to use
+ * @returns jsx.element containing the PREPOP lost actions for this saved set
+ */
+const GenerateSavedSetLostActionsPrepop = (savedSetOfLostActionsPrepop : IUserSlottedActions) : React.JSX.Element => {
+    const leftActionPrepop = savedSetOfLostActionsPrepop.LostActionLeft != -1 ? LostActionsAsObjectArray[savedSetOfLostActionsPrepop.LostActionLeft] : QuestionMarkNoAction;
+    const rightActionPrepopId = savedSetOfLostActionsPrepop.LostActionRight != -1 ? LostActionsAsObjectArray[savedSetOfLostActionsPrepop.LostActionRight] : QuestionMarkNoAction;
+    const essenceActionPrepopId = savedSetOfLostActionsPrepop.EssenceInUse != -1 ? LostActionsAsObjectArray[savedSetOfLostActionsPrepop.EssenceInUse] : QuestionMarkNoAction;
+
+
     return (
         <div className="SavedHolstersListPrepopActionsInSet">
-            <div key={leftActionPrepopKey} title={leftActionPrepop.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={0} title={leftActionPrepop.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={leftActionPrepop.img}></img>
             </div>
-            <div key={rightActionPrepopKey} title={rightActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={1} title={rightActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={rightActionPrepopId.img}></img>
             </div>
-            <div key={essenceActionPrepopKey} title={essenceActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
+            <div key={2} title={essenceActionPrepopId.name.EN} className="SavedHolstersPrepopActionInSet">
                 <img src={essenceActionPrepopId.img}></img>
             </div>
             <div key={LostActionsAsObjectArray[LostActions.ItemRelated.ResistanceReraiser.id].toString()} title="Resistance Reraiser" className="SavedHolstersPrepopActionInSet">
@@ -82,46 +99,62 @@ const GenerateSavedSetLostActionsPrepop = (SavedSetOfLostActionsPrepop : IUserSl
     )
 }
 
-const CreateSavedSet = (SavedSet : ILostActionSet, 
-    dispatch: ThunkDispatch<{ LostFindsHolster: LostFindsHolster; LostActionSets: LostActionSets; }, undefined, UnknownAction> & Dispatch<UnknownAction>
-, allSavedSets : ILostActionSet[], currentSelectedSavedSets : number[]) => {
-    const SavedSetLostActions : React.JSX.Element = GenerateSavedSetLostActions(SavedSet.setLostActionContents);
-    const SavedSetLostActionsPrepop : React.JSX.Element = GenerateSavedSetLostActionsPrepop(SavedSet.PrepopLostActions);
+/**
+ * Creates and returns the jsx element for a saved set
+ * @param savedSet, saved set to create the jsx.element for
+ * @param dispatch, for state changing
+ * @param allSavedSets, all saved sets, for when this set needs deletion 
+ * @param currentSelectedSavedSets, the sets that are currently selected
+ * @returns a jsx element for a saved set
+ */
+function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets : ILostActionSet[], currentSelectedSavedSets : number[]) {
+    const savedSetLostActions : React.JSX.Element = GenerateSavedSetLostActions(savedSet.setLostActionContents);
+    const savedSetLostActionsPrepop : React.JSX.Element = GenerateSavedSetLostActionsPrepop(savedSet.PrepopLostActions);
     
+    /**
+     * Displays a load notification to the lost finds holster and saved set notification boxes.
+     * Loads the saved set into the holster, prepop, and to the timeline
+     */
     function HandleLoadSetToHolsterClick() {
-        console.log(SavedSet);
-        console.log(SavedSet.PrepopLostActions);
-        const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
-        LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
-        LostFindsHolsterSetSavedNotificationBox.style.color = "white";
-        LostFindsHolsterSetSavedNotificationBox.style.display = "block";
+        const lostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        lostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
+        lostFindsHolsterSetSavedNotificationBox.style.color = "white";
+        lostFindsHolsterSetSavedNotificationBox.style.display = "block";
 
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Saved Set Loaded!";
         savedSetNotificationBox.style.color = "white";   
 
         setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
-        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, lostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
 
         dispatch(clearHolster());
-        dispatch(setSelectedRole(SavedSet.roleTypeOfSet));
-        dispatch(increaseCurrentWeight(SavedSet.weightOfSet));
-        dispatch(setPrepopHolsterLostActionLeft(SavedSet.PrepopLostActions.LostActionLeft));
-        dispatch(setPrepopHolsterLostActionRight(SavedSet.PrepopLostActions.LostActionRight));
-        dispatch(setPrepopHolsterLostActionEssence(SavedSet.PrepopLostActions.EssenceInUse));
+        dispatch(setSelectedRole(savedSet.roleTypeOfSet));
+        dispatch(increaseCurrentWeight(savedSet.weightOfSet));
 
-        SavedSet.setLostActionContents.forEach((LostActionInSavedSet) => {
-            dispatch(addActionToHolster(LostActionInSavedSet.id));
-            dispatch(setActionQuantity([LostActionInSavedSet.id, LostActionInSavedSet.quantity]));
+        dispatch(setPrepopHolsterLostActionLeft(savedSet.PrepopLostActions.LostActionLeft));
+        dispatch(setPrepopHolsterLostActionRight(savedSet.PrepopLostActions.LostActionRight));
+        dispatch(setPrepopHolsterLostActionEssence(savedSet.PrepopLostActions.EssenceInUse));
+
+        savedSet.setLostActionContents.forEach((lostActionInSavedSet) => {
+            dispatch(addActionToHolster(lostActionInSavedSet.id));
+            // below dispatch not entirely necessary as the total weight of a set is tracked
+            // this does however ensure the weight of the set is always correct
+            dispatch(setActionQuantity([lostActionInSavedSet.id, lostActionInSavedSet.quantity]));
         });
-        dispatch(loadHolsterTimelineEncounters({encountersToLoad: SavedSet.HolsterTimeline.Encounters}));
-        
 
+        dispatch(loadHolsterTimelineEncounters({encountersToLoad: savedSet.HolsterTimeline.Encounters})); 
     }
 
+    /**
+     * Deletes the saved set from saved sets and notifies the user
+     * @param event, the saved set that was clicked
+     */
     function HandleDeleteSetClick(event : BaseSyntheticEvent) {
-        const filteredSavedSets : ILostActionSet[] = allSavedSets.filter((SavedSet) => SavedSet.id != event.target.id);
+        const filteredSavedSets : ILostActionSet[] = allSavedSets.filter((savedSet) => savedSet.id != event.target.id);
+
         dispatch(deleteSavedSetFromSets(filteredSavedSets));
+
         const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";
         LostFindsHolsterSetSavedNotificationBox.style.color = "red";
@@ -135,20 +168,21 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
     }
 
+    /**
+     * Changes the title of a saved set
+     * @param event, the title of a saved set that was changed
+     */
     function HandleTitleChange(event : BaseSyntheticEvent) {
-        console.log(event);
         const idOfSet : number = event.target.name;
         const titleOfSet : string = event.target.value;
-        console.log(event.target.name);
-        console.log(event.target.value);
-        dispatch(changeTitleOfSpecificSavedSet([idOfSet, titleOfSet]))
+        dispatch(changeTitleOfSpecificSavedSet({idOfSet, titleOfSet}))
     }
 
     function HandleAddSetAsSelectedSet() {
-        if(currentSelectedSavedSets.includes(SavedSet.id)) {
+        if(currentSelectedSavedSets.includes(savedSet.id)) {
             const newSelectedSavedSetsToPlace : number[] = [];
             currentSelectedSavedSets.forEach((SelectedSavedSetId) => {
-                if(SelectedSavedSetId != SavedSet.id) {
+                if(SelectedSavedSetId != savedSet.id) {
                     newSelectedSavedSetsToPlace.push(SelectedSavedSetId);
                 }
             });
@@ -163,16 +197,16 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
             savedSetNotificationBox.childNodes[0].textContent = "Set Selected For Export!";
             savedSetNotificationBox.style.color = "white";   
             setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
-            dispatch(addSelectedSavedSet(SavedSet.id));
+            dispatch(addSelectedSavedSet(savedSet.id));
         }
         (document.getElementById(checkBoxId) as HTMLInputElement).checked;     
     }
 
-    const styleToUse = currentSelectedSavedSets.includes(SavedSet.id) ? {backgroundColor: "#595644"} : {};
-    const checkBoxId = (SavedSet.id+1).toString();
+    const styleToUse = currentSelectedSavedSets.includes(savedSet.id) ? {backgroundColor: "#595644"} : {};
+    const checkBoxId = (savedSet.id+1).toString();
 
     return (
-        <div key={SavedSet.id} className="MyHolstersSavedSet">
+        <div key={savedSet.id} className="MyHolstersSavedSet">
                 <div className="SavedHolstersLoadAndDeleteHolster">
                     <div onClick={HandleLoadSetToHolsterClick} className="SavedHolstersLoadHolster" title="Load This Set.">
                         <img src={LoadSetImage}></img>
@@ -180,17 +214,17 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                     <div style={styleToUse} className="SavedHolstersCreateLinkForSet" title="Select for Export.">
                         <input type="checkbox" onClick={HandleAddSetAsSelectedSet} name="SavedSetCheckbox" className="SavedHolstersCreateLinkForSetCheckbox" id={checkBoxId}></input>
                     </div>
-                    <div id={SavedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster" title="Delete This Set.">
+                    <div id={savedSet.id.toString()} onClick={HandleDeleteSetClick} className="SavedHolstersDeleteHolster" title="Delete This Set.">
                         <img src={DeleteSetImage}></img>
                     </div>
                 </div>
 
                 <div className="SavedHolstersTitleAndActions">
                     <div className="SavedHolstersTitle">
-                        <input name={SavedSet.id.toString()} type="string" contentEditable="true" onChange={HandleTitleChange} defaultValue={SavedSet.nameOfSet}></input>                      
+                        <input name={savedSet.id.toString()} type="string" contentEditable="true" onChange={HandleTitleChange} defaultValue={savedSet.nameOfSet}></input>                      
                     </div>
-                    {SavedSetLostActionsPrepop}
-                    {SavedSetLostActions}
+                    {savedSetLostActionsPrepop}
+                    {savedSetLostActions}
                 </div>
 
                 <div className="SavedHolstersWeightAndTypeOfSet">
@@ -199,37 +233,42 @@ const CreateSavedSet = (SavedSet : ILostActionSet,
                             <span>Weight</span>
                         </div>
                         <div className="SavedHolsterWeightOfSetValue">
-                            <span>{SavedSet.weightOfSet}</span>
+                            <span>{savedSet.weightOfSet}</span>
                         </div>                
                     </div>
                     <div className="SavedHolsterBlankSpace"></div>
                     <div className="SavedHolstersTypeOfSet">
-                        <img src={GetRoleImageForCurrentRole(SavedSet.roleTypeOfSet)}></img>
+                        <img src={GetRoleImageForCurrentRole(savedSet.roleTypeOfSet)}></img>
                 </div>
             </div>
         </div>
     )
 }
 
-const CreateSavedSets = (SetsToLoad : ILostActionSet[]) => {
+/**
+ * Creates and returns the jsx.element containing all the saved sets
+ * @param setsToLoad, the sets to load and create the jsx.element for
+ * @returns a jsx.element fo the saved sets area container
+ */
+const CreateSavedSets = (setsToLoad : ILostActionSet[]) => {
     const dispatch = useAppDispatch();
+
+    const currentSelectedSavedSets : number[] = useAppSelector((state) => state.SelectedSavedSets.SelectedSets);
     const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
     const allSavedSets = useAppSelector((state) => state.LostActionSets.Sets);
-    const SetsArray : React.JSX.Element[] = [];
-    const currentSelectedSavedSets : number[] = useAppSelector((state) => state.SelectedSavedSets.SelectedSets);
-    SetsToLoad.forEach((SetToUse) => {
-        console.log(currentSelectedSavedSets.includes(SetToUse.id));
-        console.log(SetToUse);
-        console.log(SetToUse.roleTypeOfSet);
-        console.log(currentRoleTypeFilter);
-        if(SetToUse.roleTypeOfSet == currentRoleTypeFilter || currentRoleTypeFilter == "None") {
-            const SetCreation : React.JSX.Element = CreateSavedSet(SetToUse, dispatch, allSavedSets, currentSelectedSavedSets);
-            SetsArray.push(SetCreation);
+
+    const setsArray : React.JSX.Element[] = [];
+    
+    setsToLoad.forEach((setToUse) => {
+        if(setToUse.roleTypeOfSet == currentRoleTypeFilter || currentRoleTypeFilter == "None") {
+            const setCreation : React.JSX.Element = CreateSavedSet(setToUse, dispatch, allSavedSets, currentSelectedSavedSets);
+            setsArray.push(setCreation);
         }       
     });
+
     return (
         <div className="SavedSetsAreaContainer">
-            {SetsArray}
+            {setsArray}
         </div>
     )
 }

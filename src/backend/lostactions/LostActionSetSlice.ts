@@ -39,10 +39,10 @@ export const LostActionSetsSlice = createSlice({
                 HolsterTimeline: action.payload.timelineOfHolster
             });
         },
-        changeTitleOfSpecificSavedSet: (state, action: PayloadAction<[number, string]>) => {
-            state.Sets.forEach((SetInSets, index : number) => {
-                if(SetInSets.id == action.payload[0]) {
-                    state.Sets[index].nameOfSet = action.payload[1];
+        changeTitleOfSpecificSavedSet: (state, action: PayloadAction<{idOfSet : number, titleOfSet: string}>) => {
+            state.Sets.forEach((setInSets, index : number) => {
+                if(setInSets.id == action.payload.idOfSet) {
+                    state.Sets[index].nameOfSet = action.payload.titleOfSet;
                 }
             })         
         },
