@@ -15,11 +15,12 @@ import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
 
 import { GetRoleImageForCurrentRole } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents';
 
-
-
-
-function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
-    const savedSetsAsJSON = JSON.stringify(SavedSetToSaveAsFile);
+/**
+ * Saves sets as a json file
+ * @param SavedSetToSaveAsFile, the sets to save to file
+ */
+function saveSavedSetsToFile(savedSetToSaveAsFile : LostActionSets) {
+    const savedSetsAsJSON = JSON.stringify(savedSetToSaveAsFile);
     const savedSetsAsBlob = new Blob([savedSetsAsJSON], { type: "application/json"});
     const a = document.createElement("a");
     a.download = "SavedHolsterSets";
@@ -31,42 +32,57 @@ function saveSavedSetsToFile(SavedSetToSaveAsFile : LostActionSets) {
     }, 200);   
 }
 
-function WeightOfSavedSet(HolsterActionsToGetTotalWeight : IActionHolster[]) : number {
+/**
+ * Validates if the imported saved set has the correct weight
+ * @param holsterActionsToGetTotalWeight, the holster to check
+ * @returns the true weight of the holster
+ */
+function WeightOfSavedSet(holsterActionsToGetTotalWeight : IActionHolster[]) : number {
     let totalWeightOfHolster : number = 0;
-    HolsterActionsToGetTotalWeight.forEach((LostAction) => {
-        totalWeightOfHolster += LostActionsAsObjectArray[LostAction.id].weight*LostAction.quantity;
+    holsterActionsToGetTotalWeight.forEach((lostAction) => {
+        totalWeightOfHolster += LostActionsAsObjectArray[lostAction.id].weight*lostAction.quantity;
     })
     return totalWeightOfHolster;
 }
 
 //#region Saved Set Action Id Validation And Quantity
-function IsSavedSetHasValidActionIdsAndQuantities(SavedSetToCheck : ILostActionSet) : boolean {
-    const actionsInHolster : IActionHolster[] = SavedSetToCheck.setLostActionContents;
+/**
+ * Checks if an imported saved set has valid action ids and quantities
+ * @param savedSetToCheck, the saved set to check
+ * @returns true or false for whether the set is valid
+ */
+function IsSavedSetHasValidActionIdsAndQuantities(savedSetToCheck : ILostActionSet) : boolean {
+    const actionsInHolster : IActionHolster[] = savedSetToCheck.setLostActionContents;
     // holster validation
-    actionsInHolster.forEach((LostAction) => {
+    actionsInHolster.forEach((lostAction) => {
         // id validation
-        if(typeof LostActionsAsObjectArray[LostAction.id] == "undefined" && LostAction.id != -1) {
+        if(typeof LostActionsAsObjectArray[lostAction.id] == "undefined" && lostAction.id != -1) {
             return false;
         }
         // quantity validation
-        if(LostAction.quantity <= 0) {
+        if(lostAction.quantity <= 0) {
             return false;
         }
     })
     // prepop or pull with (in encounter) validation
-    if(!IsCheckPrepopOrPullWithActionIdsValid(SavedSetToCheck.PrepopLostActions)) {
+    if(!IsCheckPrepopOrPullWithActionIdsValid(savedSetToCheck.PrepopLostActions)) {
         return false;
     }
     // holster timeline resource spending validation
-    if(!IsCheckHolsterTimelineActionIdsValid(SavedSetToCheck.HolsterTimeline)) {
+    if(!IsCheckHolsterTimelineActionIdsValid(savedSetToCheck.HolsterTimeline)) {
         return false;
     }
     return true;
 }
 
-function IsCheckPrepopOrPullWithActionIdsValid(PrepopOrPullWithActions : IUserSlottedActions) : boolean {
-    if(typeof LostActionsAsObjectArray[PrepopOrPullWithActions.EssenceInUse] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionLeft] == "undefined" || typeof LostActionsAsObjectArray[PrepopOrPullWithActions.LostActionRight] == "undefined") {
-        if(PrepopOrPullWithActions.EssenceInUse == -1 && PrepopOrPullWithActions.LostActionLeft == -1 && PrepopOrPullWithActions.LostActionRight == -1) {
+/**
+ * Checks if the prepop actions or the pull with actions for an encounter have valid ids
+ * @param prepopOrPullWithActions, the prepop actions of a saved set
+ * @returns boolean true or false on validation
+ */
+function IsCheckPrepopOrPullWithActionIdsValid(prepopOrPullWithActions : IUserSlottedActions) : boolean {
+    if(typeof LostActionsAsObjectArray[prepopOrPullWithActions.EssenceInUse] == "undefined" || typeof LostActionsAsObjectArray[prepopOrPullWithActions.LostActionLeft] == "undefined" || typeof LostActionsAsObjectArray[prepopOrPullWithActions.LostActionRight] == "undefined") {
+        if(prepopOrPullWithActions.EssenceInUse == -1 && prepopOrPullWithActions.LostActionLeft == -1 && prepopOrPullWithActions.LostActionRight == -1) {
             return true;
         }
         return false;
@@ -74,21 +90,31 @@ function IsCheckPrepopOrPullWithActionIdsValid(PrepopOrPullWithActions : IUserSl
     return true;
 }
 
-function IsCheckHolsterTimelineActionIdsValid(HolsterTimelineToCheck : IHolsterTimeline) : boolean {
-    HolsterTimelineToCheck.Encounters.forEach((EncounterToCheck) => {
-        if(!IsCheckPrepopOrPullWithActionIdsValid(EncounterToCheck.PullBossWith)) {
+/**
+ * Checks if the holster timeline actions have valid ids
+ * @param holsterTimelineToCheck, the holster timeline of encounters to check
+ * @returns true or false for validation
+ */
+function IsCheckHolsterTimelineActionIdsValid(holsterTimelineToCheck : IHolsterTimeline) : boolean {
+    holsterTimelineToCheck.Encounters.forEach((encounterToCheck) => {
+        if(!IsCheckPrepopOrPullWithActionIdsValid(encounterToCheck.PullBossWith)) {
             return false;
         }
-        if(!IsCheckResourcesSpentActionIdsValid(EncounterToCheck.LostActionsSpentInPull) || !IsCheckResourcesSpentActionIdsValid(EncounterToCheck.LostActionsSpentAfterPull)) {
+        if(!IsCheckResourcesSpentActionIdsValid(encounterToCheck.LostActionsSpentInPull) || !IsCheckResourcesSpentActionIdsValid(encounterToCheck.LostActionsSpentAfterPull)) {
             return false;
         }
     })
     return true;
 }
 
-function IsCheckResourcesSpentActionIdsValid(ResourcesSpent : ILostActionExpenditure[]) : boolean {
-    ResourcesSpent.forEach((ResourceSpent) => {
-        if(typeof LostActionsAsObjectArray[ResourceSpent.LostActionUsed] == "undefined" && ResourceSpent.LostActionUsed != -1) {
+/**
+ * Checks if the in pull or after pull actions have a valid id
+ * @param resourcesSpent, the lost actions to check 
+ * @returns true or false validation
+ */
+function IsCheckResourcesSpentActionIdsValid(resourcesSpent : ILostActionExpenditure[]) : boolean {
+    resourcesSpent.forEach((resourceSpent) => {
+        if(typeof LostActionsAsObjectArray[resourceSpent.LostActionUsed] == "undefined" && resourceSpent.LostActionUsed != -1) {
             return false;
         }
     });
@@ -146,6 +172,9 @@ function CreateSavedHolsters() {
 
     SaveSavedSetsToLocalStorage(savedSets);
 
+    /**
+     * Saves your sets as a json file
+     */
     function HandleSaveSavedSetsAsJSON() {
         saveSavedSetsToFile(savedSets);
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
@@ -154,8 +183,12 @@ function CreateSavedHolsters() {
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Uploads json file containing saved sets to your holsters
+     * Also checks if each individual set being imported is valid
+     */
     function HandleUploadSavedSets() {
-        clearSelectedSavedSets();
+        dispatch(clearSelectedSavedSets());
         const input = document.createElement('input');
         input.type = 'file';
         input.onchange = () => {
@@ -168,22 +201,24 @@ function CreateSavedHolsters() {
                         try {
                             const parsedSavedSet : LostActionSets = JSON.parse(JSONSavedSetAsText.target.result.toString());
                             if(parsedSavedSet.Sets.length > 0) {
+                                // possibly place this block inside a separate validation file alongside
+                                // the other validation functions
                                 console.log("am i here");
                                 const validatedParsedSavedSets : LostActionSets = {Sets: []};
-                                parsedSavedSet.Sets.forEach((SavedSetToValidate) => {
-                                    SavedSetToValidate.id = Math.random();
+                                parsedSavedSet.Sets.forEach((savedSetToValidate) => {
+                                    savedSetToValidate.id = Math.random();
 
-                                    const totalWeightOfSavedSet : number = WeightOfSavedSet(SavedSetToValidate.setLostActionContents)
+                                    const totalWeightOfSavedSet : number = WeightOfSavedSet(savedSetToValidate.setLostActionContents)
                                     try {
-                                        if(IsSavedSetHasValidActionIdsAndQuantities(SavedSetToValidate) && totalWeightOfSavedSet <= 99 && totalWeightOfSavedSet >= 0) {
-                                            if(totalWeightOfSavedSet != SavedSetToValidate.weightOfSet) {
-                                                SavedSetToValidate.weightOfSet = totalWeightOfSavedSet;
+                                        if(IsSavedSetHasValidActionIdsAndQuantities(savedSetToValidate) && totalWeightOfSavedSet <= 99 && totalWeightOfSavedSet >= 0) {
+                                            if(totalWeightOfSavedSet != savedSetToValidate.weightOfSet) {
+                                                savedSetToValidate.weightOfSet = totalWeightOfSavedSet;
                                                 console.log("weight fixed");
                                             }
                                             
-                                            console.log(SavedSetToValidate);
+                                            console.log(savedSetToValidate);
                                             console.log("Set ids are good");
-                                            validatedParsedSavedSets.Sets.push(SavedSetToValidate);
+                                            validatedParsedSavedSets.Sets.push(savedSetToValidate);
                                         }
                                     } catch (exception) {
                                         if(exception instanceof TypeError) {
@@ -220,7 +255,10 @@ function CreateSavedHolsters() {
         input.click();
         input.remove();      
     }
-
+    /////////////////////////////////////////////////
+    /**
+     * 
+     */
     function HandleSortSavedSetsByTitle() {
         const currentSavedSet = savedSets.Sets;
         isSavedSetTitleSortedByAscending = !isSavedSetTitleSortedByAscending;

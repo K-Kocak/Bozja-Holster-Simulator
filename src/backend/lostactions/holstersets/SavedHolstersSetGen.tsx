@@ -178,15 +178,19 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
         dispatch(changeTitleOfSpecificSavedSet({idOfSet, titleOfSet}))
     }
 
+    /**
+     * Adds the saved set to the list of selected sets
+     */
     function HandleAddSetAsSelectedSet() {
         if(currentSelectedSavedSets.includes(savedSet.id)) {
             const newSelectedSavedSetsToPlace : number[] = [];
-            currentSelectedSavedSets.forEach((SelectedSavedSetId) => {
-                if(SelectedSavedSetId != savedSet.id) {
-                    newSelectedSavedSetsToPlace.push(SelectedSavedSetId);
+            currentSelectedSavedSets.forEach((selectedSavedSetId) => {
+                if(selectedSavedSetId != savedSet.id) {
+                    newSelectedSavedSetsToPlace.push(selectedSavedSetId);
                 }
             });
             dispatch(newSelectedSavedSets(newSelectedSavedSetsToPlace));
+            
             const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
             savedSetNotificationBox.childNodes[0].textContent = "Set Unselected!";
             savedSetNotificationBox.style.color = "white";   
