@@ -2,7 +2,7 @@ import { BaseSyntheticEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
 import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
-import { changeTitleOfSpecificSavedSet, deleteSavedSetFromSets } from '@backend/lostactions/LostActionSetSlice';
+import { changeTitleOfSpecificSavedSet, setNewSavedSetsFromSets } from '@backend/lostactions/LostActionSetSlice';
 import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
@@ -153,7 +153,7 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
     function HandleDeleteSetClick(event : BaseSyntheticEvent) {
         const filteredSavedSets : ILostActionSet[] = allSavedSets.filter((savedSet) => savedSet.id != event.target.id);
 
-        dispatch(deleteSavedSetFromSets(filteredSavedSets));
+        dispatch(setNewSavedSetsFromSets(filteredSavedSets));
 
         const LostFindsHolsterSetSavedNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         LostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent = "Set Has Been Deleted!";

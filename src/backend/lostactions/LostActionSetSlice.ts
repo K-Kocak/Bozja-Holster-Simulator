@@ -47,7 +47,7 @@ export const LostActionSetsSlice = createSlice({
             })         
         },
 
-        deleteSavedSetFromSets: (state, action: PayloadAction<ILostActionSet[]>) => {         
+        setNewSavedSetsFromSets: (state, action: PayloadAction<ILostActionSet[]>) => {         
             state.Sets = action.payload;
         },
 
@@ -62,6 +62,6 @@ export const LostActionSetsSlice = createSlice({
     },
 })
 
-export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet, deleteSavedSetFromSets, clearAllSavedSets, addImportedSavedSetsToCurrentSavedSets } = LostActionSetsSlice.actions;
+export const { addHolsterToSavedSets, changeTitleOfSpecificSavedSet, setNewSavedSetsFromSets, clearAllSavedSets, addImportedSavedSetsToCurrentSavedSets } = LostActionSetsSlice.actions;
 
 export default LostActionSetsSlice.reducer;

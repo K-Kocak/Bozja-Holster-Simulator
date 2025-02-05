@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
-import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, deleteSavedSetFromSets, LostActionSets } from '@backend/lostactions/LostActionSetSlice';
+import { addImportedSavedSetsToCurrentSavedSets, clearAllSavedSets, LostActionSets, setNewSavedSetsFromSets } from '@backend/lostactions/LostActionSetSlice';
 import { clearSelectedSavedSets, setIsConfirmDeletionOfSavedSets, setRoleFilter, setTopRoleSort } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
 import { ClearSavedSetsDataInLocalStorage, SaveSavedSetsToLocalStorage } from '@backend/lostactions/holstersetsstorage/SavedHolstersStorage';
@@ -257,12 +257,14 @@ function CreateSavedHolsters() {
     }
     /////////////////////////////////////////////////
     /**
-     * 
+     * Sorts the currently displayed saved sets by their title name ascending or descending and displays a notification to the user
      */
     function HandleSortSavedSetsByTitle() {
         const currentSavedSet = savedSets.Sets;
         isSavedSetTitleSortedByAscending = !isSavedSetTitleSortedByAscending;
+
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
+            
             if(a.nameOfSet > b.nameOfSet && isSavedSetTitleSortedByAscending || a.nameOfSet < b.nameOfSet && !isSavedSetTitleSortedByAscending) {
                 return 1;
             }
@@ -271,27 +273,23 @@ function CreateSavedHolsters() {
             }
             return 0;
         });
-        dispatch(deleteSavedSetFromSets(sortedSavedSet));
+
+        dispatch(setNewSavedSetsFromSets(sortedSavedSet));
+
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Sets sorted by title.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Sorts sets by role type, sending the current role type to sort by to the top of the list
+     */
     function HandleSortSavedSetsByRoleType() {
-        // TO-DO: alternate between the 5 roles ?      
+          
         const currentSavedSet = savedSets.Sets;
         const rotateTopRoleSort = RotateRoleSort(selectedSavedSetsState.currentTopRole);
         const sortedSavedSet = currentSavedSet.slice().sort((a, b) => {
-            /*
-            if(a.roleTypeOfSet > b.roleTypeOfSet) {
-                return 1;
-            }
-            else if(a.roleTypeOfSet < b.roleTypeOfSet) {
-                return -1;
-            }
-            return 0;
-            */
             if(a.roleTypeOfSet == rotateTopRoleSort && b.roleTypeOfSet != rotateTopRoleSort) {
                 return -1;
             }
@@ -300,11 +298,15 @@ function CreateSavedHolsters() {
             }
             return 0;
         });
-        dispatch(deleteSavedSetFromSets(sortedSavedSet));
+        dispatch(setNewSavedSetsFromSets(sortedSavedSet));
         dispatch(setTopRoleSort(rotateTopRoleSort));
         SavedHolstersSortSetsByRoleNotification(rotateTopRoleSort);
     }
 
+    /**
+     * Displays a notification to the user in the saved set area what role the sets are being sorted by
+     * @param roleToShow, the role to display
+     */
     function SavedHolstersSortSetsByRoleNotification(roleToShow : string) {     
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;   
         savedSetNotificationBox.childNodes[0].textContent = roleToShow == "None" ? "Sets No Longer Sorted." : roleToShow + " brought to top.";
@@ -312,6 +314,10 @@ function CreateSavedHolsters() {
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Checks if the saved set notification text is the same as expectedText, if it is, hide the notification
+     * @param expectedText, the expected text
+     */
     function LostFindsHolsterSetSavedNotificationHide(expectedText : string) {  
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement;
         if(savedSetNotificationBox.childNodes[0].textContent?.includes(expectedText)) {
@@ -321,23 +327,33 @@ function CreateSavedHolsters() {
         
     }
 
+    /**
+     * Switches the current role filter, displaying only saved sets that are of a particular role type
+     */
     function HandleRotateRoleFilter() {
         const rotateRoleFilter = RotateRoleSort(selectedSavedSetsState.currentRoleFilter);
         dispatch(setRoleFilter(rotateRoleFilter));
         SavedHolstersFilterSetsByRoleNotification(rotateRoleFilter);
     }
 
+    /**
+     * Displays a notification when the role filter changes
+     * @param roleToShow, the role to show for notification
+     */
     function SavedHolstersFilterSetsByRoleNotification(roleToShow : string) {     
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
-
         savedSetNotificationBox.childNodes[0].textContent = roleToShow == "None" ? "Showing All Sets." : "Showing " + roleToShow + " sets only.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Deselects every selected saved set check box and resets the selected saved set state
+     */
     function HandleClearSelectedSavedSets() {         
         (document.getElementsByName("SavedSetCheckbox") as NodeListOf<HTMLInputElement>).forEach((checkBoxToUncheck) => checkBoxToUncheck.checked = false);
         dispatch(clearSelectedSavedSets());
+
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Cleared selected sets.";
         savedSetNotificationBox.style.color = "white";   
@@ -345,35 +361,51 @@ function CreateSavedHolsters() {
 
     }
 
+    /**
+     * Exports all the saved sets that have been selected as a json file
+     */
     function HandleExportSelectedSavedSets() {
         const savedSetsToExport : LostActionSets = {Sets: []};
-        savedSets.Sets.forEach((SavedSet) => {
-            if(selectedSavedSetsState.SelectedSets.includes(SavedSet.id)) {
-                savedSetsToExport.Sets.push(SavedSet);
+        savedSets.Sets.forEach((savedSet) => {
+            if(selectedSavedSetsState.SelectedSets.includes(savedSet.id)) {
+                savedSetsToExport.Sets.push(savedSet);
             }
         });
         saveSavedSetsToFile(savedSetsToExport);
+
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Exported selected sets.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Deletes all saved sets and clears local storage of all saved sets
+     */
     function HandleDeleteAllSavedSets() {
         dispatch(setIsConfirmDeletionOfSavedSets(false));
-        ClearSavedSetsDataInLocalStorage();
-        clearSelectedSavedSets();
         dispatch(clearAllSavedSets());
+        dispatch(clearSelectedSavedSets());
+
+        ClearSavedSetsDataInLocalStorage();
+        
+        
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "All saved sets deleted.";
         savedSetNotificationBox.style.color = "white";   
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
     }
 
+    /**
+     * Hides the confirm deletion of saved sets box
+     */
     function HandleNoDeletionOfAllSavedSets() {
         dispatch(setIsConfirmDeletionOfSavedSets(false));
     }
 
+    /**
+     * Displays the confirm deletion of saved sets box
+     */
     function HandleResetSavedSets() {
         dispatch(setIsConfirmDeletionOfSavedSets(true));
     }
@@ -402,14 +434,6 @@ function CreateSavedHolsters() {
     
     )
 
-    /*
-    <span>PlaceHolder For Buttons</span>
-    <button onClick={HandleSaveSavedSetsAsJSON}>SaveAsJSON</button>
-    <button onClick={HandleResetSavedSets}>Reset</button>
-    <button onClick={HandleUploadSavedSets}>LoadTest</button>
-    <button onClick={HandleSortSavedSetsByTitle}>SortByTitle</button>
-    <button onClick={HandleSortSavedSetsByRoleType}>SortByRole</button>
-    */
     return (
     <div className="SavedHolstersContainer">
         <div className="SavedHolstersTitleTextAndDeleteSavedSets">
