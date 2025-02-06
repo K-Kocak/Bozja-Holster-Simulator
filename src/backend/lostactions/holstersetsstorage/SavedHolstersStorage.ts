@@ -9,19 +9,26 @@ export function SaveSavedSetsToLocalStorage(setsToSave : LostActionSets) {
     localStorage.setItem("SavedSetData", localStorageDataFormat);
 }
 
+/**
+ * Retrieves the saved sets from local storage
+ * @returns retrieved data from local storage or empty saved sets
+ */
 export function LoadSavedSetsFromLocalStorage() : LostActionSets {
     const savedSetDataFromLocalStorage = localStorage.getItem("SavedSetData");
-    const emptyLocalStorage : LostActionSets = {Sets : []};
+
     if(savedSetDataFromLocalStorage != null) {
         const parsedSavedSetData : LostActionSets = JSON.parse(savedSetDataFromLocalStorage)
         return parsedSavedSetData;
     }
     else if(savedSetDataFromLocalStorage == null) {
-        return emptyLocalStorage;
+        return {Sets : []};
     }
-    return emptyLocalStorage;
+    return {Sets : []};
 }
 
+/**
+ * Deletes saved sets in local storage
+ */
 export function ClearSavedSetsDataInLocalStorage() {
     localStorage.removeItem("SavedSetData");
 }

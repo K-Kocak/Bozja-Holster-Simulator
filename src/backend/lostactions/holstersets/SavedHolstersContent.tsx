@@ -255,7 +255,7 @@ function CreateSavedHolsters() {
         input.click();
         input.remove();      
     }
-    /////////////////////////////////////////////////
+
     /**
      * Sorts the currently displayed saved sets by their title name ascending or descending and displays a notification to the user
      */
