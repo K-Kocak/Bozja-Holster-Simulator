@@ -9,6 +9,7 @@ import LostActionInstanceTimelineResourceManagement from '@ui/components/LostAct
 import '@css/ui/components/BozjaHolsterSimulator.scss';
 
 function BozjaHolsterSimulator() {
+    console.log(window.location.pathname);
     return (
         <div className="AppContainer">
             <div className="ComponentsContainer">

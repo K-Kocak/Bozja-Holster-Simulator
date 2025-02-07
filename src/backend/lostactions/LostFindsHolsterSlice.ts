@@ -9,6 +9,52 @@ import IHolsterTimeline from '@backend/interfaces/IHolsterTimeline';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 
+/* Call function in another file that will use our current link (assuming its valid)
+    and return a group of values that we will then use as our initial state if applicable.
+    STRUCTURE OF LINK IDEAS:
+    A holster is broken down into the following sections;
+    - The Holster containing our actions
+    - An action quantity array for the holster, telling us how many actions are in the holster for a lost action
+    - Current Weight is not applicable. /////////////////////////
+    - Total Weight of the holster
+    - Role for the Holster
+    - Prepop actions (3 lost action ids)
+    - Holster Timeline - made up of an array of encounters. Each encounter has:
+         - name of boss
+         - pull boss with (basically prepop again)
+         - array of actions spent in pull, with the time of use
+         - array of actions spent after pull, with the time of use
+    When handling a link, we (ideally) check if each section is valid and can be created, else we don't bother.
+    We will need to redirect the user to /sim/ in this scenario
+    In the case that some of the link works, redirect to /sim/ anyway
+    When our state changes later on, this will affect our URL, but for now we are handling the initiation of our link
+    (This will atleast allow us to generate links using saved set, then user #2 just clicks the link and gets the holster,
+    ofcourse what would be even more nice would be if a user could make a holster and their URL updates live)
+
+    // Use = as our separator - we will be encoding our link into base 64? as the final step
+    // Holster + Action Weight
+    // This will have the format ${idOfAction}-{quantityOfAction}
+    // The position of the quantity in the array is the ID of the action, so the holster containing our actions might not even be necessary to access.
+
+    // Total Weight
+    // Just a value by itself from 1 to 99
+
+    // Role
+    // String Value, use the literal word
+
+    // Prepop
+    // ${LeftActionId}-{RightActionId}-{EssenceId}
+
+    // Timeline
+    // ${NameOfBoss}+{PullWithSection}+{InPullSection}+{AfterPullSection}
+    // {PullWithSection} same as prepop
+    // {InPullSection and AfterPullSection} => ${idOfAction}&TEXT-{idOfAction&TEXT} etc
+    // Full Example: ${NameOfBoss}+{LeftActionId}-{RightActionId}-{EssenceId}+{idOfAction}&TEXT-{idOfAction&TEXT}+{idOfAction}&TEXT-{idOfAction&TEXT}
+    // Split string at the + to get each sub section, then split on the - for each individual item. For in pull/after pull, split at & for text separation.
+
+    // Combine full string, then encode base 64?. Decode would just happen as soon as we receive link on site load.
+
+*/
 function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     const ArrayToReturn : number[] = [];
     LostActions.forEach((LostAction) => {
