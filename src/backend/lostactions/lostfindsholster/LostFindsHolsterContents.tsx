@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
 
-import { clearHolster, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
+import { clearHolster, LostFindsHolster, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
 import { addHolsterToSavedSets } from '@backend/lostactions/LostActionSetSlice';
 
 import { AutomateSeparator } from '@app/backend/lostactions/lostfindscache/LostActionsDivGen';
@@ -15,7 +15,9 @@ import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 
 import '@css/ui/components/LostFindsHolster/LostFindsHolsterContents.scss';
 
-import { clearDropdownData } from '../LostActionDropdownDataSlice';
+import { clearDropdownData } from '@backend/lostactions/LostActionDropdownDataSlice';
+import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
+import IActionHolster from '@app/backend/interfaces/IActionHolster';
 
 /**
  * Retrieves the role picture of the role passed in
@@ -41,6 +43,25 @@ export function GetRoleImageForCurrentRole(roleToUse : string) : string {
     }
     return "";
 }
+// ANOTHER FUNCTION TO PLACE IN HELPER FILE ?
+export function ProcessHolsterToSave(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
+    const holsterActionsToProcess : IActionHolster[] = [];
+
+    holsterToBeProcessed.Holster.forEach((actionInHolster : IActionHolster) => {              
+        const actionToAdd : IActionHolster = {...actionInHolster, quantity: holsterToBeProcessed.ActionQuantities[actionInHolster.id]};
+        holsterActionsToProcess.push(actionToAdd);             
+    });
+    return {
+        id: Math.random()*10000,
+        nameOfSet: holsterToBeProcessed.SelectedRole + " Holster",
+        roleTypeOfSet: holsterToBeProcessed.SelectedRole,
+        weightOfSet: holsterToBeProcessed.CurrentWeight,
+        setLostActionContents: holsterActionsToProcess,
+        PrepopLostActions: holsterToBeProcessed.PrepopHolster,
+        HolsterTimeline: holsterToBeProcessed.HolsterTimeline
+    };
+}
+
 
 /**
  * Creates and returns the lost finds holster window
@@ -127,7 +148,8 @@ export const LostFindsHolsterInformation = () => {
      */
     function HandleSaveHolsterClick() {
         if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
-            dispatch(addHolsterToSavedSets({actionsInHolster: lostFindsHolster.Holster, quantitiesOfActionsInHolster: lostFindsHolster.ActionQuantities, weightOfHolster: lostFindsHolster.CurrentWeight, roleTypeOfHolster: lostFindsHolster.SelectedRole, prepopOfHolster: lostFindsHolster.PrepopHolster, timelineOfHolster: lostFindsHolster.HolsterTimeline}))
+            dispatch(addHolsterToSavedSets(ProcessHolsterToSave(lostFindsHolster)));
+            
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";

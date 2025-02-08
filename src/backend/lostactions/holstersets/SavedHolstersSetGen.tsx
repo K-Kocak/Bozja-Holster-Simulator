@@ -127,7 +127,7 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
 
         setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, lostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
-
+        // TO DO: refactor so that the holster state is loaded in one go rather than separated out like this
         dispatch(clearHolster());
         dispatch(setSelectedRole(savedSet.roleTypeOfSet));
         dispatch(increaseCurrentWeight(savedSet.weightOfSet));

@@ -3,10 +3,6 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 
-import IActionHolster from '@backend/interfaces/IActionHolster';
-
-import IHolsterTimeline, { IUserSlottedActions } from '../interfaces/IHolsterTimeline';
-
 import { LoadSavedSetsFromLocalStorage } from './holstersetsstorage/SavedHolstersStorage';
 
 export interface LostActionSets {
@@ -28,23 +24,9 @@ export const LostActionSetsSlice = createSlice({
          * @param action, containing info suchg as: the actions in holster, the quantities of actions in holster,
          * the weight of the holster, the role type of the holster, the prepop actions, the timeline for the holster 
          */
-        addHolsterToSavedSets: (state, action: PayloadAction<{actionsInHolster: IActionHolster[], quantitiesOfActionsInHolster: number[], weightOfHolster: number, roleTypeOfHolster: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged", prepopOfHolster: IUserSlottedActions, timelineOfHolster: IHolsterTimeline}>) => {
-
-            const holsterToBeSaved : IActionHolster[] = [];
-            action.payload.actionsInHolster.forEach((actionInHolster) => {              
-                const actionToAdd : IActionHolster = {...action.payload.actionsInHolster[actionInHolster.id], quantity: action.payload.quantitiesOfActionsInHolster[actionInHolster.id]};
-                holsterToBeSaved.push(actionToAdd);             
-            });
-
-            state.Sets.push({
-                id: Math.random()*10000,
-                nameOfSet: action.payload.roleTypeOfHolster + " Holster",
-                roleTypeOfSet: action.payload.roleTypeOfHolster,
-                weightOfSet: action.payload.weightOfHolster,
-                setLostActionContents: holsterToBeSaved,
-                PrepopLostActions: action.payload.prepopOfHolster,
-                HolsterTimeline: action.payload.timelineOfHolster
-            });
+        addHolsterToSavedSets: (state, action: PayloadAction<ILostActionSet>) => {
+            // refactor so that this is done in a function then we pass in an already ready-to-go saved set
+            state.Sets.push(action.payload)
         },
 
         /**

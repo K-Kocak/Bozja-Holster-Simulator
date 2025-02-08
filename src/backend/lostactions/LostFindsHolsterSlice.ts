@@ -32,6 +32,7 @@ import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionData
     ofcourse what would be even more nice would be if a user could make a holster and their URL updates live)
 
     // Use = as our separator - we will be encoding our link into base 64? as the final step
+    
     // Holster + Action Weight
     // This will have the format ${idOfAction}-{quantityOfAction}
     // The position of the quantity in the array is the ID of the action, so the holster containing our actions might not even be necessary to access.
@@ -53,6 +54,8 @@ import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionData
     // Split string at the + to get each sub section, then split on the - for each individual item. For in pull/after pull, split at & for text separation.
 
     // Combine full string, then encode base 64?. Decode would just happen as soon as we receive link on site load.
+
+    // NOT DOING ANY OF THIS. SEE BozjaHolsterSimulator.tsx
 
 */
 function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
