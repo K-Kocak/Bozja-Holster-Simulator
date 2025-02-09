@@ -8,6 +8,7 @@ import { IEncounter, ILostActionExpenditure, IUserSlottedActions } from '@backen
 import IHolsterTimeline from '@backend/interfaces/IHolsterTimeline';
 
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
+import { ILostActionSet } from '../interfaces/ILostActionSet';
 
 /* Call function in another file that will use our current link (assuming its valid)
     and return a group of values that we will then use as our initial state if applicable.
@@ -58,6 +59,79 @@ import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionData
     // NOT DOING ANY OF THIS. SEE BozjaHolsterSimulator.tsx
 
 */
+
+function CreateInitialStateOfHolster() : LostFindsHolster {
+    const currentLinkOfSite = window.location.pathname;
+    console.log(currentLinkOfSite);
+    const removeSimPart = currentLinkOfSite.replace("/sim/", "");
+    console.log(removeSimPart);
+    if(removeSimPart.length > 0) {
+        const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
+        const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
+        return convertHolster;
+    }
+    const holsterToReturn : LostFindsHolster = {
+        Holster: [],
+        ActionQuantities: CreateActionQuantityArray(LostActionsAsObjectArray),
+        CurrentWeight: 0,
+        SelectedWeight: 0,
+        SelectedRole: "Tank",
+        PrepopHolster: {
+            LostActionLeft: -1,
+            LostActionRight: -1,
+            EssenceInUse: -1
+        },
+        HolsterTimeline: {
+            Encounters: []
+        }
+    }
+    return holsterToReturn 
+    
+}
+
+function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) : LostFindsHolster {
+    const lostActionsInHolster : IActionHolster[] = [];
+    const quantityArray : number[] = CreateActionQuantityArray(LostActionsAsObjectArray);
+    lostActionSet.setLostActionContents.forEach((lostAction) => {
+        lostActionsInHolster[lostAction.id] = {id: lostAction.id, quantity: 0}
+        quantityArray[lostAction.id]++;
+    })
+
+    return {
+        ActionQuantities: quantityArray,
+        Holster: lostActionsInHolster,
+        HolsterTimeline: lostActionSet.HolsterTimeline,
+        PrepopHolster: lostActionSet.PrepopLostActions,
+        SelectedRole: lostActionSet.roleTypeOfSet,
+        CurrentWeight: lostActionSet.weightOfSet,
+        SelectedWeight: 0
+    }
+    /*
+    dispatch(setSelectedRole(savedSet.roleTypeOfSet));
+    dispatch(increaseCurrentWeight(savedSet.weightOfSet));
+
+    dispatch(setPrepopHolsterLostActionLeft(savedSet.PrepopLostActions.LostActionLeft));
+    dispatch(setPrepopHolsterLostActionRight(savedSet.PrepopLostActions.LostActionRight));
+    dispatch(setPrepopHolsterLostActionEssence(savedSet.PrepopLostActions.EssenceInUse));
+
+    savedSet.setLostActionContents.forEach((lostActionInSavedSet) => {
+        dispatch(addActionToHolster(lostActionInSavedSet.id));
+        // below dispatch not entirely necessary as the total weight of a set is tracked
+        // this does however ensure the weight of the set is always correct
+        dispatch(setActionQuantity([lostActionInSavedSet.id, lostActionInSavedSet.quantity]));
+    });
+
+    dispatch(loadHolsterTimelineEncounters({encountersToLoad: savedSet.HolsterTimeline.Encounters})); 
+    */
+}
+
+function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
+    return JSON.parse(window.atob(linkToDecode));
+}
+
+const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
+
+
 function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     const ArrayToReturn : number[] = [];
     LostActions.forEach((LostAction) => {
@@ -65,6 +139,8 @@ function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     })
     return ArrayToReturn;
 }
+
+
 const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
 
 const PrepopHolsterResetState = {
@@ -88,17 +164,7 @@ export interface LostFindsHolster {
     HolsterTimeline: IHolsterTimeline
 }
 
-const initialState: LostFindsHolster = {
-    Holster: [],
-    ActionQuantities: actionQuantityArrayCreation,
-    CurrentWeight: 0,
-    SelectedWeight: 0,
-    SelectedRole: "Tank",
-    PrepopHolster: PrepopHolsterResetState,
-    HolsterTimeline: {
-        Encounters: []
-    }
-};
+const initialState: LostFindsHolster = retrieveInitialStateOfHolster;
 
 export const LostFindsHolsterSlice = createSlice({
     name: 'LostFindsHolsterBag',

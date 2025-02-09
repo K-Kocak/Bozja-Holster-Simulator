@@ -7,6 +7,7 @@ import LostActionInstanceTimeline from '@ui/components/LostActionInstanceTimelin
 import LostActionInstanceTimelineResourceManagement from '@ui/components/LostActionInstanceTimelineResourceManagement';
 
 import '@css/ui/components/BozjaHolsterSimulator.scss';
+
 /*
 import { useAppSelector } from '@app/backend/hooks';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
@@ -55,6 +56,7 @@ function BozjaHolsterSimulator() {
     console.log(btoa(currentHolsterJSON));
     console.log(JSON.parse(atob(btoa(currentHolsterJSON))));
     */
+
     return (
         <div className="AppContainer">
             <div className="ComponentsContainer">

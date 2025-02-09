@@ -19,6 +19,8 @@ import { clearDropdownData } from '@backend/lostactions/LostActionDropdownDataSl
 import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
 
+
+
 /**
  * Retrieves the role picture of the role passed in
  * @param roleToUse, the role you want to retrieve the role picture for
@@ -43,8 +45,8 @@ export function GetRoleImageForCurrentRole(roleToUse : string) : string {
     }
     return "";
 }
-// ANOTHER FUNCTION TO PLACE IN HELPER FILE ?
-export function ProcessHolsterToSave(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
+// TO DO: ANOTHER FUNCTION TO PLACE IN HELPER FILE ?
+export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
     const holsterActionsToProcess : IActionHolster[] = [];
 
     holsterToBeProcessed.Holster.forEach((actionInHolster : IActionHolster) => {              
@@ -62,6 +64,9 @@ export function ProcessHolsterToSave(holsterToBeProcessed : LostFindsHolster) : 
     };
 }
 
+export function EncodeHolsterAsALink(holsterToCreateLinkFor : LostFindsHolster) : string {
+    return window.btoa(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
+}
 
 /**
  * Creates and returns the lost finds holster window
@@ -71,6 +76,17 @@ export const LostFindsHolsterInformation = () => {
     const dispatch = useAppDispatch();
 
     const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
+    console.log(lostFindsHolster);
+    function HandleCreateHolsterLink() {
+        const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
+        //const currentWindowLink = window.location.pathname;
+            //console.log(lostFindsHolster);
+        history.replaceState(null, document.title, encodedLinkForHolsterState);
+        console.log(window.location.pathname);
+    }
+    
+
+    //console.log(encodedLinkForHolsterState, currentWindowLink);
 
     const roleImageToUse = GetRoleImageForCurrentRole(lostFindsHolster.SelectedRole);
     const lostFindsHolsterActionBoxes : JSX.Element[][] = CreateLostFindsHolsterActionBoxes();
@@ -148,7 +164,8 @@ export const LostFindsHolsterInformation = () => {
      */
     function HandleSaveHolsterClick() {
         if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
-            dispatch(addHolsterToSavedSets(ProcessHolsterToSave(lostFindsHolster)));
+            console.log(lostFindsHolster);
+            dispatch(addHolsterToSavedSets(ProcessHolsterToLostActionSet(lostFindsHolster)));
             
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
@@ -248,6 +265,10 @@ export const LostFindsHolsterInformation = () => {
             <div className="LostFindsHolsterRoleSelection">
                 <img onClick={LostFindsHolsterCycleSelectedRole} title="Click to change role" src={roleImageToUse}></img>
                 
+            </div>
+
+            <div onClick={HandleCreateHolsterLink} className="LostFindsHolsterCreateLink">
+                <p>hi</p>
             </div>
            
             <div className="LostFindsHolsterSelectedActionWeightText">

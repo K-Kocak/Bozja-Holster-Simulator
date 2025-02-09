@@ -25,6 +25,7 @@ export const LostActionSetsSlice = createSlice({
          * the weight of the holster, the role type of the holster, the prepop actions, the timeline for the holster 
          */
         addHolsterToSavedSets: (state, action: PayloadAction<ILostActionSet>) => {
+            console.log(action.payload);
             // refactor so that this is done in a function then we pass in an already ready-to-go saved set
             state.Sets.push(action.payload)
         },
