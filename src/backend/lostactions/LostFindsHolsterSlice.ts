@@ -93,8 +93,9 @@ function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) 
     const lostActionsInHolster : IActionHolster[] = [];
     const quantityArray : number[] = CreateActionQuantityArray(LostActionsAsObjectArray);
     lostActionSet.setLostActionContents.forEach((lostAction) => {
+        console.log(lostAction);
         lostActionsInHolster[lostAction.id] = {id: lostAction.id, quantity: 0}
-        quantityArray[lostAction.id]++;
+        quantityArray[lostAction.id] = lostAction.quantity;
     })
 
     return {
@@ -165,6 +166,7 @@ export interface LostFindsHolster {
 }
 
 const initialState: LostFindsHolster = retrieveInitialStateOfHolster;
+console.log(initialState);
 
 export const LostFindsHolsterSlice = createSlice({
     name: 'LostFindsHolsterBag',

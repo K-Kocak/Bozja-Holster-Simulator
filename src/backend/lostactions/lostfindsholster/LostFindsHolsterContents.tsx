@@ -12,6 +12,7 @@ import { FFXIVRolePicturesAsObject } from '@backend/lostactions/RolePictureImpor
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 import SaveSetImage from '@ui/pictures/BozjaSaveSetImage62x62.png';
 import ClearHolsterImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
+import CopyToClipboardIcon from '@ui/pictures/CopyToClipBoardIcon.png';
 
 import '@css/ui/components/LostFindsHolster/LostFindsHolsterContents.scss';
 
@@ -77,16 +78,6 @@ export const LostFindsHolsterInformation = () => {
 
     const lostFindsHolster = useAppSelector((state) => state.LostFindsHolster);
     console.log(lostFindsHolster);
-    function HandleCreateHolsterLink() {
-        const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
-        //const currentWindowLink = window.location.pathname;
-            //console.log(lostFindsHolster);
-        history.replaceState(null, document.title, encodedLinkForHolsterState);
-        console.log(window.location.pathname);
-    }
-    
-
-    //console.log(encodedLinkForHolsterState, currentWindowLink);
 
     const roleImageToUse = GetRoleImageForCurrentRole(lostFindsHolster.SelectedRole);
     const lostFindsHolsterActionBoxes : JSX.Element[][] = CreateLostFindsHolsterActionBoxes();
@@ -197,6 +188,19 @@ export const LostFindsHolsterInformation = () => {
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
     }
 
+    function HandleCreateLinkForHolster() {
+        const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
+        history.replaceState(null, document.title, encodedLinkForHolsterState);
+        navigator.clipboard.writeText(window.location.href);
+
+        const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
+        savedSetNotificationBox.childNodes[0].textContent = "Link created and copied to clipboard!";
+        savedSetNotificationBox.style.color = "white";
+        savedSetNotificationBox.style.display = "block";
+        setTimeout(LostFindsHolsterSetSavedNotificationHide, 6000, savedSetNotificationBox.childNodes[0].textContent);
+
+    }
+
     return <div className="LostFindsHolsterInnerContainer">
     <div className="LostFindsHolsterPlayerHolster">
         
@@ -267,8 +271,8 @@ export const LostFindsHolsterInformation = () => {
                 
             </div>
 
-            <div onClick={HandleCreateHolsterLink} className="LostFindsHolsterCreateLink">
-                <p>hi</p>
+            <div className="LostFindsHolsterCreateLink">
+                <img onClick={HandleCreateLinkForHolster} title="Copy To Clipboard and Create Link" src={CopyToClipboardIcon}></img>
             </div>
            
             <div className="LostFindsHolsterSelectedActionWeightText">
