@@ -65,7 +65,7 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
     console.log(currentLinkOfSite);
     const removeSimPart = currentLinkOfSite.replace("/sim/", "");
     console.log(removeSimPart);
-    if(removeSimPart.length > 0) {
+    if(removeSimPart.length > 0 && removeSimPart != '/') {
         const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
         const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
         return convertHolster;
