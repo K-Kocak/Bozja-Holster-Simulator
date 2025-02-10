@@ -34,7 +34,7 @@ This is a simulator for the holsters of Bozja in Final Fantasy XIV.
 
 - [Website link can be found here.](https://bozjaholstersim.netlify.app)
 
-# Basic overview of features include;
+### Basic overview of features include;
 - Lost Finds Cache (like in-game) with extra information for pure essences and affected actions, plus actions like Cure II.
 - Lost Finds Holster (like in-game) with additional buttons to save, clear, set role type and link creation to share your holster quickly with others.
 - Prepop action window for your two lost actions and essence.
