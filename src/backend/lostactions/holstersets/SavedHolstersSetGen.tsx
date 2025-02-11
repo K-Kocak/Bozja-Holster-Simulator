@@ -8,7 +8,7 @@ import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import { GetRoleImageForCurrentRole } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
+import { EncodeLostActionSetAsALink, GetRoleImageForCurrentRole, SetWebsiteLinkToHolsterAndCopyToClipBoard } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import LostActions from '@backend/lostactions/actiondata/ActionData';
@@ -16,6 +16,7 @@ import QuestionMarkNoAction from '@backend/lostactions/actiondata/ActionBlank';
 
 import LoadSetImage from '@ui/pictures/BozjaLoadSetImage62x62.png';
 import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
+import CopyToClipboardIcon from '@ui/pictures/CopyToClipBoardIcon.png';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -206,6 +207,16 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
         (document.getElementById(checkBoxId) as HTMLInputElement).checked;     
     }
 
+    function HandleCreateLinkForSavedSet() {
+        const encodedSavedSet : string = EncodeLostActionSetAsALink(savedSet);
+        SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedSavedSet);
+
+        const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
+        savedSetNotificationBox.childNodes[0].textContent = "Set Link Copied to Clipboard!";
+        savedSetNotificationBox.style.color = "white";   
+        setTimeout(SavedSetSavedNotificationHide, 6000, savedSetNotificationBox.childNodes[0].textContent);
+    }
+
     const styleToUse = currentSelectedSavedSets.includes(savedSet.id) ? {backgroundColor: "#595644"} : {};
     const checkBoxId = (savedSet.id+1).toString();
 
@@ -240,7 +251,9 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
                             <span>{savedSet.weightOfSet}</span>
                         </div>                
                     </div>
-                    <div className="SavedHolsterBlankSpace"></div>
+                    <div onClick={HandleCreateLinkForSavedSet} className="SavedHolsterCreateLinkOfSet">
+                        <img title="Copy To Clipboard and Create Link" src={CopyToClipboardIcon}></img>
+                    </div>
                     <div className="SavedHolstersTypeOfSet">
                         <img src={GetRoleImageForCurrentRole(savedSet.roleTypeOfSet)}></img>
                 </div>

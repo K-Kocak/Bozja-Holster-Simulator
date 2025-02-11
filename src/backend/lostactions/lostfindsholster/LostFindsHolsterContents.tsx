@@ -69,6 +69,15 @@ export function EncodeHolsterAsALink(holsterToCreateLinkFor : LostFindsHolster) 
     return window.btoa(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
 }
 
+export function EncodeLostActionSetAsALink(holsterToCreateLinkFor : ILostActionSet) : string {
+    return window.btoa(JSON.stringify(holsterToCreateLinkFor));
+}
+
+export function SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState : string) {
+    history.replaceState(null, document.title, encodedLinkForHolsterState);
+    navigator.clipboard.writeText(window.location.href);
+}
+
 /**
  * Creates and returns the lost finds holster window
  * @returns the lost finds holster component
@@ -190,8 +199,7 @@ export const LostFindsHolsterInformation = () => {
 
     function HandleCreateLinkForHolster() {
         const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
-        history.replaceState(null, document.title, encodedLinkForHolsterState);
-        navigator.clipboard.writeText(window.location.href);
+        SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState);
 
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         savedSetNotificationBox.childNodes[0].textContent = "Link created and copied to clipboard!";
