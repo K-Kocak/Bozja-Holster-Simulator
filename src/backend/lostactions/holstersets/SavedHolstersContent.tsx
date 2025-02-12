@@ -159,6 +159,7 @@ function CreateSavedHolsters() {
     const dispatch = useAppDispatch();
 
     const savedSets = useAppSelector((state) => state.LostActionSets);
+    console.log(savedSets);
     const selectedSavedSetsState = useAppSelector((state) => state.SelectedSavedSets);
 
     // gets role picture for current role. role/filter same type

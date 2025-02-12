@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import IAction from '@backend/interfaces/IAction';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 import { IEncounter, ILostActionExpenditure, IUserSlottedActions } from '@backend/interfaces/IHolsterTimeline';
 
@@ -67,12 +66,14 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
     console.log(removeSimPart);
     if(removeSimPart.length > 0 && removeSimPart != '/') {
         const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
+        console.log(holsterToRetrieve);
         const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
+        console.log(convertHolster);
         return convertHolster;
     }
     const holsterToReturn : LostFindsHolster = {
         Holster: [],
-        ActionQuantities: CreateActionQuantityArray(LostActionsAsObjectArray),
+        //ActionQuantities: CreateActionQuantityArray(LostActionsAsObjectArray),
         CurrentWeight: 0,
         SelectedWeight: 0,
         SelectedRole: "Tank",
@@ -91,15 +92,15 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
 
 function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) : LostFindsHolster {
     const lostActionsInHolster : IActionHolster[] = [];
-    const quantityArray : number[] = CreateActionQuantityArray(LostActionsAsObjectArray);
+   
     lostActionSet.setLostActionContents.forEach((lostAction) => {
         console.log(lostAction);
-        lostActionsInHolster[lostAction.id] = {id: lostAction.id, quantity: 0}
-        quantityArray[lostAction.id] = lostAction.quantity;
+        lostActionsInHolster[lostAction.id] = {id: lostAction.id, quantity: lostAction.quantity}
+       
     })
 
     return {
-        ActionQuantities: quantityArray,
+        //ActionQuantities: quantityArray,
         Holster: lostActionsInHolster,
         HolsterTimeline: lostActionSet.HolsterTimeline,
         PrepopHolster: lostActionSet.PrepopLostActions,
@@ -132,7 +133,7 @@ function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
 
 const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
 
-
+/*
 function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     const ArrayToReturn : number[] = [];
     LostActions.forEach((LostAction) => {
@@ -140,9 +141,9 @@ function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
     })
     return ArrayToReturn;
 }
+*/
 
-
-const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
+//const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
 
 const PrepopHolsterResetState = {
     LostActionLeft: -1,
@@ -157,7 +158,7 @@ const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
 
 export interface LostFindsHolster {
     Holster: IActionHolster[],
-    ActionQuantities: number[],
+    //ActionQuantities: number[],
     CurrentWeight: number,
     SelectedWeight: number,
     SelectedRole: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged",
@@ -173,14 +174,14 @@ export const LostFindsHolsterSlice = createSlice({
     initialState,
     reducers: {
         incrementActionQuantity: (state, action: PayloadAction<number>) => {
-            state.ActionQuantities[action.payload] += 1;
+            state.Holster[action.payload].quantity += 1;
         },
         decrementActionQuantity: (state, action: PayloadAction<number>) => {
-            state.ActionQuantities[action.payload] -= 1;
+            state.Holster[action.payload].quantity -= 1;
         },
 
         setActionQuantity: (state, action: PayloadAction<[number, number]>) => {
-            state.ActionQuantities[action.payload[0]] += action.payload[1];
+            state.Holster[action.payload[0]].quantity += action.payload[1];
         },
 
         setSelectedWeight: (state, action: PayloadAction<number>) => {
@@ -213,7 +214,7 @@ export const LostFindsHolsterSlice = createSlice({
 
         clearHolster: (state) => {
             state.Holster = [];
-            state.ActionQuantities = actionQuantityArrayCreation;
+            //state.ActionQuantities = actionQuantityArrayCreation;
             state.SelectedRole = "Tank";
             state.CurrentWeight = 0;
             state.SelectedWeight = 0;

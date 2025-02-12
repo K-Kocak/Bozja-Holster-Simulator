@@ -53,8 +53,16 @@ function SavedSetSavedNotificationHide(expectedText : string) {
  */
 const GenerateSavedSetLostActions = (savedSetOfLostActions : IActionHolster[]) : React.JSX.Element => {
     const arrayToReturn : React.JSX.Element[] = [];
-    savedSetOfLostActions.forEach((lostAction) => {
+    console.log(savedSetOfLostActions);
+    savedSetOfLostActions.forEach((lostAction, index) => {
+        console.log(index);
+        console.log(lostAction);
+        console.log(lostAction.id);
+        
+        console.log(LostActionsAsObjectArray[lostAction.id]);
+
         const lostActionInfo = LostActionsAsObjectArray[lostAction.id];
+        console.log(lostActionInfo);
         arrayToReturn.push(
             <div key={lostAction.id} title={lostActionInfo.name.EN} className="SavedHolstersActionInSet">
                 <img src={lostActionInfo.img}></img>
@@ -273,7 +281,7 @@ const CreateSavedSets = (setsToLoad : ILostActionSet[]) => {
     const currentSelectedSavedSets : number[] = useAppSelector((state) => state.SelectedSavedSets.SelectedSets);
     const currentRoleTypeFilter = useAppSelector((state) => state.SelectedSavedSets.currentRoleFilter);
     const allSavedSets = useAppSelector((state) => state.LostActionSets.Sets);
-
+    console.log(allSavedSets);
     const setsArray : React.JSX.Element[] = [];
     
     setsToLoad.forEach((setToUse) => {

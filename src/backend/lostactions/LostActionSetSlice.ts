@@ -12,7 +12,7 @@ export interface LostActionSets {
 const loadedSavedSetDataFromLocalStorage = LoadSavedSetsFromLocalStorage();
 
 const initialState: LostActionSets = loadedSavedSetDataFromLocalStorage;
-
+console.log(initialState);
 export const LostActionSetsSlice = createSlice({
     name: 'LostActionSets',
     initialState,
@@ -28,6 +28,7 @@ export const LostActionSetsSlice = createSlice({
             console.log(action.payload);
             // refactor so that this is done in a function then we pass in an already ready-to-go saved set
             state.Sets.push(action.payload)
+            console.log(state.Sets);
         },
 
         /**

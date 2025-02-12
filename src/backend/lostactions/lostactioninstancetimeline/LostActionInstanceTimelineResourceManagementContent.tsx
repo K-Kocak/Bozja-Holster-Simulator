@@ -52,14 +52,14 @@ function AddActionSpentToQuantityArray(lostActionSpent : ILostActionExpenditure,
  * @param quantitiesOfLostActionsInHolster, the array of quantities of lost actions in your holster
  * @returns an array containing the total resources remaining to spend or have spend too much off
  */
-function CalculateResourceDifferencesForHolster(totalResourcesSpentInTimeline : number[], lostActionsInHolster : IActionHolster[], quantitiesOfLostActionsInHolster : number[]) : number[] {
+function CalculateResourceDifferencesForHolster(totalResourcesSpentInTimeline : number[], lostActionsInHolster : IActionHolster[]) : number[] {
     lostActionsInHolster.forEach((lostActionInHolster) => {
         const idOfLostAction = lostActionInHolster.id;
         if(typeof totalResourcesSpentInTimeline[idOfLostAction] !== "undefined") {
-            totalResourcesSpentInTimeline[idOfLostAction] += quantitiesOfLostActionsInHolster[idOfLostAction];
+            totalResourcesSpentInTimeline[idOfLostAction] += lostActionInHolster.quantity;
         }
         else if(typeof totalResourcesSpentInTimeline[idOfLostAction] == "undefined") {
-            totalResourcesSpentInTimeline[idOfLostAction] = quantitiesOfLostActionsInHolster[idOfLostAction];
+            totalResourcesSpentInTimeline[idOfLostAction] = lostActionInHolster.quantity;
         }
     })
     return totalResourcesSpentInTimeline;
@@ -112,10 +112,9 @@ function CreateLostActionResourceToSpendDiv(lostActionSpentCount: number, idOfLo
 function CreateResourceManagementContent() : React.JSX.Element {
     const holsterTimelineEncounters : IEncounter[] = useAppSelector((state) => state.LostFindsHolster.HolsterTimeline.Encounters);
     const currentHolster : IActionHolster[] = useAppSelector((state) => state.LostFindsHolster.Holster);
-    const actionQuantitiesInHolster : number[] = useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
 
     const buildLostActionTimelineTotalResourcesSpentArray : number[] = CalculateTotalResourcesSpentInHolsterTimeline(holsterTimelineEncounters);
-    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentHolster, actionQuantitiesInHolster);
+    const lostActionTimelineResourceDifferenceArray : number[] = CalculateResourceDifferencesForHolster(buildLostActionTimelineTotalResourcesSpentArray, currentHolster);
 
     const lostActionResourcesElementArray : React.JSX.Element[][] = CreateLostActionResourceArrayDivs(lostActionTimelineResourceDifferenceArray);
 

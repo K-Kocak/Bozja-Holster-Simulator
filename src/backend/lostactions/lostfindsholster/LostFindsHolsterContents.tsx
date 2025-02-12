@@ -20,8 +20,6 @@ import { clearDropdownData } from '@backend/lostactions/LostActionDropdownDataSl
 import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
 
-
-
 /**
  * Retrieves the role picture of the role passed in
  * @param roleToUse, the role you want to retrieve the role picture for
@@ -48,12 +46,15 @@ export function GetRoleImageForCurrentRole(roleToUse : string) : string {
 }
 // TO DO: ANOTHER FUNCTION TO PLACE IN HELPER FILE ?
 export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
+    
     const holsterActionsToProcess : IActionHolster[] = [];
 
-    holsterToBeProcessed.Holster.forEach((actionInHolster : IActionHolster) => {              
-        const actionToAdd : IActionHolster = {...actionInHolster, quantity: holsterToBeProcessed.ActionQuantities[actionInHolster.id]};
+    holsterToBeProcessed.Holster.forEach((actionInHolster : IActionHolster) => {           
+        const actionToAdd : IActionHolster = {...actionInHolster};
         holsterActionsToProcess.push(actionToAdd);             
     });
+    
+   console.log(holsterToBeProcessed);
     return {
         id: Math.random()*10000,
         nameOfSet: holsterToBeProcessed.SelectedRole + " Holster",
@@ -166,7 +167,7 @@ export const LostFindsHolsterInformation = () => {
         if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
             console.log(lostFindsHolster);
             dispatch(addHolsterToSavedSets(ProcessHolsterToLostActionSet(lostFindsHolster)));
-            
+            console.log(ProcessHolsterToLostActionSet(lostFindsHolster));
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";
