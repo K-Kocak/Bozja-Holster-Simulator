@@ -162,7 +162,7 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                             <img src={lostActionImage}></img>
                         </div>
                         <div  className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionHoverVAndRemoveResourceButton">
-                            <div id={indexOfLostActionSpent.toString()} onClick={HandleLostActionRemoveResource} data-encounternumber={encounterNumber} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={true} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
+                            <div id={indexOfLostActionSpent.toString()} onClick={HandleLostActionRemoveResource} data-encounternumber={encounterNumber} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={isInPull} className="LostActionInstanceTimelineIndividualEncounterPullWithLeftLostActionRemoveResourceButton">
                                 <span className="RemoveResourceButton">X</span> 
                             </div>
                             
@@ -170,7 +170,7 @@ function CreateHolsterTimelineBossBoxes(arrayOfEncounters : IEncounter[]) : Reac
                     </div>  
                 </div>
                 <div className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUse">                      
-                    <input onChange={HandleTimeOfUseUpdate} name={encounterNumber.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={encounterNumber} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={false}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={lostActionTimeOfUse}></input>
+                    <input onChange={HandleTimeOfUseUpdate} name={encounterNumber.toString()} type="string" contentEditable="true" maxLength={5} data-encounternumber={encounterNumber} data-lostactionresourceposition={indexOfLostActionSpent} data-isinpull={isInPull}  className="LostActionInstanceTimelineIndividualEncounterInPullLostActionResourceTimeOfUseText" value={lostActionTimeOfUse}></input>
                 </div>
             </div>
         )
