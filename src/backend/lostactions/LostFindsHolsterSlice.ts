@@ -59,6 +59,10 @@ import { ILostActionSet } from '../interfaces/ILostActionSet';
 
 */
 
+/**
+ * Looks at the site of the link on load and checks if a holster needs to be built, and if it does, builds it and returns it as the initial state
+ * @returns a holster for the initial state
+ */
 function CreateInitialStateOfHolster() : LostFindsHolster {
     const currentLinkOfSite = window.location.pathname;
     console.log(currentLinkOfSite);
@@ -73,7 +77,6 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
     }
     const holsterToReturn : LostFindsHolster = {
         Holster: [],
-        //ActionQuantities: CreateActionQuantityArray(LostActionsAsObjectArray),
         CurrentWeight: 0,
         SelectedWeight: 0,
         SelectedRole: "Tank",
@@ -90,6 +93,11 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
     
 }
 
+/**
+ * Converts a lost action set type to lost finds holster type
+ * @param lostActionSet
+ * @returns 
+ */
 function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) : LostFindsHolster {
     const lostActionsInHolster : IActionHolster[] = [];
    
@@ -108,42 +116,18 @@ function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) 
         CurrentWeight: lostActionSet.weightOfSet,
         SelectedWeight: 0
     }
-    /*
-    dispatch(setSelectedRole(savedSet.roleTypeOfSet));
-    dispatch(increaseCurrentWeight(savedSet.weightOfSet));
-
-    dispatch(setPrepopHolsterLostActionLeft(savedSet.PrepopLostActions.LostActionLeft));
-    dispatch(setPrepopHolsterLostActionRight(savedSet.PrepopLostActions.LostActionRight));
-    dispatch(setPrepopHolsterLostActionEssence(savedSet.PrepopLostActions.EssenceInUse));
-
-    savedSet.setLostActionContents.forEach((lostActionInSavedSet) => {
-        dispatch(addActionToHolster(lostActionInSavedSet.id));
-        // below dispatch not entirely necessary as the total weight of a set is tracked
-        // this does however ensure the weight of the set is always correct
-        dispatch(setActionQuantity([lostActionInSavedSet.id, lostActionInSavedSet.quantity]));
-    });
-
-    dispatch(loadHolsterTimelineEncounters({encountersToLoad: savedSet.HolsterTimeline.Encounters})); 
-    */
 }
 
+/**
+ * Decodes a string with atob creating a json, then json.parses it to return a lost action set
+ * @param linkToDecode 
+ * @returns 
+ */
 function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
     return JSON.parse(window.atob(linkToDecode));
 }
 
 const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
-
-/*
-function CreateActionQuantityArray(LostActions: IAction[]) : number[] {
-    const ArrayToReturn : number[] = [];
-    LostActions.forEach((LostAction) => {
-        ArrayToReturn[LostAction.id] = 0;
-    })
-    return ArrayToReturn;
-}
-*/
-
-//const actionQuantityArrayCreation = CreateActionQuantityArray(LostActionsAsObjectArray);
 
 const PrepopHolsterResetState = {
     LostActionLeft: -1,
@@ -158,7 +142,6 @@ const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
 
 export interface LostFindsHolster {
     Holster: IActionHolster[],
-    //ActionQuantities: number[],
     CurrentWeight: number,
     SelectedWeight: number,
     SelectedRole: "Tank" | "Healer" | "Melee" | "Magical Ranged" | "Physical Ranged",
