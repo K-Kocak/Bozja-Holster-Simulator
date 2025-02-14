@@ -198,6 +198,9 @@ export const LostFindsHolsterInformation = () => {
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent);
     }
 
+    /**
+     * Creates a link for the holster that is currently set out
+     */
     function HandleCreateLinkForHolster() {
         const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
         SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState);
