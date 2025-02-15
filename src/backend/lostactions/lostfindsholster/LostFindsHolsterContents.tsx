@@ -66,14 +66,28 @@ export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHo
     };
 }
 
+/**
+ * Encodes a holster into a link
+ * @param holsterToCreateLinkFor 
+ * @returns 
+ */
 export function EncodeHolsterAsALink(holsterToCreateLinkFor : LostFindsHolster) : string {
     return window.btoa(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
 }
 
+/**
+ * Encodes a lost action set into a link
+ * @param holsterToCreateLinkFor 
+ * @returns 
+ */
 export function EncodeLostActionSetAsALink(holsterToCreateLinkFor : ILostActionSet) : string {
     return window.btoa(JSON.stringify(holsterToCreateLinkFor));
 }
 
+/**
+ * Sets the current website link to the encoded link
+ * @param encodedLinkForHolsterState 
+ */
 export function SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState : string) {
     history.replaceState(null, document.title, encodedLinkForHolsterState);
     navigator.clipboard.writeText(window.location.href);
