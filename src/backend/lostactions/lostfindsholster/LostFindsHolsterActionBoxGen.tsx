@@ -62,30 +62,19 @@ const CreateLostFindsHolsterActionBox = (lostAction : IAction) => {
     )
 }
 
-/*
-This function does not do anything, but was originally intended to reset the lost action quantity property on lost actions
-export function LostFindsHolsterResetLostActionQuantitiesToZero() : void {
-    LostActionsAsObjectArray.forEach((lostAction) => {
-        lostAction.quantity = 0;
-    })
-}
-*/
-
 
 /**
  * Creates and returns the JSX Elements of the lost actions inside the lost finds holster.
  * @returns A 2D array containing the JSX Element of lost actions separated by the lost action's category
  */
 export const CreateLostFindsHolsterActionBoxes = () : React.JSX.Element[][] => {
-    
-    //const quantities : number[]= useAppSelector((state) => state.LostFindsHolster.ActionQuantities);
 
     const lostFindsHolsterActionBoxesAs2DArray : React.JSX.Element[][] = [];
     
     for(let i = 0; i < 7; i++) {
         lostFindsHolsterActionBoxesAs2DArray.push([]);
     }
-    ////////////////////////////////////////////////////////////////////////////////////
+
     LostActionsAsObjectArray.forEach((lostAction) => {
 
         const lostFindsHolsterActionBox = CreateLostFindsHolsterActionBox(lostAction);

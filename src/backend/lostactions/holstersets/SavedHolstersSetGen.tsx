@@ -215,6 +215,10 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
         (document.getElementById(checkBoxId) as HTMLInputElement).checked;     
     }
 
+    /**
+     * Creates a link for the saved set that was clicked on by encoding the saved set and then adding the link to the user's clipboard
+     * while setting website link to the encoded link
+     */
     function HandleCreateLinkForSavedSet() {
         const encodedSavedSet : string = EncodeLostActionSetAsALink(savedSet);
         SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedSavedSet);

@@ -127,6 +127,7 @@ function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
     return JSON.parse(window.atob(linkToDecode));
 }
 
+
 const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
 
 const PrepopHolsterResetState = {
