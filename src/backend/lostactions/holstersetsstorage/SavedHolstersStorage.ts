@@ -6,7 +6,6 @@ import { LostActionSets } from "../LostActionSetSlice";
  */
 export function SaveSavedSetsToLocalStorage(setsToSave : LostActionSets) {
     const localStorageDataFormat = JSON.stringify(setsToSave);
-    console.log(localStorageDataFormat);
     localStorage.setItem("SavedSetData", localStorageDataFormat);
 }
 

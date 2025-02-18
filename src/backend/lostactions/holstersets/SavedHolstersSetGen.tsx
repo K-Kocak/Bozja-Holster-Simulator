@@ -1,7 +1,7 @@
 import { BaseSyntheticEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/backend/hooks';
 
-import { addActionToHolster, clearHolster, increaseCurrentWeight, loadHolsterTimelineEncounters, setActionQuantity, setPrepopHolsterLostActionEssence, setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
+import { clearHolster, ConvertLostActionSetToLostFindsHolster, setHolster, } from '@backend/lostactions/LostFindsHolsterSlice';
 import { changeTitleOfSpecificSavedSet, setNewSavedSetsFromSets } from '@backend/lostactions/LostActionSetSlice';
 import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/LostActionSetSelectedTrackerSlice';
 
@@ -136,23 +136,9 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
 
         setTimeout(SavedSetSavedNotificationHide, 3000, savedSetNotificationBox.childNodes[0].textContent); 
         setTimeout(LostFindsHolsterSetSavedNotificationHide, 3000, lostFindsHolsterSetSavedNotificationBox.childNodes[0].textContent);
-        // TO DO: refactor so that the holster state is loaded in one go rather than separated out like this
         dispatch(clearHolster());
-        dispatch(setSelectedRole(savedSet.roleTypeOfSet));
-        dispatch(increaseCurrentWeight(savedSet.weightOfSet));
-
-        dispatch(setPrepopHolsterLostActionLeft(savedSet.PrepopLostActions.LostActionLeft));
-        dispatch(setPrepopHolsterLostActionRight(savedSet.PrepopLostActions.LostActionRight));
-        dispatch(setPrepopHolsterLostActionEssence(savedSet.PrepopLostActions.EssenceInUse));
-
-        savedSet.setLostActionContents.forEach((lostActionInSavedSet) => {
-            dispatch(addActionToHolster(lostActionInSavedSet.id));
-            // below dispatch not entirely necessary as the total weight of a set is tracked
-            // this does however ensure the weight of the set is always correct
-            dispatch(setActionQuantity([lostActionInSavedSet.id, lostActionInSavedSet.quantity]));
-        });
-
-        dispatch(loadHolsterTimelineEncounters({encountersToLoad: savedSet.HolsterTimeline.Encounters})); 
+        const savedSetAsHolster = ConvertLostActionSetToLostFindsHolster(savedSet);
+        dispatch(setHolster(savedSetAsHolster));
     }
 
     /**

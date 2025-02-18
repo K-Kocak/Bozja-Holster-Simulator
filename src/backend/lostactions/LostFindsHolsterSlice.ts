@@ -98,7 +98,7 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
  * @param lostActionSet
  * @returns 
  */
-function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) : LostFindsHolster {
+export function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActionSet) : LostFindsHolster {
     const lostActionsInHolster : IActionHolster[] = [];
    
     lostActionSet.setLostActionContents.forEach((lostAction) => {
@@ -157,17 +157,26 @@ export const LostFindsHolsterSlice = createSlice({
     name: 'LostFindsHolsterBag',
     initialState,
     reducers: {
+        setHolster: (state, action: PayloadAction<LostFindsHolster>) => {
+            state.CurrentWeight = action.payload.CurrentWeight;
+            state.Holster = action.payload.Holster;
+            state.HolsterTimeline = action.payload.HolsterTimeline;
+            state.PrepopHolster = action.payload.PrepopHolster;
+            state.SelectedRole = action.payload.SelectedRole;
+            state.SelectedWeight = action.payload.SelectedWeight;
+           
+        },
         incrementActionQuantity: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload].quantity += 1;
         },
         decrementActionQuantity: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload].quantity -= 1;
         },
-
+        /*
         setActionQuantity: (state, action: PayloadAction<[number, number]>) => {
             state.Holster[action.payload[0]].quantity += action.payload[1];
         },
-
+        */
         setSelectedWeight: (state, action: PayloadAction<number>) => {
             state.SelectedWeight = action.payload;
         },
@@ -305,7 +314,7 @@ export const LostFindsHolsterSlice = createSlice({
     },
 })
 
-export const { incrementActionQuantity, decrementActionQuantity, setActionQuantity, 
+export const { setHolster, incrementActionQuantity, decrementActionQuantity, //setActionQuantity, 
     setSelectedWeight, increaseCurrentWeight, decreaseCurrentWeight, 
     removeActionFromHolster, addActionToHolster, setSelectedRole, clearHolster, 
     setPrepopHolsterLostActionLeft, setPrepopHolsterLostActionRight, setPrepopHolsterLostActionEssence, 
