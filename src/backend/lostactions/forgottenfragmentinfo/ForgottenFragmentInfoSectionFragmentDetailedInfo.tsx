@@ -16,7 +16,6 @@ const GenerateForgottenFragmentDetailedInfoSection = () => {
     const currentSelectedForgottenFragment = useAppSelector((state) => state.ForgottenFragmentInfo.idOfFragmentDisplayed);
 
     if(currentSelectedForgottenFragment == -1) {
-        // TO DO: Change this to display text encouraging the user to select a forgotten fragment
         return <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: "#F4F2F2", textShadow: "-1px 0px 2px black, 1px 0px 2px black, 0px 1px 2px black, 0px -1px 2px black"}}><span>Pick a forgotten fragment to display more information on it!</span></div>;
     }
 

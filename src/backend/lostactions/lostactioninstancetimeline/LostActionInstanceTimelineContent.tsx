@@ -577,39 +577,30 @@ function CreateDropdownRowsForNoEssences(encounterNumber : number, LeftOrRight :
     for(let i = 0; i < lostActionCategories.length; i++) {
         dropdownItemsAs2DArray.push([]);
     }
-    //const DropdownItemsArray : React.JSX.Element[] = [];
     LostActionsAsObjectArray.forEach((lostAction) => {
         if(lostAction.id < 700 && lostAction.id > 100) {
-            // TO DO: Merge the no essence and essence functions together, as they essentially do the same thing but with a different type of action (left, right or essence)
             const nonEssenceToPush = CreateDropdownRowForLostAction(lostAction, encounterNumber, LeftOrRight, dispatch);
             switch (lostAction.category.EN) {
                 case "Offensive":
                     dropdownItemsAs2DArray[0].push(nonEssenceToPush);
-                    //DropdownItemsArrayOffensive.push(LostActionToPush);
                     break;
                 case "Defensive":
                     dropdownItemsAs2DArray[1].push(nonEssenceToPush);
-                    //DropdownItemsArrayDefensive.push(LostActionToPush);
                     break;
                 case "Restorative":
                     dropdownItemsAs2DArray[2].push(nonEssenceToPush);
-                    //DropdownItemsArrayRestorative.push(LostActionToPush);
                     break;
                 case "Beneficial":
                     dropdownItemsAs2DArray[3].push(nonEssenceToPush);
-                    //DropdownItemsArrayBeneficial.push(LostActionToPush);
                     break;
                 case "Tactical":
                     dropdownItemsAs2DArray[4].push(nonEssenceToPush);
-                    //DropdownItemsArrayTactical.push(LostActionToPush);
                     break;
                 case "Detrimental":
                     dropdownItemsAs2DArray[5].push(nonEssenceToPush);
-                    //DropdownItemsArrayDetrimental.push(LostActionToPush);
                     break;
                 case "Item-Related":
                     dropdownItemsAs2DArray[6].push(nonEssenceToPush);
-                    //DropdownItemsArrayItemRelated.push(LostActionToPush);
                     break;
                 default:
                     break;

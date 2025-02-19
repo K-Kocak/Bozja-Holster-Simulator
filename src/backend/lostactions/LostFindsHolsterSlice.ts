@@ -9,65 +9,13 @@ import IHolsterTimeline from '@backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import { ILostActionSet } from '../interfaces/ILostActionSet';
 
-/* Call function in another file that will use our current link (assuming its valid)
-    and return a group of values that we will then use as our initial state if applicable.
-    STRUCTURE OF LINK IDEAS:
-    A holster is broken down into the following sections;
-    - The Holster containing our actions
-    - An action quantity array for the holster, telling us how many actions are in the holster for a lost action
-    - Current Weight is not applicable. /////////////////////////
-    - Total Weight of the holster
-    - Role for the Holster
-    - Prepop actions (3 lost action ids)
-    - Holster Timeline - made up of an array of encounters. Each encounter has:
-         - name of boss
-         - pull boss with (basically prepop again)
-         - array of actions spent in pull, with the time of use
-         - array of actions spent after pull, with the time of use
-    When handling a link, we (ideally) check if each section is valid and can be created, else we don't bother.
-    We will need to redirect the user to /sim/ in this scenario
-    In the case that some of the link works, redirect to /sim/ anyway
-    When our state changes later on, this will affect our URL, but for now we are handling the initiation of our link
-    (This will atleast allow us to generate links using saved set, then user #2 just clicks the link and gets the holster,
-    ofcourse what would be even more nice would be if a user could make a holster and their URL updates live)
-
-    // Use = as our separator - we will be encoding our link into base 64? as the final step
-    
-    // Holster + Action Weight
-    // This will have the format ${idOfAction}-{quantityOfAction}
-    // The position of the quantity in the array is the ID of the action, so the holster containing our actions might not even be necessary to access.
-
-    // Total Weight
-    // Just a value by itself from 1 to 99
-
-    // Role
-    // String Value, use the literal word
-
-    // Prepop
-    // ${LeftActionId}-{RightActionId}-{EssenceId}
-
-    // Timeline
-    // ${NameOfBoss}+{PullWithSection}+{InPullSection}+{AfterPullSection}
-    // {PullWithSection} same as prepop
-    // {InPullSection and AfterPullSection} => ${idOfAction}&TEXT-{idOfAction&TEXT} etc
-    // Full Example: ${NameOfBoss}+{LeftActionId}-{RightActionId}-{EssenceId}+{idOfAction}&TEXT-{idOfAction&TEXT}+{idOfAction}&TEXT-{idOfAction&TEXT}
-    // Split string at the + to get each sub section, then split on the - for each individual item. For in pull/after pull, split at & for text separation.
-
-    // Combine full string, then encode base 64?. Decode would just happen as soon as we receive link on site load.
-
-    // NOT DOING ANY OF THIS. SEE BozjaHolsterSimulator.tsx
-
-*/
-
 /**
  * Looks at the site of the link on load and checks if a holster needs to be built, and if it does, builds it and returns it as the initial state
  * @returns a holster for the initial state
  */
 function CreateInitialStateOfHolster() : LostFindsHolster {
     const currentLinkOfSite = window.location.pathname;
-    console.log(currentLinkOfSite);
     const removeSimPart = currentLinkOfSite.replace("/sim/", "");
-    console.log(removeSimPart);
     if(removeSimPart.length > 0 && removeSimPart != '/') {
         const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
         console.log(holsterToRetrieve);
@@ -104,11 +52,9 @@ export function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActi
     lostActionSet.setLostActionContents.forEach((lostAction) => {
         console.log(lostAction);
         lostActionsInHolster[lostAction.id] = {id: lostAction.id, quantity: lostAction.quantity}
-       
     })
 
     return {
-        //ActionQuantities: quantityArray,
         Holster: lostActionsInHolster,
         HolsterTimeline: lostActionSet.HolsterTimeline,
         PrepopHolster: lostActionSet.PrepopLostActions,
@@ -117,6 +63,9 @@ export function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActi
         SelectedWeight: 0
     }
 }
+
+const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
+const initialState: LostFindsHolster = retrieveInitialStateOfHolster;
 
 /**
  * Decodes a string with atob creating a json, then json.parses it to return a lost action set
@@ -127,15 +76,18 @@ function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
     return JSON.parse(window.atob(linkToDecode));
 }
 
-
-const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
-
+/**
+ * Default prepop state
+ */
 const PrepopHolsterResetState = {
     LostActionLeft: -1,
     LostActionRight: -1,
     EssenceInUse: -1
 }
 
+/**
+ * Default lost action resource
+ */
 const GenerateBlankLostActionResourceSpent : ILostActionExpenditure = {
     LostActionUsed: -1,
     LostActionTimeOfUse: "N/A"
@@ -150,13 +102,15 @@ export interface LostFindsHolster {
     HolsterTimeline: IHolsterTimeline
 }
 
-const initialState: LostFindsHolster = retrieveInitialStateOfHolster;
-console.log(initialState);
-
 export const LostFindsHolsterSlice = createSlice({
     name: 'LostFindsHolsterBag',
     initialState,
     reducers: {
+        /**
+         * Sets holster state to received holster
+         * @param state 
+         * @param action 
+         */
         setHolster: (state, action: PayloadAction<LostFindsHolster>) => {
             state.CurrentWeight = action.payload.CurrentWeight;
             state.Holster = action.payload.Holster;
@@ -166,17 +120,14 @@ export const LostFindsHolsterSlice = createSlice({
             state.SelectedWeight = action.payload.SelectedWeight;
            
         },
+
         incrementActionQuantity: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload].quantity += 1;
         },
         decrementActionQuantity: (state, action: PayloadAction<number>) => {
             state.Holster[action.payload].quantity -= 1;
         },
-        /*
-        setActionQuantity: (state, action: PayloadAction<[number, number]>) => {
-            state.Holster[action.payload[0]].quantity += action.payload[1];
-        },
-        */
+
         setSelectedWeight: (state, action: PayloadAction<number>) => {
             state.SelectedWeight = action.payload;
         },
@@ -207,7 +158,6 @@ export const LostFindsHolsterSlice = createSlice({
 
         clearHolster: (state) => {
             state.Holster = [];
-            //state.ActionQuantities = actionQuantityArrayCreation;
             state.SelectedRole = "Tank";
             state.CurrentWeight = 0;
             state.SelectedWeight = 0;
