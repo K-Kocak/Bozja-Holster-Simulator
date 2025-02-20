@@ -13,7 +13,7 @@ import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionData
 
 import '@css/ui/components/SavedHolsters/SavedHolstersContent.scss';
 
-import { GetRoleImageForCurrentRole } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents';
+import { GetRoleImageForCurrentRole } from '../helperfunctions/HelperFunctions';
 
 /**
  * Saves sets as a json file

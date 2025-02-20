@@ -8,7 +8,7 @@ import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import { EncodeLostActionSetAsALink, GetRoleImageForCurrentRole, SetWebsiteLinkToHolsterAndCopyToClipBoard } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
+import { EncodeLostActionSetAsALink, SetWebsiteLinkToHolsterAndCopyToClipBoard } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import LostActions from '@backend/lostactions/actiondata/ActionData';
@@ -19,6 +19,7 @@ import DeleteSetImage from '@ui/pictures/FFXIVExitGameIcon70x70.png';
 import CopyToClipboardIcon from '@ui/pictures/CopyToClipBoardIcon.png';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
+import { GetRoleImageForCurrentRole } from '../helperfunctions/HelperFunctions';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**

@@ -7,7 +7,6 @@ import { AutomateSeparator } from '@app/backend/lostactions/lostfindscache/LostA
 
 import CreateLostFindsHolsterActionBoxes from '@app/backend/lostactions/lostfindsholster/LostFindsHolsterActionBoxGen';
 
-import { FFXIVRolePicturesAsObject } from '@backend/lostactions/RolePictureImport';
 
 import FancyGraphicSymbol from '@ui/pictures/BozjaLostFindsHolsterFancyGraphicForCategory.png';
 import SaveSetImage from '@ui/pictures/BozjaSaveSetImage62x62.png';
@@ -19,32 +18,10 @@ import '@css/ui/components/LostFindsHolster/LostFindsHolsterContents.scss';
 import { clearDropdownData } from '@backend/lostactions/LostActionDropdownDataSlice';
 import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
+import { GetRoleImageForCurrentRole } from '../helperfunctions/HelperFunctions';
 
-/**
- * Retrieves the role picture of the role passed in
- * @param roleToUse, the role you want to retrieve the role picture for
- * @returns the image link for the role you want a role picture for
- * 
- * TO DO: PLACE INTO A SEPARATE FILE AS A HELPER FUNCTION
- */
-export function GetRoleImageForCurrentRole(roleToUse : string) : string {
-    switch (roleToUse) {
-        case "Tank":
-            return FFXIVRolePicturesAsObject.Tank;
-        case "Healer":
-            return FFXIVRolePicturesAsObject.Healer;
-        case "Melee":
-            return FFXIVRolePicturesAsObject.MeleeDPS;
-        case "Physical Ranged":
-            return FFXIVRolePicturesAsObject.PhysicalRangedDPS;
-        case "Magical Ranged":
-            return FFXIVRolePicturesAsObject.MagicalRangedDPS;
-        case "None":
-            return "None";
-    }
-    return "";
-}
-// TO DO: ANOTHER FUNCTION TO PLACE IN HELPER FILE ?
+
+
 export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
     
     const holsterActionsToProcess : IActionHolster[] = [];
@@ -53,11 +30,9 @@ export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHo
         const actionToAdd : IActionHolster = {...actionInHolster};
         holsterActionsToProcess.push(actionToAdd);             
     });
-    
-   console.log(holsterToBeProcessed);
     return {
         id: Math.random()*10000,
-        nameOfSet: holsterToBeProcessed.SelectedRole + " Holster",
+        nameOfSet: holsterToBeProcessed.SelectedRole + "",
         roleTypeOfSet: holsterToBeProcessed.SelectedRole,
         weightOfSet: holsterToBeProcessed.CurrentWeight,
         setLostActionContents: holsterActionsToProcess,
@@ -72,6 +47,7 @@ export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHo
  * @returns 
  */
 export function EncodeHolsterAsALink(holsterToCreateLinkFor : LostFindsHolster) : string {
+    console.log(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
     return window.btoa(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
 }
 
@@ -181,7 +157,7 @@ export const LostFindsHolsterInformation = () => {
         if(lostFindsHolster.CurrentWeight <= 99 && lostFindsHolster.CurrentWeight > 0) {
             console.log(lostFindsHolster);
             dispatch(addHolsterToSavedSets(ProcessHolsterToLostActionSet(lostFindsHolster)));
-            console.log(ProcessHolsterToLostActionSet(lostFindsHolster));
+           
             const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
             savedSetNotificationBox.childNodes[0].textContent = "Set Saved!";
             savedSetNotificationBox.style.color = "#A5D6A7";
@@ -217,6 +193,7 @@ export const LostFindsHolsterInformation = () => {
      */
     function HandleCreateLinkForHolster() {
         const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
+        console.log(encodedLinkForHolsterState);
         SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState);
 
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
