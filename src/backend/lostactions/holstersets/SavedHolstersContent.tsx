@@ -152,7 +152,7 @@ function HandleSavedSetsDisplayHelpBox() {
 let isSavedSetTitleSortedByAscending : boolean = false;
 
 /**
- * 
+ * Creates the saved holsters area of the program
  * @returns 
  */
 function CreateSavedHolsters() {
