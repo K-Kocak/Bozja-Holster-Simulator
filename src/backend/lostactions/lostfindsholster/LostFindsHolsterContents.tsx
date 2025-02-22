@@ -20,7 +20,10 @@ import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 import IActionHolster from '@app/backend/interfaces/IActionHolster';
 import { GetRoleImageForCurrentRole } from '../helperfunctions/HelperFunctions';
 
+import config from "@backend/mongodb/config.json";
 
+const connectionString = config.connectionString.someRandomString;
+console.log(connectionString);
 
 export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHolster) : ILostActionSet {
     
@@ -47,7 +50,6 @@ export function ProcessHolsterToLostActionSet(holsterToBeProcessed : LostFindsHo
  * @returns 
  */
 export function EncodeHolsterAsALink(holsterToCreateLinkFor : LostFindsHolster) : string {
-    console.log(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
     return window.btoa(JSON.stringify(ProcessHolsterToLostActionSet(holsterToCreateLinkFor)));
 }
 
