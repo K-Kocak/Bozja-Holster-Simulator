@@ -34,12 +34,13 @@ const CreateLostFindsHolsterActionBox = (lostAction : IAction) => {
             // debugging
             return;
         }
+        dispatch(decrementActionQuantity(lostAction.id))
+        dispatch(decreaseCurrentWeight(lostAction.weight));
         if(currentAction.quantity - 1 == 0) {
             const filteredHolster = currentHolster.filter((actions) => actions.id != lostAction.id);
             dispatch(removeActionFromHolster(filteredHolster));
         }
-        dispatch(decrementActionQuantity(lostAction.id))
-        dispatch(decreaseCurrentWeight(lostAction.weight));
+        
     }
 
 
