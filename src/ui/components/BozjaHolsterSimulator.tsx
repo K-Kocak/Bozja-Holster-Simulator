@@ -22,6 +22,7 @@ function BozjaHolsterSimulator() {
         const testConnection = fetch("http://localhost:5000/api")
         .then(response => response.json())
         .then(data => console.log(data));
+        console.log(testConnection);
     }, []);
     /*
     TEST CODE FOR IMPLEMENTING LINKS FOR SAVED SETS
