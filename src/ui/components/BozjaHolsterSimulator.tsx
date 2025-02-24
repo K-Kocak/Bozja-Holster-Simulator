@@ -7,6 +7,7 @@ import LostActionInstanceTimeline from '@ui/components/LostActionInstanceTimelin
 import LostActionInstanceTimelineResourceManagement from '@ui/components/LostActionInstanceTimelineResourceManagement';
 
 import '@css/ui/components/BozjaHolsterSimulator.scss';
+import { useEffect } from 'react';
 
 /*
 import { useAppSelector } from '@app/backend/hooks';
@@ -16,6 +17,12 @@ import { ILostActionSet } from '@app/backend/interfaces/ILostActionSet';
 
 function BozjaHolsterSimulator() {
     console.log(window.location.pathname);
+
+    useEffect(() => {
+        const testConnection = fetch("http://localhost:5000/api")
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }, []);
     /*
     TEST CODE FOR IMPLEMENTING LINKS FOR SAVED SETS
     PROCESS:
