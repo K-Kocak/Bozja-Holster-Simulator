@@ -6,6 +6,8 @@ import PrepopHolster from '@ui/components/PrepopHolster';
 import LostActionInstanceTimeline from '@ui/components/LostActionInstanceTimeline';
 import LostActionInstanceTimelineResourceManagement from '@ui/components/LostActionInstanceTimelineResourceManagement';
 
+import axios from 'axios';
+
 import '@css/ui/components/BozjaHolsterSimulator.scss';
 import { useEffect } from 'react';
 
@@ -19,6 +21,17 @@ function BozjaHolsterSimulator() {
     console.log(window.location.pathname);
 
     useEffect(() => {
+        axios.get("/api").then((response) => {
+            console.log(response.data);
+            console.log("axios");
+        }, (error) => {
+            console.log(error);
+        });
+
+        axios.get("/api/46362352532").then((response) => {
+            console.log(response.data); 
+        });
+        /*
         const testConnection = fetch("http://localhost:5000/api", {
                 method: 'GET',
                 headers: 
@@ -32,9 +45,7 @@ function BozjaHolsterSimulator() {
             }
             return response;
         })
-        .then(response => response.json())
-        .then(data => console.log(data));
-        console.log(testConnection);
+        */
     }, []);
     /*
     TEST CODE FOR IMPLEMENTING LINKS FOR SAVED SETS

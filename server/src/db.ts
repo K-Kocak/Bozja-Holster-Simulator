@@ -1,7 +1,7 @@
 import 'dotenv/config.js'
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { Db, MongoClient, ServerApiVersion } from 'mongodb';
 
-const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_CLUSTER_NAME}.e4yzm.mongodb.net/?retryWrites=true&w=majority&appName=${process.env.DATABASE_APP_NAME}`;
+const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_CLUSTER_NAME}.${process.env.DATABASE_MONGODB_NET}/?retryWrites=true&w=majority&appName=${process.env.DATABASE_APP_NAME}`;
 const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
@@ -10,11 +10,19 @@ const client = new MongoClient(uri, {
     }
   });
 
+export interface your_mum {
+  id: number,
+  key: string,
+  data: string
+}
+
+let database : Db;
 
 const connectDB = async () => {
   try {
     await client.connect();
-    await client.db('sample_supplies').command({ ping: 1 }); // Replace with your database name
+    //await client.db('sample_supplies').command({ ping: 1 }); // Replace with your database name
+    database = client.db('sample_supplies');
     console.log('MongoDB connected');
   } catch (err) {
     console.error(err);
@@ -25,4 +33,6 @@ const connectDB = async () => {
   }
 };
 
-export { connectDB };
+connectDB();
+
+export { database };
