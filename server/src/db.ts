@@ -1,4 +1,4 @@
-import 'dotenv/config.js'
+/*import 'dotenv/config.js'
 import { Db, MongoClient, ServerApiVersion } from 'mongodb';
 
 const uri = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_CLUSTER_NAME}.${process.env.DATABASE_MONGODB_NET}/?retryWrites=true&w=majority&appName=${process.env.DATABASE_APP_NAME}`;
@@ -28,11 +28,8 @@ const connectDB = async () => {
     console.error(err);
     process.exit(1); // Exit process with failure
   }
-  finally {
-    await client.close();
-  }
 };
 
 connectDB();
 
-export { database };
+export { database };*/
