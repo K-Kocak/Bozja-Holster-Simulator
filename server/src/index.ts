@@ -65,8 +65,10 @@ app.get('/api/:link', async (req, res) => {
     const collections = await database.collection("sales");
     const findone = await collections.find({ "storeLocation": "London" }).toArray();
     console.log(`Received request for collection: ${findone}`);
-    const addMoon = await collections.insertOne(testAdd);
-    res.send(addMoon);
+    // const addMoon = await collections.insertOne(testAdd);
+    //const updateMoon = await collections.updateOne({ "storeLocation": "Moon" }, { $set: {couponsUsed: true, purchaseMethod: "Online"} });
+    const deleteMoon = await collections.deleteOne({ "storeLocation": "Moon" });
+    res.send(deleteMoon);
   }
   finally {
     client.close();
