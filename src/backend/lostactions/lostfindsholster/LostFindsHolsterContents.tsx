@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import axios from 'axios';
 
 import { clearHolster, LostFindsHolster, setSelectedRole } from '@backend/lostactions/LostFindsHolsterSlice';
 import { addHolsterToSavedSets } from '@backend/lostactions/LostActionSetSlice';
@@ -189,6 +190,12 @@ export const LostFindsHolsterInformation = () => {
      * Creates a link for the holster that is currently set out
      */
     function HandleCreateLinkForHolster() {
+
+        const lostActionSetAsJson = JSON.stringify(ProcessHolsterToLostActionSet(lostFindsHolster));
+        axios.get(`/api/findholster/${lostActionSetAsJson}`).then((response) => {
+            console.log(JSON.parse(response.data.toString())); 
+        });
+        console.log("-----------------------------------------------")
         const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
         console.log(encodedLinkForHolsterState);
         SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState);

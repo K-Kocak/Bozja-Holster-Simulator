@@ -27,10 +27,10 @@ function BozjaHolsterSimulator() {
         }, (error) => {
             console.log(error);
         });
-
+        /*
         axios.get("/api/46362352532").then((response) => {
             console.log(response.data); 
-        });
+        });*/
         /*
         const testConnection = fetch("http://localhost:5000/api", {
                 method: 'GET',

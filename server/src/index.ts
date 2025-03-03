@@ -57,6 +57,7 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Hello from Express!' });
 });
 
+/*
 app.get('/api/:link', async (req, res) => {
   const userId = req.params.link;
   try {
@@ -74,6 +75,13 @@ app.get('/api/:link', async (req, res) => {
     client.close();
   }
   
+});
+*/
+
+app.get('/api/findholster/:holsterjson', async (req, res) => {
+  const greeting = req.params.holsterjson;
+  res.setHeader('Content-Type', 'application/json');
+  res.json(greeting);
 });
 
 /*--------------------------------------------*/
