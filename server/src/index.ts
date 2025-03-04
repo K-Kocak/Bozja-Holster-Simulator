@@ -40,13 +40,13 @@ interface customer {
 }
 
 interface sales {
-  _id: number,
-  saleDate: Date,
-  items: items[],
-  storeLocation: string,
-  customer: customer,
-  couponUsed: boolean,
-  purchaseMethod: string
+  _id: number;
+  saleDate: Date;
+  items: items[];
+  storeLocation: string;
+  customer: customer;
+  couponUsed: boolean;
+  purchaseMethod: string;
 }
 
 const testAdd = {"saleDate":{"$date":{"$numberLong":"1512326388253"}},"items":[{"name":"backpack","tags":["school","travel","kids"],"price":{"$numberDecimal":"127.59"},"quantity":{"$numberInt":"3"}},{"name":"notepad","tags":["office","writing","school"],"price":{"$numberDecimal":"17.6"},"quantity":{"$numberInt":"4"}},{"name":"binder","tags":["school","general","organization"],"price":{"$numberDecimal":"18.67"},"quantity":{"$numberInt":"2"}},{"name":"pens","tags":["writing","office","school","stationary"],"price":{"$numberDecimal":"60.56"},"quantity":{"$numberInt":"3"}},{"name":"notepad","tags":["office","writing","school"],"price":{"$numberDecimal":"28.41"},"quantity":{"$numberInt":"1"}},{"name":"envelopes","tags":["stationary","office","general"],"price":{"$numberDecimal":"15.28"},"quantity":{"$numberInt":"7"}},{"name":"laptop","tags":["electronics","school","office"],"price":{"$numberDecimal":"1259.02"},"quantity":{"$numberInt":"3"}}],"storeLocation":"Moon","customer":{"gender":"M","age":{"$numberInt":"40"},"email":"dotzu@ib.sh","satisfaction":{"$numberInt":"4"}},"couponUsed":false,"purchaseMethod":"In store"}
@@ -54,7 +54,7 @@ const testAdd = {"saleDate":{"$date":{"$numberLong":"1512326388253"}},"items":[{
 /*----------------API ROUTES-----------------*/
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Hello from Express!' });
+    res.send({ message: 'Hello from Express!' });
 });
 
 /*
@@ -78,15 +78,47 @@ app.get('/api/:link', async (req, res) => {
 });
 */
 
-app.get('/api/findholster/:holsterjson', async (req, res) => {
-  const greeting = req.params.holsterjson;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(greeting);
+const keyLength : number = 10;
+const characters : string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const charactersLength : number = characters.length;
+
+function CreateKeyForHolster() : string {
+    let keyString : string = "";
+    for(let i : number = 0; i < keyLength; i++) {
+        keyString += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return keyString;
+}
+
+app.post('/api/findholster', async (req, res) => {
+    const holsterJson = req.body;
+    const database = client.db("holster_key_data");
+    const collection = database.collection("holster_key_data_table");
+    const findExisting = await collection.findOne({"data": {set: holsterJson}});
+    res.setHeader('Content-Type', 'application/json');
+    if(findExisting === null) {
+        const keyForHolster : string = CreateKeyForHolster();
+        try 
+        {
+            await collection.insertOne({ key: keyForHolster, data: holsterJson});
+        }
+        catch (e) 
+        {
+            console.error(e);
+        }
+        finally 
+        {
+            res.json({ keyUsed: keyForHolster});
+        }
+    }
+    else {
+        res.json({ keyUsed: findExisting.key});
+    }
 });
 
 /*--------------------------------------------*/
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
