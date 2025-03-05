@@ -192,8 +192,9 @@ export const LostFindsHolsterInformation = () => {
     function HandleCreateLinkForHolster() {
 
         const lostActionSet = ProcessHolsterToLostActionSet(lostFindsHolster);
+        const { ["id"]: idOfSet, ...lostActionSetNoId } = lostActionSet;
         console.log(lostActionSet);
-        axios.post(`/api/findholster`, { set: lostActionSet}).then((response) => {
+        axios.post(`/api/findholster`, { set: lostActionSetNoId, idOfSet: idOfSet}).then((response) => {
             console.log(response.data.toString()); 
         });
         console.log("-----------------------------------------------")

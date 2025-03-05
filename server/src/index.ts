@@ -91,7 +91,8 @@ function CreateKeyForHolster() : string {
 }
 
 app.post('/api/findholster', async (req, res) => {
-    const holsterJson = req.body;
+    const holsterJson = req.body.set;
+    const idHolsterJson = req.body.idOfSet;
     const database = client.db("holster_key_data");
     const collection = database.collection("holster_key_data_table");
     const findExisting = await collection.findOne({"data": {set: holsterJson}});
@@ -100,7 +101,7 @@ app.post('/api/findholster', async (req, res) => {
         const keyForHolster : string = CreateKeyForHolster();
         try 
         {
-            await collection.insertOne({ key: keyForHolster, data: holsterJson});
+            await collection.insertOne({ key: keyForHolster, data: holsterJson, idOfSet: idHolsterJson});
         }
         catch (e) 
         {
@@ -108,11 +109,11 @@ app.post('/api/findholster', async (req, res) => {
         }
         finally 
         {
-            res.json({ keyUsed: keyForHolster});
+            res.send({ keyUsed: keyForHolster});
         }
     }
     else {
-        res.json({ keyUsed: findExisting.key});
+        res.send({ keyUsed: findExisting.key});
     }
 });
 
