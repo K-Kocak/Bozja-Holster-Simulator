@@ -64,15 +64,20 @@ function CreateKeyForHolster() : string {
     return keyString;
 }
 
+// Adds a saved holster to the database
 app.post('/api/findholster', async (req, res) => {
     const holsterJson = req.body.set;
     const idHolsterJson = req.body.idOfSet;
     const database = client.db("holster_key_data");
     const collection = database.collection("holster_key_data_table");
-    const findExisting = await collection.findOne({"data": {holsterJson}});
+    const findExisting = await collection.findOne({"data": holsterJson});
     res.setHeader('Content-Type', 'application/json');
-    if(findExisting?._id == null) {
-        const keyForHolster : string = CreateKeyForHolster();
+    
+    if(findExisting == null) {
+        let keyForHolster : string = CreateKeyForHolster();
+        while(await collection.findOne({"key": keyForHolster}) != null) {
+            keyForHolster = CreateKeyForHolster();
+        }
         try 
         {
             await collection.insertOne({ key: keyForHolster, data: holsterJson, idOfSet: idHolsterJson});
@@ -90,6 +95,19 @@ app.post('/api/findholster', async (req, res) => {
         res.send({ keyUsed: findExisting.key});
     }
 });
+
+app.get('/api/getholster/:keyOfHolster', async (req, res) => {
+    const keyOfHolster = req.params.keyOfHolster;
+    const collection = client.db("holster_key_data").collection("holster_key_data_table");
+    const findExisting = await collection.findOne({"key": keyOfHolster});
+    res.setHeader('Content-Type', 'application/json');
+    if(findExisting == null) {
+        res.json({ message: "Nothing Found"});
+    }
+    else {
+        res.json({ message: "Holster Found", findExisting})
+    }
+})
 
 /*--------------------------------------------*/
 

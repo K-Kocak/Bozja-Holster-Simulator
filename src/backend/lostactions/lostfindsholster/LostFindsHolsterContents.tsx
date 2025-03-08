@@ -195,7 +195,7 @@ export const LostFindsHolsterInformation = () => {
         const { ["id"]: idOfSet, ...lostActionSetNoId } = lostActionSet;
         console.log(lostActionSet);
         axios.post(`/api/findholster`, { set: lostActionSetNoId, idOfSet: idOfSet}).then((response) => {
-            console.log(response.data.toString()); 
+            console.log(response.data); 
         });
         console.log("-----------------------------------------------")
         const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
