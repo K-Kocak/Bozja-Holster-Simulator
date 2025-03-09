@@ -31,21 +31,6 @@ function BozjaHolsterSimulator() {
         axios.get("/api/46362352532").then((response) => {
             console.log(response.data); 
         });*/
-        /*
-        const testConnection = fetch("http://localhost:5000/api", {
-                method: 'GET',
-                headers: 
-                {
-                    'Content-Type': 'application/json'
-                }
-            })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response;
-        })
-        */
     }, []);
     /*
     TEST CODE FOR IMPLEMENTING LINKS FOR SAVED SETS

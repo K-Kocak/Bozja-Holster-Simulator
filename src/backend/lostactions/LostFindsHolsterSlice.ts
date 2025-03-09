@@ -9,6 +9,8 @@ import IHolsterTimeline from '@backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import { ILostActionSet } from '../interfaces/ILostActionSet';
 
+import axios from 'axios';
+
 /**
  * Looks at the site of the link on load and checks if a holster needs to be built, and if it does, builds it and returns it as the initial state
  * @returns a holster for the initial state
@@ -17,6 +19,10 @@ function CreateInitialStateOfHolster() : LostFindsHolster {
     const currentLinkOfSite = window.location.pathname;
     const removeSimPart = currentLinkOfSite.replace("/sim/", "");
     if(removeSimPart.length > 0 && removeSimPart != '/') {
+        const holsterToGet = axios.get(`/api/getholster/${removeSimPart}`)
+        .then((response) => { 
+            return response.data
+        });
         const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
         console.log(holsterToRetrieve);
         const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
