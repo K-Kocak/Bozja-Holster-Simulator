@@ -15,36 +15,65 @@ import axios from 'axios';
  * Looks at the site of the link on load and checks if a holster needs to be built, and if it does, builds it and returns it as the initial state
  * @returns a holster for the initial state
  */
-function CreateInitialStateOfHolster() : LostFindsHolster {
+async function CreateInitialStateOfHolster() : Promise<LostFindsHolster> {
     const currentLinkOfSite = window.location.pathname;
     const removeSimPart = currentLinkOfSite.replace("/sim/", "");
+    console.log(removeSimPart);
     if(removeSimPart.length > 0 && removeSimPart != '/') {
-        const holsterToGet = axios.get(`/api/getholster/${removeSimPart}`)
-        .then((response) => { 
-            return response.data
-        });
-        const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
-        console.log(holsterToRetrieve);
-        const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
-        console.log(convertHolster);
-        return convertHolster;
-    }
-    const holsterToReturn : LostFindsHolster = {
-        Holster: [],
-        CurrentWeight: 0,
-        SelectedWeight: 0,
-        SelectedRole: "Tank",
-        PrepopHolster: {
-            LostActionLeft: -1,
-            LostActionRight: -1,
-            EssenceInUse: -1
-        },
-        HolsterTimeline: {
-            Encounters: []
-        }
-    }
-    return holsterToReturn 
+        const response = await axios.get(`/api/getholster/${removeSimPart}`)
     
+        if(response.data.message == "Holster Found") {
+            //const parsedData = JSON.parse(response.data);
+            //console.log(parsedData);
+            const lostActionSet : ILostActionSet = {...response.data.findExisting.data, id: response.data.findExisting.idOfSet };
+            console.log(lostActionSet);
+            const convertedSet : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(lostActionSet);
+            console.log(convertedSet);
+            return convertedSet;
+        }
+        else {
+            console.log("BEYOND API CALL");
+            const holsterToReturn : LostFindsHolster = {
+                Holster: [],
+                CurrentWeight: 0,
+                SelectedWeight: 0,
+                SelectedRole: "Tank",
+                PrepopHolster: {
+                    LostActionLeft: -1,
+                    LostActionRight: -1,
+                    EssenceInUse: -1
+                },
+                HolsterTimeline: {
+                    Encounters: []
+                }
+            }
+            return holsterToReturn;
+        }
+        
+        //const holsterToRetrieve : ILostActionSet = DecodeLinkToHolster(removeSimPart);
+        //console.log(holsterToRetrieve);
+        //const convertHolster : LostFindsHolster = ConvertLostActionSetToLostFindsHolster(holsterToRetrieve);
+        //console.log(convertHolster);
+        //return convertHolster;
+    }
+    else {
+        console.log("BEYOND API CALL");
+        const holsterToReturn : LostFindsHolster = {
+            Holster: [],
+            CurrentWeight: 0,
+            SelectedWeight: 0,
+            SelectedRole: "Tank",
+            PrepopHolster: {
+                LostActionLeft: -1,
+                LostActionRight: -1,
+                EssenceInUse: -1
+            },
+            HolsterTimeline: {
+                Encounters: []
+            }
+        }
+        return holsterToReturn;
+    }
 }
 
 /**
@@ -70,8 +99,9 @@ export function ConvertLostActionSetToLostFindsHolster(lostActionSet : ILostActi
     }
 }
 
-const retrieveInitialStateOfHolster = CreateInitialStateOfHolster();
+const retrieveInitialStateOfHolster = await CreateInitialStateOfHolster();
 const initialState: LostFindsHolster = retrieveInitialStateOfHolster;
+console.log(initialState);
 
 /**
  * Decodes a string with atob creating a json, then json.parses it to return a lost action set
