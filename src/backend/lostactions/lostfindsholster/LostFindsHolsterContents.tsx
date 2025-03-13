@@ -190,18 +190,12 @@ export const LostFindsHolsterInformation = () => {
      * Creates a link for the holster that is currently set out
      */
     function HandleCreateLinkForHolster() {
-
         const lostActionSet = ProcessHolsterToLostActionSet(lostFindsHolster);
         const { ["id"]: idOfSet, ...lostActionSetNoId } = lostActionSet;
         console.log(lostActionSet);
         axios.post(`/api/findholster`, { set: lostActionSetNoId, idOfSet: idOfSet}).then((response) => {
-            console.log(response.data); 
             SetWebsiteLinkToHolsterAndCopyToClipBoard(response.data.keyUsed);
         });
-        console.log("-----------------------------------------------")
-        //const encodedLinkForHolsterState : string = EncodeHolsterAsALink(lostFindsHolster);
-        //console.log(encodedLinkForHolsterState);
-        //SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedLinkForHolsterState);
 
         const savedSetNotificationBox = document.getElementById("LostFindsHolsterSetSavedNotificationBox") as HTMLElement;
         savedSetNotificationBox.childNodes[0].textContent = "Link created and copied to clipboard!";

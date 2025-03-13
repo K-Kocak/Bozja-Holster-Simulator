@@ -108,9 +108,9 @@ console.log(initialState);
  * @param linkToDecode 
  * @returns 
  */
-function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
-    return JSON.parse(window.atob(linkToDecode));
-}
+// function DecodeLinkToHolster(linkToDecode : string) : ILostActionSet {
+//     return JSON.parse(window.atob(linkToDecode));
+// }
 
 /**
  * Default prepop state

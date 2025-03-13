@@ -8,7 +8,7 @@ import { addSelectedSavedSet, newSelectedSavedSets } from '@backend/lostactions/
 import { ILostActionSet } from '@backend/interfaces/ILostActionSet';
 import IActionHolster from '@backend/interfaces/IActionHolster';
 
-import { EncodeLostActionSetAsALink, SetWebsiteLinkToHolsterAndCopyToClipBoard } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
+import { SetWebsiteLinkToHolsterAndCopyToClipBoard } from '@backend/lostactions/lostfindsholster/LostFindsHolsterContents'
 import { IUserSlottedActions } from '@app/backend/interfaces/IHolsterTimeline';
 import LostActionsAsObjectArray from '@backend/lostactions/actiondata/ActionDataToObjectArray';
 import LostActions from '@backend/lostactions/actiondata/ActionData';
@@ -20,6 +20,8 @@ import CopyToClipboardIcon from '@ui/pictures/CopyToClipBoardIcon.png';
 
 import '@css/ui/components/SavedHolsters/SavedHolstersSetGen.scss';
 import { GetRoleImageForCurrentRole } from '../helperfunctions/HelperFunctions';
+
+import axios from 'axios';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
@@ -207,8 +209,11 @@ function CreateSavedSet(savedSet : ILostActionSet, dispatch: any, allSavedSets :
      * while setting website link to the encoded link
      */
     function HandleCreateLinkForSavedSet() {
-        const encodedSavedSet : string = EncodeLostActionSetAsALink(savedSet);
-        SetWebsiteLinkToHolsterAndCopyToClipBoard(encodedSavedSet);
+        const { ["id"]: idOfSet, ...lostActionSetNoId } = savedSet;
+        lostActionSetNoId.nameOfSet = lostActionSetNoId.roleTypeOfSet + "";
+        axios.post(`/api/findholster`, { set: lostActionSetNoId, idOfSet: idOfSet}).then((response) => {
+            SetWebsiteLinkToHolsterAndCopyToClipBoard(response.data.keyUsed);
+        });
 
         const savedSetNotificationBox = document.getElementById("SavedHolstersNotificationBox") as HTMLElement; 
         savedSetNotificationBox.childNodes[0].textContent = "Set Link Copied to Clipboard!";
