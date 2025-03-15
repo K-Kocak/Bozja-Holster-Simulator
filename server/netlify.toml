@@ -3,8 +3,3 @@
   node_bundler = "esbuild"
 [[plugins]]
 package = "@netlify/plugin-functions-install-core"
-[[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
-  to = "/.netlify/functions/api/:splat"

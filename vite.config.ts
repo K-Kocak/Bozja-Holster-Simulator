@@ -15,9 +15,4 @@ export default defineConfig({
       'top-level-await': true,
     }
   },
-  build: {
-    rollupOptions: {
-      external: ['serverless-http', 'cors'],
-    }
-  }
 })
