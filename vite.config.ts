@@ -10,4 +10,9 @@ export default defineConfig({
       '/api': 'http://localhost:5000', // Assuming your Express server runs on port 5000
     },
   },
+  esbuild: {
+    supported: {
+      'top-level-await': true,
+    }
+  }
 })
