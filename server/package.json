@@ -13,8 +13,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@netlify/functions": "^3.0.1",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
