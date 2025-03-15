@@ -27,12 +27,11 @@ const PORT = process.env.PORT || 5000;
 const router = Router();
 app.use(cors());
 app.use(express.json());
-app.use("/api", router);
 
 
 /*----------------API ROUTES-----------------*/
 
-app.get('/api', (req, res) => {
+router.get('/api', (req, res) => {
     res.send({ message: 'Hello from Express!' });
 });
 
@@ -70,7 +69,7 @@ function CreateKeyForHolster() : string {
 }
 
 // Adds a saved holster to the database
-app.post('/api/findholster', async (req, res) => {
+router.post('/api/findholster', async (req, res) => {
     const holsterJson = req.body.set;
     const idHolsterJson = req.body.idOfSet;
     const database = client.db("holster_key_data");
@@ -115,6 +114,9 @@ app.get('/api/getholster/:keyOfHolster', async (req, res) => {
 })
 
 /*--------------------------------------------*/
+
+app.use("/api/", router);
+
 
 export const handler = serverless(app);
 
