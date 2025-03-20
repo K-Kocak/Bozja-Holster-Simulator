@@ -104,12 +104,13 @@ app.get('/api/getholster/:keyOfHolster', async (req, res) => {
     const keyOfHolster = req.params.keyOfHolster;
     const collection = client.db("holster_key_data").collection("holster_key_data_table");
     const findExisting = await collection.findOne({"key": keyOfHolster});
-    res.setHeader('Content-Type', 'application/json');
+    //res.setHeader('Content-Type', 'application/json');
+    res.set('content-type', 'application/json')
     if(findExisting == null) {
-        res.json({ message: "Nothing Found"});
+        res.send({ message: "Nothing Found"});
     }
     else {
-        res.json({ message: "Holster Found", findExisting})
+        res.send({ message: "Holster Found", findExisting})
     }
 })
 
