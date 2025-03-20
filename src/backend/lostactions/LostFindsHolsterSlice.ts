@@ -20,7 +20,8 @@ async function CreateInitialStateOfHolster() : Promise<LostFindsHolster> {
     const removeSimPart = currentLinkOfSite.replace("/sim/", "");
     console.log(removeSimPart);
     if(removeSimPart.length > 0 && removeSimPart != '/') {
-        const response = await axios.get(`/api/getholster/${removeSimPart}`)
+        const test = "Xo1fMltVxF"
+        const response = await axios.get(`/api/getholster/${test}`)
     
         if(response.data.message == "Holster Found") {
             //const parsedData = JSON.parse(response.data);

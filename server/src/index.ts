@@ -24,14 +24,14 @@ const client = new MongoClient(uri, {
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const router = Router();
+const router = express.Router();
 app.use(cors());
 app.use(express.json());
 
 
 /*----------------API ROUTES-----------------*/
 
-router.get('/api', (req, res) => {
+app.get('/api', (req, res) => {
     res.send({ message: 'Hello from Express!' });
 });
 
@@ -69,7 +69,7 @@ function CreateKeyForHolster() : string {
 }
 
 // Adds a saved holster to the database
-router.post('/api/findholster', async (req, res) => {
+app.post('/api/findholster', async (req, res) => {
     const holsterJson = req.body.set;
     const idHolsterJson = req.body.idOfSet;
     const database = client.db("holster_key_data");
