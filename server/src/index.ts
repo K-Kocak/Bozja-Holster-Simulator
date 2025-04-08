@@ -31,6 +31,7 @@ app.use(express.json());
 
 /*----------------API ROUTES-----------------*/
 
+// default test route
 app.get('/api', (req, res) => {
     res.send({ message: 'Hello from Express!' });
 });
@@ -100,7 +101,10 @@ app.post('/api/findholster', async (req, res) => {
     }
 });
 
+
+// Finds existing holster in database on site load
 app.get('/api/getholster/:keyOfHolster', async (req, res) => {
+    console.log("Received request for holster key");
     const keyOfHolster = req.params.keyOfHolster;
     const collection = client.db("holster_key_data").collection("holster_key_data_table");
     const findExisting = await collection.findOne({"key": keyOfHolster});
